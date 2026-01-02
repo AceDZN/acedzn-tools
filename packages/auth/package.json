@@ -1,0 +1,31 @@
+{
+    "name": "@repo/auth",
+    "version": "0.0.0",
+    "private": true,
+    "exports": {
+        ".": "./src/index.ts",
+        "./sign-in": "./src/sign-in.tsx",
+        "./sign-up": "./src/sign-up.tsx",
+        "./profile-menu": "./src/profile-menu.tsx"
+    },
+    "types": "./src/index.ts",
+    "scripts": {
+        "lint": "eslint .",
+        "check-types": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@clerk/nextjs": "^6.0.0"
+    },
+    "peerDependencies": {
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
+        "next": "^16.0.0"
+    },
+    "devDependencies": {
+        "@repo/eslint-config": "workspace:*",
+        "@repo/typescript-config": "workspace:*",
+        "@types/react": "^19.0.8",
+        "@types/react-dom": "^19.0.3",
+        "typescript": "5.9.2"
+    }
+}
