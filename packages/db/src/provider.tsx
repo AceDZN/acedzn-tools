@@ -8,13 +8,18 @@ import { ClerkProvider, useAuth } from "@clerk/nextjs";
 const convex = new ConvexReactClient(process.env.NEXT_PUBLIC_CONVEX_URL as string);
 
 export function SharedAuthProvider({ children }: { children: ReactNode }) {
+    const isProduction = process.env.NODE_ENV === "production";
     const domain = process.env.NEXT_PUBLIC_CLERK_COOKIE_DOMAIN ||
-        (process.env.NODE_ENV === "production" ? "acedzn.dev" : undefined);
+        (isProduction ? "acedzn.dev" : undefined);
+
+    // Use satellite mode in production to ensure cookies are shared across all subdomains
+    const isSatellite = isProduction;
 
     // Debugging auth configuration
     if (typeof window !== "undefined") {
         console.log("SharedAuthProvider Config:", {
             domain,
+            isSatellite,
             envVar: process.env.NEXT_PUBLIC_CLERK_COOKIE_DOMAIN,
             nodeEnv: process.env.NODE_ENV,
             host: window.location.hostname
@@ -22,8 +27,13 @@ export function SharedAuthProvider({ children }: { children: ReactNode }) {
     }
 
     return (
-        // @ts-expect-error - domain prop triggers satellite mode types, but we just want cookie domain scope
-        <ClerkProvider domain={domain} isSatellite={false}>
+        // @ts-expect-error - isSatellite and domain trigger strict type requirements for router functions
+        <ClerkProvider
+            domain={domain}
+            isSatellite={isSatellite}
+            // Pointing to the main sign-in page on the web app
+            signInUrl={isProduction ? "https://accounts.acedzn.dev/sign-in" : "/sign-in"}
+        >
             <ConvexProviderWithClerk client={convex} useAuth={useAuth}>
                 {children}
             </ConvexProviderWithClerk>
