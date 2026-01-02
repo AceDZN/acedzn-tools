@@ -8,9 +8,20 @@ import { ClerkProvider, useAuth } from "@clerk/nextjs";
 const convex = new ConvexReactClient(process.env.NEXT_PUBLIC_CONVEX_URL as string);
 
 export function SharedAuthProvider({ children }: { children: ReactNode }) {
+    const domain = process.env.NODE_ENV === "production" ? "acedzn.dev" : undefined;
+
+    // Debugging auth configuration
+    if (typeof window !== "undefined") {
+        console.log("SharedAuthProvider Config:", {
+            domain,
+            nodeEnv: process.env.NODE_ENV,
+            host: window.location.hostname
+        });
+    }
+
     return (
         // @ts-expect-error - domain prop triggers satellite mode types, but we just want cookie domain scope
-        <ClerkProvider domain={process.env.NODE_ENV === "production" ? "acedzn.dev" : undefined}>
+        <ClerkProvider domain={domain} isSatellite={false}>
             <ConvexProviderWithClerk client={convex} useAuth={useAuth}>
                 {children}
             </ConvexProviderWithClerk>
