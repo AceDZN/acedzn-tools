@@ -9,7 +9,8 @@ const convex = new ConvexReactClient(process.env.NEXT_PUBLIC_CONVEX_URL as strin
 
 export function SharedAuthProvider({ children }: { children: ReactNode }) {
     return (
-        <ClerkProvider>
+        // @ts-expect-error - domain prop triggers satellite mode types, but we just want cookie domain scope
+        <ClerkProvider domain={process.env.NODE_ENV === "production" ? "acedzn.dev" : undefined}>
             <ConvexProviderWithClerk client={convex} useAuth={useAuth}>
                 {children}
             </ConvexProviderWithClerk>
