@@ -8,12 +8,14 @@ import { ClerkProvider, useAuth } from "@clerk/nextjs";
 const convex = new ConvexReactClient(process.env.NEXT_PUBLIC_CONVEX_URL as string);
 
 export function SharedAuthProvider({ children }: { children: ReactNode }) {
-    const domain = process.env.NODE_ENV === "production" ? "acedzn.dev" : undefined;
+    const domain = process.env.NEXT_PUBLIC_CLERK_COOKIE_DOMAIN ||
+        (process.env.NODE_ENV === "production" ? "acedzn.dev" : undefined);
 
     // Debugging auth configuration
     if (typeof window !== "undefined") {
         console.log("SharedAuthProvider Config:", {
             domain,
+            envVar: process.env.NEXT_PUBLIC_CLERK_COOKIE_DOMAIN,
             nodeEnv: process.env.NODE_ENV,
             host: window.location.hostname
         });
