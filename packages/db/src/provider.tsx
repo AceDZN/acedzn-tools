@@ -31,8 +31,6 @@ export function SharedAuthProvider({ children }: { children: ReactNode }) {
         <ClerkProvider
             domain={domain}
             isSatellite={isSatellite}
-            // Pointing to the main sign-in page on the web app
-            signInUrl={isProduction ? "https://accounts.acedzn.dev/sign-in" : "/sign-in"}
         >
             <ConvexProviderWithClerk client={convex} useAuth={useAuth}>
                 {children}
