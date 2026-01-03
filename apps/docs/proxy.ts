@@ -10,9 +10,11 @@ const defaultLocale = 'en';
 const COOKIE_NAME = 'NEXT_LOCALE';
 
 // Create a matcher for public routes including the localized ones
+// Create a matcher for public routes including the localized ones
 const isPublicRoute = createRouteMatcher([
-    "/:locale/sign-in(.*)",
-    "/:locale/sign-up(.*)",
+    "/:locale",
+    "/",
+    "/:locale/(.*)",
     "/api/(.*)"
 ]);
 

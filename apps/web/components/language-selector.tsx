@@ -11,7 +11,9 @@ export function LanguageSelector({ currentLang }: { currentLang: string }) {
 
     const switchLanguage = useCallback((newLang: string) => {
         // Set cookie for 1 year
-        document.cookie = `${COOKIE_NAME}=${newLang}; path=/; max-age=31536000; SameSite=Lax`;
+        // Set cookie for 1 year, shared across subdomains
+        const domain = window.location.hostname.includes('acedzn.dev') ? '.acedzn.dev' : window.location.hostname;
+        document.cookie = `${COOKIE_NAME}=${newLang}; path=/; max-age=31536000; SameSite=Lax; domain=${domain}`;
 
         // Redirect to new locale
         const segments = pathname.split('/');
@@ -29,8 +31,8 @@ export function LanguageSelector({ currentLang }: { currentLang: string }) {
             <button
                 onClick={() => switchLanguage('en')}
                 className={`px-3 py-1 rounded text-sm font-medium transition-colors ${currentLang === 'en'
-                        ? 'bg-white text-gray-900 shadow-sm'
-                        : 'text-gray-500 hover:text-gray-900'
+                    ? 'bg-white text-gray-900 shadow-sm'
+                    : 'text-gray-500 hover:text-gray-900'
                     }`}
             >
                 English
@@ -38,8 +40,8 @@ export function LanguageSelector({ currentLang }: { currentLang: string }) {
             <button
                 onClick={() => switchLanguage('he')}
                 className={`px-3 py-1 rounded text-sm font-medium transition-colors ${currentLang === 'he'
-                        ? 'bg-white text-gray-900 shadow-sm'
-                        : 'text-gray-500 hover:text-gray-900'
+                    ? 'bg-white text-gray-900 shadow-sm'
+                    : 'text-gray-500 hover:text-gray-900'
                     }`}
             >
                 עברית
