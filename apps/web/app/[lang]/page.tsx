@@ -11,7 +11,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
 
   // Helper to safely access dictionary
   const t = createTranslator(dict);
-
+  console.log('T', t('home.title'))
   return (
     <div className="bg-white">
       {/* Hero Section */}

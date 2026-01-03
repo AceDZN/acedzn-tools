@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { APP_URL } from "../lib/constants";
+import { APP_URL, DICTATION_URL } from "../lib/constants";
 import { ProfileMenu } from "@repo/auth/profile-menu";
 import { NotificationCenter } from "./notification-center";
 
@@ -15,6 +15,9 @@ export function Header() {
                         <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                             <Link href={APP_URL} className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                                 Web App
+                            </Link>
+                            <Link href={DICTATION_URL} className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                                Dictation
                             </Link>
                             <Link href="https://github.com/acedzn/acedzn-tools" target="_blank" className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                                 GitHub
