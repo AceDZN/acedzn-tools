@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useCallback } from "react";
 import { useRouter } from "next/navigation";
-import { useMutation, useAction } from "convex/react";
+import { useMutation, useAction, useQuery } from "convex/react";
 import { api } from "@repo/db";
 import { Input } from "@repo/ui/components/ui/input";
 import { Label } from "@repo/ui/components/ui/label";
@@ -33,14 +33,17 @@ interface FormData {
     isPublic: boolean;
 }
 
-export function DictationForm() {
+export function DictationForm({ dictationId }: { dictationId?: string }) {
     const router = useRouter();
-    const createDictation = useAction(api.dictation.createDictation);
-    // Wait, dictation.ts exported 'createDictation' as action, which calls mutation.
-    // 'generateDictation' is action.
-
-    // Actually, calling action from client is fine.
     const createAction = useAction(api.dictation.createDictation);
+    const updateMutation = useMutation(api.dictation.updateDictation);
+
+    // Fetch existing dictation if in edit mode
+    // We cast string to Id<"dictation_games"> assuming valid ID passed
+    const existingDictation = useQuery(api.dictation.getDictation,
+        dictationId ? { dictationId: dictationId as any } : "skip" // "skip" if no ID
+    );
+
     const dict = useDictionary();
     const t = (dict as any)?.Dictation?.form;
 
@@ -58,6 +61,30 @@ export function DictationForm() {
         },
         isPublic: true,
     });
+
+    const [isInitialized, setIsInitialized] = useState(false);
+
+    // Populate form when data loads
+    useMemo(() => {
+        if (existingDictation && !isInitialized) {
+            setFormData({
+                id: existingDictation._id,
+                title: existingDictation.title,
+                description: existingDictation.description,
+                sourceLanguage: existingDictation.sourceLanguage,
+                targetLanguage: existingDictation.targetLanguage,
+                wordPairs: existingDictation.wordPairs.map(wp => ({
+                    ...wp,
+                    firstSentence: wp.firstSentence || '',
+                    secondSentence: wp.secondSentence || '',
+                    sentence: wp.sentence || '',
+                })),
+                quizParameters: existingDictation.quizParameters,
+                isPublic: existingDictation.isPublic,
+            });
+            setIsInitialized(true);
+        }
+    }, [existingDictation, isInitialized]);
 
     const [error, setError] = useState<string>();
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -106,17 +133,41 @@ export function DictationForm() {
         setError(undefined);
 
         try {
-            await createAction({
-                ...formData,
-                description: formData.description || undefined,
-            });
-            router.push('/dashboard'); // or profile
+            if (dictationId) {
+                // Update
+                await updateMutation({
+                    id: dictationId as any,
+                    title: formData.title,
+                    description: formData.description,
+                    sourceLanguage: formData.sourceLanguage,
+                    targetLanguage: formData.targetLanguage,
+                    wordPairs: formData.wordPairs,
+                    quizParameters: formData.quizParameters,
+                    isPublic: formData.isPublic,
+                    // Explicitly NOT passing 'id' or other potentially stray fields
+                });
+                router.push('/dashboard'); // Go back to dashboard/profile
+            } else {
+                // Create
+                await createAction({
+                    title: formData.title,
+                    description: formData.description || undefined,
+                    sourceLanguage: formData.sourceLanguage,
+                    targetLanguage: formData.targetLanguage,
+                    wordPairs: formData.wordPairs,
+                    quizParameters: formData.quizParameters,
+                    isPublic: formData.isPublic,
+                });
+                router.push('/dashboard');
+            }
         } catch (err) {
-            setError(err instanceof Error ? err.message : "Failed to create dictation");
+            setError(err instanceof Error ? err.message : "Failed to save dictation");
         } finally {
             setIsSubmitting(false);
         }
     };
+
+
 
     const handleFileUploadStart = () => {
         setIsProcessingFile(true);
@@ -164,6 +215,10 @@ export function DictationForm() {
     }, []);
 
     const isLoadingState = isSubmitting || isGenerating || isProcessingFile;
+
+    if (dictationId && existingDictation === undefined) {
+        return <div className="flex justify-center p-8"><Spinner size="lg" /></div>;
+    }
 
     return (
         <form onSubmit={handleSubmit} className="space-y-8 bg-white shadow-md rounded-lg p-6">
@@ -279,7 +334,7 @@ export function DictationForm() {
                     disabled={isLoadingState}
                     className="bg-indigo-600 text-white"
                 >
-                    {isSubmitting ? <Spinner size="sm" /> : (t?.createDictation || "Create Dictation")}
+                    {isSubmitting ? <Spinner size="sm" /> : (dictationId ? (t?.saveChanges || "Save Changes") : (t?.createDictation || "Create Dictation"))}
                 </Button>
             </div>
 

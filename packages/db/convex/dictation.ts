@@ -170,14 +170,16 @@ export const updateDictation = mutation({
             throw new Error("Unauthorized");
         }
 
-        const wordPairsWithAudio = args.wordPairs.map(pair => ({
+        const { id, ...fieldsToUpdate } = args;
+
+        const wordPairsWithAudio = fieldsToUpdate.wordPairs.map(pair => ({
             ...pair,
             firstAudioUrl: "", // TODO: Maintain existing or regenerate
             secondAudioUrl: "",
         }));
 
-        await ctx.db.patch(args.id, {
-            ...args,
+        await ctx.db.patch(id, {
+            ...fieldsToUpdate,
             wordPairs: wordPairsWithAudio,
             updatedAt: Date.now(),
         });

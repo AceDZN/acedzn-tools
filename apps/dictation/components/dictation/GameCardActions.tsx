@@ -129,7 +129,7 @@ export function GameCardActions({ id, userId, title, description }: GameCardActi
                                 <span>{t('share')}</span>
                             </DropdownMenuItem>
                             <DropdownMenuItem
-                                onClick={() => router.push(`/create?edit=${id}`)}
+                                onClick={() => router.push(`/edit/${id}`)}
                                 className="hover:bg-indigo-50 flex items-center gap-2"
                             >
                                 <PencilIcon className="h-4 w-4 text-indigo-500" />
