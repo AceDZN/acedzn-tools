@@ -5,6 +5,7 @@ import "./globals.css";
 
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
+import { UserSync } from "../components/user-sync";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,6 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} flex flex-col min-h-screen`}>
         <SharedAuthProvider>
+          <UserSync />
           <Header />
           <main className="flex-grow">
             {children}

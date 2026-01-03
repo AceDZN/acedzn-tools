@@ -7,7 +7,9 @@ export default defineSchema({
     users: defineTable({
         clerkId: v.string(),
         email: v.string(),
-        name: v.optional(v.string())
+        name: v.optional(v.string()),
+        description: v.optional(v.string()),
+        imageId: v.optional(v.string()),
     }).index("by_clerkId", ["clerkId"]),
     dictation_games: defineTable({
         userId: v.string(), // Clerk ID
