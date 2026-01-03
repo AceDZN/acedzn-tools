@@ -10,7 +10,7 @@ export function Header() {
                 <div className="flex justify-between h-16 items-center">
                     <div className="flex">
                         <Link href="/" className="flex-shrink-0 flex items-center font-bold text-xl text-gray-900">
-                            AceDZN Docs
+                            AceDZN Dictation
                         </Link>
                         <div className="hidden sm:ms-6 sm:flex sm:space-x-8">
                             <Link href={MAIN_APP_URL} className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
