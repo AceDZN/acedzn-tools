@@ -1,8 +1,6 @@
 import { clerkMiddleware } from "@clerk/nextjs/server";
 
-export const proxy = clerkMiddleware({
-    domain: process.env.CLERK_COOKIE_DOMAIN || (process.env.NODE_ENV === "production" ? "acedzn.dev" : undefined),
-});
+export const proxy = clerkMiddleware();
 
 export const config = {
     matcher: [
