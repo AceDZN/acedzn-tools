@@ -59,9 +59,9 @@ export function QuizGameView({
 
     // Randomize word pairs on initial load if shuffleWords is true
     const randomizedWordPairs = useMemo(() => {
-        return shuffleWords
+        return (shuffleWords
             ? [...game.wordPairs].sort(() => Math.random() - 0.5)
-            : [...game.wordPairs];
+            : [...game.wordPairs]) as WordPair[];
     }, [game.wordPairs, shuffleWords]);
 
     const [gameState, setGameState] = useState<GameState>({
@@ -120,7 +120,7 @@ export function QuizGameView({
     );
 
     const getCurrentWord = useCallback(
-        (): WordPair => randomizedWordPairs[gameState.currentWordIndex],
+        (): WordPair => randomizedWordPairs[gameState.currentWordIndex] as WordPair,
         [randomizedWordPairs, gameState.currentWordIndex],
     );
     const currentWord = useMemo(() => getCurrentWord(), [getCurrentWord]);
@@ -224,7 +224,7 @@ export function QuizGameView({
     const playSecondAudio = useCallback(() => speakCurrentWord(), [speakCurrentWord]);
 
     const handleOptionSelect = useCallback((optionIndex: number) => {
-        const isCorrect = quizOptions[optionIndex].isCorrect;
+        const isCorrect = quizOptions?.[optionIndex] ? quizOptions[optionIndex].isCorrect : false;
 
         setGameState(prev => ({
             ...prev,
