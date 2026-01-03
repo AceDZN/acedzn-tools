@@ -1,0 +1,19 @@
+{
+    "home": {
+        "title": "תיעוד",
+        "subtitle": "כל מה שצריך לדעת",
+        "installation": {
+            "title": "התקנה",
+            "description": "כדי להתקין את הכלים, ניתן להשתמש במנהל החבילות המועדף עליך.",
+            "command": "npm install @repo/ui"
+        },
+        "usage": {
+            "title": "שימוש",
+            "description": "ייבא את הרכיבים הדרושים לך לפרויקט שלך.",
+            "code": "import { Button } from \"@repo/ui/button\";"
+        }
+    },
+    "nav": {
+        "signin": "כניסה"
+    }
+}

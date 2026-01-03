@@ -12,11 +12,14 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.0.0",
+    "@formatjs/intl-localematcher": "^0.7.4",
     "@repo/analytics": "workspace:*",
     "@repo/auth": "workspace:*",
     "@repo/db": "workspace:*",
+    "@repo/i18n": "workspace:^",
     "@repo/ui": "workspace:*",
     "convex": "^1.17.0",
+    "negotiator": "^1.0.0",
     "next": "16.1.1",
     "react": "^19.2.3",
     "react-dom": "^19.2.3"
@@ -24,6 +27,8 @@
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@types/accept-language-parser": "^1.5.8",
+    "@types/negotiator": "^0.6.4",
     "@types/node": "^22.15.3",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",

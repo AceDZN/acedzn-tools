@@ -1,0 +1,19 @@
+{
+    "home": {
+        "title": "Documentation",
+        "subtitle": "Everything you need to know",
+        "installation": {
+            "title": "Installation",
+            "description": "To install the tools, you can use your preferred package manager.",
+            "command": "npm install @repo/ui"
+        },
+        "usage": {
+            "title": "Usage",
+            "description": "Import the components you need into your project.",
+            "code": "import { Button } from \"@repo/ui/button\";"
+        }
+    },
+    "nav": {
+        "signin": "Sign In"
+    }
+}

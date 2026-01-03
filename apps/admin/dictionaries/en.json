@@ -1,0 +1,19 @@
+{
+    "home": {
+        "title": "Admin Dashboard",
+        "subtitle": "Management System",
+        "stats": "Statistics",
+        "users": "Users",
+        "settings": "Settings",
+        "recent_activity": "Recent Activity",
+        "activity_placeholder": "Activity feed placeholder..."
+    },
+    "nav": {
+        "title": "Admin",
+        "dashboard": "Dashboard",
+        "overview": "Overview",
+        "notifications": "Notifications",
+        "users": "Users",
+        "settings": "Settings"
+    }
+}

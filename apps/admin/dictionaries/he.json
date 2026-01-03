@@ -1,0 +1,19 @@
+{
+    "home": {
+        "title": "לוח בקרה",
+        "subtitle": "מערכת ניהול",
+        "stats": "סטטיסטיקה",
+        "users": "משתמשים",
+        "settings": "הגדרות",
+        "recent_activity": "פעילות אחרונה",
+        "activity_placeholder": "אין פעילות להצגה כרגע..."
+    },
+    "nav": {
+        "title": "מנהל",
+        "dashboard": "לוח בקרה",
+        "overview": "סקירה כללית",
+        "notifications": "התראות",
+        "users": "משתמשים",
+        "settings": "הגדרות"
+    }
+}
