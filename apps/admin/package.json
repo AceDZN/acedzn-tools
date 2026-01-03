@@ -12,15 +12,15 @@
     },
     "dependencies": {
         "@clerk/nextjs": "^6.0.0",
+        "@repo/analytics": "workspace:*",
         "@repo/auth": "workspace:*",
         "@repo/db": "workspace:*",
         "@repo/ui": "workspace:*",
-        "@repo/analytics": "workspace:*",
         "convex": "^1.17.0",
         "lucide-react": "^0.562.0",
-        "next": "16.1.0",
-        "react": "^19.2.0",
-        "react-dom": "^19.2.0"
+        "next": "16.1.1",
+        "react": "^19.2.3",
+        "react-dom": "^19.2.3"
     },
     "devDependencies": {
         "@repo/eslint-config": "workspace:*",
