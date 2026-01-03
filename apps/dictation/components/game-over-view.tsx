@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useDictionary } from "./dictionary-provider";
 import { useMutation } from "convex/react";
 import { api } from "@repo/db";
-import { Id } from "@repo/db/convex/_generated/dataModel";
+import { Id } from "@repo/db";
 
 interface GameOverViewProps {
     gameId: string;

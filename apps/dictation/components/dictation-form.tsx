@@ -36,7 +36,7 @@ interface FormData {
 export function DictationForm({ dictationId }: { dictationId?: string }) {
     const router = useRouter();
     const createAction = useAction(api.dictation.createDictation);
-    const updateMutation = useMutation(api.dictation.updateDictation);
+    const updateAction = useAction(api.dictation.updateDictation);
 
     // Fetch existing dictation if in edit mode
     // We cast string to Id<"dictation_games"> assuming valid ID passed
@@ -135,7 +135,7 @@ export function DictationForm({ dictationId }: { dictationId?: string }) {
         try {
             if (dictationId) {
                 // Update
-                await updateMutation({
+                await updateAction({
                     id: dictationId as any,
                     title: formData.title,
                     description: formData.description,
@@ -144,7 +144,6 @@ export function DictationForm({ dictationId }: { dictationId?: string }) {
                     wordPairs: formData.wordPairs,
                     quizParameters: formData.quizParameters,
                     isPublic: formData.isPublic,
-                    // Explicitly NOT passing 'id' or other potentially stray fields
                 });
                 router.push('/dashboard'); // Go back to dashboard/profile
             } else {

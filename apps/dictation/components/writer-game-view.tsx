@@ -137,7 +137,7 @@ export function WriterGameView({
         return `${minutes.toString().padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`;
     }, []);
 
-    const getCurrentWord = useCallback((): WordPair => randomizedWordPairs[gameState.currentWordIndex], [randomizedWordPairs, gameState.currentWordIndex]);
+    const getCurrentWord = useCallback((): WordPair => randomizedWordPairs[gameState.currentWordIndex] as WordPair, [randomizedWordPairs, gameState.currentWordIndex]);
     const sourceLanguageTag = useMemo(() => getLanguageBCP47Tag(game.sourceLanguage), [game.sourceLanguage]);
     const targetLanguageTag = useMemo(() => getLanguageBCP47Tag(game.targetLanguage), [game.targetLanguage]);
     const currentWord = useMemo(() => getCurrentWord(), [getCurrentWord]);

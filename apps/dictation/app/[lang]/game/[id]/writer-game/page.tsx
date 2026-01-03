@@ -5,7 +5,7 @@ import { api } from "@repo/db";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { WriterGameView } from "../../../../../components/writer-game-view";
 import { Spinner } from "@repo/ui/components/ui/spinner";
-import { Id } from "@repo/db/convex/_generated/dataModel";
+import { Id } from "@repo/db";
 import { getDirectedGame, LanguageDirection } from "../../../../../lib/language-direction";
 import { useMemo, useState } from "react";
 import { Button } from "@repo/ui/components/ui/button";

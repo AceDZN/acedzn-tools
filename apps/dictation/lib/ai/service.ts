@@ -51,7 +51,7 @@ export async function generateContent(args: {
             model: "gpt-4o-mini",
             response_format: { type: "json_object" },
         });
-        resultText = completion.choices[0].message.content || "[]";
+        resultText = completion?.choices?.[0]?.message?.content || "[]";
     }
 
     // Clean up markdown code blocks if present

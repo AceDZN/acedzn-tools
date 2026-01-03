@@ -2,7 +2,7 @@
 
 import { useQuery, useMutation } from "convex/react";
 import { api } from "@repo/db";
-import { NotificationBell } from "@repo/ui/components/notification-bell";
+import { NotificationBell } from "@repo/ui/components/ui/notification-bell";
 
 export function NotificationCenter() {
     const notifications = useQuery(api.notifications.list, { targetApp: "web" }) || [];

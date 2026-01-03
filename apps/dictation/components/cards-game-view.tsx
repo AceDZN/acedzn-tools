@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { DictationGame } from '../lib/types'
+import { DictationGame, WordPair } from '../lib/types'
 import { getFirstSentence, getSecondSentence } from '../lib/language-direction'
 import { Button } from '@repo/ui/components/ui/button'
 import { EyeIcon, EyeSlashIcon, ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline'
@@ -79,7 +79,7 @@ export function CardsGameView({
         return () => window.removeEventListener('keydown', handleKeyDown)
     }, [handleFlip, handleNext, handlePrev])
 
-    const currentPair = deck[currentIndex]
+    const currentPair = deck[currentIndex] as WordPair
 
     const sourceLanguageTag = useMemo(
         () => getLanguageBCP47Tag(game.sourceLanguage),

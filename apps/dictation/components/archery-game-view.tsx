@@ -162,7 +162,7 @@ export function ArcheryGameView({
     const [targets, setTargets] = useState<Target[]>([]);
 
     const getCurrentWord = useCallback((): WordPair => {
-        return randomizedWordPairs[gameState.currentWordIndex] || randomizedWordPairs[0];
+        return (randomizedWordPairs[gameState.currentWordIndex] || randomizedWordPairs[0]) as WordPair;
     }, [randomizedWordPairs, gameState.currentWordIndex]);
     const currentWord = useMemo(() => getCurrentWord(), [getCurrentWord]);
     const sourceLanguageTag = useMemo(

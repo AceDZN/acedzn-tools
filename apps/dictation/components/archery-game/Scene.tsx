@@ -165,8 +165,8 @@ export const ArcheryScene = ({
         let clientY = 0;
         if ("touches" in ev) {
             if (ev.touches.length > 0) {
-                clientX = ev.touches[0].clientX;
-                clientY = ev.touches[0].clientY;
+                clientX = ev.touches[0]!.clientX;
+                clientY = ev.touches[0]!.clientY;
             } else {
                 return;
             }
@@ -188,8 +188,8 @@ export const ArcheryScene = ({
         let clientY = 0;
         if ("touches" in ev) {
             if (ev.touches.length > 0) {
-                clientX = ev.touches[0].clientX;
-                clientY = ev.touches[0].clientY;
+                clientX = ev.touches[0]!.clientX;
+                clientY = ev.touches[0]!.clientY;
             } else {
                 return;
             }

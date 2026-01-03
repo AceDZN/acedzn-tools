@@ -58,7 +58,7 @@ export const Forest = () => {
             const y = variant === 3 ? 9.5 : 13;
             // Random scale for variety
             const treeScale = treeParams.map((param) => param * 4);
-            const scale = treeScale[0] + Math.random() * treeScale[1];
+            const scale = treeScale[0]! + Math.random() * treeScale[1]!;
             const rotation = Math.random() * 2 * Math.PI;
 
             treePositions.push({ id: treePositions.length, x, y: y /*+ Math.random() * 2*/, z, variant, scale, rotation });

@@ -17,7 +17,7 @@ interface ProfileViewProps {
 export function ProfileView({ lang }: ProfileViewProps) {
     const { user, isLoaded: isUserLoaded } = useUser();
     const games = useQuery(api.dictation.myDictations);
-    const t = useDictionary();
+    const t = useDictionary() as any;
 
     if (!isUserLoaded || games === undefined) {
         return (
