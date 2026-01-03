@@ -51,6 +51,11 @@ export const getFirstSentence = (pair: WordPair): string => {
     return pair.firstSentence ?? ''
 }
 
+
 export const getSecondSentence = (pair: WordPair): string => {
     return pair.secondSentence ?? pair.sentence ?? ''
+}
+
+export const getLangDir = (lang: string): 'rtl' | 'ltr' => {
+    return lang === 'he' ? 'rtl' : 'ltr'
 }

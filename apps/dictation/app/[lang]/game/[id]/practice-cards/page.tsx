@@ -3,12 +3,13 @@
 import { useQuery } from "convex/react";
 import { api } from "@repo/db";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
-import { CardsGameView } from "../../../../components/cards-game-view";
 import { Spinner } from "@repo/ui/components/ui/spinner";
-import { Id } from "@repo/db/convex/_generated/dataModel";
-import { getDirectedGame, LanguageDirection } from "../../../../lib/language-direction";
+import { Id } from "@repo/db";
+
 import { useMemo, useState } from "react";
 import { Button } from "@repo/ui/components/ui/button";
+import { CardsGameView } from "../../../../../components/cards-game-view";
+import { getDirectedGame, LanguageDirection } from "../../../../../lib/language-direction";
 
 export default function PracticeCardsPage() {
     const params = useParams();

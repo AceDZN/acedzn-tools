@@ -11,6 +11,7 @@ import { Switch } from "@repo/ui/components/ui/switch";
 import { Spinner } from "@repo/ui/components/ui/spinner";
 import { ArrowsRightLeftIcon } from "@heroicons/react/24/outline";
 
+import { useDictionary } from "./dictionary-provider";
 import { LanguageSelector } from "./language-selector";
 import { WordPairList } from "./word-pair-list";
 import { AdvancedQuizOptions } from "./advanced-quiz-options";
@@ -34,13 +35,14 @@ interface FormData {
 
 export function DictationForm() {
     const router = useRouter();
-    const createDictation = useAction(api.db.dictation.createDictation); // This is actually an action mock in db/convex/dictation.ts which calls mutation
+    const createDictation = useAction(api.dictation.createDictation);
     // Wait, dictation.ts exported 'createDictation' as action, which calls mutation.
     // 'generateDictation' is action.
 
     // Actually, calling action from client is fine.
     const createAction = useAction(api.dictation.createDictation);
-    const generateAction = useAction(api.dictation.generateDictation);
+    const dict = useDictionary();
+    const t = (dict as any)?.Dictation?.form;
 
     const [formData, setFormData] = useState<FormData>({
         title: '',
@@ -66,17 +68,30 @@ export function DictationForm() {
         setIsGenerating(true);
         setError(undefined);
         try {
-            const result = await generateAction({
-                topic: formData.title || "General",
-                sourceLanguage: formData.sourceLanguage,
-                targetLanguage: formData.targetLanguage,
-                model: "gpt-4o-mini", // user can select if we add UI, default for now
-                amount: 5
+            const response = await fetch('/api/dictation/generate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    topic: formData.title || "General",
+                    sourceLanguage: formData.sourceLanguage,
+                    targetLanguage: formData.targetLanguage,
+                    model: "gpt-4o-mini",
+                    amount: 5
+                })
             });
-            // result is array of objects
+
+            if (!response.ok) {
+                const text = await response.text().catch(() => "Unknown error");
+                throw new Error(text || "Failed to generate content");
+            }
+
+            const result = await response.json();
+
             setFormData(prev => ({
                 ...prev,
-                wordPairs: result as WordPair[] // Assuming safe cast
+                title: result.title || prev.title,
+                description: result.description || prev.description,
+                wordPairs: (result.wordPairs || []) as WordPair[]
             }));
         } catch (err) {
             setError(err instanceof Error ? err.message : "Failed to generate content");
@@ -108,9 +123,11 @@ export function DictationForm() {
         setError(undefined);
     };
 
-    const handleFileUploadComplete = (data: { wordPairs: WordPair[] }) => {
+    const handleFileUploadComplete = (data: { title?: string, description?: string, wordPairs: WordPair[] }) => {
         setFormData(prev => ({
             ...prev,
+            title: data.title || prev.title,
+            description: data.description || prev.description,
             wordPairs: data.wordPairs
         }));
         setIsProcessingFile(false);
@@ -158,25 +175,25 @@ export function DictationForm() {
 
             {/* Basic Info */}
             <div className="space-y-4">
-                <h2 className="text-xl font-semibold text-indigo-600">Basic Info</h2>
+                <h2 className="text-xl font-semibold text-indigo-600">{t?.basicInfo || "Basic Info"}</h2>
                 <div className="space-y-2">
-                    <Label htmlFor="title">Title</Label>
+                    <Label htmlFor="title">{t?.title || "Title"}</Label>
                     <Input
                         id="title"
                         value={formData.title}
                         onChange={e => setFormData({ ...formData, title: e.target.value })}
-                        placeholder="My Dictation"
+                        placeholder={t?.titlePlaceholder || "My Dictation"}
                         required
                         disabled={isLoadingState}
                     />
                 </div>
                 <div className="space-y-2">
-                    <Label htmlFor="description">Description</Label>
+                    <Label htmlFor="description">{t?.description || "Description"}</Label>
                     <Input
                         id="description"
                         value={formData.description || ''}
                         onChange={e => setFormData({ ...formData, description: e.target.value })}
-                        placeholder="Optional description"
+                        placeholder={t?.descriptionPlaceholder || "Optional description"}
                         disabled={isLoadingState}
                     />
                 </div>
@@ -187,13 +204,13 @@ export function DictationForm() {
                         onCheckedChange={checked => setFormData({ ...formData, isPublic: checked })}
                         disabled={isLoadingState}
                     />
-                    <Label htmlFor="public">Public</Label>
+                    <Label htmlFor="public">{t?.public || "Public"}</Label>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <LanguageSelector
                         id="source-language"
-                        label="Source Language"
+                        label={t?.sourceLanguage || "Source Language"}
                         value={formData.sourceLanguage}
                         onChange={value => setFormData({ ...formData, sourceLanguage: value })}
                         excludeLanguage={formData.targetLanguage}
@@ -207,13 +224,14 @@ export function DictationForm() {
                             onClick={handleLanguageSwap}
                             disabled={isLoadingState}
                             className="mb-[2px]"
+                            title={t?.swapLanguages || "Swap languages"}
                         >
                             <ArrowsRightLeftIcon className="h-4 w-4" />
                         </Button>
                     </div>
                     <LanguageSelector
                         id="target-language"
-                        label="Target Language"
+                        label={t?.targetLanguage || "Target Language"}
                         value={formData.targetLanguage}
                         onChange={value => setFormData({ ...formData, targetLanguage: value })}
                         excludeLanguage={formData.sourceLanguage}
@@ -224,7 +242,7 @@ export function DictationForm() {
 
             {/* Word Pairs */}
             <div className="space-y-4">
-                <h2 className="text-xl font-semibold text-indigo-600">Word Pairs</h2>
+                <h2 className="text-xl font-semibold text-indigo-600">{t?.wordPairs || "Word Pairs"}</h2>
                 <WordPairList
                     wordPairs={formData.wordPairs}
                     onChange={wordPairs => setFormData({ ...formData, wordPairs })}
@@ -239,7 +257,7 @@ export function DictationForm() {
 
             {/* Advanced Quiz Options */}
             <div className="space-y-4">
-                <h2 className="text-xl font-semibold text-indigo-600">Options</h2>
+                <h2 className="text-xl font-semibold text-indigo-600">{t?.advancedOptions || "Options"}</h2>
                 <AdvancedQuizOptions
                     value={formData.quizParameters}
                     onChange={quizParameters => setFormData({ ...formData, quizParameters })}
@@ -252,16 +270,16 @@ export function DictationForm() {
                     type="button"
                     variant="outline"
                     onClick={handleGenerateContent}
-                    disabled={isLoadingState || !formData.title}
+                    disabled={isLoadingState}
                 >
-                    {isGenerating ? <Spinner size="sm" /> : "Populate with AI"}
+                    {isGenerating ? <Spinner size="sm" /> : (t?.populateData || "Populate with AI")}
                 </Button>
                 <Button
                     type="submit"
                     disabled={isLoadingState}
                     className="bg-indigo-600 text-white"
                 >
-                    {isSubmitting ? <Spinner size="sm" /> : "Create Dictation"}
+                    {isSubmitting ? <Spinner size="sm" /> : (t?.createDictation || "Create Dictation")}
                 </Button>
             </div>
 

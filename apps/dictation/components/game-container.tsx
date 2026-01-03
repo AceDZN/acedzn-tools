@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter, useParams } from 'next/navigation'
 import { DictationGame } from '../lib/types'
 import { Button } from '@repo/ui/components/ui/button'
 import { WordPairDisplay } from './word-pair-display'
@@ -15,6 +15,9 @@ interface GameContainerProps {
 
 export function GameContainer({ game }: GameContainerProps) {
     const router = useRouter()
+    const params = useParams()
+    const lang = params.lang as string
+
     const [hideExampleSentences, setHideExampleSentences] = useState(true)
     const [shuffleWords, setShuffleWords] = useState(true)
     const [languageDirection, setLanguageDirection] = useState<LanguageDirection>('forward')
@@ -23,13 +26,13 @@ export function GameContainer({ game }: GameContainerProps) {
         () => getDirectedGame(game, languageDirection),
         [game, languageDirection]
     )
-
     const buildGameUrl = (variant: 'writer-game' | 'quiz-game' | 'archery-game' | 'practice-cards') => {
         const directionParam = `direction=${languageDirection}`
         const hideParam = `hideExamples=${hideExampleSentences.toString()}`
         const shuffleParam = `shuffle=${shuffleWords.toString()}`
-        return `/game/${game._id}/${variant}?${directionParam}&${hideParam}&${shuffleParam}`
+        return `/${lang}/game/${game._id}/${variant}?${directionParam}&${hideParam}&${shuffleParam}`
     }
+
 
     const handleWriterGameStart = () => {
         router.push(buildGameUrl('writer-game'))

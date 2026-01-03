@@ -9,6 +9,8 @@ import {
 } from "@repo/ui/components/ui/select";
 import { Label } from "@repo/ui/components/ui/label";
 
+import { useDictionary } from "./dictionary-provider";
+
 const LANGUAGES = [
     'English',
     'Hebrew',
@@ -43,7 +45,7 @@ export function LanguageSelector({
     error,
     disabled = false
 }: LanguageSelectorProps) {
-
+    const dict = useDictionary();
     return (
         <div className="space-y-2">
             <Label htmlFor={id}>{label}</Label>
@@ -58,7 +60,7 @@ export function LanguageSelector({
                 <SelectContent>
                     {LANGUAGES.filter(lang => lang !== excludeLanguage).map((language) => (
                         <SelectItem key={language} value={language}>
-                            {language}
+                            {(dict as any)?.Language?.languages?.[language] || language}
                         </SelectItem>
                     ))}
                 </SelectContent>

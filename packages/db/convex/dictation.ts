@@ -1,7 +1,5 @@
 import { mutation, action, query } from "./_generated/server";
 import { v } from "convex/values";
-import OpenAI from "openai";
-import { GoogleGenerativeAI } from "@google/generative-ai";
 
 
 // Define the arguments for creating a dictation
@@ -188,142 +186,18 @@ export const updateDictation = mutation({
     },
 });
 
-export const generateDictation = action({
-    args: {
-        topic: v.string(),
-        sourceLanguage: v.string(),
-        targetLanguage: v.string(),
-        model: v.string(), // "gpt-4o-mini" or "gemini-2.5-flash-lite" (or similar)
-        amount: v.optional(v.number()),
-    },
+
+
+export const incrementPlayCount = mutation({
+    args: { dictationId: v.id("dictation_games") },
     handler: async (ctx, args) => {
-        const identity = await ctx.auth.getUserIdentity();
-        if (!identity) {
-            throw new Error("Unauthorized");
+        const game = await ctx.db.get(args.dictationId);
+        if (!game) {
+            throw new Error("Game not found");
         }
 
-        const count = args.amount || 5;
-        const prompt = `Generate ${count} word pairs and sentences for a dictation game.
-        Topic: "${args.topic}"
-        Source Language: ${args.sourceLanguage} (term 1)
-        Target Language: ${args.targetLanguage} (term 2)
-        
-        Return ONLY a JSON array with this structure:
-        [
-            {
-                "first": "word in source language",
-                "second": "word in target (translated)",
-                "firstSentence": "sentence using first word",
-                "secondSentence": "sentence using second word",
-                "sentence": "context sentence (usually in target language)"
-            }
-        ]
-        `;
-
-        let resultText = "";
-
-        if (args.model.toLowerCase().includes("gemini")) {
-            const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY || "");
-            const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" }); // Fallback to 1.5-flash if 2.5-lite not avail, or use args.model if user keys map to it
-            // Note: User asked for "Gemini-2.5-flash-lite". If that model string is valid for the API, use it.
-            // As of now, standard is "gemini-1.5-flash". I'll try to use the arg but typically valid models are specific.
-            // I'll assume "gemini-1.5-flash" for reliability unless I can confirm 2.5 exists.
-
-            const result = await model.generateContent(prompt);
-            resultText = result.response.text();
-        } else {
-            const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-            const completion = await openai.chat.completions.create({
-                messages: [{ role: "user", content: prompt }],
-                model: "gpt-4o-mini",
-                response_format: { type: "json_object" },
-            });
-            resultText = completion.choices[0].message.content || "[]";
-        }
-
-        // Clean up markdown code blocks if present
-        resultText = resultText.replace(/```json/g, "").replace(/```/g, "").trim();
-
-
-
-        try {
-            // For OpenAI json_object mode, it might return { "data": [...] } or just the array if prompted? 
-            // Usually returns object. But let's try to parse.
-            const parsed = JSON.parse(resultText);
-            // Handle if it's wrapped in a key
-            if (!Array.isArray(parsed) && parsed.pairs) return parsed.pairs;
-            if (!Array.isArray(parsed) && parsed.data) return parsed.data;
-            if (Array.isArray(parsed)) return parsed;
-            return [];
-        } catch (e) {
-            console.error("Failed to parse AI response", resultText);
-            throw new Error("Failed to generate dictation content");
-        }
+        await ctx.db.patch(args.dictationId, {
+            playCount: (game.playCount || 0) + 1,
+        });
     },
 });
-
-export const extractFromText = action({
-    args: {
-        text: v.string(),
-        sourceLanguage: v.string(),
-        targetLanguage: v.string(),
-        model: v.optional(v.string()),
-    },
-    handler: async (ctx, args) => {
-        const identity = await ctx.auth.getUserIdentity();
-        if (!identity) {
-            throw new Error("Unauthorized");
-        }
-
-        const prompt = `Extract word pairs from the following text.
-        Source Language: ${args.sourceLanguage} (term 1)
-        Target Language: ${args.targetLanguage} (term 2)
-        
-        Return ONLY a JSON array with this structure:
-        [
-            {
-                "first": "word in source language",
-                "second": "word in target (translated)",
-                "firstSentence": "sentence using first word",
-                "secondSentence": "sentence using second word",
-                "sentence": "context sentence in target language"
-            }
-        ]
-
-        Text:
-        "${args.text}"
-        `;
-
-        let resultText = "";
-        const modelName = args.model || "gpt-4o-mini";
-
-        if (modelName.toLowerCase().includes("gemini")) {
-            const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY || "");
-            const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-            const result = await model.generateContent(prompt);
-            resultText = result.response.text();
-        } else {
-            const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-            const completion = await openai.chat.completions.create({
-                messages: [{ role: "user", content: prompt }],
-                model: "gpt-4o-mini",
-                response_format: { type: "json_object" },
-            });
-            resultText = completion.choices[0].message.content || "[]";
-        }
-
-        resultText = resultText.replace(/```json/g, "").replace(/```/g, "").trim();
-
-        try {
-            const parsed = JSON.parse(resultText);
-            if (!Array.isArray(parsed) && parsed.pairs) return parsed.pairs;
-            if (!Array.isArray(parsed) && parsed.word_pairs) return parsed.word_pairs;
-            if (Array.isArray(parsed)) return parsed;
-            return [];
-        } catch (e) {
-            console.error("Failed to parse AI response", resultText);
-            throw new Error("Failed to extract content");
-        }
-    },
-});
-

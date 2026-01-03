@@ -38,7 +38,7 @@ export const proxy = clerkMiddleware(async (auth, req) => {
         (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
     );
 
-    if (pathnameHasLocale) {
+    if (pathnameHasLocale || pathname.startsWith('/api')) {
         // If it has a locale, proceed with Clerk protection if needed
         if (!isPublicRoute(req)) {
             await auth.protect();

@@ -1,18 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { useAction } from "convex/react";
-import { api } from "@repo/db";
 import { Button } from "@repo/ui/components/ui/button";
 import { Label } from "@repo/ui/components/ui/label";
 import { Textarea } from "@repo/ui/components/ui/textarea";
 import { Spinner } from "@repo/ui/components/ui/spinner";
 import { DocumentTextIcon, SparklesIcon } from "@heroicons/react/24/outline";
+import { useDictionary } from "./dictionary-provider";
 import { WordPair } from "../lib/types";
 
 interface TextPromptInputProps {
     onStart: () => void;
-    onComplete: (data: { wordPairs: WordPair[] }) => void;
+    onComplete: (data: { title?: string, description?: string, wordPairs: WordPair[] }) => void;
     onError: (error: string) => void;
     disabled?: boolean;
     sourceLanguage: string;
@@ -27,13 +26,15 @@ export function TextPromptInput({
     sourceLanguage,
     targetLanguage,
 }: TextPromptInputProps) {
+    const dict = useDictionary();
+    const t = (dict as any)?.Dictation?.form;
+
     const [text, setText] = useState("");
     const [isExtracting, setIsExtracting] = useState(false);
-    const extractFromText = useAction(api.dictation.extractFromText);
 
     const handleExtract = async () => {
         if (!text.trim()) {
-            onError("Please enter some text");
+            onError(t?.textPromptEmpty || "Please enter some text");
             return;
         }
 
@@ -41,15 +42,30 @@ export function TextPromptInput({
         onStart();
 
         try {
-            const result = await extractFromText({
-                text: text.trim(),
-                sourceLanguage,
-                targetLanguage,
+            const response = await fetch('/api/dictation/extract', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    text: text.trim(),
+                    sourceLanguage,
+                    targetLanguage,
+                })
             });
+
+            if (!response.ok) {
+                const errorText = await response.text().catch(() => "Unknown error");
+                throw new Error(errorText || "Failed to extract content");
+            }
+
+            const result = await response.json();
 
             // The action returns array of objects with first, second, etc.
             // We need to map it to WordPair if needed, but it should match.
-            onComplete({ wordPairs: result as WordPair[] });
+            onComplete({
+                title: result.title,
+                description: result.description,
+                wordPairs: result.wordPairs as WordPair[]
+            });
             setText("");
         } catch (err) {
             onError(err instanceof Error ? err.message : "Failed to extract word pairs");
@@ -65,24 +81,24 @@ export function TextPromptInput({
             <div className="flex items-center gap-2">
                 <DocumentTextIcon className="h-5 w-5 text-indigo-600" />
                 <Label htmlFor="text-prompt" className="text-sm font-medium">
-                    Extract from Text
+                    {t?.textPromptLabel || "Extract from Text"}
                 </Label>
             </div>
             <p className="text-xs text-gray-500">
-                Paste a text to automatically extract word pairs and sentences using AI.
+                {t?.textPromptDescription || "Paste a text to automatically extract word pairs and sentences using AI."}
             </p>
             <Textarea
                 id="text-prompt"
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                placeholder="Enter text here..."
+                placeholder={t?.textPromptPlaceholder || "Enter text here..."}
                 disabled={isDisabled}
                 className="min-h-[120px] resize-y"
                 maxLength={10000}
             />
             <div className="flex items-center justify-between">
                 <span className="text-xs text-gray-400">
-                    {text.length.toLocaleString()} / 10,000 characters
+                    {text.length.toLocaleString()} / 10,000 {t?.characters || "characters"}
                 </span>
                 <Button
                     type="button"
@@ -95,12 +111,12 @@ export function TextPromptInput({
                     {isExtracting ? (
                         <>
                             <Spinner size="sm" />
-                            <span>Extracting...</span>
+                            <span>{t?.extracting || "Extracting..."}</span>
                         </>
                     ) : (
                         <>
                             <SparklesIcon className="h-4 w-4" />
-                            <span>Extract Word Pairs</span>
+                            <span>{t?.extractWordPairs || "Extract Word Pairs"}</span>
                         </>
                     )}
                 </Button>

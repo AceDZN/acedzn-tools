@@ -3,9 +3,9 @@
 import { useQuery } from "convex/react";
 import { api } from "@repo/db";
 import { useParams } from "next/navigation";
-import { GameContainer } from "../../../components/game-container";
 import { Spinner } from "@repo/ui/components/ui/spinner";
-import { Id } from "@repo/db/convex/_generated/dataModel";
+import { Id } from "@repo/db";
+import { GameContainer } from "../../../../components/game-container";
 
 export default function GamePage() {
     const params = useParams();
