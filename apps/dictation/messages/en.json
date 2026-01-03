@@ -1,0 +1,33 @@
+{
+    "home": {
+        "title": "Master Your Languages",
+        "subtitle": "Create, practice, and master dictations with AI powers.",
+        "cta": {
+            "start": "Start Creating",
+            "docs": "Learn more"
+        }
+    },
+    "features": {
+        "header": "Features",
+        "title": "Everything you need to master languages",
+        "subtitle": "Our platform provides all the tools you need to create and practice dictations.",
+        "items": {
+            "push": {
+                "name": "AI Generation",
+                "description": "Generate dictations instantly with advanced AI models."
+            },
+            "ssl": {
+                "name": "Secure",
+                "description": "Your data is safe with us."
+            },
+            "queues": {
+                "name": "Progress Tracking",
+                "description": "Track your progress and improve over time."
+            },
+            "security": {
+                "name": "Community",
+                "description": "Share your dictations with the world."
+            }
+        }
+    }
+}
