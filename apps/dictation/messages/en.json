@@ -1,0 +1,265 @@
+{
+    "HomePage": {
+        "title": "Dictation activities built for real classrooms",
+        "description": "Plan focused dictation games, switch between practice modes, and give every learner clear pronunciation directly in the browser.",
+        "createGame": "Create a dictation",
+        "learnMore": "See how it works",
+        "heroCard1": "Writer Mode",
+        "heroCard2": "Quiz Mode",
+        "heroCard3": "Cards Mode",
+        "heroCard4": "Archery Mode",
+        "hero": {
+            "card1": "Writer Mode",
+            "card2": "Quiz Mode",
+            "card3": "Cards Mode",
+            "card4": "Archery Mode"
+        },
+        "newVersionAvailable": "New Version Available"
+    },
+    "CreatePage": {
+        "title": "Create New Dictation"
+    },
+    "Features": {
+        "sectionTitle": "Built for dictation",
+        "sectionSubtitle": "Everything you need to run focused practice",
+        "sectionDescription": "Dictation Masters keeps the spotlight on bilingual word lists, pronunciation, and engaging game loops—no vaporware dashboards.",
+        "dictationBuilder": {
+            "title": "Flexible dictation builder",
+            "description": "Mix any source and target language, add instructions, and attach example sentences for every pair."
+        },
+        "practiceModes": {
+            "title": "Multiple practice modes",
+            "description": "Let learners switch between Writer, Quiz, Cards, and Archery games using the same word set."
+        },
+        "instantAudio": {
+            "title": "Instant pronunciation",
+            "description": "Built-in text-to-speech plays every prompt so students hear the dictation exactly as intended."
+        },
+        "languageControls": {
+            "title": "Language direction controls",
+            "description": "Flip practice direction, shuffle word order, and decide when example sentences appear."
+        },
+        "sharing": {
+            "title": "Shareable game links",
+            "description": "Publish your dictations to the public gallery or keep private drafts for class use."
+        },
+        "fastImport": {
+            "title": "Fast content import",
+            "description": "Upload CSV or TSV files or use AI-assisted generation to create word lists in seconds."
+        }
+    },
+    "HowItWorks": {
+        "sectionTitle": "Dictation-first workflow",
+        "sectionSubtitle": "From idea to playable activity in minutes",
+        "sectionDescription": "Everything happens in the browser: build your list, tune the gameplay, and invite learners with a single link.",
+        "imagePlaceholder": "Preview coming soon",
+        "step1": {
+            "title": "Plan your dictation set",
+            "description": "Choose source and target languages, define instructions, and add word pairs manually or via upload."
+        },
+        "step2": {
+            "title": "Tune the gameplay",
+            "description": "Pick default modes, hearts, timers, and example sentence settings so the activity matches your classroom flow."
+        },
+        "step3": {
+            "title": "Share and start practicing",
+            "description": "Launch Writer, Quiz, Cards, or Archery mode immediately and share the link with learners or colleagues."
+        }
+    },
+    "LatestGames": {
+        "title": "Latest Dictation Games",
+        "description": "Check out the most recent public dictation games created by our community."
+    },
+    "Profile": {
+        "title": "Profile",
+        "editProfile": "Edit Profile",
+        "createGame": "Create New Game",
+        "publishedGames": "Published Games",
+        "draftGames": "Draft Games",
+        "noPublishedGames": "You haven't published any games yet.",
+        "noDraftGames": "You don't have any drafts.",
+        "editTitle": "Edit Profile",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "profileImage": "Profile Image",
+        "change": "Change",
+        "saveChanges": "Save Changes",
+        "saving": "Saving...",
+        "updateSuccess": "Profile updated successfully!",
+        "updateError": "Failed to update profile",
+        "imageSizeError": "Image size should be less than 5MB",
+        "recommendedImageSize": "Recommended image size: 320x320px",
+        "personalInfo": "Personal Information",
+        "email": "Email",
+        "gamesCreated": "Games Created"
+    },
+    "Language": {
+        "language": "Language",
+        "select": "Select Language",
+        "en": "English",
+        "he": "Hebrew",
+        "languages": {
+            "English": "English",
+            "Hebrew": "Hebrew",
+            "Spanish": "Spanish",
+            "French": "French",
+            "German": "German",
+            "Italian": "Italian",
+            "Portuguese": "Portuguese",
+            "Russian": "Russian",
+            "Chinese": "Chinese",
+            "Japanese": "Japanese",
+            "Korean": "Korean",
+            "Arabic": "Arabic"
+        }
+    },
+    "Header": {
+        "signIn": "Sign in",
+        "signOut": "Sign out",
+        "profile": "Profile",
+        "appName": "Dictation Masters",
+        "logoLabel": "Dictation Masters Logo"
+    },
+    "Dictation": {
+        "create": {
+            "title": "Create New Dictation",
+            "description": "Create a new dictation game by filling out the form below."
+        },
+        "edit": {
+            "title": "Edit Dictation",
+            "description": "Edit your dictation game"
+        },
+        "form": {
+            "basicInfo": "Basic Information",
+            "title": "Title",
+            "titlePlaceholder": "Enter game title",
+            "description": "Description",
+            "descriptionPlaceholder": "Enter game description",
+            "public": "Public",
+            "sourceLanguage": "Source Language",
+            "targetLanguage": "Target Language",
+            "swapLanguages": "Swap languages",
+            "wordPairs": "Word Pairs",
+            "uploadWordPairs": "Upload Word Pairs",
+            "addWordPair": "Add Word Pair",
+            "sourceWord": "{language} word",
+            "targetWord": "{language} word",
+            "exampleSentence": "Example sentence (optional)",
+            "sourceSentence": "{language} example sentence (optional)",
+            "targetSentence": "{language} example sentence (optional)",
+            "advancedOptions": "Advanced Options",
+            "advancedMode": "Advanced Mode",
+            "quizMode": "Quiz Mode",
+            "globalTimeLimit": "Global Time Limit (minutes)",
+            "activityTimeLimit": "Activity Time Limit (seconds)",
+            "livesLimit": "Lives Limit",
+            "cancel": "Cancel",
+            "deleteDraft": "Delete Draft",
+            "deleting": "Deleting...",
+            "saveChanges": "Save Changes",
+            "saving": "Saving...",
+            "populateData": "Populate Data",
+            "generating": "Generating...",
+            "saveAsDraft": "Save as Draft",
+            "createDictation": "Create Dictation",
+            "creating": "Creating...",
+            "processingFile": "Processing File...",
+            "textPromptLabel": "Extract from Text",
+            "textPromptDescription": "Paste a word list, story, or any text to automatically extract word pairs. The AI will identify key vocabulary and generate translations.",
+            "textPromptPlaceholder": "Paste your text here... e.g., a list of words, a short story, vocabulary from a lesson, or any text you want to learn from.",
+            "textPromptEmpty": "Please enter some text to extract word pairs from",
+            "extractWordPairs": "Extract Words",
+            "extracting": "Extracting...",
+            "characters": "characters",
+            "orDivider": "or"
+        },
+        "game": {
+            "startGame": "Start Game",
+            "startWriterGame": "Writing Mode",
+            "startQuizGame": "Quiz Mode",
+            "startArcheryGame": "Archery Mode",
+            "startCardsGame": "Cards Mode",
+            "writerGameDescription": "Type the translations for each word",
+            "quizGameDescription": "Choose the correct translation from options",
+            "archeryGameDescription": "Shoot the correct word",
+            "cardsGameDescription": "Flip vocabulary cards to reveal translations",
+            "translate": "Translate",
+            "gameOver": "Game Over!",
+            "playAgain": "Play Again",
+            "exit": "Exit",
+            "timeLeft": "Time Left",
+            "progress": "Progress",
+            "hearts": "Hearts",
+            "words": "words",
+            "created": "Created",
+            "showExamples": "Show example sentences",
+            "hideExamples": "Hide example sentences",
+            "enableShuffle": "Enable word shuffling",
+            "disableShuffle": "Disable word shuffling",
+            "back": "Back",
+            "playAudio": "Play Audio",
+            "retryAudio": "Retry Audio",
+            "loading": "Loading...",
+            "instructions": "Instructions",
+            "clickDragInstructions": "Click and drag the word to the correct position",
+            "languageDirectionLabel": "Choose practice direction",
+            "cardsProgress": "Card {current} of {total}",
+            "cardsInstructions": "Tap the card to flip between source and translation",
+            "cardsNoSentence": "",
+            "cardsTapToReveal": "Tap or press space to reveal the translation",
+            "cardsTapToHide": "Tap or press space to hide the translation",
+            "cardsPrevious": "Previous",
+            "cardsNext": "Next",
+            "cardsFinish": "Finish",
+            "cardsKeyboardHint": "Tip: use ← → arrows and spacebar to control the cards",
+            "cardsRestart": "Restart deck",
+            "cardsCompleteTitle": "All cards reviewed!",
+            "cardsCompleteSubtitle": "Great job! Start another round or exit to choose a new mode.",
+            "cardsEmptyTitle": "No cards available",
+            "cardsEmptySubtitle": "Add word pairs to this dictation to practice with cards."
+        },
+        "card": {
+            "edit": "Edit",
+            "delete": "Delete",
+            "play": "Play",
+            "words": "{count} words",
+            "created": "Created",
+            "share": "Share",
+            "shareTitle": "Share this dictation",
+            "shareDescription": "Send this link to learners or colleagues so they can play instantly.",
+            "shareLinkLabel": "Game link",
+            "shareCopy": "Copy link",
+            "shareCopied": "Copied!",
+            "shareHint": "Click the link to copy it or choose a platform below.",
+            "shareOn": "Share on",
+            "shareTwitter": "X (Twitter)",
+            "shareFacebook": "Facebook",
+            "shareLinkedIn": "LinkedIn",
+            "shareWhatsApp": "WhatsApp",
+            "shareError": "Something went wrong. Please try again.",
+            "shareDefaultDescription": "Practice this dictation on Dictation Masters",
+            "shareMessage": "Check this dictation game: {title}",
+            "deleteConfirmTitle": "Delete this dictation?",
+            "deleteConfirmDescription": "This will permanently remove \"{title}\". This action cannot be undone.",
+            "deleteConfirmCancel": "Cancel",
+            "deleteConfirmAction": "Delete",
+            "deleteSuccess": "Dictation deleted",
+            "deleteError": "Could not delete dictation. Please try again."
+        },
+        "wizard": {
+            "chooseMethod": "How would you like to create your dictation?",
+            "chooseMethodDescription": "Upload an image with word pairs or enter them manually",
+            "uploadImage": "Upload Image",
+            "uploadImageDescription": "Upload an image containing word pairs. Our AI will extract them automatically.",
+            "chooseUpload": "Upload Image",
+            "manualEntry": "Manual Entry",
+            "manualEntryDescription": "Enter word pairs manually with full control over each entry.",
+            "chooseManual": "Enter Manually",
+            "back": "Back",
+            "uploadImageStepDescription": "Select your source and target languages, then upload an image file.",
+            "processingImage": "Processing your image...",
+            "processingImageDescription": "Our AI is extracting word pairs from your image. This may take a moment.",
+            "supportedFormats": "Supported formats: JPG, PNG, GIF"
+        }
+    }
+}
