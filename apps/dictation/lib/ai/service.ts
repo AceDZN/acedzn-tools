@@ -10,26 +10,32 @@ export async function generateContent(args: {
     amount?: number;
 }) {
     const count = args.amount || 5;
-    const prompt = `Generate ${count} word pairs and sentences for a dictation game.
+    const prompt = `Generate ${count} valid word pairs for a dictation game.
+    Source Language: ${args.sourceLanguage}
+    Target Language: ${args.targetLanguage}
     Topic: "${args.topic}"
-    Source Language: ${args.sourceLanguage} (term 1)
-    Target Language: ${args.targetLanguage} (term 2)
-    
-    Return ONLY a JSON object with this structure. Ensure ALL fields are populated with meaningful content.
+
+    STRICTLY FOLLOW THESE RULES:
+    1. The field "first" MUST be in ${args.sourceLanguage}.
+    2. The field "second" MUST be in ${args.targetLanguage}.
+    3. The field "firstSentence" MUST be a sentence in ${args.sourceLanguage} using the word from "first".
+    4. The field "secondSentence" MUST be a sentence in ${args.targetLanguage} using the word from "second".
+    5. Do NOT mix the languages.
+
+    Return ONLY a raw JSON object with this exact structure:
     {
-        "title": "A creative title for the dictation about the topic",
-        "description": "A short, engaging description of what this dictation covers",
+        "title": "A creative title",
+        "description": "A short description",
         "wordPairs": [
             {
-                "first": "word in source language",
-                "second": "word in target (translated)",
-                "firstSentence": "sentence using the first word in source language",
-                "secondSentence": "sentence using the second word in target language",
-                "sentence": "context sentence (can be same as secondSentence)"
+                "first": "${args.sourceLanguage} word",
+                "second": "${args.targetLanguage} translation",
+                "firstSentence": "Sentence in ${args.sourceLanguage}",
+                "secondSentence": "Sentence in ${args.targetLanguage}",
+                "sentence": "Context sentence"
             }
         ]
-    }
-    `;
+    }`;
 
     let resultText = "";
 
@@ -72,25 +78,32 @@ export async function extractContent(args: {
 }) {
     const isImage = !!args.image;
     const prompt = `Extract word pairs from the provided ${isImage ? "image" : "text"}.
-    Source Language: ${args.sourceLanguage} (term 1)
-    Target Language: ${args.targetLanguage} (term 2)
-    
-    Return ONLY a JSON object with this structure:
+    Source Language: ${args.sourceLanguage}
+    Target Language: ${args.targetLanguage}
+
+    STRICTLY FOLLOW THESE RULES:
+    1. The field "first" MUST be in ${args.sourceLanguage}.
+    2. The field "second" MUST be in ${args.targetLanguage}.
+    3. The field "firstSentence" MUST be a sentence in ${args.sourceLanguage} using the word from "first".
+    4. The field "secondSentence" MUST be a sentence in ${args.targetLanguage} using the word from "second".
+    5. Do NOT mix the languages.
+
+    Return ONLY a raw JSON object with this exact structure:
     {
-        "title": "A suitable title for the content",
-        "description": "Brief description of the content",
+        "title": "A suitable title",
+        "description": "Brief description",
         "wordPairs": [
             {
-                "first": "word in source language",
-                "second": "word in target (translated)",
-                "firstSentence": "sentence using first word",
-                "secondSentence": "sentence using second word",
-                "sentence": "context sentence in target language"
+                "first": "${args.sourceLanguage} word",
+                "second": "${args.targetLanguage} translation",
+                "firstSentence": "Sentence in ${args.sourceLanguage}",
+                "secondSentence": "Sentence in ${args.targetLanguage}",
+                "sentence": "Context sentence"
             }
         ]
     }
 
-    ${!isImage ? `Text:\n"${args.text}"` : ""}
+    ${!isImage ? `Text to process:\n"${args.text}"` : ""}
     `;
 
     let resultText = "";
