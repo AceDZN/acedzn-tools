@@ -32,11 +32,12 @@ export const store = mutation({
 
         if (user !== null) {
             // If we've seen this identity before but the name/email has changed, patch the value.
-            if (user.name !== identity.name || user.email !== identity.email) {
+            if (user.name !== identity.name || user.email !== identity.email || user.pictureUrl !== identity.pictureUrl) {
                 // Only patch if values are different to avoid unnecessary writes
                 await ctx.db.patch(user._id, {
                     name: identity.name,
-                    email: identity.email
+                    email: identity.email,
+                    pictureUrl: identity.pictureUrl,
                 });
             }
             return user._id;
@@ -45,6 +46,7 @@ export const store = mutation({
         return await ctx.db.insert("users", {
             name: identity.name,
             email: identity.email!,
+            pictureUrl: identity.pictureUrl,
             clerkId: identity.subject,
         });
     },

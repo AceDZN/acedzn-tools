@@ -10,6 +10,7 @@ export default defineSchema({
         name: v.optional(v.string()),
         description: v.optional(v.string()),
         imageId: v.optional(v.string()),
+        pictureUrl: v.optional(v.string()), // URL from Clerk
     }).index("by_clerkId", ["clerkId"]),
     dictation_games: defineTable({
         userId: v.string(), // Clerk ID
