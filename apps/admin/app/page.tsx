@@ -25,10 +25,10 @@ export default function AdminDashboard() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                     {[
-                        { label: "Total Users", value: "24.5k", change: "+5%" },
-                        { label: "Active Now", value: "1,245", change: "+12%" },
-                        { label: "New Signups", value: "350", change: "+2%" },
-                        { label: "Server Load", value: "18%", change: "-1%" },
+                        { label: "Total Users", value: "XX.Xk", change: "+X%" },
+                        { label: "Active Now", value: "X,XXX", change: "+XX%" },
+                        { label: "New Signups", value: "XXX", change: "+X%" },
+                        { label: "Server Load", value: "XX%", change: "-X%" },
                     ].map((stat, i) => (
                         <div key={i} className="bg-gray-800 p-6 rounded-xl border border-gray-700">
                             <p className="text-sm text-gray-400 mb-1">{stat.label}</p>
