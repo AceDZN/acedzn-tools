@@ -1,0 +1,26 @@
+{
+    "name": "@repo/analytics",
+    "version": "0.0.0",
+    "private": true,
+    "exports": {
+        ".": "./src/index.ts",
+        "./react": "./src/posthog-provider.tsx"
+    },
+    "scripts": {
+        "lint": "eslint . --max-warnings 0",
+        "check-types": "tsc --noEmit"
+    },
+    "peerDependencies": {
+        "react": "^19.0.0"
+    },
+    "dependencies": {
+        "posthog-js": "^1.203.1"
+    },
+    "devDependencies": {
+        "@repo/eslint-config": "workspace:*",
+        "@repo/typescript-config": "workspace:*",
+        "@types/react": "^19.0.0",
+        "eslint": "^9.0.0",
+        "typescript": "5.9.2"
+    }
+}

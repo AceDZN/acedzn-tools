@@ -14,6 +14,7 @@
     "@repo/ui": "workspace:*",
     "@repo/auth": "workspace:*",
     "@repo/db": "workspace:*",
+    "@repo/analytics": "workspace:*",
     "@clerk/nextjs": "^6.0.0",
     "convex": "^1.17.0",
     "next": "16.1.0",

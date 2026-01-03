@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ProfileMenu } from "@repo/auth/profile-menu";
 import { DOCS_URL } from "../lib/constants";
+import { NotificationCenter } from "./notification-center";
 
 export function Header() {
     return (
@@ -18,7 +19,8 @@ export function Header() {
                             GitHub
                         </Link>
                     </div>
-                    <div className="flex items-center">
+                    <div className="flex items-center gap-4">
+                        <NotificationCenter />
                         <ProfileMenu profileUrl="/profile" />
                     </div>
                 </div>

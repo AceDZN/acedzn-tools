@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { SharedAuthProvider } from "@repo/db";
+import { PostHogProvider } from "@repo/analytics";
 import "./globals.css";
 
 import { Header } from "../components/header";
@@ -30,12 +31,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} flex flex-col min-h-screen`}>
         <SharedAuthProvider>
-          <UserSync />
-          <Header />
-          <main className="flex-grow">
-            {children}
-          </main>
-          <Footer />
+          <PostHogProvider>
+            <UserSync />
+            <Header />
+            <main className="flex-grow">
+              {children}
+            </main>
+            <Footer />
+          </PostHogProvider>
         </SharedAuthProvider>
       </body>
     </html>

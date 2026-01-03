@@ -11,7 +11,14 @@ export default defineSchema({
         description: v.optional(v.string()),
         imageId: v.optional(v.string()),
         pictureUrl: v.optional(v.string()), // URL from Clerk
+        lastNotificationReadTime: v.optional(v.number()),
     }).index("by_clerkId", ["clerkId"]),
+    notifications: defineTable({
+        title: v.string(),
+        message: v.string(),
+        targetApp: v.optional(v.string()), // "web", "docs", etc.
+        createdAt: v.number(),
+    }).index("by_createdAt", ["createdAt"]),
     dictation_games: defineTable({
         userId: v.string(), // Clerk ID
         title: v.string(),

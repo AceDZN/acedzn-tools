@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { APP_URL } from "../lib/constants";
 import { ProfileMenu } from "@repo/auth/profile-menu";
+import { NotificationCenter } from "./notification-center";
 
 export function Header() {
     return (
@@ -20,7 +21,8 @@ export function Header() {
                             </Link>
                         </div>
                     </div>
-                    <div className="flex items-center">
+                    <div className="flex items-center gap-4">
+                        <NotificationCenter />
                         <ProfileMenu profileUrl="/settings" />
                     </div>
                 </div>

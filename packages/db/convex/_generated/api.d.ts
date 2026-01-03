@@ -9,6 +9,7 @@
  */
 
 import type * as dictation from "../dictation.js";
+import type * as notifications from "../notifications.js";
 import type * as users from "../users.js";
 
 import type {
@@ -19,6 +20,7 @@ import type {
 
 declare const fullApi: ApiFromModules<{
   dictation: typeof dictation;
+  notifications: typeof notifications;
   users: typeof users;
 }>;
 
