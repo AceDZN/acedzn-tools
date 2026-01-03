@@ -14,7 +14,7 @@ const domain = process.env.NODE_ENV === "production" ? process.env.NEXT_PUBLIC_C
 
 export function SharedAuthProvider({ children }: { children: ReactNode }) {
     return (
-        <ClerkProvider domain={domain}>
+        <ClerkProvider>
             <ConvexProviderWithClerk client={convex} useAuth={useAuth}>
                 {children}
             </ConvexProviderWithClerk>
