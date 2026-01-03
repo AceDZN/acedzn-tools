@@ -6,7 +6,7 @@ import { api } from "@repo/db";
 import Link from "next/link";
 import { Loader2, ArrowLeft } from "lucide-react";
 
-export default function NotificationsPage() {
+export function NotificationsContent({ lang, dict }: { lang: string, dict: any }) {
     const sendNotification = useMutation(api.notifications.send);
     const deleteNotification = useMutation(api.notifications.deleteNotification);
     const notifications = useQuery(api.notifications.list, {}) || [];
@@ -17,6 +17,8 @@ export default function NotificationsPage() {
     const [targetApp, setTargetApp] = useState<string>("all");
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [successMessage, setSuccessMessage] = useState("");
+
+    const t = dict.notifications;
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -31,11 +33,11 @@ export default function NotificationsPage() {
             });
             setTitle("");
             setMessage("");
-            setSuccessMessage("Notification sent successfully!");
+            setSuccessMessage(t.success);
             setTimeout(() => setSuccessMessage(""), 3000);
         } catch (error) {
             console.error(error);
-            alert("Failed to send notification");
+            alert(t.error);
         } finally {
             setIsSubmitting(false);
         }
@@ -43,55 +45,56 @@ export default function NotificationsPage() {
 
     return (
         <div className="flex bg-gray-900 min-h-screen">
-            <aside className="w-64 bg-gray-800 border-r border-gray-700 p-6 flex flex-col fixed h-full">
-                <Link href="/" className="mb-8 text-gray-400 hover:text-white flex items-center gap-2">
-                    <ArrowLeft size={16} /> Back to Dashboard
+            <aside className="w-64 bg-gray-800 border-e border-gray-700 p-6 flex flex-col fixed h-full">
+                <Link href={`/${lang}`} className="mb-8 text-gray-400 hover:text-white flex items-center gap-2">
+                    {lang === 'he' ? <ArrowLeft className="rotate-180" size={16} /> : <ArrowLeft size={16} />}
+                    {t.back_to_dashboard}
                 </Link>
-                <h1 className="text-2xl font-bold mb-4 text-white">Notifications</h1>
+                <h1 className="text-2xl font-bold mb-4 text-white">{t.title}</h1>
                 <p className="text-sm text-gray-400 mb-6">
-                    Manage and send notifications to your users.
+                    {t.description}
                 </p>
             </aside>
 
-            <main className="flex-1 p-8 ml-64 overflow-y-auto">
+            <main className="flex-1 p-8 ml-64 overflow-y-auto ltr:ml-64 rtl:mr-64 rtl:ml-0">
                 <div className="max-w-4xl mx-auto">
                     <div className="bg-gray-800 rounded-xl border border-gray-700 p-6 mb-8">
-                        <h2 className="text-xl font-bold mb-6">Create Notification</h2>
+                        <h2 className="text-xl font-bold mb-6">{t.create_title}</h2>
 
                         <form onSubmit={handleSubmit} className="space-y-4">
                             <div>
-                                <label className="block text-sm font-medium text-gray-400 mb-1">Title</label>
+                                <label className="block text-sm font-medium text-gray-400 mb-1">{t.form.title}</label>
                                 <input
                                     type="text"
                                     value={title}
                                     onChange={(e) => setTitle(e.target.value)}
-                                    placeholder="e.g. Scheduled Maintenance"
+                                    placeholder={t.form.title_placeholder}
                                     className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
                                     required
                                 />
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-gray-400 mb-1">Message</label>
+                                <label className="block text-sm font-medium text-gray-400 mb-1">{t.form.message}</label>
                                 <textarea
                                     value={message}
                                     onChange={(e) => setMessage(e.target.value)}
-                                    placeholder="e.g. We will be performing updates on..."
+                                    placeholder={t.form.message_placeholder}
                                     className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 h-32 focus:ring-2 focus:ring-blue-500 focus:outline-none"
                                     required
                                 />
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-gray-400 mb-1">Target Application</label>
+                                <label className="block text-sm font-medium text-gray-400 mb-1">{t.form.target}</label>
                                 <select
                                     value={targetApp}
                                     onChange={(e) => setTargetApp(e.target.value)}
                                     className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
                                 >
-                                    <option value="all">All Apps</option>
-                                    <option value="web">Web App (acedzn.dev)</option>
-                                    <option value="docs">Docs (docs.acedzn.dev)</option>
+                                    <option value="all">{t.form.targets.all}</option>
+                                    <option value="web">{t.form.targets.web}</option>
+                                    <option value="docs">{t.form.targets.docs}</option>
                                 </select>
                             </div>
 
@@ -100,7 +103,7 @@ export default function NotificationsPage() {
                                 disabled={isSubmitting}
                                 className="bg-blue-600 hover:bg-blue-500 text-white font-medium px-6 py-2 rounded-lg flex items-center gap-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                             >
-                                {isSubmitting ? <Loader2 className="animate-spin" /> : "Send Notification"}
+                                {isSubmitting ? <Loader2 className="animate-spin" /> : t.form.send_btn}
                             </button>
 
                             {successMessage && (
@@ -110,10 +113,10 @@ export default function NotificationsPage() {
                     </div>
 
                     <div className="bg-gray-800 rounded-xl border border-gray-700 p-6">
-                        <h2 className="text-xl font-bold mb-6">Recent Notifications</h2>
+                        <h2 className="text-xl font-bold mb-6">{t.recent_title}</h2>
                         <div className="space-y-4">
                             {notifications.length === 0 ? (
-                                <p className="text-gray-500 text-sm">No recent notifications found.</p>
+                                <p className="text-gray-500 text-sm">{t.no_notifications}</p>
                             ) : (
                                 notifications.map((notification) => (
                                     <div key={notification._id} className="p-4 bg-gray-900 rounded-lg border border-gray-700 flex justify-between items-start">
@@ -133,7 +136,7 @@ export default function NotificationsPage() {
                                         </div>
                                         <button
                                             onClick={async () => {
-                                                if (confirm("Are you sure you want to delete this notification?")) {
+                                                if (confirm(t.delete_confirm)) {
                                                     await deleteNotification({ id: notification._id });
                                                 }
                                             }}

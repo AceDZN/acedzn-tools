@@ -15,5 +15,29 @@
         "notifications": "Notifications",
         "users": "Users",
         "settings": "Settings"
+    },
+    "notifications": {
+        "title": "Notifications",
+        "description": "Manage and send notifications to your users.",
+        "back_to_dashboard": "Back to Dashboard",
+        "create_title": "Create Notification",
+        "recent_title": "Recent Notifications",
+        "no_notifications": "No recent notifications found.",
+        "delete_confirm": "Are you sure you want to delete this notification?",
+        "success": "Notification sent successfully!",
+        "error": "Failed to send notification",
+        "form": {
+            "title": "Title",
+            "title_placeholder": "e.g. Scheduled Maintenance",
+            "message": "Message",
+            "message_placeholder": "e.g. We will be performing updates on...",
+            "target": "Target Application",
+            "send_btn": "Send Notification",
+            "targets": {
+                "all": "All Apps",
+                "web": "Web App (acedzn.dev)",
+                "docs": "Docs (docs.acedzn.dev)"
+            }
+        }
     }
 }

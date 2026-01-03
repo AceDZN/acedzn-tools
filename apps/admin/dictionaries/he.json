@@ -15,5 +15,29 @@
         "notifications": "התראות",
         "users": "משתמשים",
         "settings": "הגדרות"
+    },
+    "notifications": {
+        "title": "התראות",
+        "description": "ניהול ושליחת התראות למשתמשים שלך.",
+        "back_to_dashboard": "חזרה ללוח הבקרה",
+        "create_title": "צור התראה",
+        "recent_title": "התראות אחרונות",
+        "no_notifications": "לא נמצאו התראות אחרונות.",
+        "delete_confirm": "האם אתה בטוח שברצונך למחוק התראה זו?",
+        "success": "ההתראה נשלחה בהצלחה!",
+        "error": "שליחת ההתראה נכשלה",
+        "form": {
+            "title": "כותרת",
+            "title_placeholder": "לדוגמה: תחזוקה מתוכננת",
+            "message": "הודעה",
+            "message_placeholder": "לדוגמה: אנו נבצע עדכונים ב...",
+            "target": "אפליקציית יעד",
+            "send_btn": "שלח התראה",
+            "targets": {
+                "all": "כל האפליקציות",
+                "web": "ווב (acedzn.dev)",
+                "docs": "תיעוד (docs.acedzn.dev)"
+            }
+        }
     }
 }
