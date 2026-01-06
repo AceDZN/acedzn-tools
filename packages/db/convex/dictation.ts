@@ -3,6 +3,22 @@ import { mutation, action, query, internalAction } from "./_generated/server";
 import { v } from "convex/values";
 import OpenAI from "openai";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+// Helper to retry Gemini calls on 500 errors
+async function retryGeminiCall(callFn: () => Promise<any>, retries = 3, delay = 1000): Promise<any> {
+    for (let i = 0; i < retries; i++) {
+        try {
+            return await callFn();
+        } catch (e: any) {
+            console.warn(`Gemini call failed (attempt ${i + 1}/${retries}):`, e.message);
+            // Retry only on 500 or 503
+            if (i < retries - 1 && (e.message?.includes("500") || e.message?.includes("503"))) {
+                await new Promise(resolve => setTimeout(resolve, delay * (i + 1))); // Linear backoff
+                continue;
+            }
+            throw e;
+        }
+    }
+}
 
 // Initialize OpenAI client
 // OpenAI client initialized lazily
@@ -391,15 +407,19 @@ export const generateFromText = action({
             
             Text: "${args.text}"
             
-            Return ONLY a JSON array of objects with the following structure:
-            [
-                {
-                    "first": "word in source language",
-                    "second": "word in target language",
-                    "firstSentence": "example sentence provided in the text or generated in source language", 
-                    "secondSentence": "translation of example sentence in target language" 
-                }
-            ]
+            Return ONLY a valid JSON object with the following structure:
+            {
+                "title": "A short, catchy title for this dictation based on the text content",
+                "description": "A brief 1-sentence description of what this content covers",
+                "wordPairs": [
+                    {
+                        "first": "word in source language",
+                        "second": "word in target language",
+                        "firstSentence": "example sentence provided in the text or generated in source language", 
+                        "secondSentence": "translation of example sentence in target language" 
+                    }
+                ]
+            }
         `;
 
         // console.log("Calling Gemini...");
@@ -415,9 +435,15 @@ export const generateFromText = action({
             const cleanText = text.replace(/```json\n?|\n?```/g, "").trim();
 
             const parsed = JSON.parse(cleanText);
-            const pairs = Array.isArray(parsed) ? parsed : parsed.pairs || parsed.wordPairs || [];
-            console.log("Parsed pairs:", pairs.length);
-            return pairs;
+            // Support both old array format (fallback, though unlikely with new prompt) and new object format
+            if (Array.isArray(parsed)) {
+                return { title: "", description: "", wordPairs: parsed };
+            }
+            return {
+                title: parsed.title || "",
+                description: parsed.description || "",
+                wordPairs: parsed.wordPairs || parsed.pairs || []
+            };
         } catch (e) {
             console.error("Failed to generate/parse Gemini response", e);
             return [];
@@ -451,15 +477,19 @@ export const generateFromPrompt = action({
             Target Language: ${args.targetLanguage}
             
             Generate 10-15 relevant word pairs related to the topic.
-            Return ONLY a JSON array of objects with the following structure:
-            [
-                {
-                    "first": "word in source language",
-                    "second": "word in target language",
-                    "firstSentence": "simple example sentence in source language", 
-                    "secondSentence": "translation of example sentence in target language" 
-                }
-            ]
+            Return ONLY a valid JSON object with the following structure:
+            {
+                "title": "A short, catchy title for this dictation list",
+                "description": "A brief description of this vocabulary set",
+                "wordPairs": [
+                    {
+                        "first": "word in source language",
+                        "second": "word in target language",
+                        "firstSentence": "simple example sentence in source language", 
+                        "secondSentence": "translation of example sentence in target language" 
+                    }
+                ]
+            }
         `;
 
         try {
@@ -470,8 +500,14 @@ export const generateFromPrompt = action({
             const cleanText = text.replace(/```json\n?|\n?```/g, "").trim();
 
             const parsed = JSON.parse(cleanText);
-            const pairs = Array.isArray(parsed) ? parsed : parsed.pairs || parsed.wordPairs || [];
-            return pairs;
+            if (Array.isArray(parsed)) {
+                return { title: args.prompt, description: "", wordPairs: parsed };
+            }
+            return {
+                title: parsed.title || args.prompt,
+                description: parsed.description || "",
+                wordPairs: parsed.wordPairs || parsed.pairs || []
+            };
         } catch (e) {
             console.error("Failed to generate/parse Gemini response", e);
             return [];
@@ -525,21 +561,25 @@ export const generateFromImage = action({
             Source Language: ${args.sourceLanguage}
             Target Language: ${args.targetLanguage}
             
-            Return ONLY a JSON array of objects with the following structure:
-            [
-                {
-                    "first": "word in source language",
-                    "second": "word in target language",
-                    "firstSentence": "example sentence related to the image context in source language", 
-                    "secondSentence": "translation of example sentence in target language" 
-                }
-            ]
+            Return ONLY a valid JSON object with the following structure:
+            {
+                "title": "A creative title for this image-based dictation",
+                "description": "A brief description of the scene or context",
+                "wordPairs": [
+                    {
+                        "first": "word in source language",
+                        "second": "word in target language",
+                        "firstSentence": "example sentence related to the image context in source language", 
+                        "secondSentence": "translation of example sentence in target language" 
+                    }
+                ]
+            }
         `;
 
         // console.log("Calling Gemini for image...");
 
         try {
-            const result = await model.generateContent([
+            const result = await retryGeminiCall(() => model.generateContent([
                 prompt,
                 {
                     inlineData: {
@@ -547,7 +587,7 @@ export const generateFromImage = action({
                         mimeType: args.mimeType
                     }
                 }
-            ]);
+            ]));
             const response = await result.response;
             const text = response.text();
 
@@ -556,9 +596,15 @@ export const generateFromImage = action({
             const cleanText = text.replace(/```json\n?|\n?```/g, "").trim();
 
             const parsed = JSON.parse(cleanText);
-            const pairs = Array.isArray(parsed) ? parsed : parsed.pairs || parsed.wordPairs || [];
-            // console.log("Parsed image pairs:", pairs.length);
-            return pairs;
+
+            if (Array.isArray(parsed)) {
+                return { title: "Image Dictation", description: "", wordPairs: parsed };
+            }
+            return {
+                title: parsed.title || "Image Dictation",
+                description: parsed.description || "",
+                wordPairs: parsed.wordPairs || parsed.pairs || []
+            };
         } catch (e) {
             console.error("Failed to generate/parse Gemini response", e);
             return [];

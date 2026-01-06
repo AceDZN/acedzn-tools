@@ -103,25 +103,32 @@ export function DictationForm({ dictationId }: { dictationId?: string }) {
         setError(undefined);
 
         try {
-            let pairs: any[] = [];
+            let result: any = null;
 
             if (mode === 'ai-prompt') {
-                pairs = await generateFromPrompt({
+                result = await generateFromPrompt({
                     prompt: aiInput,
                     sourceLanguage: formData.sourceLanguage,
                     targetLanguage: formData.targetLanguage
                 });
             } else if (mode === 'from-text') {
-                pairs = await generateFromText({
+                result = await generateFromText({
                     text: aiInput,
                     sourceLanguage: formData.sourceLanguage,
                     targetLanguage: formData.targetLanguage
                 });
             }
 
+            // Handle both object return (new) and array return (old fallback)
+            const pairs = Array.isArray(result) ? result : result?.wordPairs || [];
+            const newTitle = !Array.isArray(result) ? result?.title : undefined;
+            const newDescription = !Array.isArray(result) ? result?.description : undefined;
+
             if (pairs && pairs.length > 0) {
                 setFormData(prev => ({
                     ...prev,
+                    title: newTitle || prev.title,
+                    description: newDescription || prev.description,
                     wordPairs: pairs as WordPair[]
                 }));
                 toast.success(`Generated ${pairs.length} word pairs`);
@@ -160,15 +167,24 @@ export function DictationForm({ dictationId }: { dictationId?: string }) {
                 const { storageId } = await result.json();
 
                 // 3. Generate content
-                const pairs = await generateFromImage({
+                const aiResult = await generateFromImage({
                     storageId,
                     mimeType: file.type,
                     sourceLanguage: formData.sourceLanguage,
                     targetLanguage: formData.targetLanguage
                 });
 
+                const pairs = Array.isArray(aiResult) ? aiResult : aiResult?.wordPairs || [];
+                const newTitle = !Array.isArray(aiResult) ? aiResult?.title : undefined;
+                const newDescription = !Array.isArray(aiResult) ? aiResult?.description : undefined;
+
                 if (pairs && pairs.length > 0) {
-                    setFormData(prev => ({ ...prev, wordPairs: pairs as WordPair[] }));
+                    setFormData(prev => ({
+                        ...prev,
+                        title: newTitle || prev.title,
+                        description: newDescription || prev.description,
+                        wordPairs: pairs as WordPair[]
+                    }));
                     toast.success(`Extracted ${pairs.length} pairs from image`);
                     setMode('manual');
                 } else {
@@ -199,13 +215,23 @@ export function DictationForm({ dictationId }: { dictationId?: string }) {
                     }
                 } else {
                     // Treat as text content for AI extraction
-                    const pairs = await generateFromText({
+                    const result = await generateFromText({
                         text: text,
                         sourceLanguage: formData.sourceLanguage,
                         targetLanguage: formData.targetLanguage
                     });
+
+                    const pairs = Array.isArray(result) ? result : result?.wordPairs || [];
+                    const newTitle = !Array.isArray(result) ? result?.title : undefined;
+                    const newDescription = !Array.isArray(result) ? result?.description : undefined;
+
                     if (pairs && pairs.length > 0) {
-                        setFormData(prev => ({ ...prev, wordPairs: pairs as WordPair[] }));
+                        setFormData(prev => ({
+                            ...prev,
+                            title: newTitle || prev.title,
+                            description: newDescription || prev.description,
+                            wordPairs: pairs as WordPair[]
+                        }));
                         toast.success(`Extracted ${pairs.length} pairs from file`);
                         setMode('manual');
                     } else {
