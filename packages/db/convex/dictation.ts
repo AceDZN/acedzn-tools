@@ -2,6 +2,7 @@ import { mutation, action, query, internalAction } from "./_generated/server";
 
 import { v } from "convex/values";
 import OpenAI from "openai";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 // Initialize OpenAI client
 // OpenAI client initialized lazily
@@ -361,4 +362,210 @@ export const incrementPlayCount = mutation({
             playCount: (game.playCount || 0) + 1,
         });
     },
+});
+
+export const generateFromText = action({
+    args: {
+        text: v.string(),
+        sourceLanguage: v.string(),
+        targetLanguage: v.string(),
+    },
+    handler: async (ctx, args) => {
+        // console.log("generateFromText called", { textLength: args.text.length });
+        const identity = await ctx.auth.getUserIdentity();
+        if (!identity) {
+            throw new Error("Unauthorized");
+        }
+
+        const apiKey = process.env.GOOGLE_AI_API_KEY;
+        if (!apiKey) {
+            throw new Error("Missing GOOGLE_AI_API_KEY");
+        }
+        const genAI = new GoogleGenerativeAI(apiKey);
+        const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-lite" });
+
+        const prompt = `
+            Analyze the following text and use it to create a list of word pairs for a language learning dictation game.
+            Source Language: ${args.sourceLanguage}
+            Target Language: ${args.targetLanguage}
+            
+            Text: "${args.text}"
+            
+            Return ONLY a JSON array of objects with the following structure:
+            [
+                {
+                    "first": "word in source language",
+                    "second": "word in target language",
+                    "firstSentence": "example sentence provided in the text or generated in source language", 
+                    "secondSentence": "translation of example sentence in target language" 
+                }
+            ]
+        `;
+
+        // console.log("Calling Gemini...");
+
+        try {
+            const result = await model.generateContent(prompt);
+            const response = await result.response;
+            const text = response.text();
+
+            // console.log("Gemini response content:", text);
+
+            // Clean up code blocks if present
+            const cleanText = text.replace(/```json\n?|\n?```/g, "").trim();
+
+            const parsed = JSON.parse(cleanText);
+            const pairs = Array.isArray(parsed) ? parsed : parsed.pairs || parsed.wordPairs || [];
+            console.log("Parsed pairs:", pairs.length);
+            return pairs;
+        } catch (e) {
+            console.error("Failed to generate/parse Gemini response", e);
+            return [];
+        }
+    },
+});
+
+export const generateFromPrompt = action({
+    args: {
+        prompt: v.string(),
+        sourceLanguage: v.string(),
+        targetLanguage: v.string(),
+    },
+    handler: async (ctx, args) => {
+        const identity = await ctx.auth.getUserIdentity();
+        if (!identity) {
+            throw new Error("Unauthorized");
+        }
+
+        const apiKey = process.env.GOOGLE_AI_API_KEY;
+        if (!apiKey) {
+            throw new Error("Missing GOOGLE_AI_API_KEY");
+        }
+        const genAI = new GoogleGenerativeAI(apiKey);
+        const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-lite" });
+
+        const prompt = `
+            You are a language teacher creating a dictation list.
+            Topic: ${args.prompt}
+            Source Language: ${args.sourceLanguage}
+            Target Language: ${args.targetLanguage}
+            
+            Generate 10-15 relevant word pairs related to the topic.
+            Return ONLY a JSON array of objects with the following structure:
+            [
+                {
+                    "first": "word in source language",
+                    "second": "word in target language",
+                    "firstSentence": "simple example sentence in source language", 
+                    "secondSentence": "translation of example sentence in target language" 
+                }
+            ]
+        `;
+
+        try {
+            const result = await model.generateContent(prompt);
+            const response = await result.response;
+            const text = response.text();
+
+            const cleanText = text.replace(/```json\n?|\n?```/g, "").trim();
+
+            const parsed = JSON.parse(cleanText);
+            const pairs = Array.isArray(parsed) ? parsed : parsed.pairs || parsed.wordPairs || [];
+            return pairs;
+        } catch (e) {
+            console.error("Failed to generate/parse Gemini response", e);
+            return [];
+        }
+    },
+});
+export const generateFromImage = action({
+    args: {
+        storageId: v.id("_storage"),
+        sourceLanguage: v.string(),
+        targetLanguage: v.string(),
+        mimeType: v.string(),
+    },
+    handler: async (ctx, args) => {
+        console.log("generateFromImage called", { storageId: args.storageId, mimeType: args.mimeType });
+        const identity = await ctx.auth.getUserIdentity();
+        if (!identity) {
+            throw new Error("Unauthorized");
+        }
+
+        const apiKey = process.env.GOOGLE_AI_API_KEY;
+        if (!apiKey) {
+            throw new Error("Missing GOOGLE_AI_API_KEY");
+        }
+        const genAI = new GoogleGenerativeAI(apiKey);
+        const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-lite" });
+
+        const imageUrl = await ctx.storage.getUrl(args.storageId);
+        console.log("Got image URL:", imageUrl);
+
+        if (!imageUrl) {
+            throw new Error("Failed to get image URL");
+        }
+
+        // Fetch the image data to convert to base64
+        // Google Generative AI requires inline data for images in Node
+        const imageResponse = await fetch(imageUrl);
+        const imageBuffer = await imageResponse.arrayBuffer();
+
+        // Convert ArrayBuffer to base64 without Node Data Buffer
+        let binary = '';
+        const bytes = new Uint8Array(imageBuffer);
+        const len = bytes.byteLength;
+        for (let i = 0; i < len; i++) {
+            binary += String.fromCharCode(bytes[i]);
+        }
+        const base64Image = btoa(binary);
+
+        const prompt = `
+            Analyze the following image and use it to create a list of word pairs for a language learning dictation game.
+            Source Language: ${args.sourceLanguage}
+            Target Language: ${args.targetLanguage}
+            
+            Return ONLY a JSON array of objects with the following structure:
+            [
+                {
+                    "first": "word in source language",
+                    "second": "word in target language",
+                    "firstSentence": "example sentence related to the image context in source language", 
+                    "secondSentence": "translation of example sentence in target language" 
+                }
+            ]
+        `;
+
+        // console.log("Calling Gemini for image...");
+
+        try {
+            const result = await model.generateContent([
+                prompt,
+                {
+                    inlineData: {
+                        data: base64Image,
+                        mimeType: args.mimeType
+                    }
+                }
+            ]);
+            const response = await result.response;
+            const text = response.text();
+
+            // console.log("Gemini image response:", text);
+
+            const cleanText = text.replace(/```json\n?|\n?```/g, "").trim();
+
+            const parsed = JSON.parse(cleanText);
+            const pairs = Array.isArray(parsed) ? parsed : parsed.pairs || parsed.wordPairs || [];
+            // console.log("Parsed image pairs:", pairs.length);
+            return pairs;
+        } catch (e) {
+            console.error("Failed to generate/parse Gemini response", e);
+            return [];
+        }
+    },
+});
+
+export const generateUploadUrl = mutation(async (ctx) => {
+    return await ctx.storage.generateUploadUrl();
 });

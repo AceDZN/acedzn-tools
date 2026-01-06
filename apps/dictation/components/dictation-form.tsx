@@ -9,13 +9,15 @@ import { Label } from "@repo/ui/components/ui/label";
 import { Button } from "@repo/ui/components/ui/button";
 import { Switch } from "@repo/ui/components/ui/switch";
 import { Spinner } from "@repo/ui/components/ui/spinner";
-import { ArrowsRightLeftIcon } from "@heroicons/react/24/outline";
+import { Textarea } from "@repo/ui/components/ui/textarea";
+import { ArrowsRightLeftIcon, DocumentTextIcon, SparklesIcon, CommandLineIcon, PencilIcon } from "@heroicons/react/24/outline";
 
 import { useDictionary } from "./dictionary-provider";
 import { LanguageSelector } from "./language-selector";
 import { WordPairList } from "./word-pair-list";
 import { AdvancedQuizOptions } from "./advanced-quiz-options";
 import { WordPair, QuizParameters } from "../lib/types";
+import { toast } from "sonner";
 
 const DEFAULT_LANGUAGES = {
     source: 'Hebrew',
@@ -33,15 +35,19 @@ interface FormData {
     isPublic: boolean;
 }
 
+type InputMode = 'manual' | 'ai-prompt' | 'from-text' | 'file-upload';
+
 export function DictationForm({ dictationId }: { dictationId?: string }) {
     const router = useRouter();
     const createAction = useAction(api.dictation.createDictation);
     const updateAction = useAction(api.dictation.updateDictation);
 
-    // Fetch existing dictation if in edit mode
-    // We cast string to Id<"dictation_games"> assuming valid ID passed
+    // AI Actions
+    const generateFromText = useAction(api.dictation.generateFromText);
+    const generateFromPrompt = useAction(api.dictation.generateFromPrompt);
+
     const existingDictation = useQuery(api.dictation.getDictation,
-        dictationId ? { dictationId: dictationId as any } : "skip" // "skip" if no ID
+        dictationId ? { dictationId: dictationId as any } : "skip"
     );
 
     const dict = useDictionary();
@@ -62,7 +68,12 @@ export function DictationForm({ dictationId }: { dictationId?: string }) {
         isPublic: true,
     });
 
+    const [mode, setMode] = useState<InputMode>('manual');
+    const [aiInput, setAiInput] = useState('');
     const [isInitialized, setIsInitialized] = useState(false);
+    const [error, setError] = useState<string>();
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isGenerating, setIsGenerating] = useState(false);
 
     // Populate form when data loads
     useMemo(() => {
@@ -86,44 +97,128 @@ export function DictationForm({ dictationId }: { dictationId?: string }) {
         }
     }, [existingDictation, isInitialized]);
 
-    const [error, setError] = useState<string>();
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [isGenerating, setIsGenerating] = useState(false);
-    const [isProcessingFile, setIsProcessingFile] = useState(false);
-
-    const handleGenerateContent = async () => {
+    const handleGenerate = async () => {
+        if (!aiInput.trim()) return;
         setIsGenerating(true);
         setError(undefined);
-        try {
-            const response = await fetch('/api/dictation/generate', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    topic: formData.title || "General",
-                    sourceLanguage: formData.sourceLanguage,
-                    targetLanguage: formData.targetLanguage,
-                    model: "gpt-4o-mini",
-                    amount: 5
-                })
-            });
 
-            if (!response.ok) {
-                const text = await response.text().catch(() => "Unknown error");
-                throw new Error(text || "Failed to generate content");
+        try {
+            let pairs: any[] = [];
+
+            if (mode === 'ai-prompt') {
+                pairs = await generateFromPrompt({
+                    prompt: aiInput,
+                    sourceLanguage: formData.sourceLanguage,
+                    targetLanguage: formData.targetLanguage
+                });
+            } else if (mode === 'from-text') {
+                pairs = await generateFromText({
+                    text: aiInput,
+                    sourceLanguage: formData.sourceLanguage,
+                    targetLanguage: formData.targetLanguage
+                });
             }
 
-            const result = await response.json();
-
-            setFormData(prev => ({
-                ...prev,
-                title: result.title || prev.title,
-                description: result.description || prev.description,
-                wordPairs: (result.wordPairs || []) as WordPair[]
-            }));
+            if (pairs && pairs.length > 0) {
+                setFormData(prev => ({
+                    ...prev,
+                    wordPairs: pairs as WordPair[]
+                }));
+                toast.success(`Generated ${pairs.length} word pairs`);
+                setMode('manual'); // Switch back to review
+            } else {
+                toast.error("No pairs generated. Try a different prompt.");
+            }
         } catch (err) {
-            setError(err instanceof Error ? err.message : "Failed to generate content");
+            console.error(err);
+            setError("Failed to generate content. Please try again.");
         } finally {
             setIsGenerating(false);
+        }
+    };
+
+    const generateUploadUrl = useMutation(api.dictation.generateUploadUrl);
+    const generateFromImage = useAction(api.dictation.generateFromImage);
+
+    const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+
+        setIsGenerating(true);
+        try {
+            // Image handling
+            if (file.type.startsWith('image/')) {
+                // 1. Get upload URL
+                const postUrl = await generateUploadUrl();
+
+                // 2. Upload file
+                const result = await fetch(postUrl, {
+                    method: "POST",
+                    headers: { "Content-Type": file.type },
+                    body: file,
+                });
+                const { storageId } = await result.json();
+
+                // 3. Generate content
+                const pairs = await generateFromImage({
+                    storageId,
+                    mimeType: file.type,
+                    sourceLanguage: formData.sourceLanguage,
+                    targetLanguage: formData.targetLanguage
+                });
+
+                if (pairs && pairs.length > 0) {
+                    setFormData(prev => ({ ...prev, wordPairs: pairs as WordPair[] }));
+                    toast.success(`Extracted ${pairs.length} pairs from image`);
+                    setMode('manual');
+                } else {
+                    toast.error("Could not find any words in the image.");
+                }
+
+            } else {
+                // Text handling
+                const text = await file.text();
+
+                // If it's a CSV, parse it directly
+                if (file.name.endsWith('.csv')) {
+                    const lines = text.split('\n');
+                    const pairs: WordPair[] = lines.filter(l => l.includes(',')).map(line => {
+                        const [first, second, s1, s2] = line.split(',').map(s => s.trim());
+                        return {
+                            first: first || '',
+                            second: second || '',
+                            firstSentence: s1 || '',
+                            secondSentence: s2 || '',
+                            sentence: s1 || ''
+                        };
+                    });
+                    if (pairs.length > 0) {
+                        setFormData(prev => ({ ...prev, wordPairs: pairs }));
+                        toast.success(`Parsed ${pairs.length} pairs from CSV`);
+                        setMode('manual');
+                    }
+                } else {
+                    // Treat as text content for AI extraction
+                    const pairs = await generateFromText({
+                        text: text,
+                        sourceLanguage: formData.sourceLanguage,
+                        targetLanguage: formData.targetLanguage
+                    });
+                    if (pairs && pairs.length > 0) {
+                        setFormData(prev => ({ ...prev, wordPairs: pairs as WordPair[] }));
+                        toast.success(`Extracted ${pairs.length} pairs from file`);
+                        setMode('manual');
+                    } else {
+                        toast.error("Could not extract any words from text.");
+                    }
+                }
+            }
+        } catch (err) {
+            console.error(err);
+            toast.error("Failed to process file");
+        } finally {
+            setIsGenerating(false);
+            e.target.value = ''; // Reset
         }
     };
 
@@ -134,7 +229,6 @@ export function DictationForm({ dictationId }: { dictationId?: string }) {
 
         try {
             if (dictationId) {
-                // Update
                 await updateAction({
                     id: dictationId as any,
                     title: formData.title,
@@ -145,9 +239,7 @@ export function DictationForm({ dictationId }: { dictationId?: string }) {
                     quizParameters: formData.quizParameters,
                     isPublic: formData.isPublic,
                 });
-                router.push('/dashboard'); // Go back to dashboard/profile
             } else {
-                // Create
                 await createAction({
                     title: formData.title,
                     description: formData.description || undefined,
@@ -157,35 +249,13 @@ export function DictationForm({ dictationId }: { dictationId?: string }) {
                     quizParameters: formData.quizParameters,
                     isPublic: formData.isPublic,
                 });
-                router.push('/dashboard');
             }
+            router.push('/dashboard');
         } catch (err) {
             setError(err instanceof Error ? err.message : "Failed to save dictation");
         } finally {
             setIsSubmitting(false);
         }
-    };
-
-
-
-    const handleFileUploadStart = () => {
-        setIsProcessingFile(true);
-        setError(undefined);
-    };
-
-    const handleFileUploadComplete = (data: { title?: string, description?: string, wordPairs: WordPair[] }) => {
-        setFormData(prev => ({
-            ...prev,
-            title: data.title || prev.title,
-            description: data.description || prev.description,
-            wordPairs: data.wordPairs
-        }));
-        setIsProcessingFile(false);
-    };
-
-    const handleFileUploadError = (error: string) => {
-        setError(error);
-        setIsProcessingFile(false);
     };
 
     const handleLanguageSwap = useCallback(() => {
@@ -213,7 +283,7 @@ export function DictationForm({ dictationId }: { dictationId?: string }) {
         });
     }, []);
 
-    const isLoadingState = isSubmitting || isGenerating || isProcessingFile;
+    const isLoadingState = isSubmitting || isGenerating;
 
     if (dictationId && existingDictation === undefined) {
         return <div className="flex justify-center p-8"><Spinner size="lg" /></div>;
@@ -294,19 +364,105 @@ export function DictationForm({ dictationId }: { dictationId?: string }) {
                 </div>
             </div>
 
-            {/* Word Pairs */}
+            {/* Content Generation Modes */}
             <div className="space-y-4">
-                <h2 className="text-xl font-semibold text-indigo-600">{t?.wordPairs || "Word Pairs"}</h2>
-                <WordPairList
-                    wordPairs={formData.wordPairs}
-                    onChange={wordPairs => setFormData({ ...formData, wordPairs })}
-                    sourceLanguage={formData.sourceLanguage}
-                    targetLanguage={formData.targetLanguage}
-                    disabled={isLoadingState}
-                    onFileUploadStart={handleFileUploadStart}
-                    onFileUploadComplete={handleFileUploadComplete}
-                    onFileUploadError={handleFileUploadError}
-                />
+                <h2 className="text-xl font-semibold text-indigo-600">Content</h2>
+
+                <div className="flex gap-2 border-b pb-2 overflow-x-auto">
+                    <Button
+                        type="button"
+                        variant={mode === 'manual' ? 'default' : 'ghost'}
+                        onClick={() => setMode('manual')}
+                        size="sm"
+                        className="gap-2"
+                    >
+                        <PencilIcon className="w-4 h-4" /> Manual
+                    </Button>
+                    <Button
+                        type="button"
+                        variant={mode === 'ai-prompt' ? 'default' : 'ghost'}
+                        onClick={() => setMode('ai-prompt')}
+                        size="sm"
+                        className="gap-2"
+                    >
+                        <SparklesIcon className="w-4 h-4" /> AI Topic
+                    </Button>
+                    <Button
+                        type="button"
+                        variant={mode === 'from-text' ? 'default' : 'ghost'}
+                        onClick={() => setMode('from-text')}
+                        size="sm"
+                        className="gap-2"
+                    >
+                        <DocumentTextIcon className="w-4 h-4" /> From Text
+                    </Button>
+                    <Button
+                        type="button"
+                        variant={mode === 'file-upload' ? 'default' : 'ghost'}
+                        onClick={() => setMode('file-upload')}
+                        size="sm"
+                        className="gap-2"
+                    >
+                        <CommandLineIcon className="w-4 h-4" /> Upload File
+                    </Button>
+                </div>
+
+                <div className="p-4 bg-gray-50 rounded-lg border">
+                    {mode === 'manual' && (
+                        <WordPairList
+                            wordPairs={formData.wordPairs}
+                            onChange={wordPairs => setFormData({ ...formData, wordPairs })}
+                            sourceLanguage={formData.sourceLanguage}
+                            targetLanguage={formData.targetLanguage}
+                            disabled={isLoadingState}
+                        />
+                    )}
+
+                    {mode === 'ai-prompt' && (
+                        <div className="space-y-4">
+                            <Label>What is this dictation about?</Label>
+                            <Input
+                                placeholder="e.g. Travel vocabulary, Business meeting terms..."
+                                value={aiInput}
+                                onChange={e => setAiInput(e.target.value)}
+                            />
+                            <Button type="button" onClick={handleGenerate} disabled={isLoadingState || !aiInput}>
+                                {isGenerating ? <Spinner size="sm" /> : "Generate Pairs"}
+                            </Button>
+                        </div>
+                    )}
+
+                    {mode === 'from-text' && (
+                        <div className="space-y-4">
+                            <Label>Paste your text here</Label>
+                            <Textarea
+                                placeholder="Paste a story, article, or list..."
+                                className="min-h-[200px]"
+                                value={aiInput}
+                                onChange={e => setAiInput(e.target.value)}
+                            />
+                            <Button type="button" onClick={handleGenerate} disabled={isLoadingState || !aiInput}>
+                                {isGenerating ? <Spinner size="sm" /> : "Extract Pairs"}
+                            </Button>
+                        </div>
+                    )}
+
+                    {mode === 'file-upload' && (
+                        <div className="space-y-4 text-center py-8">
+                            <Label className="block mb-4">Upload a .txt, .md (processed by AI) or .csv (parsed directly)</Label>
+                            <div className="flex justify-center">
+                                <Input
+                                    type="file"
+                                    accept=".txt,.md,.csv,image/*"
+                                    onChange={handleFileUpload}
+                                    className="max-w-xs"
+                                    disabled={isLoadingState}
+                                />
+                            </div>
+                            {isGenerating && <Spinner className="mx-auto mt-4" />}
+                        </div>
+                    )}
+                </div>
             </div>
 
             {/* Advanced Quiz Options */}
@@ -321,14 +477,6 @@ export function DictationForm({ dictationId }: { dictationId?: string }) {
 
             <div className="flex justify-end gap-4">
                 <Button
-                    type="button"
-                    variant="outline"
-                    onClick={handleGenerateContent}
-                    disabled={isLoadingState}
-                >
-                    {isGenerating ? <Spinner size="sm" /> : (t?.populateData || "Populate with AI")}
-                </Button>
-                <Button
                     type="submit"
                     disabled={isLoadingState}
                     className="bg-indigo-600 text-white"
@@ -336,7 +484,6 @@ export function DictationForm({ dictationId }: { dictationId?: string }) {
                     {isSubmitting ? <Spinner size="sm" /> : (dictationId ? (t?.saveChanges || "Save Changes") : (t?.createDictation || "Create Dictation"))}
                 </Button>
             </div>
-
         </form>
     )
 }

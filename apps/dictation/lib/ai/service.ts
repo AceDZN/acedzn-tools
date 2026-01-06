@@ -109,11 +109,11 @@ export async function extractContent(args: {
     let resultText = "";
 
     // Default to Gemini for images if not specified
-    const modelName = args.model || (isImage ? "gemini-2.5-flash-lite" : "gemini-2.5-flash-lite");
+    const modelName = args.model || "gemini-2.5-flash-lite";
 
     if (modelName.toLowerCase().includes("gemini")) {
         const genAI = new GoogleGenerativeAI(process.env.GOOGLE_AI_API_KEY || process.env.GOOGLE_API_KEY || "");
-        const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-lite" });
+        const model = genAI.getGenerativeModel({ model: modelName });
 
         let result;
         if (isImage && args.image) {
