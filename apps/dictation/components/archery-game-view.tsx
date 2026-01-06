@@ -77,7 +77,7 @@ export function ArcheryGameView({
         fails: 0,
         isPaused: false,
         completedWords: 0,
-        isStarted: true,
+        isStarted: false,
         score: 0,
         isBowDrawn: false,
         archerPosition: new THREE.Vector3(0, 0, 5)
@@ -188,11 +188,11 @@ export function ArcheryGameView({
     });
 
     useEffect(() => {
-        if (gameState.isGameOver) {
+        if (gameState.isGameOver || !gameState.isStarted) {
             return;
         }
         speakPromptWord();
-    }, [gameState.isGameOver, speakPromptWord]);
+    }, [gameState.isGameOver, speakPromptWord, gameState.isStarted]);
 
     // Update targets when current word changes
     useEffect(() => {
@@ -478,6 +478,17 @@ export function ArcheryGameView({
                 <div className={`absolute top-0 right-0 z-10 ${debugMode ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
                     <Leva titleBar={{ title: "Archery Debug", filter: false }} />
                 </div>
+                {!gameState.isStarted && (
+                    <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm rounded-lg">
+                        <Button
+                            onClick={() => setGameState(prev => ({ ...prev, isStarted: true }))}
+                            size="lg"
+                            className="text-xl px-8 py-6 font-bold shadow-lg hover:scale-105 transition-transform"
+                        >
+                            {t?.startGame || "Start Game"}
+                        </Button>
+                    </div>
+                )}
             </div>
 
             {!hideExampleSentences && getSecondSentence(getCurrentWord()) && (
