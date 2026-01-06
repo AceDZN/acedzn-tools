@@ -428,6 +428,7 @@ export function QuizGameView({
         return (
             <GameOverView
                 gameId={game._id}
+                title={game.title}
                 stars={gameState.stars}
                 hearts={gameState.hearts}
                 totalTime={gameState.totalTime}

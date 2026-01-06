@@ -7,6 +7,7 @@ import { Button } from "@repo/ui/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@repo/ui/components/ui/card";
 import { Spinner } from "@repo/ui/components/ui/spinner";
 import { PlusIcon, PlayIcon } from "@heroicons/react/24/outline";
+import { LatestGames } from "../../../components/latest-games";
 
 export default function DashboardPage() {
     const dictations = useQuery(api.dictation.myDictations);
@@ -67,6 +68,11 @@ export default function DashboardPage() {
                         ))}
                     </div>
                 )}
+            </div>
+
+            <div className="mt-12 space-y-6">
+                <h2 className="text-xl font-semibold text-gray-700">Community Games</h2>
+                <LatestGames />
             </div>
         </div>
     );
