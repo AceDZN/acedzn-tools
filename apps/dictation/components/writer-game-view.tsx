@@ -105,6 +105,18 @@ export function WriterGameView({
             total_words_count: game.wordPairs.length,
             is_win: isWin
         });
+        if (isWin) {
+            trackEvent(EVENTS.GAME_ENDED, {
+                game_id: game._id,
+                game_title: game.title,
+                game_mode: "writer",
+                source_language: game.sourceLanguage,
+                target_language: game.targetLanguage,
+                score: gameState.score,
+                hearts_remaining: gameState.hearts,
+                time_taken: game.quizParameters.activityTimeLimit - gameState.timeLeft
+            });
+        }
     }, [game, gameState, gameState.score, gameState.hearts, gameState.timeLeft, gameState.fails, gameState.currentWordIndex]);
 
     const handleConfettiInit = useCallback(({ conductor }: { conductor: any }) => {

@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Button } from "@repo/ui/components/ui/button";
 import { ShareIcon, CheckIcon } from "@heroicons/react/24/outline";
 import { toast } from "sonner";
+import { trackEvent } from "@repo/analytics";
+import { EVENTS } from "../lib/analytics-events";
 
 interface GameShareProps {
     dictationId: string;
@@ -19,7 +21,12 @@ export function GameShare({ dictationId, title }: GameShareProps) {
         try {
             await navigator.clipboard.writeText(url);
             setCopied(true);
+            setCopied(true);
             toast.success("Link copied to clipboard!");
+            trackEvent(EVENTS.CLICK_SHARE, {
+                dictation_id: dictationId,
+                title: title
+            });
             setTimeout(() => setCopied(false), 2000);
         } catch (err) {
             console.error("Failed to copy", err);

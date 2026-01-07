@@ -13,6 +13,9 @@ interface GameContainerProps {
     game: DictationGame
 }
 
+import { trackEvent } from "@repo/analytics"
+import { EVENTS } from "../lib/analytics-events"
+
 export function GameContainer({ game }: GameContainerProps) {
     const router = useRouter()
     const params = useParams()
@@ -35,18 +38,46 @@ export function GameContainer({ game }: GameContainerProps) {
 
 
     const handleWriterGameStart = () => {
+        trackEvent(EVENTS.GAME_MODE_SELECTED, {
+            game_id: game._id,
+            game_title: game.title,
+            mode: 'writer',
+            source_language: game.sourceLanguage,
+            target_language: game.targetLanguage
+        })
         router.push(buildGameUrl('writer-game'))
     }
 
     const handleQuizGameStart = () => {
+        trackEvent(EVENTS.GAME_MODE_SELECTED, {
+            game_id: game._id,
+            game_title: game.title,
+            mode: 'quiz',
+            source_language: game.sourceLanguage,
+            target_language: game.targetLanguage
+        })
         router.push(buildGameUrl('quiz-game'))
     }
 
     const handleArcheryGameStart = () => {
+        trackEvent(EVENTS.GAME_MODE_SELECTED, {
+            game_id: game._id,
+            game_title: game.title,
+            mode: 'archery',
+            source_language: game.sourceLanguage,
+            target_language: game.targetLanguage
+        })
         router.push(buildGameUrl('archery-game'))
     }
 
     const handleCardsGameStart = () => {
+        trackEvent(EVENTS.GAME_MODE_SELECTED, {
+            game_id: game._id,
+            game_title: game.title,
+            mode: 'cards',
+            source_language: game.sourceLanguage,
+            target_language: game.targetLanguage
+        })
         router.push(buildGameUrl('practice-cards'))
     }
 

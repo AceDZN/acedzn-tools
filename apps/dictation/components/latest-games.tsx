@@ -7,6 +7,8 @@ import { Button } from "@repo/ui/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@repo/ui/components/ui/card";
 import { Spinner } from "@repo/ui/components/ui/spinner";
 import { PlayIcon } from "@heroicons/react/24/outline";
+import { trackEvent } from "@repo/analytics";
+import { EVENTS } from "../lib/analytics-events";
 
 export function LatestGames() {
     const games = useQuery(api.dictation.listDictations);
@@ -37,7 +39,11 @@ export function LatestGames() {
                             <span className="text-xs text-gray-400">
                                 {game.wordPairs.length} words • {game.playCount || 0} plays
                             </span>
-                            <Link href={`/game/${game._id}`}>
+                            <Link href={`/game/${game._id}`} onClick={() => trackEvent(EVENTS.GAME_PLAY_CLICKED, {
+                                game_id: game._id,
+                                title: game.title,
+                                source: 'dashboard_community'
+                            })}>
                                 <Button size="sm" variant="secondary" className="w-full">
                                     <PlayIcon className="w-4 h-4 mr-2" />
                                     Play

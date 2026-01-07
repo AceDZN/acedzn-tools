@@ -18,6 +18,8 @@ import { WordPairList } from "./word-pair-list";
 import { AdvancedQuizOptions } from "./advanced-quiz-options";
 import { WordPair, QuizParameters } from "../lib/types";
 import { toast } from "sonner";
+import { trackEvent } from "@repo/analytics";
+import { EVENTS } from "../lib/analytics-events";
 
 const DEFAULT_LANGUAGES = {
     source: 'Hebrew',
@@ -102,6 +104,13 @@ export function DictationForm({ dictationId }: { dictationId?: string }) {
         setIsGenerating(true);
         setError(undefined);
 
+        trackEvent(EVENTS.AI_GENERATION_STARTED, {
+            mode: mode,
+            input_length: aiInput.length,
+            source_language: formData.sourceLanguage,
+            target_language: formData.targetLanguage
+        });
+
         try {
             let result: any = null;
 
@@ -132,6 +141,10 @@ export function DictationForm({ dictationId }: { dictationId?: string }) {
                     wordPairs: pairs as WordPair[]
                 }));
                 toast.success(`Generated ${pairs.length} word pairs`);
+                trackEvent(EVENTS.AI_GENERATION_COMPLETED, {
+                    mode: mode,
+                    pairs_count: pairs.length
+                });
                 setMode('manual'); // Switch back to review
             } else {
                 toast.error("No pairs generated. Try a different prompt.");
@@ -139,6 +152,10 @@ export function DictationForm({ dictationId }: { dictationId?: string }) {
         } catch (err) {
             console.error(err);
             setError("Failed to generate content. Please try again.");
+            trackEvent(EVENTS.AI_GENERATION_FAILED, {
+                mode: mode,
+                error: err instanceof Error ? err.message : 'Unknown error'
+            });
         } finally {
             setIsGenerating(false);
         }
@@ -155,6 +172,12 @@ export function DictationForm({ dictationId }: { dictationId?: string }) {
         try {
             // Image handling
             if (file.type.startsWith('image/')) {
+                trackEvent(EVENTS.AI_GENERATION_STARTED, {
+                    mode: 'file-upload-image',
+                    file_type: file.type,
+                    source_language: formData.sourceLanguage,
+                    target_language: formData.targetLanguage
+                });
                 // 1. Get upload URL
                 const postUrl = await generateUploadUrl();
 
@@ -186,6 +209,10 @@ export function DictationForm({ dictationId }: { dictationId?: string }) {
                         wordPairs: pairs as WordPair[]
                     }));
                     toast.success(`Extracted ${pairs.length} pairs from image`);
+                    trackEvent(EVENTS.AI_GENERATION_COMPLETED, {
+                        mode: 'file-upload-image',
+                        pairs_count: pairs.length
+                    });
                     setMode('manual');
                 } else {
                     toast.error("Could not find any words in the image.");
@@ -197,6 +224,10 @@ export function DictationForm({ dictationId }: { dictationId?: string }) {
 
                 // If it's a CSV, parse it directly
                 if (file.name.endsWith('.csv')) {
+                    trackEvent(EVENTS.AI_GENERATION_STARTED, {
+                        mode: 'file-upload-csv',
+                        file_type: file.type
+                    });
                     const lines = text.split('\n');
                     const pairs: WordPair[] = lines.filter(l => l.includes(',')).map(line => {
                         const [first, second, s1, s2] = line.split(',').map(s => s.trim());
@@ -211,6 +242,10 @@ export function DictationForm({ dictationId }: { dictationId?: string }) {
                     if (pairs.length > 0) {
                         setFormData(prev => ({ ...prev, wordPairs: pairs }));
                         toast.success(`Parsed ${pairs.length} pairs from CSV`);
+                        trackEvent(EVENTS.AI_GENERATION_COMPLETED, {
+                            mode: 'file-upload-csv',
+                            pairs_count: pairs.length
+                        });
                         setMode('manual');
                     }
                 } else {
@@ -219,6 +254,12 @@ export function DictationForm({ dictationId }: { dictationId?: string }) {
                         text: text,
                         sourceLanguage: formData.sourceLanguage,
                         targetLanguage: formData.targetLanguage
+                    });
+
+                    trackEvent(EVENTS.AI_GENERATION_STARTED, {
+                        mode: 'file-upload-text',
+                        source_language: formData.sourceLanguage,
+                        target_language: formData.targetLanguage
                     });
 
                     const pairs = Array.isArray(result) ? result : result?.wordPairs || [];
@@ -233,6 +274,10 @@ export function DictationForm({ dictationId }: { dictationId?: string }) {
                             wordPairs: pairs as WordPair[]
                         }));
                         toast.success(`Extracted ${pairs.length} pairs from file`);
+                        trackEvent(EVENTS.AI_GENERATION_COMPLETED, {
+                            mode: 'file-upload-text',
+                            pairs_count: pairs.length
+                        });
                         setMode('manual');
                     } else {
                         toast.error("Could not extract any words from text.");
@@ -242,6 +287,10 @@ export function DictationForm({ dictationId }: { dictationId?: string }) {
         } catch (err) {
             console.error(err);
             toast.error("Failed to process file");
+            trackEvent(EVENTS.AI_GENERATION_FAILED, {
+                mode: 'file-upload',
+                error: err instanceof Error ? err.message : 'Unknown error'
+            });
         } finally {
             setIsGenerating(false);
             e.target.value = ''; // Reset
@@ -265,6 +314,14 @@ export function DictationForm({ dictationId }: { dictationId?: string }) {
                     quizParameters: formData.quizParameters,
                     isPublic: formData.isPublic,
                 });
+                trackEvent(EVENTS.DICTATION_UPDATED, {
+                    dictation_id: dictationId,
+                    title: formData.title,
+                    source_language: formData.sourceLanguage,
+                    target_language: formData.targetLanguage,
+                    pairs_count: formData.wordPairs.length,
+                    is_public: formData.isPublic
+                });
             } else {
                 await createAction({
                     title: formData.title,
@@ -274,6 +331,13 @@ export function DictationForm({ dictationId }: { dictationId?: string }) {
                     wordPairs: formData.wordPairs,
                     quizParameters: formData.quizParameters,
                     isPublic: formData.isPublic,
+                });
+                trackEvent(EVENTS.DICTATION_CREATED, {
+                    title: formData.title,
+                    source_language: formData.sourceLanguage,
+                    target_language: formData.targetLanguage,
+                    pairs_count: formData.wordPairs.length,
+                    is_public: formData.isPublic
                 });
             }
             router.push('/dashboard');

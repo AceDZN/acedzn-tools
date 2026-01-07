@@ -7,6 +7,8 @@ import { useMutation } from "convex/react";
 import { api } from "@repo/db";
 import { Id } from "@repo/db";
 import { GameShare } from "./game-share";
+import { trackEvent } from "@repo/analytics";
+import { EVENTS } from "../lib/analytics-events";
 
 interface GameOverViewProps {
     gameId: string;
@@ -87,13 +89,25 @@ export function GameOverView({
                 <div className="mt-6 sm:mt-8 flex flex-col gap-4">
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center">
                         <button
-                            onClick={onPlayAgain}
+                            onClick={() => {
+                                trackEvent(EVENTS.CLICK_RESTART, {
+                                    dictation_id: gameId,
+                                    title: title
+                                });
+                                onPlayAgain();
+                            }}
                             className="bg-indigo-600 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-xl text-base sm:text-lg font-bold hover:bg-indigo-700 transform hover:scale-105 transition-all shadow-lg w-full sm:w-auto"
                         >
                             {t?.playAgain || "Play Again"}
                         </button>
                         <button
-                            onClick={onExit}
+                            onClick={() => {
+                                trackEvent(EVENTS.CLICK_EXIT, {
+                                    dictation_id: gameId,
+                                    title: title
+                                });
+                                onExit();
+                            }}
                             className="bg-gray-600 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-xl text-base sm:text-lg font-bold hover:bg-gray-700 transform hover:scale-105 transition-all shadow-lg w-full sm:w-auto"
                         >
                             {t?.exit || "Exit"}

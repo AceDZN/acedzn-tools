@@ -8,6 +8,8 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@repo
 import { Spinner } from "@repo/ui/components/ui/spinner";
 import { PlusIcon, PlayIcon } from "@heroicons/react/24/outline";
 import { LatestGames } from "../../../components/latest-games";
+import { trackEvent } from "@repo/analytics";
+import { EVENTS } from "../../../lib/analytics-events";
 
 export default function DashboardPage() {
     const dictations = useQuery(api.dictation.myDictations);
@@ -16,7 +18,7 @@ export default function DashboardPage() {
         <div className="container mx-auto py-8 px-4">
             <div className="flex items-center justify-between mb-8">
                 <h1 className="text-3xl font-bold text-gray-900">My Dashboard</h1>
-                <Link href="/create">
+                <Link href="/create" onClick={() => trackEvent(EVENTS.DASHBOARD_CREATE_CLICKED)}>
                     <Button className="bg-indigo-600">
                         <PlusIcon className="w-5 h-5 mr-2" />
                         Create New
@@ -34,7 +36,7 @@ export default function DashboardPage() {
                 ) : dictations.length === 0 ? (
                     <div className="text-center py-12 bg-gray-50 rounded-lg border border-dashed border-gray-300">
                         <p className="text-gray-500 mb-4">You haven't created any dictations yet.</p>
-                        <Link href="/create">
+                        <Link href="/create" onClick={() => trackEvent(EVENTS.DASHBOARD_CREATE_CLICKED)}>
                             <Button variant="outline">Get Started</Button>
                         </Link>
                     </div>
@@ -56,7 +58,11 @@ export default function DashboardPage() {
                                         <span className="text-xs text-gray-400">
                                             {game.wordPairs.length} words
                                         </span>
-                                        <Link href={`/game/${game._id}`}>
+                                        <Link href={`/game/${game._id}`} onClick={() => trackEvent(EVENTS.GAME_PLAY_CLICKED, {
+                                            game_id: game._id,
+                                            title: game.title,
+                                            source: 'dashboard_personal'
+                                        })}>
                                             <Button size="sm" variant="secondary">
                                                 <PlayIcon className="w-4 h-4 mr-2" />
                                                 Play
