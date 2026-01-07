@@ -1,0 +1,9 @@
+{
+    "title": "AceDZN תיעוד",
+    "titleTemplate": "%s | AceDZN תיעוד",
+    "description": "תיעוד מקיף עבור הכלים וה-API של AceDZN.",
+    "keywords": "תיעוד, api, מפתחים, מדריכים, הפניות",
+    "og": {
+        "siteName": "AceDZN תיעוד"
+    }
+}

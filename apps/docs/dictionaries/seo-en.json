@@ -1,0 +1,9 @@
+{
+    "title": "AceDZN Docs",
+    "titleTemplate": "%s | AceDZN Docs",
+    "description": "Comprehensive documentation for AceDZN Tools and APIs.",
+    "keywords": "documentation, api docs, developers, guides, reference",
+    "og": {
+        "siteName": "AceDZN Docs"
+    }
+}

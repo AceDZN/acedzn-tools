@@ -1,0 +1,9 @@
+{
+    "title": "AceDZN Tools",
+    "titleTemplate": "%s | AceDZN Tools",
+    "description": "A collection of powerful tools for developers, including JSON formatting, base64 encoding, and more.",
+    "keywords": "developer tools, json formatter, base64 encoder, web tools, productivity",
+    "og": {
+        "siteName": "AceDZN Tools"
+    }
+}

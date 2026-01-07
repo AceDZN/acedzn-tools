@@ -10,16 +10,34 @@ import { Footer } from "../../components/footer";
 import { UserSync } from "../../components/user-sync";
 import { getDictionary } from "../../lib/dictionary";
 
-export const metadata: Metadata = {
-    title: "AceDZN Dictation",
-    description: "Master your languages with AI dictations.",
-    icons: {
-        icon: '/logo.svg',
-    },
-    openGraph: {
-        images: ['/og/create-dictation.png'],
-    },
-};
+const getSeo = async (locale: "en" | "he") => {
+    const dictionary = await import(`../../messages/seo-${locale}.json`)
+    return dictionary.default
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+    const { lang } = await params
+    const seo = await getSeo(lang as "en" | "he")
+
+    return {
+        title: {
+            default: seo.title,
+            template: seo.titleTemplate,
+        },
+        description: seo.description,
+        keywords: seo.keywords ? seo.keywords.split(',') : [],
+        icons: {
+            icon: '/logo.svg',
+        },
+        openGraph: {
+            siteName: seo.og.siteName,
+            title: seo.title,
+            description: seo.description,
+            images: ['/og/create-dictation.png'],
+            type: 'website',
+        },
+    }
+}
 
 import { Alef } from "next/font/google";
 

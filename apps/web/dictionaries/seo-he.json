@@ -1,0 +1,9 @@
+{
+    "title": "כלי AceDZN",
+    "titleTemplate": "%s | כלי AceDZN",
+    "description": "אוסף כלים עוצמתיים למפתחים, כולל פירמוט JSON, קידוד Base64 ועוד.",
+    "keywords": "כלי פיתוח, מפרמט json, מקודד base64, כלי רשת, פרודוקטיביות",
+    "og": {
+        "siteName": "כלי AceDZN"
+    }
+}

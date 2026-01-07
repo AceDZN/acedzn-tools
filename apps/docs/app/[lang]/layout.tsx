@@ -21,10 +21,30 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-export const metadata: Metadata = {
-  title: "AceDZN Docs",
-  description: "Documentation for AceDZN Tools.",
-};
+const getSeo = async (locale: "en" | "he") => {
+  const dictionary = await import(`../../dictionaries/seo-${locale}.json`)
+  return dictionary.default
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params
+  const seo = await getSeo(lang as "en" | "he")
+
+  return {
+    title: {
+      default: seo.title,
+      template: seo.titleTemplate,
+    },
+    description: seo.description,
+    keywords: seo.keywords ? seo.keywords.split(',') : [],
+    openGraph: {
+      siteName: seo.og.siteName,
+      title: seo.title,
+      description: seo.description,
+      type: 'website',
+    },
+  }
+}
 
 export async function generateStaticParams() {
   return [{ lang: 'en' }, { lang: 'he' }]
