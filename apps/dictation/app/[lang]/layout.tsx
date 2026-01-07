@@ -13,6 +13,12 @@ import { getDictionary } from "../../lib/dictionary";
 export const metadata: Metadata = {
     title: "AceDZN Dictation",
     description: "Master your languages with AI dictations.",
+    icons: {
+        icon: '/logo.svg',
+    },
+    openGraph: {
+        images: ['/og/create-dictation.png'],
+    },
 };
 
 import { Alef } from "next/font/google";
