@@ -552,7 +552,7 @@ export const generateFromImage = action({
         const bytes = new Uint8Array(imageBuffer);
         const len = bytes.byteLength;
         for (let i = 0; i < len; i++) {
-            binary += String.fromCharCode(bytes[i]);
+            binary += String.fromCharCode(bytes[i]!);
         }
         const base64Image = btoa(binary);
 
@@ -608,7 +608,25 @@ export const generateFromImage = action({
         } catch (e) {
             console.error("Failed to generate/parse Gemini response", e);
             return [];
+        } finally {
+            // Clean up the uploaded image
+            try {
+                if (args.storageId) {
+                    await ctx.runMutation("dictation:deleteStorageFile" as any, {
+                        storageId: args.storageId,
+                    });
+                }
+            } catch (cleanupError) {
+                console.error("Failed to delete processed image:", cleanupError);
+            }
         }
+    },
+});
+
+export const deleteStorageFile = mutation({
+    args: { storageId: v.id("_storage") },
+    handler: async (ctx, args) => {
+        await ctx.storage.delete(args.storageId);
     },
 });
 

@@ -7,7 +7,8 @@ import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import { Button } from "@repo/ui/components/ui/button";
 import { GameOverView } from "./game-over-view";
 import { GameHeader, GameHeaderRef } from "./game-header";
-import { trackEvent } from "../lib/posthog-utils";
+import { trackEvent } from "@repo/analytics";
+import { EVENTS } from "../lib/analytics-events";
 import { useTTSPlayer } from "../hooks/use-tts-player";
 import { getLanguageBCP47Tag } from "../lib/language-tags";
 import Realistic from "react-canvas-confetti/dist/presets/realistic";
@@ -208,7 +209,7 @@ export function ArcheryGameView({
             totalTime: Math.floor((Date.now() - prev.gameStartTime) / 1000)
         }));
 
-        trackEvent("game_over", {
+        trackEvent(EVENTS.GAME_OVER, {
             game_id: game._id,
             game_title: game.title,
             game_mode: "archery",
@@ -302,7 +303,7 @@ export function ArcheryGameView({
                 moveToNextWord();
             });
 
-        trackEvent("answer_correct", {
+        trackEvent(EVENTS.ANSWER_CORRECT, {
             game_id: game._id,
             game_title: game.title,
             source_language: game.sourceLanguage,
@@ -350,7 +351,7 @@ export function ArcheryGameView({
             endGame(false);
         }
 
-        trackEvent("answer_incorrect", {
+        trackEvent(EVENTS.ANSWER_INCORRECT, {
             game_id: game._id,
             game_title: game.title,
             source_language: game.sourceLanguage,
@@ -393,7 +394,7 @@ export function ArcheryGameView({
     // Track game start
     useEffect(() => {
         if (gameState.isStarted) {
-            trackEvent("play_started", {
+            trackEvent(EVENTS.GAME_STARTED, {
                 game_id: game._id,
                 game_title: game.title,
                 source_language: game.sourceLanguage,

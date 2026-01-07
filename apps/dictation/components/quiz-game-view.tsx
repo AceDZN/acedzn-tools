@@ -9,7 +9,8 @@ import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import { Button } from "@repo/ui/components/ui/button";
 import { GameOverView } from "./game-over-view";
 import { GameHeader, GameHeaderRef } from "./game-header";
-import { trackEvent } from "../lib/posthog-utils";
+import { trackEvent } from "@repo/analytics";
+import { EVENTS } from "../lib/analytics-events";
 import { useTTSPlayer } from "../hooks/use-tts-player";
 import { getLanguageBCP47Tag } from "../lib/language-tags";
 import { useDictionary } from "./dictionary-provider";
@@ -88,7 +89,7 @@ export function QuizGameView({
     const [scope, animate] = useAnimate();
 
     const endGame = useCallback((isWin: boolean = false) => {
-        trackEvent("game_over", {
+        trackEvent(EVENTS.GAME_OVER, {
             game_id: game._id,
             game_title: game.title,
             game_mode: "quiz",
@@ -233,7 +234,7 @@ export function QuizGameView({
         }));
 
         if (isCorrect) {
-            trackEvent("answer_correct", {
+            trackEvent(EVENTS.ANSWER_CORRECT, {
                 game_id: game._id,
                 game_title: game.title,
                 source_language: game.sourceLanguage,
@@ -255,7 +256,7 @@ export function QuizGameView({
                 moveToNextWord();
             });
         } else {
-            trackEvent("answer_incorrect", {
+            trackEvent(EVENTS.ANSWER_INCORRECT, {
                 game_id: game._id,
                 game_title: game.title,
                 source_language: game.sourceLanguage,
@@ -413,7 +414,7 @@ export function QuizGameView({
 
     useEffect(() => {
         if (gameState.isStarted) {
-            trackEvent("play_started", {
+            trackEvent(EVENTS.GAME_STARTED, {
                 game_id: game._id,
                 game_title: game.title,
                 source_language: game.sourceLanguage,
