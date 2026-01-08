@@ -53,7 +53,7 @@ const InnerText = ({ block }: { block: InnerTextBlock }) => {
     lg: "text-xl"
   };
   const className = `leading-relaxed text-slate-700 ${sizeClasses[block.size || "md"]}`;
-  
+
   return (
     <div
       className={className}
