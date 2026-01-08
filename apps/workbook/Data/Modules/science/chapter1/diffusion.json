@@ -1,0 +1,183 @@
+{
+  "id": "diffusion",
+  "title": "פעפוע (דיפוזיה)",
+  "metadata": {
+    "description": "לימוד תהליך הפעפוע (דיפוזיה) בחומרים: כיצד חלקיקים נעים ומתערבבים מעצמם, הגורמים המשפיעים על מהירות הפעפוע ודוגמאות מחיי היומיום ומגוף האדם."
+  },
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "פעפוע (דיפוזיה)",
+      "subtitle": "כיצד חומרים מתערבבים מעצמם בזכות תנועת החלקיקים?"
+    },
+    {
+      "type": "introduction_block",
+      "title": "מהו פעפוע?",
+      "icon": "cyclone",
+      "theme": "primary-purple",
+      "content": [
+        {
+          "type": "text",
+          "size": "lg",
+          "content": "<strong>פעפוע (דיפוזיה)</strong> הוא תהליך שבו חלקיקי חומר נעים <strong>מאזור בו הם צפופים יותר</strong> לאזור בו הם <strong>פחות צפופים</strong> (או אינם נמצאים כלל)."
+        },
+        {
+          "type": "text",
+          "size": "md",
+          "content": "הפעפוע מתרחש <strong>מעצמו</strong> - בלי שאנחנו עושים משהו! הוא קורה בזכות התנועה המתמדת של החלקיקים."
+        }
+      ]
+    },
+    {
+      "type": "simulation",
+      "componentName": "DiffusionSimulation"
+    },
+    {
+      "type": "grid_cards",
+      "cols": 3,
+      "cards": [
+        {
+          "title": "פעפוע בגז",
+          "icon": "dashing-away",
+          "variant": "pink-gradient",
+          "content": [
+            {
+              "type": "p",
+              "content": "<b>מהיר מאוד!</b>",
+              "size": "sm",
+              "className": "opacity-90 font-medium"
+            },
+            {
+              "type": "highlight_box",
+              "variant": "info",
+              "className": "mt-3",
+              "content": [
+                {
+                  "type": "p",
+                  "content": "החלקיקים נעים במהירות גבוהה והמרווחים גדולים, לכן הערבוב מהיר.",
+                  "size": "sm"
+                }
+              ]
+            },
+            {
+              "type": "p",
+              "size": "sm",
+              "className": "mt-3",
+              "content": "<img src=\"https://api.iconify.design/fluent-emoji/cherry-blossom.svg\" alt=\"blossom\" class=\"w-4 h-4 inline\" /> <em>דוגמה: ריח בושם שמתפזר בחדר</em>"
+            }
+          ]
+        },
+        {
+          "title": "פעפוע בנוזל",
+          "icon": "droplet",
+          "variant": "blue-gradient",
+          "content": [
+            {
+              "type": "p",
+              "content": "<b>איטי יותר</b>",
+              "size": "sm",
+              "className": "opacity-90 font-medium"
+            },
+            {
+              "type": "highlight_box",
+              "variant": "info",
+              "className": "mt-3",
+              "content": [
+                {
+                  "type": "p",
+                  "content": "החלקיקים קרובים יותר ונעים לאט יותר, לכן הערבוב לוקח זמן.",
+                  "size": "sm"
+                }
+              ]
+            },
+            {
+              "type": "p",
+              "size": "sm",
+              "className": "mt-3",
+              "content": "<img src=\"https://api.iconify.design/fluent-emoji/artist-palette.svg\" alt=\"palette\" class=\"w-4 h-4 inline\" /> <em>דוגמה: צבע מאכל שמתפזר במים</em>"
+            }
+          ]
+        },
+        {
+          "title": "פעפוע במוצק",
+          "icon": "ice",
+          "variant": "slate-gradient",
+          "content": [
+            {
+              "type": "p",
+              "content": "<b>איטי ביותר!</b>",
+              "size": "sm",
+              "className": "opacity-90 font-medium"
+            },
+            {
+              "type": "highlight_box",
+              "variant": "info",
+              "className": "mt-3",
+              "content": [
+                {
+                  "type": "p",
+                  "content": "החלקיקים רק רוטטים במקומם, כמעט לא מחליפים מקום.",
+                  "size": "sm"
+                }
+              ]
+            },
+            {
+              "type": "p",
+              "size": "sm",
+              "className": "mt-3",
+              "content": "<img src=\"https://api.iconify.design/fluent-emoji/gear.svg\" alt=\"gear\" class=\"w-4 h-4 inline\" /> <em>דוגמה: קורה רק בתהליכים תעשייתיים מיוחדים</em>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "scientific_table",
+      "title": "השוואת מהירות הפעפוע במצבי צבירה שונים",
+      "headers": [
+        "מצב צבירה",
+        "מהירות פעפוע",
+        "הסיבה (לפי מודל החלקיקים)",
+        "דוגמה"
+      ],
+      "rows": [
+        [
+          "גז",
+          "מהיר מאוד",
+          "חלקיקים נעים במהירות גבוהה, מרווחים גדולים",
+          "ריח בישול מתפזר בבית תוך דקות"
+        ],
+        [
+          "נוזל",
+          "איטי",
+          "חלקיקים קרובים, תנועה מוגבלת יותר",
+          "צבע מאכל מתפזר בכוס מים תוך דקות-שעות"
+        ],
+        [
+          "מוצק",
+          "איטי ביותר (כמעט לא קיים)",
+          "חלקיקים רק רוטטים במקומם",
+          "מתרחש רק בטמפרטורות גבוהות מאוד"
+        ]
+      ],
+      "variant": "blue"
+    },
+    {
+      "type": "text",
+      "content": "<div class=\"bg-gradient-to-r from-amber-100 to-orange-100 p-6 rounded-3xl border-2 border-amber-300 my-8\"><h4 class=\"text-xl font-black text-amber-900 mb-4\"><img src=\"https://api.iconify.design/fluent-emoji/fire.svg\" alt=\"fire\" class=\"w-8 h-8 inline\" /> גורמים המשפיעים על מהירות הפעפוע</h4><div class=\"grid md:grid-cols-2 gap-6\"><div class=\"bg-white p-5 rounded-2xl shadow-sm\"><h5 class=\"font-bold text-red-700 mb-2 flex items-center gap-2\"><img src=\"https://api.iconify.design/fluent-emoji/thermometer.svg\" alt=\"thermometer\" class=\"w-6 h-6\" /> טמפרטורה</h5><p class=\"text-slate-600\"><strong>ככל שהטמפרטורה גבוהה יותר, הפעפוע מהיר יותר!</strong></p><p class=\"text-slate-500 text-sm mt-2\">בטמפרטורה גבוהה, החלקיקים נעים מהר יותר ומתנגשים יותר, לכן הם מתפזרים מהר יותר.</p></div><div class=\"bg-white p-5 rounded-2xl shadow-sm\"><h5 class=\"font-bold text-blue-700 mb-2 flex items-center gap-2\"><img src=\"https://api.iconify.design/fluent-emoji/package.svg\" alt=\"package\" class=\"w-6 h-6\" /> מצב צבירה</h5><p class=\"text-slate-600\"><strong>פעפוע בגז מהיר יותר מפעפוע בנוזל!</strong></p><p class=\"text-slate-500 text-sm mt-2\">בגז יש יותר \"מקום פנוי\" בין החלקיקים, ולכן הם יכולים לנוע בחופשיות ולהתפזר מהר.</p></div><div class=\"bg-white p-5 rounded-2xl shadow-sm\"><h5 class=\"font-bold text-purple-700 mb-2 flex items-center gap-2\"><img src=\"https://api.iconify.design/fluent-emoji/balance-scale.svg\" alt=\"scale\" class=\"w-6 h-6\" /> גודל/מסת החלקיקים</h5><p class=\"text-slate-600\"><strong>חלקיקים קטנים ומהירים מתפזרים מהר יותר!</strong></p><p class=\"text-slate-500 text-sm mt-2\">חלקיקים קלים נעים במהירות גבוהה יותר מחלקיקים כבדים באותה טמפרטורה.</p></div><div class=\"bg-white p-5 rounded-2xl shadow-sm\"><h5 class=\"font-bold text-green-700 mb-2 flex items-center gap-2\"><img src=\"https://api.iconify.design/fluent-emoji/wind-face.svg\" alt=\"wind\" class=\"w-6 h-6\" /> נוכחות חומרים אחרים</h5><p class=\"text-slate-600\"><strong>בריק הפעפוע מהיר יותר מאשר בגז!</strong></p><p class=\"text-slate-500 text-sm mt-2\">אם יש חלקיקים אחרים (כמו אוויר), הם \"מפריעים\" ומאטים את התפשטות החלקיקים.</p></div></div></div>"
+    },
+    {
+      "type": "text",
+      "content": "<div class=\"bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-3xl border border-green-200 my-8\"><h4 class=\"text-xl font-black text-green-900 mb-4\"><img src=\"https://api.iconify.design/fluent-emoji/globe-showing-americas.svg\" alt=\"globe\" class=\"w-8 h-8 inline\" /> דוגמאות לפעפוע בחיי היומיום</h4><div class=\"grid md:grid-cols-2 gap-4\"><div class=\"flex items-start gap-3 bg-white p-4 rounded-xl\"><img src=\"https://api.iconify.design/fluent-emoji/steaming-bowl.svg\" alt=\"soup\" class=\"w-10 h-10\" /><div><strong>ריח מרק חם</strong><p class=\"text-sm text-slate-600\">כשהמרק חם, חלקיקי הריח נעים מהר ומגיעים לאף שלנו. כשהמרק מתקרר - הריח פחות מורגש.</p></div></div><div class=\"flex items-start gap-3 bg-white p-4 rounded-xl\"><img src=\"https://api.iconify.design/fluent-emoji/artist-palette.svg\" alt=\"palette\" class=\"w-10 h-10\" /><div><strong>צבע מאכל במים</strong><p class=\"text-sm text-slate-600\">טיפת צבע מתפזרת לאט במים קרים, אבל הרבה יותר מהר במים חמים.</p></div></div><div class=\"flex items-start gap-3 bg-white p-4 rounded-xl\"><img src=\"https://api.iconify.design/fluent-emoji/cigarette.svg\" alt=\"smoke\" class=\"w-10 h-10\" /><div><strong>עשן סיגריה</strong><p class=\"text-sm text-slate-600\">העשן מתפזר בחדר ונעלם - החלקיקים מתערבבים עם האוויר בפעפוע.</p></div></div><div class=\"flex items-start gap-3 bg-white p-4 rounded-xl\"><img src=\"https://api.iconify.design/fluent-emoji/lotion-bottle.svg\" alt=\"perfume\" class=\"w-10 h-10\" /><div><strong>בושם שמתפזר</strong><p class=\"text-sm text-slate-600\">גם בלי רוח, הריח מגיע לכל החדר - זהו פעפוע של חלקיקי הבושם באוויר.</p></div></div></div></div>"
+    },
+    {
+      "type": "enrichment",
+      "title": "למתקדמים: פעפוע ומערכות בגוף האדם",
+      "icon": "lungs",
+      "content": "<p>פעפוע הוא תהליך חיוני לחיים! בגוף שלנו, הוא מתרחש כל הזמן:</p><ul class=\"mt-3 space-y-2\"><li><img src=\"https://api.iconify.design/fluent-emoji/lungs.svg\" alt=\"lungs\" class=\"w-5 h-5 inline\" /> <strong>חילופי גזים בריאות:</strong> חמצן עובר מהאוויר לדם, ופחמן דו-חמצני עובר מהדם לאוויר - הכל בפעפוע!</li><li><img src=\"https://api.iconify.design/fluent-emoji/red-apple.svg\" alt=\"apple\" class=\"w-5 h-5 inline\" /> <strong>ספיגת מזון:</strong> חומרי מזון עוברים מהמעי לזרם הדם בפעפוע.</li><li><img src=\"https://api.iconify.design/fluent-emoji/droplet.svg\" alt=\"droplet\" class=\"w-5 h-5 inline\" /> <strong>פעולת הכליות:</strong> סינון פסולת מהדם מתבסס על פעפוע.</li></ul><p class=\"mt-3 p-3 bg-emerald-100 rounded-xl text-emerald-900\"><img src=\"https://api.iconify.design/fluent-emoji/light-bulb.svg\" alt=\"lightbulb\" class=\"w-5 h-5 inline\" /> בלי פעפוע, התאים שלנו לא היו מקבלים חמצן ומזון!</p>"
+    },
+    {
+      "type": "quiz"
+    }
+  ]
+}

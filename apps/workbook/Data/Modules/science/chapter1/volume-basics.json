@@ -1,0 +1,299 @@
+{
+  "id": "volume-basics",
+  "title": "מדידת נפח",
+  "metadata": {
+    "description": "לימוד שיטות למדידת נפח של נוזלים, גזים ומוצקים (הנדסיים ולא הנדסיים). הסבר על יחידות מידה, קריאת מניסקוס ושיטת דחיקת המים של ארכימדס."
+  },
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "מדידת נפח",
+      "subtitle": "כיצד מודדים את המקום שגוף תופס במרחב?"
+    },
+    {
+      "type": "introduction_block",
+      "title": "מהו נפח?",
+      "icon": "straight-ruler",
+      "theme": "primary-emerald",
+      "content": [
+        {
+          "type": "text",
+          "size": "lg",
+          "content": "<strong>נפח</strong> הוא המקום (המרחב) שגוף תופס. כל דבר שיש לו מסה גם תופס מקום - כלומר יש לו נפח."
+        },
+        {
+          "type": "cards",
+          "content": [
+            {
+              "title": "סמ\"ק",
+              "content": [
+                {
+                  "type": "text",
+                  "content": "1 סמ\"ק = 1 מ\"ל<br><span class=\"text-xs text-slate-500\">(סנטימטר מעוקב)</span>"
+                }
+              ]
+            },
+            {
+              "title": "מ\"ל",
+              "content": [
+                {
+                  "type": "text",
+                  "content": "1,000 מ\"ל = 1 ליטר<br><span class=\"text-xs text-slate-500\">(מיליליטר)</span>"
+                }
+              ]
+            },
+            {
+              "title": "ליטר",
+              "content": [
+                { "type": "text", "content": "יחידה בסיסית לנפח נוזלים" }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "size": "sm",
+          "content": "<strong>1 סמ\"ק = 1 מ\"ל</strong> &nbsp;|&nbsp; <strong>1 ליטר = 1000 מ\"ל</strong>"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<h3 class=\"text-2xl font-black text-center text-slate-800 mb-6\"><img src=\"https://api.iconify.design/fluent-emoji/triangular-ruler.svg\" alt=\"ruler\" class=\"w-8 h-8 inline\" /> שיטות מדידת נפח לפי סוג החומר</h3>"
+    },
+    {
+      "type": "introduction_block",
+      "title": "מדידת נפח נוזל וגז",
+      "icon": "triangular-ruler",
+      "theme": "primary-blue",
+      "content": [
+        {
+          "type": "cards",
+          "content": [
+            {
+              "title": "מדידת נפח נוזל",
+              "icon": "droplet",
+              "content": [
+                { "type": "text", "content": "פשוט מאוד - שופכים למשורה!" },
+                {
+                  "type": "text",
+                  "size": "sm",
+                  "content": "<strong>כלים:</strong> משורה, פיפטה, מזרק<br><strong>חשוב:</strong> להסתכל בגובה העיניים על <em>תחתית הקעור</em>"
+                }
+              ]
+            },
+            {
+              "title": "מדידת נפח גז",
+              "icon": "dashing-away",
+              "content": [
+                { "type": "text", "content": "הנפח שווה לנפח הכלי!" },
+                {
+                  "type": "text",
+                  "size": "sm",
+                  "content": "<strong>עיקרון:</strong> גז ממלא את כל נפח הכלי<br><strong>דוגמה:</strong> אוויר בבלון = נפח הבלון"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "introduction_block",
+      "title": "מדידת נפח מוצק - שתי שיטות!",
+      "icon": "ice",
+      "theme": "primary-orange",
+      "content": [
+        {
+          "type": "cards",
+          "content": [
+            {
+              "title": "מוצק הנדסי (צורה קבועה)",
+              "icon": "triangular-ruler",
+              "content": [
+                {
+                  "type": "text",
+                  "content": "כאשר למוצק יש צורה גיאומטרית ברורה (קובייה, תיבה, גליל), ניתן לחשב את הנפח בעזרת <strong>נוסחאות</strong>."
+                },
+                {
+                  "type": "text",
+                  "size": "sm",
+                  "content": "<strong>תיבה:</strong> אורך × רוחב × גובה<br><strong>קובייה:</strong> צלע³<br><strong>גליל:</strong> π × רדיוס² × גובה"
+                }
+              ]
+            },
+            {
+              "title": "מוצק לא הנדסי (צורה לא קבועה)",
+              "icon": "sweat-droplets",
+              "content": [
+                {
+                  "type": "text",
+                  "content": "כאשר למוצק צורה מורכבת (אבן, מפתח), משתמשים בשיטת <strong>דחיקת מים</strong>."
+                },
+                {
+                  "type": "text",
+                  "size": "sm",
+                  "content": "1. רושמים נפח מים<br>2. מכניסים את הגוף<br>3. נפח הגוף = הפרש המדידות"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "simulation",
+      "componentName": "VolumeSimulation"
+    },
+    {
+      "type": "simulation",
+      "componentName": "DisplacementSimulation"
+    },
+    {
+      "type": "section",
+      "className": "bg-gradient-to-br from-amber-50 to-yellow-50 p-6 rounded-3xl border border-amber-200",
+      "content": [
+        {
+          "type": "h3",
+          "className": "text-xl font-black text-amber-900 mb-4",
+          "icon": "light-bulb",
+          "content": "המניסקוס - הסוד לקריאה מדויקת"
+        },
+        {
+          "type": "grid_cards",
+          "cols": 2,
+          "cards": [
+            {
+              "title": "",
+              "variant": "amber",
+              "className": "p-1 md:p-1 lg:p-2",
+              "content": [
+                {
+                  "type": "p",
+                  "content": "כאשר נוזל נמצא בכלי צר (כמו משורה), שטח הפנים שלו <strong>לא שטוח</strong>! הוא יוצר צורה קעורה (או קמורה) שנקראת <strong>מניסקוס</strong>.",
+                  "size": "md",
+                  "align": "right",
+                  "className": "text-slate-700 mb-4"
+                },
+                {
+                  "type": "p",
+                  "content": "מים יוצרים מניסקוס <strong>קעור</strong> (גבוה בקצוות, נמוך באמצע).",
+                  "size": "md",
+                  "align": "right",
+                  "className": "text-slate-700 mb-4"
+                },
+                {
+                  "type": "highlight_box",
+                  "variant": "default",
+                  "content": [
+                    {
+                      "type": "p",
+                      "content": "<strong>🎯 כלל הזהב:</strong>",
+                      "size": "md",
+                      "className": "font-bold text-amber-800"
+                    },
+                    {
+                      "type": "p",
+                      "content": "תמיד להסתכל בגובה העיניים ולקרוא את הנפח ב<strong>תחתית המניסקוס</strong>!",
+                      "size": "md",
+                      "className": "text-slate-600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "",
+              "variant": "transparent",
+              "className": "p-0 md:p-0 lg:p-0",
+              "content": [
+                {
+                  "type": "simulation",
+                  "componentName": "MeniscusIllustration"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "scientific_table",
+      "title": "סיכום שיטות מדידת נפח",
+      "headers": ["סוג החומר", "שיטת מדידה", "כלי מדידה", "דוגמה"],
+      "rows": [
+        ["נוזל", "שפיכה לכלי מדודד", "משורה, פיפטה, מזרק", "מדידת כמות מים"],
+        ["גז", "נפח הכלי שמכיל אותו", "ידיעת נפח הכלי", "אוויר בבלון"],
+        ["מוצק הנדסי", "חישוב לפי נוסחה", "סרגל + מחשבון", "קוביית עץ"],
+        ["מוצק לא הנדסי", "דחיקת מים", "משורה עם מים", "אבן, מפתח"]
+      ],
+      "variant": "emerald"
+    },
+    {
+      "type": "enrichment",
+      "title": "הסיפור של ארכימדס והכתר",
+      "icon": "crown",
+      "content": "<p>לפי האגדה, המלך הירון ביקש מארכימדס לבדוק אם הכתר שלו עשוי מזהב טהור או שהצורף רימה אותו.</p><p class=\"mt-3\">ארכימדס התקשה - איך למדוד נפח של כתר מורכב? יום אחד באמבטיה, הוא שם לב שהמים עולים כשנכנס לאמבטיה. הוא הבין שאפשר למדוד נפח גוף לא הנדסי על ידי <strong>דחיקת מים</strong>!</p><p class=\"mt-3\">הוא קפץ מהאמבטיה וצעק <strong>\"יוריקה!\"</strong> (מצאתי!) - וכך גילה את שיטת דחיקת המים.</p><p class=\"mt-3 p-3 bg-amber-100 rounded-xl text-amber-900\"><img src=\"https://api.iconify.design/fluent-emoji/light-bulb.svg\" alt=\"lightbulb\" class=\"w-5 h-5 inline\" /> בזכות השיטה הזו, ארכימדס גילה שהכתר היה עשוי מתערובת של זהב וכסף!</p>"
+    },
+    {
+      "type": "introduction_block",
+      "title": "טעויות נפוצות במדידת נפח",
+      "icon": "warning",
+      "theme": "primary-orange",
+      "content": [
+        {
+          "type": "cards",
+          "content": [
+            {
+              "title": "זווית ראייה",
+              "icon": "cross-mark",
+              "content": [
+                {
+                  "type": "text",
+                  "size": "sm",
+                  "content": "הסתכלות מלמעלה או מלמטה גורמת לקריאה שגויה"
+                }
+              ]
+            },
+            {
+              "title": "קריאה שגויה",
+              "icon": "cross-mark",
+              "content": [
+                {
+                  "type": "text",
+                  "size": "sm",
+                  "content": "קריאה מראש המניסקוס במקום מהתחתית"
+                }
+              ]
+            },
+            {
+              "title": "שימוש לא נכון",
+              "icon": "cross-mark",
+              "content": [
+                {
+                  "type": "text",
+                  "size": "sm",
+                  "content": "שימוש בסרגל למוצק לא הנדסי"
+                }
+              ]
+            },
+            {
+              "title": "יחידות מידה",
+              "icon": "cross-mark",
+              "content": [
+                {
+                  "type": "text",
+                  "size": "sm",
+                  "content": "בלבול בין יחידות שונות"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "quiz"
+    }
+  ]
+}

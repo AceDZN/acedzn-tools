@@ -1,0 +1,148 @@
+{
+  "id": "compression",
+  "title": "דחיסה בחומר",
+  "metadata": {
+    "description": "הסבר על יכולת הדחיסה במצבי צבירה שונים (גז, נוזל ומוצק) לפי מודל החלקיקים, כולל דוגמאות ממערכות הידראוליות וניסוי המזרק."
+  },
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "דחיסה: למה זה אפשרי?",
+      "subtitle": "מדוע גז נדחס בקלות, נוזל כמעט ולא, ומוצק בכלל לא?"
+    },
+    {
+      "type": "introduction_block",
+      "title": "מהי דחיסה?",
+      "icon": "microscope",
+      "theme": "primary-orange",
+      "content": [
+        {
+          "type": "text",
+          "size": "lg",
+          "content": "<b>דחיסה</b> היא הקטנת הנפח של חומר על ידי הפעלת לחץ עליו. כשאנו דוחסים חומר, אנו מקטינים את המרווחים (הריק) שבין החלקיקים שלו."
+        }
+      ]
+    },
+    {
+      "type": "grid_cards",
+      "cols": 3,
+      "cards": [
+        {
+          "title": "דחיסת גז",
+          "icon": "dashing-away",
+          "variant": "indigo-gradient",
+          "content": [
+            {
+              "type": "p",
+              "content": "<b>גז נדחס בקלות רבה!</b>",
+              "size": "sm",
+              "className": "opacity-90 font-medium"
+            },
+            {
+              "type": "highlight_box",
+              "variant": "info",
+              "className": "mt-3",
+              "content": [
+                {
+                  "type": "p",
+                  "content": "המרווחים בין חלקיקי הגז הם עצומים. כשמפעילים לחץ, פשוט מקרבים את החלקיקים זה לזה.",
+                  "size": "sm"
+                }
+              ]
+            }
+          ]
+        },
+
+        {
+          "title": "דחיסת נוזל",
+          "icon": "droplet",
+          "variant": "blue-gradient",
+          "content": [
+            {
+              "type": "p",
+              "content": "<b>נוזל כמעט ואינו נדחס!</b>",
+              "size": "sm",
+              "className": "opacity-90 font-medium"
+            },
+            {
+              "type": "highlight_box",
+              "variant": "info",
+              "className": "mt-3",
+              "content": [
+                {
+                  "type": "p",
+                  "content": "המרווחים בין חלקיקי הנוזל קטנים מאוד. כמעט אין \"מקום\" לקרב אותם עוד יותר.",
+                  "size": "sm"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "דחיסת מוצק",
+          "icon": "ice",
+          "variant": "slate-gradient",
+          "content": [
+            {
+              "type": "p",
+              "content": "<b>מוצק אינו נדחס (אלא בלחץ עצום)!</b>",
+              "size": "sm",
+              "className": "opacity-90 font-medium"
+            },
+            {
+              "type": "highlight_box",
+              "variant": "info",
+              "className": "mt-3",
+              "content": [
+                {
+                  "type": "p",
+                  "content": "החלקיקים כבר צמודים זה לזה במבנה קבוע. אין מרווחים שאפשר להקטין.",
+                  "size": "sm"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "simulation",
+      "componentName": "CompressionSimulation"
+    },
+    {
+      "type": "scientific_table",
+      "title": "השוואת יכולת הדחיסה במצבי צבירה שונים",
+      "headers": [
+        "מצב צבירה",
+        "גודל המרווחים",
+        "יכולת דחיסה",
+        "דוגמה מחיי היומיום"
+      ],
+      "rows": [
+        [
+          "גז",
+          "גדולים מאוד",
+          "נדחס בקלות",
+          "משאבת אופניים - דוחסים אוויר בקלות"
+        ],
+        ["נוזל", "קטנים", "כמעט לא נדחס", "מזרק מלא מים - לא ניתן לדחוס"],
+        ["מוצק", "קטנים מאוד", "לא נדחס", "קוביית עץ - לא משתנה בלחץ יד"]
+      ],
+      "variant": "emerald",
+      "note": "ככל שהמרווחים בין החלקיקים גדולים יותר, כך יכולת הדחיסה גדולה יותר!"
+    },
+    {
+      "type": "text",
+      "content": "<div class=\"bg-gradient-to-r from-amber-100 to-orange-100 p-6 rounded-3xl border-2 border-amber-300 my-8\"><h4 class=\"text-xl font-black text-amber-900 mb-4\"><img src=\"https://api.iconify.design/fluent-emoji/test-tube.svg\" alt=\"test-tube\" class=\"w-8 h-8 inline\" /> ניסוי חשיבה: המזרק הסגור</h4><div class=\"grid md:grid-cols-2 gap-6\"><div class=\"bg-white p-4 rounded-2xl shadow-sm\"><h5 class=\"font-bold text-slate-800 mb-2\">מזרק עם אוויר</h5><p class=\"text-slate-600\">כשסוגרים את קצה המזרק ולוחצים על הבוכנה, האוויר נדחס בקלות. המרווחים העצומים בין חלקיקי הגז מתכווצים.</p></div><div class=\"bg-white p-4 rounded-2xl shadow-sm\"><h5 class=\"font-bold text-slate-800 mb-2\">מזרק עם מים</h5><p class=\"text-slate-600\">כשמנסים לעשות את אותו הדבר עם מים, הבוכנה כמעט לא זזה! אין מספיק מרווחים בין חלקיקי המים.</p></div></div></div>"
+    },
+    {
+      "type": "enrichment",
+      "title": "דחיסת נוזלים בעולם האמיתי",
+      "icon": "automobile",
+      "content": "<p>למרות שנוזלים כמעט אינם נדחסים, תכונה זו דווקא מאוד שימושית!</p><p class=\"mt-3\"><strong>מערכות הידראוליות:</strong> מערכות הבלמים ברכב עובדות על עיקרון זה. כשלוחצים על דוושת הבלם, שמן (נוזל) מעביר את הלחץ לגלגלים. מכיוון שהנוזל לא נדחס, הלחץ מועבר במלואו ובמהירות!</p><p class=\"mt-3 p-3 bg-blue-100 rounded-xl text-blue-900\"><img src=\"https://api.iconify.design/fluent-emoji/light-bulb.svg\" alt=\"lightbulb\" class=\"w-5 h-5 inline\" /> לו השמן היה נדחס כמו גז, הבלמים לא היו עובדים ביעילות!</p>"
+    },
+    {
+      "type": "quiz"
+    }
+  ]
+}

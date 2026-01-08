@@ -1,0 +1,110 @@
+{
+  "id": "surface-tension",
+  "title": "מתח פנים",
+  "metadata": {
+    "description": "הסבר על תופעת מתח הפנים בנוזלים לפי מודל החלקיקים: מדוע חרקים הולכים על מים, מדוע טיפות עגולות והשפעת הסבון והטמפרטורה."
+  },
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "מתח פנים של נוזלים",
+      "subtitle": "מדוע חרקים יכולים ללכת על פני המים ומדוע טיפות מים עגולות?"
+    },
+    {
+      "type": "introduction_block",
+      "title": "מהו מתח פנים?",
+      "icon": "droplet",
+      "theme": "primary-blue",
+      "content": [
+        {
+          "type": "text",
+          "size": "lg",
+          "content": "<strong>מתח פנים</strong> הוא תופעה שבה פני השטח של נוזל מתנהגים כמו \"קרום\" דק ואלסטי. זה מאפשר לחפצים קלים \"לצוף\" על פני הנוזל גם אם הם כבדים ממנו!"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<div class=\"bg-gradient-to-r from-blue-600 to-cyan-500 p-8 rounded-3xl text-white shadow-xl mb-8\"><h3 class=\"text-2xl font-black mb-6 text-center\"><img src=\"https://api.iconify.design/fluent-emoji/microscope.svg\" alt=\"microscope\" class=\"w-8 h-8 inline\" /> ההסבר לפי מודל החלקיקים</h3><div class=\"grid md:grid-cols-2 gap-8\"><div class=\"bg-white/20 p-6 rounded-2xl\"><h4 class=\"font-bold text-lg mb-3\">חלקיקים בתוך הנוזל</h4><p class=\"text-sm opacity-90\">חלקיק שנמצא <strong>בתוך</strong> הנוזל נמשך לכל הכיוונים - למעלה, למטה ולצדדים. כל הכוחות מתאזנים.</p><div class=\"mt-4 flex justify-center\"><div class=\"w-16 h-16 bg-blue-300 rounded-full flex items-center justify-center relative\"><span class=\"w-4 h-4 bg-white rounded-full\"></span><span class=\"absolute top-0 text-xl\">▲</span><span class=\"absolute bottom-0 text-xl\">▼</span><span class=\"absolute left-0 text-xl\">◄</span><span class=\"absolute right-0 text-xl\">►</span></div></div></div><div class=\"bg-white/20 p-6 rounded-2xl\"><h4 class=\"font-bold text-lg mb-3\">חלקיקים על פני השטח</h4><p class=\"text-sm opacity-90\">חלקיק שנמצא <strong>על פני השטח</strong> נמשך רק לצדדים ולמטה (אין חלקיקים מעליו!). לכן הוא נמשך פנימה ויוצר \"קרום\".</p><div class=\"mt-4 flex justify-center\"><div class=\"w-16 h-16 bg-blue-300 rounded-full flex items-center justify-center relative border-t-4 border-white/50\"><span class=\"w-4 h-4 bg-white rounded-full\"></span><span class=\"absolute bottom-0 text-xl\">▼</span><span class=\"absolute left-0 text-xl\">◄</span><span class=\"absolute right-0 text-xl\">►</span></div></div></div></div></div>"
+    },
+    {
+      "type": "simulation",
+      "componentName": "SurfaceTensionSimulation"
+    },
+    {
+      "type": "text",
+      "content": "<div class=\"grid md:grid-cols-2 gap-6 my-8\"><div class=\"bg-gradient-to-br from-emerald-50 to-teal-50 p-6 rounded-3xl border border-emerald-200\"><h4 class=\"text-xl font-black text-emerald-900 mb-4\"><img src=\"https://api.iconify.design/fluent-emoji/bullseye.svg\" alt=\"target\" class=\"w-8 h-8 inline\" /> למה טיפות מים עגולות?</h4><p class=\"text-slate-700\">כוחות המשיכה בין חלקיקי המים מושכים את כל החלקיקים פנימה. הצורה שבה יש הכי פחות שטח פנים (ולכן הכי יעילה אנרגטית) היא <strong>כדור</strong>!</p><p class=\"text-slate-600 mt-3 text-sm bg-white p-3 rounded-xl\"><img src=\"https://api.iconify.design/fluent-emoji/light-bulb.svg\" alt=\"lightbulb\" class=\"w-4 h-4 inline\" /> זו הסיבה שטיפות גשם, טיפות על עלים, ובועות סבון - כולן עגולות!</p></div><div class=\"bg-gradient-to-br from-amber-50 to-orange-50 p-6 rounded-3xl border border-amber-200\"><h4 class=\"text-xl font-black text-amber-900 mb-4\"><img src=\"https://api.iconify.design/fluent-emoji/mosquito.svg\" alt=\"mosquito\" class=\"w-8 h-8 inline\" /> למה חרקים הולכים על מים?</h4><p class=\"text-slate-700\">\"הקרום\" שנוצר על פני המים חזק מספיק כדי לשאת חרקים קלים! הרגליים של החרק לא שוברות את מתח הפנים אלא \"עומדות\" עליו.</p><p class=\"text-slate-600 mt-3 text-sm bg-white p-3 rounded-xl\"><img src=\"https://api.iconify.design/fluent-emoji/light-bulb.svg\" alt=\"lightbulb\" class=\"w-4 h-4 inline\" /> חרקי הברכות (סנאי המים) משתמשים בתופעה זו כדי \"ללכת\" על פני המים!</p></div></div>"
+    },
+    {
+      "type": "text",
+      "content": "<div class=\"bg-gradient-to-r from-pink-100 to-purple-100 p-6 rounded-3xl border-2 border-pink-300 my-8\"><h4 class=\"text-xl font-black text-pink-900 mb-4 flex items-center gap-2\"><img src=\"https://api.iconify.design/fluent-emoji/test-tube.svg\" alt=\"test-tube\" class=\"w-8 h-8\" /> ניסוי: טיפות על מטבע</h4><div class=\"grid md:grid-cols-3 gap-4\"><div class=\"bg-white p-4 rounded-2xl shadow-sm text-center\"><img src=\"https://api.iconify.design/fluent-emoji/coin.svg\" alt=\"coin\" class=\"w-12 h-12 mx-auto mb-2\" /><h5 class=\"font-bold text-slate-800\">שלב 1</h5><p class=\"text-sm text-slate-600\">קחו מטבע נקי</p></div><div class=\"bg-white p-4 rounded-2xl shadow-sm text-center\"><img src=\"https://api.iconify.design/fluent-emoji/droplet.svg\" alt=\"droplet\" class=\"w-12 h-12 mx-auto mb-2\" /><h5 class=\"font-bold text-slate-800\">שלב 2</h5><p class=\"text-sm text-slate-600\">הוסיפו טיפות מים אחת אחת בזהירות</p></div><div class=\"bg-white p-4 rounded-2xl shadow-sm text-center\"><img src=\"https://api.iconify.design/fluent-emoji/astonished-face.svg\" alt=\"astonished\" class=\"w-12 h-12 mx-auto mb-2\" /><h5 class=\"font-bold text-slate-800\">תוצאה</h5><p class=\"text-sm text-slate-600\">המים יוצרים \"כיפה\" גבוהה בלי לזלוג!</p></div></div><p class=\"mt-4 text-center text-pink-800 font-medium\">מתח הפנים מחזיק את המים ביחד ויוצר צורת כיפה קמורה!</p></div>"
+    },
+    {
+      "type": "scientific_table",
+      "title": "גורמים המשפיעים על מתח הפנים",
+      "headers": ["גורם", "השפעה על מתח הפנים", "הסבר"],
+      "rows": [
+        ["סוג הנוזל", "נוזלים שונים = מתח פנים שונה", "למים יש מתח פנים גבוה, לאלכוהול - נמוך יותר"],
+        ["טמפרטורה", "חימום מחליש את מתח הפנים", "בחום, החלקיקים נעים מהר יותר וכוחות המשיכה נחלשים"],
+        ["סבון/חומר פעיל שטח", "מחליש מאוד את מתח הפנים", "מולקולות הסבון \"מפרידות\" בין חלקיקי המים ומחלישות את הכוחות"]
+      ],
+      "variant": "blue",
+      "note": "זו הסיבה שסבון עוזר לנקות - הוא מפחית את מתח הפנים ומאפשר למים \"להיכנס\" לפינות!"
+    },
+    {
+      "type": "text",
+      "content": "<div class=\"bg-gradient-to-br from-indigo-50 to-violet-50 p-6 rounded-3xl border border-indigo-200 my-8\"><h4 class=\"text-xl font-black text-indigo-900 mb-4 flex items-center gap-2\"><img src=\"https://api.iconify.design/fluent-emoji/globe-showing-americas.svg\" alt=\"globe\" class=\"w-8 h-8\" /> מתח פנים בחיי היומיום</h4><div class=\"grid md:grid-cols-2 lg:grid-cols-4 gap-4\"><div class=\"flex flex-col items-center bg-white p-4 rounded-xl shadow-sm\"><img src=\"https://api.iconify.design/fluent-emoji/toothbrush.svg\" alt=\"toothbrush\" class=\"w-12 h-12 mb-2\" /><p class=\"text-sm text-center text-slate-700\"><strong>מברשת שיניים</strong><br>סבון מוריד מתח פנים ומאפשר לנוזל לחדור בין השיניים</p></div><div class=\"flex flex-col items-center bg-white p-4 rounded-xl shadow-sm\"><img src=\"https://api.iconify.design/fluent-emoji/bubbles.svg\" alt=\"bubbles\" class=\"w-12 h-12 mb-2\" /><p class=\"text-sm text-center text-slate-700\"><strong>בועות סבון</strong><br>הסבון מאפשר למים להימתח לכדור דק</p></div><div class=\"flex flex-col items-center bg-white p-4 rounded-xl shadow-sm\"><img src=\"https://api.iconify.design/fluent-emoji/cloud-with-rain.svg\" alt=\"rain\" class=\"w-12 h-12 mb-2\" /><p class=\"text-sm text-center text-slate-700\"><strong>טיפות גשם</strong><br>נוצרות בצורת כדור בגלל מתח פנים</p></div><div class=\"flex flex-col items-center bg-white p-4 rounded-xl shadow-sm\"><img src=\"https://api.iconify.design/fluent-emoji/drop-of-blood.svg\" alt=\"blood\" class=\"w-12 h-12 mb-2\" /><p class=\"text-sm text-center text-slate-700\"><strong>טיפות דם</strong><br>מתגלגלות כמו כדורים על משטחים</p></div></div></div>"
+    },
+    {
+      "type": "enrichment",
+      "title": "למתקדמים: מתח פנים ונימיות (קפילריות)",
+      "icon": "seedling",
+      "content": "<p>מתח הפנים קשור לתופעה נוספת - <strong>נימיות</strong> (קפילריות)!</p><p class=\"mt-3\">כשמכניסים צינור דק למים, המים \"מטפסים\" בתוך הצינור! זה קורה בגלל שהמים \"נמשכים\" לדפנות הזכוכית ומתח הפנים \"מושך\" את שאר המים למעלה.</p><ul class=\"mt-3 space-y-2 text-sm\"><li><img src=\"https://api.iconify.design/fluent-emoji/deciduous-tree.svg\" alt=\"tree\" class=\"w-5 h-5 inline\" /> <strong>עצים:</strong> כך מים מגיעים מהשורשים לעלים בגובה של עשרות מטרים!</li><li><img src=\"https://api.iconify.design/fluent-emoji/memo.svg\" alt=\"memo\" class=\"w-5 h-5 inline\" /> <strong>מגבת נייר:</strong> סופגת מים בזכות נימיות בסיבי הנייר.</li><li><img src=\"https://api.iconify.design/fluent-emoji/candle.svg\" alt=\"candle\" class=\"w-5 h-5 inline\" /> <strong>פתילה של נר:</strong> השעווה עולה בפתילה בזכות נימיות.</li></ul>"
+    },
+    {
+      "type": "quiz",
+      "questions": [
+        {
+          "id": "c1_st_1",
+          "question": "מה גורם להיווצרות מתח פנים בנוזל?",
+          "options": ["לחץ האוויר מלמעלה", "כוחות המשיכה שבין חלקיקי הנוזל", "הטמפרטורה של הנוזל", "כוח המשיכה של כדור הארץ"],
+          "correctAnswer": 1,
+          "explanation": "מתח פנים נוצר בגלל כוחות המשיכה שבין חלקיקי הנוזל. חלקיקים על פני השטח נמשכים פנימה ויוצרים \"קרום\".",
+          "category": "surface-tension"
+        },
+        {
+          "id": "c1_st_2",
+          "question": "מדוע טיפות מים הן כדוריות?",
+          "options": ["כי האוויר דוחף אותן מכל הצדדים", "כי זו הצורה עם שטח הפנים הקטן ביותר", "כי המים קלים", "כי יש בהן הרבה חמצן"],
+          "correctAnswer": 1,
+          "explanation": "כוחות המשיכה בין חלקיקי המים מנסים למזער את שטח הפנים. כדור הוא הצורה עם שטח הפנים הקטן ביותר ביחס לנפח.",
+          "category": "surface-tension"
+        },
+        {
+          "id": "c1_st_3",
+          "question": "מה יקרה למתח הפנים של מים אם נוסיף להם סבון?",
+          "options": ["מתח הפנים יגבר", "מתח הפנים יחלש", "מתח הפנים לא ישתנה", "המים יתאדו"],
+          "correctAnswer": 1,
+          "explanation": "סבון מחליש את מתח הפנים כי מולקולות הסבון \"מפרידות\" בין חלקיקי המים ומפחיתות את כוחות המשיכה ביניהם.",
+          "category": "surface-tension"
+        },
+        {
+          "id": "c1_st_4",
+          "question": "מדוע חרק יכול ללכת על פני המים בלי לשקוע?",
+          "options": ["כי הוא יודע לשחות", "כי מתח הפנים יוצר \"קרום\" שמחזיק את החרק", "כי החרק מלא אוויר", "כי הוא מאוד מהיר"],
+          "correctAnswer": 1,
+          "explanation": "מתח הפנים יוצר \"קרום\" על פני המים שחזק מספיק כדי לשאת את משקל החרק הקל. הרגליים לא שוברות את ה\"קרום\".",
+          "category": "surface-tension"
+        },
+        {
+          "id": "c1_st_5",
+          "question": "מדוע חלקיקים על פני השטח של נוזל נמשכים פנימה?",
+          "options": ["כי יש יותר חלקיקים למעלה", "כי אין חלקיקים מעליהם שימשכו אותם למעלה", "כי הם קלים יותר", "כי הם חמים יותר"],
+          "correctAnswer": 1,
+          "explanation": "חלקיק על פני השטח מוקף בחלקיקים רק מהצד ומלמטה (אין חלקיקים מעליו). לכן הוא נמשך בעיקר לצדדים ולמטה - כלומר פנימה.",
+          "category": "surface-tension"
+        }
+      ]
+    }
+  ]
+}

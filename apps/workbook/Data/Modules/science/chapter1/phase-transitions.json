@@ -1,0 +1,354 @@
+{
+  "id": "phase-transitions",
+  "title": "מצבי צבירה ומעברים",
+  "metadata": {
+    "description": "לימוד כל סוגי מעברי הפאזה (התכה, הקפאה, התאדות, התעבות, המראה וריבוץ), ההבדל בין התאדות לרתיחה והתנהגות הטמפרטורה במהלך שינוי מצב צבירה."
+  },
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "מעברי פאזה: כשחומר משנה פנים",
+      "subtitle": "כיצד חומרים עוברים בין מוצק, נוזל וגז?"
+    },
+    {
+      "type": "introduction_block",
+      "title": "מהו מעבר פאזה (שינוי מצב צבירה)?",
+      "icon": "counterclockwise-arrows-button",
+      "theme": "primary-purple",
+      "content": [
+        {
+          "type": "text",
+          "size": "lg",
+          "content": "<strong>מעבר פאזה</strong> הוא תהליך שבו חומר עובר ממצב צבירה אחד לאחר. המעבר מתרחש כאשר מוסיפים או מורידים <strong>אנרגיה (חום)</strong> מהחומר."
+        },
+        {
+          "type": "text",
+          "size": "md",
+          "content": "<strong>חשוב!</strong> במעבר פאזה, כמות החומר (המסה) לא משתנה - רק הסידור והמרחקים בין החלקיקים משתנים!"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "ClassName": "p-2 rounded-3xl",
+      "content": [
+        {
+          "type": "h3",
+          "className": "text-2xl font-black text-center text-slate-800 mb-6",
+          "icon": "fire",
+          "content": "תהליכים הדורשים חימום (הוספת אנרגיה)"
+        },
+        {
+          "type": "grid_cards",
+          "cols": 3,
+          "cards": [
+            {
+              "title": "היתוך (התכה)",
+              "icon": "droplet",
+              "variant": "orange-gradient",
+              "content": [
+                {
+                  "type": "icon_flow",
+                  "icons": ["ice", "droplet"],
+                  "size": "md"
+                },
+                {
+                  "type": "p",
+                  "content": "מוצק ← נוזל",
+                  "size": "sm",
+                  "className": "opacity-90 font-medium"
+                },
+                {
+                  "type": "highlight_box",
+                  "variant": "info",
+                  "content": [
+                    {
+                      "type": "p",
+                      "content": "<strong>מה קורה?</strong> החלקיקים מקבלים אנרגיה, מתחילים לנוע יותר, כוחות המשיכה נחלשים והחומר הופך לנוזל.",
+                      "size": "sm"
+                    }
+                  ]
+                },
+                {
+                  "type": "highlight_box",
+                  "variant": "example",
+                  "className": "mt-3",
+                  "content": [
+                    {
+                      "type": "p",
+                      "content": "דוגמה: קרח נמס והופך למים",
+                      "size": "sm"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "התאדות / רתיחה",
+              "icon": "dashing-away",
+              "variant": "pink-gradient",
+              "content": [
+                {
+                  "type": "icon_flow",
+                  "icons": ["droplet", "dashing-away"],
+                  "size": "md"
+                },
+                {
+                  "type": "p",
+                  "content": "נוזל ← גז",
+                  "size": "sm",
+                  "className": "opacity-90 font-medium"
+                },
+                {
+                  "type": "highlight_box",
+                  "variant": "info",
+                  "content": [
+                    {
+                      "type": "p",
+                      "content": "<strong>מה קורה?</strong> החלקיקים מקבלים מספיק אנרגיה כדי להתנתק מהנוזל ולברוח לאוויר.",
+                      "size": "sm"
+                    }
+                  ]
+                },
+                {
+                  "type": "highlight_box",
+                  "variant": "example",
+                  "className": "mt-3",
+                  "content": [
+                    {
+                      "type": "p",
+                      "content": "דוגמה: מים רותחים הופכים לאדים",
+                      "size": "sm"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "המראה (סובלימציה)",
+              "icon": "cyclone",
+              "variant": "purple-gradient",
+              "content": [
+                {
+                  "type": "icon_flow",
+                  "icons": ["ice", "dashing-away"],
+                  "size": "md"
+                },
+                {
+                  "type": "p",
+                  "content": "מוצק ← גז (ישירות!)",
+                  "size": "sm",
+                  "className": "opacity-90 font-medium"
+                },
+                {
+                  "type": "highlight_box",
+                  "variant": "info",
+                  "content": [
+                    {
+                      "type": "p",
+                      "content": "<strong>מה קורה?</strong> החלקיקים מקבלים מספיק אנרגיה לעבור ישירות ממוצק לגז, בלי לעבור דרך נוזל.",
+                      "size": "sm"
+                    }
+                  ]
+                },
+                {
+                  "type": "highlight_box",
+                  "variant": "example",
+                  "className": "mt-3",
+                  "content": [
+                    {
+                      "type": "p",
+                      "content": "דוגמה: קרח יבש (CO₂) הופך ישר לגז",
+                      "size": "sm"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "type": "section",
+      "className": "p-2 rounded-3xl",
+      "content": [
+        {
+          "type": "h3",
+          "className": "text-2xl font-black text-center text-slate-800 mb-6",
+          "icon": "snowflake",
+          "content": "תהליכים הדורשים קירור (הפחתת אנרגיה)"
+        },
+        {
+          "type": "grid_cards",
+          "cols": 3,
+          "cards": [
+            {
+              "title": "הקפאה (התמצקות)",
+              "icon": "ice",
+              "variant": "cyan",
+              "content": [
+                {
+                  "type": "icon_flow",
+                  "icons": ["droplet", "ice"],
+                  "size": "md"
+                },
+                {
+                  "type": "p",
+                  "content": "נוזל ← מוצק",
+                  "size": "sm",
+                  "className": "opacity-90 font-medium"
+                },
+                {
+                  "type": "highlight_box",
+                  "variant": "info",
+                  "content": [
+                    {
+                      "type": "p",
+                      "content": "<strong>מה קורה?</strong> החלקיקים מאבדים אנרגיה, נעים לאט יותר, כוחות המשיכה מתחזקים והחומר מתמצק.",
+                      "size": "sm"
+                    }
+                  ]
+                },
+                {
+                  "type": "highlight_box",
+                  "variant": "example",
+                  "className": "mt-3",
+                  "content": [
+                    {
+                      "type": "p",
+                      "content": "דוגמה: מים קופאים והופכים לקרח",
+                      "size": "sm"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "התעבות (עיבוי)",
+              "icon": "droplet",
+              "variant": "teal",
+              "content": [
+                {
+                  "type": "icon_flow",
+                  "icons": ["dashing-away", "droplet"],
+                  "size": "md"
+                },
+                {
+                  "type": "p",
+                  "content": "גז ← נוזל",
+                  "size": "sm",
+                  "className": "opacity-90 font-medium"
+                },
+                {
+                  "type": "highlight_box",
+                  "variant": "info",
+                  "content": [
+                    {
+                      "type": "p",
+                      "content": "<strong>מה קורה?</strong> חלקיקי הגז מאבדים אנרגיה, נעים לאט יותר ומתקרבים זה לזה עד שהופכים לנוזל.",
+                      "size": "sm"
+                    }
+                  ]
+                },
+                {
+                  "type": "highlight_box",
+                  "variant": "example",
+                  "className": "mt-3",
+                  "content": [
+                    {
+                      "type": "p",
+                      "content": "דוגמה: אדי מים הופכים לטיפות על מראה",
+                      "size": "sm"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "ריבוץ (דפוזיציה)",
+              "icon": "snowflake",
+              "variant": "teal",
+              "content": [
+                {
+                  "type": "icon_flow",
+                  "icons": ["dashing-away", "ice"],
+                  "size": "md"
+                },
+                {
+                  "type": "p",
+                  "content": "גז ← מוצק (ישירות!)",
+                  "size": "sm",
+                  "className": "opacity-90 font-medium"
+                },
+                {
+                  "type": "highlight_box",
+                  "variant": "info",
+                  "content": [
+                    {
+                      "type": "p",
+                      "content": "<strong>מה קורה?</strong> חלקיקי הגז מתקררים במהירות כזו שהם עוברים ישירות למצב מוצק.",
+                      "size": "sm"
+                    }
+                  ]
+                },
+                {
+                  "type": "highlight_box",
+                  "variant": "example",
+                  "className": "mt-3",
+                  "content": [
+                    {
+                      "type": "p",
+                      "content": "דוגמה: כפור שנוצר על חלון בבוקר קר",
+                      "size": "sm"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "simulation",
+      "componentName": "PhaseTransitionSimulation"
+    },
+    {
+      "type": "text",
+      "content": "<div class=\"bg-gradient-to-r from-amber-100 to-orange-100 p-6 rounded-3xl border-2 border-amber-300 my-8\"><h4 class=\"text-xl font-black text-amber-900 mb-4\"><img src=\"https://api.iconify.design/fluent-emoji/bar-chart.svg\" alt=\"chart\" class=\"w-8 h-8 inline\" /> התנהגות הטמפרטורה במעבר פאזה</h4><div class=\"bg-white p-6 rounded-2xl shadow-sm\"><p class=\"text-slate-700 mb-4\">תופעה מעניינת: <strong>במהלך מעבר פאזה, הטמפרטורה נשארת קבועה!</strong></p><p class=\"text-slate-600\">למשל, כשמחממים קרח, הטמפרטורה עולה עד 0°C. ברגע שהקרח מתחיל להיות נוזלי, הטמפרטורה נשארת ב-0°C עד שכל הקרח נמס. רק אז הטמפרטורה ממשיכה לעלות!</p><div class=\"mt-4 p-4 bg-amber-50 rounded-xl\"><strong class=\"text-amber-800\"><img src=\"https://api.iconify.design/fluent-emoji/thinking-face.svg\" alt=\"thinking\" class=\"w-5 h-5 inline\" /> למה זה קורה?</strong><p class=\"text-sm text-slate-600 mt-2\">כל האנרגיה (החום) שמוסיפים \"משקיעה\" בשבירת כוחות המשיכה בין החלקיקים, ולא בהעלאת הטמפרטורה.</p></div></div></div>"
+    },
+    {
+      "type": "simulation",
+      "componentName": "PhaseGraph"
+    },
+    {
+      "type": "scientific_table",
+      "title": "סיכום כל מעברי הפאזה",
+      "headers": ["שם התהליך", "ממצב", "למצב", "נדרש", "דוגמה"],
+      "rows": [
+        ["היתוך (התכה)", "מוצק", "נוזל", "חימום", "קרח → מים"],
+        ["הקפאה (התמצקות)", "נוזל", "מוצק", "קירור", "מים → קרח"],
+        ["התאדות / רתיחה", "נוזל", "גז", "חימום", "מים → אדים"],
+        ["התעבות (עיבוי)", "גז", "נוזל", "קירור", "אדים → טיפות"],
+        ["המראה (סובלימציה)", "מוצק", "גז", "חימום", "קרח יבש → CO₂ גז"],
+        ["ריבוץ (דפוזיציה)", "גז", "מוצק", "קירור", "אדי מים → כפור"]
+      ],
+      "variant": "emerald"
+    },
+    {
+      "type": "text",
+      "content": "<div class=\"bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-3xl border border-blue-200 \"><h4 class=\"text-xl font-black text-blue-900 mb-4 flex items-center gap-2\"><img src=\"https://api.iconify.design/fluent-emoji/magnifying-glass-tilted-left.svg\" alt=\"search\" class=\"w-8 h-8\" /> ההבדל בין התאדות לרתיחה</h4><div class=\"grid md:grid-cols-2 gap-6\"><div class=\"bg-white p-5 rounded-2xl shadow-sm\"><h5 class=\"font-bold text-blue-700 mb-2 flex items-center gap-2\"><img src=\"https://api.iconify.design/fluent-emoji/water-wave.svg\" alt=\"wave\" class=\"w-6 h-6\" /> התאדות</h5><ul class=\"text-sm text-slate-600 space-y-2\"><li>✓ מתרחשת <strong>בכל טמפרטורה</strong></li><li>✓ קורה רק <strong>על פני השטח</strong> של הנוזל</li><li>✓ תהליך <strong>איטי</strong></li><li>✓ דוגמה: כביסה שמתייבשת</li></ul></div><div class=\"bg-white p-5 rounded-2xl shadow-sm\"><h5 class=\"font-bold text-red-700 mb-2 flex items-center gap-2\"><img src=\"https://api.iconify.design/fluent-emoji/bubbles.svg\" alt=\"bubbles\" class=\"w-6 h-6\" /> רתיחה</h5><ul class=\"text-sm text-slate-600 space-y-2\"><li>✓ מתרחשת <strong>בטמפרטורה ספציפית</strong> (נקודת רתיחה)</li><li>✓ קורה <strong>בכל הנפח</strong> של הנוזל (בועות!)</li><li>✓ תהליך <strong>מהיר</strong></li><li>✓ דוגמה: מים רותחים בסיר</li></ul></div></div></div>"
+    },
+    {
+      "type": "enrichment",
+      "title": "למתקדמים: מדוע קרח צף על מים?",
+      "icon": "ice",
+      "content": "<p>רוב החומרים <strong>מתכווצים</strong> כשהם קופאים (החלקיקים מתקרבים). אבל <strong>מים הם יוצאי דופן!</strong></p><p class=\"mt-3\">כשמים קופאים, החלקיקים מסתדרים במבנה גבישי מיוחד שתופס <strong>יותר מקום</strong> מאשר במצב נוזלי. לכן קרח פחות צפוף ממים - והוא צף!</p><p class=\"mt-3 p-3 bg-blue-100 rounded-xl text-blue-900\"><img src=\"https://api.iconify.design/fluent-emoji/light-bulb.svg\" alt=\"lightbulb\" class=\"w-5 h-5 inline\" /> <strong>זה חיוני לחיים!</strong> אילו קרח היה שוקע, אגמים היו קופאים מלמטה למעלה והדגים לא היו שורדים את החורף.</p>"
+    },
+    {
+      "type": "quiz"
+    }
+  ]
+}

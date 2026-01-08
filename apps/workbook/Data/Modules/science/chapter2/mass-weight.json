@@ -1,0 +1,96 @@
+{
+  "id": "mass-weight",
+  "title": "מסה מול משקל",
+  "metadata": {
+    "description": "הבנת ההבדלים הקריטיים בין מסה (כמות חומר) למשקל (כוח כבידה). לימוד יחידות מידה, כלי מדידה והשפעת המיקום ביקום על משקל הגוף."
+  },
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "מסה לעומת משקל",
+      "subtitle": "שני מושגים שונים שלעתים מבלבלים ביניהם"
+    },
+    {
+      "type": "introduction_block",
+      "title": "מסה מול משקל",
+      "icon": "balance-scale",
+      "theme": "primary-emerald",
+      "content": [
+        {
+          "type": "text",
+          "size": "lg",
+          "content": "בחיי היום-יום אנחנו אומרים \"משקל\" כשאנחנו מתכוונים ל\"מסה\". <strong>במדע, אלו שני דברים שונים לגמרי!</strong>"
+        }
+      ]
+    },
+    {
+      "type": "grid_cards",
+      "cards": [
+        {
+          "title": "מסה (Mass)",
+          "content": "<div class=\"text-center mb-4\"><img src=\"https://api.iconify.design/fluent-emoji/balance-scale.svg\" alt=\"scale\" class=\"w-16 h-16 mx-auto\" /></div><p class=\"text-lg leading-relaxed\"><strong>מסה</strong> היא כמות החומר שיש בגוף. היא תכונה של הגוף עצמו ו<strong>לא משתנה</strong> לפי המקום.</p><div class=\"mt-4 p-3 bg-emerald-100 rounded-xl\"><p class=\"text-sm\"><strong>יחידות:</strong> גרם, קילוגרם, טונה<br/><strong>כלי מדידה:</strong> מאזני כפות</p></div>",
+          "variant": "emerald"
+        },
+        {
+          "title": "משקל (Weight)",
+          "content": "<div class=\"text-center mb-4\"><img src=\"https://api.iconify.design/fluent-emoji/down-arrow.svg\" alt=\"arrow\" class=\"w-16 h-16 mx-auto\" /></div><p class=\"text-lg leading-relaxed\"><strong>משקל</strong> הוא כוח הכבידה שמושך את הגוף. הוא <strong>משתנה</strong> לפי המקום (כדור הארץ, ירח, חלל).</p><div class=\"mt-4 p-3 bg-blue-100 rounded-xl\"><p class=\"text-sm\"><strong>יחידות:</strong> ניוטון (N)<br/><strong>כלי מדידה:</strong> מד כוח (קפיץ)</p></div>",
+          "variant": "blue"
+        }
+      ]
+    },
+    {
+      "type": "scientific_table",
+      "title": "השוואה מפורטת: מסה מול משקל",
+      "headers": ["קריטריון", "מסה", "משקל"],
+      "rows": [
+        ["מהו?", "כמות החומר בגוף", "כוח הכבידה הפועל על הגוף"],
+        ["האם משתנה?", "קבועה תמיד (גם בחלל!)", "משתנה לפי כוח הכבידה במקום"],
+        ["על כדור הארץ", "60 ק\"ג", "600 ניוטון (בערך)"],
+        ["על הירח", "60 ק\"ג (זהה!)", "100 ניוטון (⅙ מכדור הארץ)"],
+        ["בחלל (ריחוף)", "60 ק\"ג (זהה!)", "0 ניוטון (אפס!)"],
+        ["כלי מדידה", "מאזני כפות / מאזניים דיגיטליים", "מד כוח (דינמומטר / קפיץ)"],
+        ["יחידות מידה", "גרם, ק\"ג, טונה", "ניוטון (N)"]
+      ],
+      "variant": "emerald",
+      "note": "נוסחה: משקל = מסה × תאוצת הכבידה (על כדור הארץ: משקל ≈ מסה × 10)"
+    },
+    {
+      "type": "simulation",
+      "componentName": "GravitySimulation"
+    },
+    {
+      "type": "text",
+      "content": "<div class=\"bg-gradient-to-r from-indigo-100 to-purple-100 p-6 rounded-3xl border-2 border-indigo-300 my-8\"><h4 class=\"text-xl font-black text-indigo-900 mb-4 flex items-center gap-3\"><img src=\"https://api.iconify.design/fluent-emoji/full-moon.svg\" alt=\"moon\" class=\"w-8 h-8\" /> דוגמה: אסטרונאוט על הירח</h4><div class=\"grid md:grid-cols-3 gap-4\"><div class=\"bg-white p-4 rounded-xl shadow-sm text-center\"><img src=\"https://api.iconify.design/fluent-emoji/globe-showing-americas.svg\" alt=\"earth\" class=\"w-12 h-12 mx-auto mb-2\" /><h5 class=\"font-bold text-slate-800\">על כדור הארץ</h5><p class=\"text-slate-600\">מסה: <strong>60 ק\"ג</strong></p><p class=\"text-slate-600\">משקל: <strong>600 N</strong></p></div><div class=\"bg-white p-4 rounded-xl shadow-sm text-center\"><img src=\"https://api.iconify.design/fluent-emoji/first-quarter-moon.svg\" alt=\"moon\" class=\"w-12 h-12 mx-auto mb-2\" /><h5 class=\"font-bold text-slate-800\">על הירח</h5><p class=\"text-slate-600\">מסה: <strong>60 ק\"ג</strong></p><p class=\"text-slate-600\">משקל: <strong>100 N</strong></p></div><div class=\"bg-white p-4 rounded-xl shadow-sm text-center\"><img src=\"https://api.iconify.design/fluent-emoji/milky-way.svg\" alt=\"space\" class=\"w-12 h-12 mx-auto mb-2\" /><h5 class=\"font-bold text-slate-800\">בחלל</h5><p class=\"text-slate-600\">מסה: <strong>60 ק\"ג</strong></p><p class=\"text-slate-600\">משקל: <strong>0 N</strong></p></div></div><p class=\"mt-4 text-center text-indigo-800 font-medium\">שימו לב: המסה נשארת 60 ק\"ג בכל מקום! רק המשקל משתנה.</p></div>"
+    },
+    {
+      "type": "text",
+      "content": "<div class=\"bg-gradient-to-br from-amber-50 to-yellow-50 p-6 rounded-3xl border border-amber-200 my-8\"><h4 class=\"text-xl font-black text-amber-900 mb-4 flex items-center gap-3\"><img src=\"https://api.iconify.design/fluent-emoji/gear.svg\" alt=\"gear\" class=\"w-8 h-8\" /> איך עובדים כלי המדידה?</h4><div class=\"grid md:grid-cols-2 gap-6\"><div class=\"bg-white p-5 rounded-2xl shadow-sm\"><h5 class=\"font-bold text-emerald-700 mb-2 flex items-center gap-2\"><img src=\"https://api.iconify.design/fluent-emoji/balance-scale.svg\" alt=\"scale\" class=\"w-6 h-6\" /> מאזני כפות (למסה)</h5><p class=\"text-slate-600 mb-2\">משווים את הגוף לאבני מסה ידועות.</p><p class=\"text-slate-600 text-sm\">הכבידה פועלת <strong>שווה</strong> על שתי הכפות, ולכן למעשה משווים את <strong>כמות החומר</strong>.</p></div><div class=\"bg-white p-5 rounded-2xl shadow-sm\"><h5 class=\"font-bold text-blue-700 mb-2 flex items-center gap-2\"><img src=\"https://api.iconify.design/fluent-emoji/paperclip.svg\" alt=\"spring\" class=\"w-6 h-6\" /> מד כוח / קפיץ (למשקל)</h5><p class=\"text-slate-600 mb-2\">הקפיץ נמתח לפי הכוח שמושך אותו.</p><p class=\"text-slate-600 text-sm\">ככל שכוח הכבידה חזק יותר, הקפיץ <strong>מתארך יותר</strong>. המדידה היא ישירות של הכוח (משקל).</p></div></div></div>"
+    },
+    {
+      "type": "text",
+      "content": "<div class=\"bg-gradient-to-r from-red-100 to-pink-100 p-6 rounded-3xl border-2 border-red-300 my-8\"><h4 class=\"text-xl font-black text-red-900 mb-4 flex items-center gap-3\"><img src=\"https://api.iconify.design/fluent-emoji/thinking-face.svg\" alt=\"thinking\" class=\"w-8 h-8\" /> שאלה לחשיבה</h4><p class=\"text-slate-700 mb-4\">המשקל הביתי מראה \"60 ק\"ג\". האם הוא מודד מסה או משקל?</p><div class=\"bg-white p-4 rounded-xl shadow-sm\"><p class=\"text-slate-600\"><strong>תשובה:</strong> המשקל הביתי למעשה מודד <strong>כוח</strong> (משקל), אבל הוא מציג את התוצאה ביחידות של <strong>מסה</strong> (ק\"ג).</p><p class=\"text-sm text-slate-500 mt-2\">הוא עושה את ההמרה בהנחה שאתם על כדור הארץ. אם תיקחו אותו לירח, הוא יראה משקל שגוי!</p></div></div>"
+    },
+    {
+      "type": "scientific_table",
+      "title": "יחידות מידה למסה והמרות",
+      "headers": ["יחידה", "סימון", "יחס ליחידות אחרות"],
+      "rows": [
+        ["מיליגרם", "מ\"ג (mg)", "1,000 מ\"ג = 1 גרם"],
+        ["גרם", "גר' (g)", "1,000 גרם = 1 ק\"ג"],
+        ["קילוגרם", "ק\"ג (kg)", "1,000 ק\"ג = 1 טונה"],
+        ["טונה", "טונה (t)", "= 1,000,000 גרם"]
+      ],
+      "variant": "blue",
+      "note": "טיפ להמרות: מגרם לק\"ג - מחלקים ב-1,000. מק\"ג לגרם - כופלים ב-1,000."
+    },
+    {
+      "type": "enrichment",
+      "title": "מדידת מסה של נוזל או גז",
+      "icon": "alembic",
+      "content": "<p>איך מודדים את המסה של מים בכוס? לא ניתן לשים מים ישירות על מאזניים!</p><p class=\"mt-3\"><strong>הפתרון - מדידה בהפרש:</strong></p><ol class=\"list-decimal list-inside space-y-1 mt-2\"><li>שוקלים את הכלי הריק (נניח: 50 גרם)</li><li>שוקלים את הכלי עם הנוזל (נניח: 350 גרם)</li><li>מסת הנוזל = 350 - 50 = <strong>300 גרם</strong></li></ol><p class=\"mt-3 p-3 bg-purple-100 rounded-xl text-purple-900\">אותו עיקרון עובד גם לגזים! (למשל, שקילת בלון ריק ומלא)</p>"
+    },
+    {
+      "type": "quiz"
+    }
+  ]
+}

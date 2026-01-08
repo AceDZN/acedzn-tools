@@ -1,0 +1,82 @@
+{
+  "id": "volume",
+  "title": "נפח ומדידתו",
+  "metadata": {
+    "description": "לימוד מושג הנפח ושיטות מדידה לגופים שונים: נוזלים, גזים, מוצקים הנדסיים ומוצקים בעלי צורה לא סדורה. כולל יחידות מידה והמרות."
+  },
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "נפח: המקום שגוף תופס",
+      "subtitle": "כיצד מודדים את הנפח של גופים שונים?"
+    },
+    {
+      "type": "introduction_block",
+      "title": "מהו נפח?",
+      "icon": "package",
+      "theme": "primary-blue",
+      "content": [
+        {
+          "type": "text",
+          "size": "lg",
+          "content": "<strong>נפח</strong> הוא המקום שגוף תופס במרחב. כל גוף - בין אם הוא מוצק, נוזל או גז - תופס מקום ולכן יש לו נפח."
+        },
+        {
+          "type": "text",
+          "size": "md",
+          "content": "כשאנחנו אומרים \"הכוס מכילה 250 מ\"ל מים\", אנחנו מתארים את <strong>הנפח</strong> של המים!"
+        }
+      ]
+    },
+    {
+      "type": "scientific_table",
+      "title": "יחידות מידה לנפח והמרות",
+      "headers": ["יחידה", "סימון", "יחס ליחידות אחרות"],
+      "rows": [
+        ["סנטימטר מעוקב", "סמ\"ק (cm³)", "1 סמ\"ק = 1 מ\"ל"],
+        ["מיליליטר", "מ\"ל (ml)", "1,000 מ\"ל = 1 ליטר"],
+        ["ליטר", "ל' (L)", "1 ליטר = 1,000 סמ\"ק"],
+        ["מטר מעוקב", "מ\"ק (m³)", "1 מ\"ק = 1,000 ליטר"]
+      ],
+      "variant": "blue",
+      "note": "טיפ להמרות: מליטר למ\"ל - כופלים ב-1,000. ממ\"ל לליטר - מחלקים ב-1,000."
+    },
+    {
+      "type": "text",
+      "content": "<h3 class=\"text-2xl font-black text-center text-slate-800 my-8 flex items-center justify-center gap-3\"><img src=\"https://api.iconify.design/fluent-emoji/straight-ruler.svg\" alt=\"ruler\" class=\"w-8 h-8\" /> שיטות מדידת נפח</h3>"
+    },
+    {
+      "type": "text",
+      "content": "<div class=\"grid md:grid-cols-2 gap-6 my-6\"><div class=\"bg-gradient-to-br from-emerald-500 to-teal-500 p-6 rounded-3xl text-white shadow-xl\"><div class=\"text-center\"><img src=\"https://api.iconify.design/fluent-emoji/brown-square.svg\" alt=\"cube\" class=\"w-16 h-16 mx-auto mb-4\" /><h4 class=\"text-xl font-black mb-3\">מוצק הנדסי</h4><p class=\"text-sm opacity-90 mb-4\">קוביה, תיבה, גליל</p><div class=\"bg-white/20 p-4 rounded-xl text-sm\"><strong>שיטה:</strong> מדידה בסרגל + חישוב<br/><br/><strong>נוסחאות:</strong><br/>תיבה: אורך × רוחב × גובה<br/>קוביה: צלע × צלע × צלע</div></div></div><div class=\"bg-gradient-to-br from-blue-500 to-indigo-500 p-6 rounded-3xl text-white shadow-xl\"><div class=\"text-center\"><img src=\"https://api.iconify.design/fluent-emoji/droplet.svg\" alt=\"droplet\" class=\"w-16 h-16 mx-auto mb-4\" /><h4 class=\"text-xl font-black mb-3\">נוזל</h4><p class=\"text-sm opacity-90 mb-4\">מים, שמן, מיץ</p><div class=\"bg-white/20 p-4 rounded-xl text-sm\"><strong>שיטה:</strong> שפיכה לכלי מדודד<br/><br/><strong>כלים:</strong> משורה, כוס כימית, מזרק, פיפטה<br/><br/><strong>חשוב:</strong> לקרוא בגובה העיניים, בתחתית המניסקוס!</div></div></div></div>"
+    },
+    {
+      "type": "text",
+      "content": "<div class=\"grid md:grid-cols-2 gap-6 my-6\"><div class=\"bg-gradient-to-br from-amber-500 to-orange-500 p-6 rounded-3xl text-white shadow-xl\"><div class=\"text-center\"><img src=\"https://api.iconify.design/fluent-emoji/rock.svg\" alt=\"rock\" class=\"w-16 h-16 mx-auto mb-4\" /><h4 class=\"text-xl font-black mb-3\">מוצק לא הנדסי</h4><p class=\"text-sm opacity-90 mb-4\">אבן, מפתח, פסל</p><div class=\"bg-white/20 p-4 rounded-xl text-sm\"><strong>שיטה:</strong> דחיקת מים<br/><br/><strong>השלבים:</strong><ol class=\"list-decimal list-inside space-y-1 mt-2\"><li>רושמים נפח מים במשורה</li><li>מכניסים את הגוף למים</li><li>נפח הגוף = הפרש הנפחים</li></ol></div></div></div><div class=\"bg-gradient-to-br from-purple-500 to-pink-500 p-6 rounded-3xl text-white shadow-xl\"><div class=\"text-center\"><img src=\"https://api.iconify.design/fluent-emoji/cloud.svg\" alt=\"cloud\" class=\"w-16 h-16 mx-auto mb-4\" /><h4 class=\"text-xl font-black mb-3\">גז</h4><p class=\"text-sm opacity-90 mb-4\">אוויר, הליום, CO₂</p><div class=\"bg-white/20 p-4 rounded-xl text-sm\"><strong>עיקרון:</strong> גז ממלא את כל נפח הכלי!<br/><br/><strong>לכן:</strong> נפח הגז = נפח הכלי שמכיל אותו<br/><br/><strong>דוגמה:</strong> אוויר בבלון - נפח האוויר שווה לנפח הבלון</div></div></div></div>"
+    },
+    {
+      "type": "simulation",
+      "componentName": "VolumeSimulation"
+    },
+    {
+      "type": "simulation",
+      "componentName": "DisplacementSimulation"
+    },
+    {
+      "type": "text",
+      "content": "<div class=\"bg-gradient-to-r from-amber-100 to-yellow-100 p-6 rounded-3xl border-2 border-amber-300 my-8\"><h4 class=\"text-xl font-black text-amber-900 mb-4 flex items-center gap-3\"><img src=\"https://api.iconify.design/fluent-emoji/warning.svg\" alt=\"warning\" class=\"w-8 h-8\" /> מדידת נפח של גוף צף</h4><p class=\"text-slate-700 mb-4\">מה עושים כשהגוף צף ולא שוקע במים?</p><div class=\"bg-white p-4 rounded-xl shadow-sm\"><ol class=\"list-decimal list-inside space-y-2 text-slate-600\"><li>מחברים משקולת לגוף הצף (כדי שישקע)</li><li>מודדים את הנפח הכולל (גוף + משקולת)</li><li>מודדים בנפרד את נפח המשקולת</li><li>נפח הגוף = נפח כולל - נפח משקולת</li></ol></div></div>"
+    },
+    {
+      "type": "text",
+      "content": "<div class=\"bg-gradient-to-br from-cyan-50 to-blue-50 p-6 rounded-3xl border border-cyan-200 my-8\"><h4 class=\"text-xl font-black text-cyan-900 mb-4 flex items-center gap-3\"><img src=\"https://api.iconify.design/fluent-emoji/test-tube.svg\" alt=\"test-tube\" class=\"w-8 h-8\" /> המניסקוס - קריאה נכונה</h4><div class=\"grid md:grid-cols-2 gap-6 items-center\"><div><p class=\"text-slate-700 mb-4\">כשנוזל נמצא בצינור צר (כמו משורה), פני השטח שלו לא שטוחים אלא יוצרים צורה קעורה שנקראת <strong>מניסקוס</strong>.</p><p class=\"text-slate-700 mb-4\"><strong>חוק הקריאה:</strong></p><ul class=\"list-disc list-inside text-slate-600 space-y-1\"><li>להסתכל בגובה העיניים</li><li>לקרוא את הנפח בתחתית הקעור</li><li>לא בקצוות הגבוהים!</li></ul></div><div class=\"bg-white p-4 rounded-xl shadow-sm text-center\"><div class=\"w-24 h-40 mx-auto bg-slate-100 rounded-b-xl border-2 border-slate-300 relative overflow-hidden\"><div class=\"absolute bottom-0 w-full h-1/2 bg-blue-400\"><div class=\"absolute top-0 w-full h-4 bg-slate-100\" style=\"border-radius: 0 0 50% 50%;\"></div></div><div class=\"absolute top-1/2 left-0 w-full border-t-2 border-red-500 border-dashed translate-y-4\"></div></div><p class=\"mt-2 text-sm text-slate-600\">הקו האדום = מקום הקריאה הנכון</p></div></div></div>"
+    },
+    {
+      "type": "enrichment",
+      "title": "ארכימדס והגילוי המפורסם",
+      "icon": "crown",
+      "content": "<p>לפי האגדה, המלך הירון ביקש מארכימדס לגלות אם הכתר שלו עשוי מזהב טהור. ארכימדס התלבט: איך למדוד נפח של צורה כה מורכבת?</p><p class=\"mt-3\">יום אחד באמבטיה, הוא שם לב שהמים עולים כשנכנס פנימה. הוא הבין: <strong>נפח הגוף = נפח המים שנדחקו!</strong></p><p class=\"mt-3\">לפי האגדה, הוא קפץ מהאמבטיה וצעק <strong>\"יוריקה!\"</strong> (מצאתי!) - וכך המציא את שיטת דחיקת המים.</p>"
+    },
+    {
+      "type": "quiz"
+    }
+  ]
+}

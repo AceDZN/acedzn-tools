@@ -1,0 +1,156 @@
+{
+  "id": "density",
+  "title": "צפיפות וציפה",
+  "metadata": {
+    "description": "לימוד מושג הצפיפות (מסה ליחידת נפח) וחוק הציפה. מדוע אוניות צפות, למה קרח צף על מים, וכיצד צפיפות משמשת לזיהוי חומרים."
+  },
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "צפיפות וציפה",
+      "subtitle": "למה דברים מסוימים צפים ואחרים שוקעים?"
+    },
+    {
+      "type": "introduction_block",
+      "title": "מהי צפיפות?",
+      "icon": "test-tube",
+      "theme": "primary-blue",
+      "content": [
+        {
+          "type": "text",
+          "size": "lg",
+          "content": "<strong>צפיפות</strong> היא כמות החומר (מסה) ליחידת נפח. היא מתארת כמה \"צפוף\" או \"דחוס\" החומר."
+        },
+        {
+          "type": "text",
+          "size": "lg",
+          "content": "<strong>צפיפות = מסה ÷ נפח</strong><br/><span class=\"text-sm text-slate-500\">יחידות: גרם/סמ\"ק או ק\"ג/מ\"ק</span>"
+        }
+      ]
+    },
+    {
+      "type": "grid_cards",
+      "cols": 3,
+      "cards": [
+        {
+          "title": "צפיפות גבוהה",
+          "icon": "rock",
+          "variant": "orange",
+          "content": "<p class=\"text-sm opacity-90\">הרבה חומר בנפח קטן</p><p class=\"mt-3 p-2 bg-white/20 rounded-lg\">דוגמה: זהב, ברזל</p>"
+        },
+        {
+          "title": "צפיפות בינונית",
+          "icon": "droplet",
+          "variant": "cyan",
+          "content": "<p class=\"text-sm opacity-90\">כמות סבירה של חומר בנפח</p><p class=\"mt-3 p-2 bg-white/20 rounded-lg\">דוגמה: מים (1 גר'/סמ\"ק)</p>"
+        },
+        {
+          "title": "צפיפות נמוכה",
+          "icon": "feather",
+          "variant": "emerald",
+          "content": "<p class=\"text-sm opacity-90\">מעט חומר בנפח גדול</p><p class=\"mt-3 p-2 bg-white/20 rounded-lg\">דוגמה: קלקר, עץ</p>"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<div class=\"bg-gradient-to-r from-blue-600 to-cyan-500 p-8 rounded-3xl text-white shadow-xl mb-8\"><h3 class=\"text-2xl font-black mb-6 text-center flex items-center justify-center gap-3\"><img src=\"https://api.iconify.design/fluent-emoji/ship.svg\" alt=\"ship\" class=\"w-10 h-10\" /> חוק הציפה</h3><div class=\"grid md:grid-cols-2 gap-6\"><div class=\"bg-white/20 p-5 rounded-2xl\"><h4 class=\"font-bold text-lg mb-3 flex items-center gap-2\"><img src=\"https://api.iconify.design/fluent-emoji/up-arrow.svg\" alt=\"up\" class=\"w-6 h-6\" /> יצוף!</h4><p class=\"opacity-90\">גוף שצפיפותו <strong>קטנה</strong> מצפיפות הנוזל - <strong>יצוף</strong> על פניו.</p><p class=\"mt-2 text-sm bg-white/20 p-2 rounded-lg\">דוגמה: עץ במים (צפיפות העץ < 1)</p></div><div class=\"bg-white/20 p-5 rounded-2xl\"><h4 class=\"font-bold text-lg mb-3 flex items-center gap-2\"><img src=\"https://api.iconify.design/fluent-emoji/down-arrow.svg\" alt=\"down\" class=\"w-6 h-6\" /> ישקע!</h4><p class=\"opacity-90\">גוף שצפיפותו <strong>גדולה</strong> מצפיפות הנוזל - <strong>ישקע</strong> לתחתית.</p><p class=\"mt-2 text-sm bg-white/20 p-2 rounded-lg\">דוגמה: ברזל במים (צפיפות הברזל > 1)</p></div></div><p class=\"mt-6 text-center p-3 bg-white/30 rounded-xl font-medium\">צפיפות המים = 1 גרם/סמ\"ק - זו נקודת הייחוס!</p></div>"
+    },
+    {
+      "type": "scientific_table",
+      "title": "טבלת צפיפויות של חומרים נפוצים",
+      "headers": [
+        "חומר",
+        "צפיפות (גר'/סמ\"ק)",
+        "צף או שוקע במים?"
+      ],
+      "rows": [
+        [
+          "זהב",
+          "19.3",
+          "שוקע (הכבד ביותר!)"
+        ],
+        [
+          "כסף",
+          "10.5",
+          "שוקע"
+        ],
+        [
+          "ברזל",
+          "7.8",
+          "שוקע"
+        ],
+        [
+          "אלומיניום",
+          "2.7",
+          "שוקע"
+        ],
+        [
+          "זכוכית",
+          "2.5",
+          "שוקע"
+        ],
+        [
+          "מים (נקודת ייחוס)",
+          "1.0",
+          "---"
+        ],
+        [
+          "קרח",
+          "0.9",
+          "צף!"
+        ],
+        [
+          "שמן זית",
+          "0.92",
+          "צף"
+        ],
+        [
+          "עץ אורן",
+          "0.5",
+          "צף"
+        ],
+        [
+          "קלקר",
+          "0.02",
+          "צף מצוין"
+        ]
+      ],
+      "variant": "blue",
+      "note": "חומר עם צפיפות < 1 יצוף על מים. חומר עם צפיפות > 1 ישקע."
+    },
+    {
+      "type": "simulation",
+      "componentName": "FloatingExperiment"
+    },
+    {
+      "type": "simulation",
+      "componentName": "DensityCalculator"
+    },
+    {
+      "type": "text",
+      "content": "<div class=\"bg-gradient-to-r from-amber-100 to-orange-100 p-6 rounded-3xl border-2 border-amber-300 my-8\"><h4 class=\"text-xl font-black text-amber-900 mb-4 flex items-center gap-3\"><img src=\"https://api.iconify.design/fluent-emoji/abacus.svg\" alt=\"calculator\" class=\"w-8 h-8\" /> דוגמאות חישוב צפיפות</h4><div class=\"grid md:grid-cols-2 gap-4\"><div class=\"bg-white p-4 rounded-xl shadow-sm\"><h5 class=\"font-bold text-slate-800 mb-2\">דוגמה 1: קוביית מתכת</h5><p class=\"text-slate-600 text-sm\">מסה: 156 גרם<br/>נפח: 20 סמ\"ק</p><p class=\"text-slate-800 font-bold mt-2\">צפיפות = 156 ÷ 20 = 7.8 גר'/סמ\"ק</p><p class=\"text-emerald-600 text-sm mt-1\">זה ברזל!</p></div><div class=\"bg-white p-4 rounded-xl shadow-sm\"><h5 class=\"font-bold text-slate-800 mb-2\">דוגמה 2: חומר לא ידוע</h5><p class=\"text-slate-600 text-sm\">מסה: 50 גרם<br/>נפח: 100 סמ\"ק</p><p class=\"text-slate-800 font-bold mt-2\">צפיפות = 50 ÷ 100 = 0.5 גר'/סמ\"ק</p><p class=\"text-emerald-600 text-sm mt-1\">צף במים! (אולי עץ?)</p></div></div></div>"
+    },
+    {
+      "type": "text",
+      "content": "<div class=\"bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-3xl border border-purple-200 my-8\"><h4 class=\"text-xl font-black text-purple-900 mb-4 flex items-center gap-3\"><img src=\"https://api.iconify.design/fluent-emoji/ship.svg\" alt=\"ship\" class=\"w-8 h-8\" /> מדוע אוניית ברזל צפה?</h4><p class=\"text-slate-700 mb-4\">הרי ברזל שוקע במים (צפיפותו 7.8)... אז איך אוניה ענקית מברזל צפה?</p><div class=\"bg-white p-4 rounded-xl shadow-sm\"><p class=\"text-slate-600 mb-2\"><strong>הסוד:</strong> האוניה היא לא גוש מלא של ברזל!</p><p class=\"text-slate-600\">האוניה מכילה <strong>חללי אוויר ענקיים</strong>. כשמחשבים את הצפיפות הממוצעת:</p><p class=\"text-lg font-bold text-purple-700 mt-3 text-center\">צפיפות ממוצעת = (מסת הברזל + מסת האוויר) ÷ (נפח הברזל + נפח האוויר)</p><p class=\"text-slate-600 mt-3\">התוצאה קטנה מ-1, ולכן האוניה צפה!</p></div></div>"
+    },
+    {
+      "type": "text",
+      "content": "<div class=\"bg-gradient-to-br from-cyan-50 to-blue-50 p-6 rounded-3xl border border-cyan-200 my-8\"><h4 class=\"text-xl font-black text-cyan-900 mb-4 flex items-center gap-3\"><img src=\"https://api.iconify.design/fluent-emoji/ice.svg\" alt=\"ice\" class=\"w-8 h-8\" /> מדוע קרח צף על מים?</h4><p class=\"text-slate-700 mb-4\">רוב החומרים מתכווצים כשהם קופאים (הצפיפות עולה). אבל <strong>מים הם יוצאי דופן!</strong></p><div class=\"bg-white p-4 rounded-xl shadow-sm\"><p class=\"text-slate-600\">כשמים קופאים, המולקולות מסתדרות במבנה גבישי שתופס <strong>יותר מקום</strong>.</p><p class=\"text-slate-600 mt-2\">לכן: צפיפות הקרח (0.9) < צפיפות המים (1.0)</p><p class=\"text-emerald-600 font-bold mt-3\">תוצאה: הקרח צף!</p><p class=\"text-sm text-slate-500 mt-2\">זה חיוני לחיים - אילו קרח היה שוקע, אגמים היו קופאים לחלוטין והדגים לא היו שורדים.</p></div></div>"
+    },
+    {
+      "type": "text",
+      "content": "<div class=\"bg-gradient-to-r from-emerald-100 to-teal-100 p-6 rounded-3xl border-2 border-emerald-300 my-8\"><h4 class=\"text-xl font-black text-emerald-900 mb-4\">תכונה מיוחדת של צפיפות</h4><p class=\"text-slate-700 mb-4\">צפיפות היא <strong>תכונה אינטנסיבית</strong> - היא לא תלויה בכמות החומר!</p><div class=\"grid md:grid-cols-2 gap-4\"><div class=\"bg-white p-4 rounded-xl shadow-sm\"><h5 class=\"font-bold text-emerald-700\">קוביית ברזל קטנה</h5><p class=\"text-slate-600\">מסה: 78 גרם<br/>נפח: 10 סמ\"ק<br/>צפיפות: 7.8 גר'/סמ\"ק</p></div><div class=\"bg-white p-4 rounded-xl shadow-sm\"><h5 class=\"font-bold text-emerald-700\">גוש ברזל ענק</h5><p class=\"text-slate-600\">מסה: 7,800 גרם<br/>נפח: 1,000 סמ\"ק<br/>צפיפות: 7.8 גר'/סמ\"ק</p></div></div><p class=\"mt-4 text-center text-emerald-800 font-medium\">אותה צפיפות! זה מה שמאפשר לזהות חומרים לפי צפיפותם.</p></div>"
+    },
+    {
+      "type": "enrichment",
+      "title": "צפיפות גזים",
+      "icon": "balloon",
+      "content": "<p>גם לגזים יש צפיפות! הליום קל יותר מאוויר, ולכן בלוני הליום עולים למעלה.</p><ul class=\"mt-3 space-y-2\"><li><strong>הליום:</strong> 0.00016 גר'/סמ\"ק - קל מאוד, צף באוויר</li><li><strong>אוויר:</strong> 0.0012 גר'/סמ\"ק - הנקודת ייחוס לגזים</li><li><strong>פחמן דו-חמצני:</strong> 0.0018 גר'/סמ\"ק - כבד מאוויר, שוקע</li></ul><p class=\"mt-3 p-3 bg-blue-100 rounded-xl text-blue-900\">זו הסיבה ש-CO₂ מצטבר בקרקע (\"מכבה אש\") והליום עולה לשמיים!</p>"
+    },
+    {
+      "type": "quiz"
+    }
+  ]
+}

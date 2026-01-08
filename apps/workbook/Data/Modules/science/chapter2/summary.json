@@ -1,0 +1,63 @@
+{
+  "id": "summary",
+  "title": "מבחן פרק 2",
+  "metadata": {
+    "description": "סיכום ומבחן מסכם לפרק 2: גוף וחומר. בדיקת ידע בנושאי נפח, מסה, משקל וצפיפות כולל המרות יחידות ונוסחאות."
+  },
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "סיכום ומבחן פרק 2",
+      "subtitle": "גוף וחומר, נפח, מסה, משקל וצפיפות"
+    },
+    {
+      "type": "introduction_block",
+      "title": "סיכום הנושאים המרכזיים",
+      "theme": "primary-purple",
+      "content": [
+        {
+          "type": "list_items",
+          "theme": "circular",
+          "content": [
+            {
+              "title": "גוף וחומר",
+              "content": [{"type": "text", "content": "<strong>גוף:</strong> דבר בעל צורה, נפח ומסה<br/><strong>חומר:</strong> ממה הגוף עשוי"}]
+            },
+            {
+              "title": "נפח",
+              "content": [{"type": "text", "content": "המקום שגוף תופס במרחב<br/>יחידות: סמ\"ק, מ\"ל, ליטר"}]
+            },
+            {
+              "title": "מסה ומשקל",
+              "content": [{"type": "text", "content": "<strong>מסה:</strong> כמות חומר (קבועה)<br/><strong>משקל:</strong> כוח כבידה (משתנה)"}]
+            },
+            {
+              "title": "צפיפות",
+              "content": [{"type": "text", "content": "מסה ÷ נפח<br/>קובעת ציפה/שקיעה"}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "scientific_table",
+      "title": "נוסחאות וכללים חשובים",
+      "headers": ["נושא", "נוסחה / כלל", "יחידות"],
+      "rows": [
+        ["נפח תיבה", "אורך × רוחב × גובה", "סמ\"ק, מ\"ל, ליטר"],
+        ["צפיפות", "מסה ÷ נפח", "גרם/סמ\"ק"],
+        ["משקל (בקירוב)", "מסה × 10", "ניוטון"],
+        ["ציפה", "צפיפות גוף < צפיפות נוזל", "יצוף"],
+        ["שקיעה", "צפיפות גוף > צפיפות נוזל", "ישקע"]
+      ],
+      "variant": "emerald"
+    },
+    {
+      "type": "text",
+      "content": "<div class=\"bg-gradient-to-r from-amber-100 to-orange-100 p-6 rounded-3xl border-2 border-amber-300 my-8\"><h4 class=\"text-xl font-black text-amber-900 mb-4\">טיפים להמרות</h4><div class=\"grid md:grid-cols-2 gap-4\"><div class=\"bg-white p-4 rounded-xl shadow-sm\"><h5 class=\"font-bold text-slate-800 mb-2\">נפח</h5><p class=\"text-sm text-slate-600\">1 סמ\"ק = 1 מ\"ל<br/>1 ליטר = 1,000 מ\"ל<br/>1 מ\"ק = 1,000 ליטר</p></div><div class=\"bg-white p-4 rounded-xl shadow-sm\"><h5 class=\"font-bold text-slate-800 mb-2\">מסה</h5><p class=\"text-sm text-slate-600\">1,000 מ\"ג = 1 גרם<br/>1,000 גרם = 1 ק\"ג<br/>1,000 ק\"ג = 1 טונה</p></div></div></div>"
+    },
+    {
+      "type": "quiz"
+    }
+  ]
+}

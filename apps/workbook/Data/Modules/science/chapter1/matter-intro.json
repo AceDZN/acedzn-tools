@@ -1,0 +1,33 @@
+
+{
+  "id": "matter-intro",
+  "title": "מהו חומר?",
+  "metadata": {
+    "description": "הכרת המושגים הבסיסיים של עולם החומר: מהו חומר, מהו גוף, וכיצד אנו מזהים חומרים סביבנו."
+  },
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "ברוכים הבאים לעולם החומר",
+      "subtitle": "הכל מסביבנו—מהאוויר שאנחנו נושמים ועד לכוכבים הכי רחוקים—עשוי מ\"דבר\" אחד: חומר."
+    },
+    {
+      "type": "grid_cards",
+      "cards": [
+        {
+          "title": "מה זה בעצם חומר?",
+          "content": "לכל חומר צריכה להיות <span class=\"underline decoration-4 decoration-blue-300\">מסה</span> (הוא שוקל משהו) והוא צריך לתפוס <span class=\"underline decoration-4 decoration-blue-300\">נפח</span> (מקום במרחב).",
+          "variant": "blue"
+        },
+        {
+          "title": "תופעה לדוגמה",
+          "content": "חשבו על אוויר: אנחנו לא רואים אותו, אבל הוא ממלא בלונים ומפעיל כוח—משמע הוא חומר!",
+          "variant": "indigo"
+        }
+      ]
+    },
+    {
+      "type": "quiz"
+    }
+  ]
+}

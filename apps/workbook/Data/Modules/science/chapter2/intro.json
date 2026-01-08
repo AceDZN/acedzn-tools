@@ -1,0 +1,75 @@
+{
+  "id": "intro",
+  "title": "מהו גוף ומהו חומר?",
+  "metadata": {
+    "description": "הבנה עמוקה של ההבדל בין גוף לחומר במדע. לימוד מאפייני הגוף (צורה, נפח, מסה) וזיהוי חומרים לפי תכונותיהם הפיזיקליות והכימיות."
+  },
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "מהו גוף ומהו חומר?",
+      "subtitle": "שני מושגי יסוד במדעי החומר שחשוב להבדיל ביניהם"
+    },
+    {
+      "type": "introduction_block",
+      "title": "גוף מול חומר",
+      "icon": "rock",
+      "theme": "primary-blue",
+      "content": [
+        {
+          "type": "text",
+          "size": "lg",
+          "content": "בחיי היום-יום אנחנו משתמשים במילים \"גוף\" ו\"חומר\" לפעמים בצורה מבולבלת. במדע, יש הבדל ברור וחשוב בין שני המושגים הללו!"
+        }
+      ]
+    },
+    {
+      "type": "grid_cards",
+      "cards": [
+        {
+          "title": "גוף",
+          "content": "<div class=\"text-center mb-4\"><img src=\"https://api.iconify.design/fluent-emoji/rock.svg\" alt=\"rock\" class=\"w-16 h-16 mx-auto\" /></div><p class=\"text-lg leading-relaxed text-slate-700\"><strong>גוף</strong> הוא כל דבר (חי או דומם) העשוי מחומר. לכל גוף יש <strong>צורה מוגדרת</strong>, <strong>נפח</strong> (תופס מקום) ו<strong>מסה</strong> (כמות חומר).</p><div class=\"mt-4 p-3 bg-blue-50 rounded-xl\"><p class=\"text-sm text-blue-800\"><strong>דוגמאות:</strong> כדור, אבן, כוס מים, נמלה, מחשב, עץ</p></div>",
+          "variant": "blue"
+        },
+        {
+          "title": "חומר",
+          "content": "<div class=\"text-center mb-4\"><img src=\"https://api.iconify.design/fluent-emoji/test-tube.svg\" alt=\"test-tube\" class=\"w-16 h-16 mx-auto\" /></div><p class=\"text-lg leading-relaxed text-slate-700\"><strong>חומר</strong> הוא ה\"דבר\" שממנו עשויים הגופים. החומר מתאר את <strong>סוג החומר</strong>, לא את הצורה שלו.</p><div class=\"mt-4 p-3 bg-indigo-50 rounded-xl\"><p class=\"text-sm text-indigo-800\"><strong>דוגמאות:</strong> ברזל, מים, פלסטיק, זכוכית, עץ (כחומר)</p></div>",
+          "variant": "indigo"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<div class=\"bg-gradient-to-r from-amber-100 to-orange-100 p-6 rounded-3xl border-2 border-amber-300 my-8\"><h4 class=\"text-xl font-black text-amber-900 mb-4 flex items-center gap-3\"><img src=\"https://api.iconify.design/fluent-emoji/light-bulb.svg\" alt=\"lightbulb\" class=\"w-8 h-8\" /> דוגמאות להבהרה</h4><div class=\"grid md:grid-cols-2 gap-4\"><div class=\"bg-white p-4 rounded-xl shadow-sm\"><h5 class=\"font-bold text-slate-800 mb-2\">שולחן עץ</h5><p class=\"text-slate-600\"><strong>הגוף:</strong> השולחן (יש לו צורה ושימוש)<br/><strong>החומר:</strong> עץ (ממנו עשוי השולחן)</p></div><div class=\"bg-white p-4 rounded-xl shadow-sm\"><h5 class=\"font-bold text-slate-800 mb-2\">כוס מים</h5><p class=\"text-slate-600\"><strong>הגופים:</strong> הכוס והמים (שניהם תופסים מקום)<br/><strong>החומרים:</strong> זכוכית ומים</p></div><div class=\"bg-white p-4 rounded-xl shadow-sm\"><h5 class=\"font-bold text-slate-800 mb-2\">בלון מנופח</h5><p class=\"text-slate-600\"><strong>הגוף:</strong> הבלון כולו (כולל האוויר בפנים)<br/><strong>החומרים:</strong> גומי (של הבלון) ואוויר</p></div><div class=\"bg-white p-4 rounded-xl shadow-sm\"><h5 class=\"font-bold text-slate-800 mb-2\">טבעת זהב</h5><p class=\"text-slate-600\"><strong>הגוף:</strong> הטבעת (צורה מוגדרת)<br/><strong>החומר:</strong> זהב</p></div></div></div>"
+    },
+    {
+      "type": "text",
+      "content": "<div class=\"bg-gradient-to-br from-emerald-50 to-teal-50 p-6 rounded-3xl border border-emerald-200 my-8\"><h4 class=\"text-xl font-black text-emerald-900 mb-4\">מאפיינים של גוף</h4><div class=\"grid md:grid-cols-3 gap-4\"><div class=\"bg-white p-4 rounded-xl shadow-sm text-center\"><img src=\"https://api.iconify.design/fluent-emoji/triangular-ruler.svg\" alt=\"ruler\" class=\"w-12 h-12 mx-auto mb-2\" /><h5 class=\"font-bold text-slate-800\">צורה</h5><p class=\"text-sm text-slate-600\">לכל גוף יש צורה מוגדרת (עגול, מרובע, לא סדור...)</p></div><div class=\"bg-white p-4 rounded-xl shadow-sm text-center\"><img src=\"https://api.iconify.design/fluent-emoji/package.svg\" alt=\"package\" class=\"w-12 h-12 mx-auto mb-2\" /><h5 class=\"font-bold text-slate-800\">נפח</h5><p class=\"text-sm text-slate-600\">כל גוף תופס מקום במרחב (יש לו נפח)</p></div><div class=\"bg-white p-4 rounded-xl shadow-sm text-center\"><img src=\"https://api.iconify.design/fluent-emoji/balance-scale.svg\" alt=\"scale\" class=\"w-12 h-12 mx-auto mb-2\" /><h5 class=\"font-bold text-slate-800\">מסה</h5><p class=\"text-sm text-slate-600\">לכל גוף יש כמות חומר מסוימת (מסה)</p></div></div></div>"
+    },
+    {
+      "type": "scientific_table",
+      "title": "סיכום ההבדלים בין גוף לחומר",
+      "headers": ["קריטריון", "גוף", "חומר"],
+      "rows": [
+        ["הגדרה", "דבר העשוי מחומר, יש לו צורה", "ה'דבר' שממנו עשויים הגופים"],
+        ["צורה", "יש לו צורה מוגדרת", "אין לו צורה משלו"],
+        ["דוגמאות", "כדור, שולחן, טיפת מים", "ברזל, מים, פלסטיק"],
+        ["שאלת זיהוי", "מה זה? (תשובה: כיסא)", "ממה זה עשוי? (תשובה: עץ)"]
+      ],
+      "variant": "blue"
+    },
+    {
+      "type": "text",
+      "content": "<div class=\"bg-gradient-to-r from-purple-100 to-pink-100 p-6 rounded-3xl border-2 border-purple-300 my-8\"><h4 class=\"text-xl font-black text-purple-900 mb-4 flex items-center gap-3\"><img src=\"https://api.iconify.design/fluent-emoji/thinking-face.svg\" alt=\"thinking\" class=\"w-8 h-8\" /> שאלה לחשיבה</h4><p class=\"text-slate-700 mb-4\">האם <strong>אוויר</strong> הוא גוף או חומר?</p><div class=\"bg-white p-4 rounded-xl shadow-sm\"><p class=\"text-slate-600\"><strong>תשובה:</strong> אוויר הוא <strong>חומר</strong> (למעשה, תערובת של גזים). אם האוויר נמצא בתוך בלון סגור, הבלון כולו (עם האוויר) הוא <strong>גוף</strong>.</p><p class=\"text-sm text-slate-500 mt-2\">אוויר הוא חומר כי יש לו מסה (אפשר לשקול בלון ריק ומלא) והוא תופס מקום!</p></div></div>"
+    },
+    {
+      "type": "enrichment",
+      "title": "תכונות של חומרים",
+      "icon": "microscope",
+      "content": "<p>לכל חומר יש <strong>תכונות ייחודיות</strong> שמאפשרות לזהות אותו:</p><ul class=\"mt-3 space-y-2\"><li><strong>תכונות פיזיקליות:</strong> צבע, מרקם, מצב צבירה, צפיפות, נקודת רתיחה, מוליכות חשמלית</li><li><strong>תכונות כימיות:</strong> דליקות, תגובתיות עם חומצות, יכולת התחמצנות</li></ul><p class=\"mt-3 p-3 bg-purple-100 rounded-xl text-purple-900\">בפרק זה נלמד על שלוש תכונות חשובות: <strong>נפח</strong>, <strong>מסה</strong> ו<strong>צפיפות</strong>!</p>"
+    },
+    {
+      "type": "quiz"
+    }
+  ]
+}
