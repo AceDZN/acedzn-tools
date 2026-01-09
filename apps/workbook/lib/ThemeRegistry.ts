@@ -58,7 +58,37 @@ export const THEME_COLORS = {
         bg: "bg-slate-50",
         text: "text-slate-900",
         border: "border-slate-200",
-        icon: "text-slate-500"
+        icon: "text-slate-500",
+        accent: "bg-slate-100"
+    },
+    // Gradients for high-impact blocks (restoring V1 aesthetics)
+    "blue-gradient": {
+        bg: "bg-gradient-to-br from-indigo-50 to-purple-50",
+        text: "text-indigo-900",
+        border: "border-indigo-100",
+        icon: "text-indigo-600",
+        accent: "bg-indigo-200"
+    },
+    "amber-gradient": {
+        bg: "bg-gradient-to-r from-amber-100 to-orange-100",
+        text: "text-amber-900",
+        border: "border-amber-300",
+        icon: "text-amber-700",
+        accent: "bg-amber-200"
+    },
+    "emerald-gradient": {
+        bg: "bg-gradient-to-br from-emerald-50 to-teal-50",
+        text: "text-emerald-900",
+        border: "border-emerald-200",
+        icon: "text-emerald-700",
+        accent: "bg-emerald-200"
+    },
+    "purple-gradient": {
+        bg: "bg-gradient-to-r from-purple-100 to-pink-100",
+        text: "text-purple-900",
+        border: "border-purple-300",
+        icon: "text-purple-700",
+        accent: "bg-purple-200"
     }
 } as const;
 

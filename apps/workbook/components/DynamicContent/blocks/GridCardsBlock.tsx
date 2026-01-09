@@ -126,7 +126,7 @@ export const GridCardsBlock = ({ block, renderBlock }: Props) => {
           <div
             key={idx}
             className={cn(
-              `p-4 md:p-6 lg:p-8 rounded-xl md:rounded-2xl border-2 border-transparent shadow-md`,
+              `p-4 rounded-xl md:rounded-2xl border-2 border-transparent shadow-md`,
               styles.container,
               card.className
             )}

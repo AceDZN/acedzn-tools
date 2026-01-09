@@ -42,6 +42,8 @@ const BLOCK_REGISTRY: Record<
   // Primitives
   icon_flow: IconFlowBlock,
   p: ParagraphBlock,
+  paragraph: ParagraphBlock, // Alias for easier usage
+  span: SpanBlock,
   span: SpanBlock,
   callout: CalloutBlock,
   highlight_box: HighlightBoxBlock,
