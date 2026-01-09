@@ -18,6 +18,8 @@ import {
   // Primitives
   IconFlowBlock,
   ParagraphBlock,
+  SpanBlock,
+  CalloutBlock,
   HighlightBoxBlock
 } from "./blocks";
 
@@ -39,6 +41,8 @@ const BLOCK_REGISTRY: Record<
   // Primitives
   icon_flow: IconFlowBlock,
   p: ParagraphBlock,
+  span: SpanBlock,
+  callout: CalloutBlock,
   highlight_box: HighlightBoxBlock
 };
 

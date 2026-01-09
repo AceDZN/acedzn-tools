@@ -75,9 +75,11 @@ export type ContentBlockType =
   | "introduction_block"
   | "section"
   | "h3"
+  | "callout"
   // Primitives (can be nested inside other blocks)
   | "icon_flow"
   | "p"
+  | "span"
   | "highlight_box";
 
 export interface BaseContentBlock {
@@ -162,10 +164,10 @@ export interface IntroductionBlock extends BaseContentBlock {
   title: string;
   icon?: string;
   theme?:
-    | "primary-orange"
-    | "primary-blue"
-    | "primary-purple"
-    | "primary-emerald";
+  | "primary-orange"
+  | "primary-blue"
+  | "primary-purple"
+  | "primary-emerald";
   content: InnerContentBlock[];
 }
 
@@ -239,6 +241,29 @@ export interface ScientificTableBlock extends BaseContentBlock {
   note?: string;
 }
 
+export interface SpanBlock extends BaseContentBlock {
+  type: "span";
+  content: string;
+  style?: {
+    bold?: boolean;
+    italic?: boolean;
+    underline?: boolean;
+    strikethrough?: boolean;
+    code?: boolean;
+    color?: string;
+    highlight?: string;
+  };
+}
+
+export interface CalloutBlock extends BaseContentBlock {
+  type: "callout";
+  title?: string;
+  icon?: string;
+  variant?: "primary-blue" | "primary-green" | "primary-purple" | "primary-orange" | "info" | "warning" | "danger" | "success" | "gray";
+  content: ContentBlock[] | string;
+  className?: string;
+}
+
 export type ContentBlock =
   | TextBlock
   | HeroBlock
@@ -253,7 +278,9 @@ export type ContentBlock =
   // Primitives
   | IconFlowBlock
   | ParagraphBlock
-  | HighlightBoxBlock;
+  | HighlightBoxBlock
+  | CalloutBlock
+  | SpanBlock;
 
 export interface DynamicModuleData {
   id: string;

@@ -1,0 +1,55 @@
+{
+    "id": "test-recursive",
+    "title": "Recursive Structure Test",
+    "metadata": {
+        "description": "Validation of recursive block rendering, merge tags, and new primitive components."
+    },
+    "blocks": [
+        {
+            "type": "hero",
+            "title": "Recursive Rendering Test",
+            "subtitle": "Validating the new architecture"
+        },
+        {
+            "type": "section",
+            "content": [
+                {
+                    "type": "p",
+                    "content": "This is a standard paragraph with {b}bold{/b}, {i}italic{/i}, and {u}underlined{/u} text. We also support {code}inline code{/code} and {color:red}colors{/color} or {highlight:yellow}highlights{/highlight}."
+                },
+                {
+                    "type": "p",
+                    "content": "This supports legacy HTML strings too: <b>Bold via HTML</b>.",
+                    "align": "center"
+                },
+                {
+                    "type": "callout",
+                    "title": "Recursive Callout Box",
+                    "variant": "info",
+                    "icon": "fluent-emoji:light-bulb",
+                    "content": [
+                        {
+                            "type": "p",
+                            "content": "This content is inside a CalloutBlock."
+                        },
+                        {
+                            "type": "p",
+                            "content": "It allows nesting! Here is a nested callout:"
+                        },
+                        {
+                            "type": "callout",
+                            "variant": "warning",
+                            "title": "Nested Warning",
+                            "content": [
+                                {
+                                    "type": "p",
+                                    "content": "Deeply nested content with {b}tags{/b}."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

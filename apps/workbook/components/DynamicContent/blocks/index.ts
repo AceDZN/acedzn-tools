@@ -1,17 +1,15 @@
-// Primitive blocks
-export { TextBlock } from "./TextBlock";
-export { SectionBlock } from "./SectionBlock";
-export { HeadingBlock } from "./HeadingBlock";
-export { HeroBlock } from "./HeroBlock";
-export { IconFlowBlock } from "./IconFlowBlock";
-export { ParagraphBlock } from "./ParagraphBlock";
-export { HighlightBoxBlock } from "./HighlightBoxBlock";
-
-// Content blocks
-export { GridCardsBlock } from "./GridCardsBlock";
-export { IntroductionBlock } from "./IntroductionBlock";
-export { SimulationBlock } from "./SimulationBlock";
-export { QuizBlock } from "./QuizBlock";
-export { EnrichmentBlock } from "./EnrichmentBlock";
-export { ScientificTableBlock } from "./ScientificTableBlock";
-
+export * from "./TextBlock";
+export * from "./SectionBlock";
+export * from "./HeadingBlock";
+export * from "./HeroBlock";
+export * from "./GridCardsBlock";
+export * from "./IntroductionBlock";
+export * from "./SimulationBlock";
+export * from "./QuizBlock";
+export * from "./EnrichmentBlock";
+export * from "./ScientificTableBlock";
+export * from "./IconFlowBlock";
+export * from "./ParagraphBlock";
+export * from "./HighlightBoxBlock";
+export * from "./SpanBlock";
+export * from "./CalloutBlock";
