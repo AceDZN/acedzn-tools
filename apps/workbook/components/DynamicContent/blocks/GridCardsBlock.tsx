@@ -5,6 +5,11 @@ import {
 } from "@/lib/types";
 import { RenderBlockFn } from "../BlockRenderer";
 import { cn } from "@/lib/utils";
+import { parseMergeTags } from "@/utils/MergeTagParser";
+import { SpanBlock } from "@/components/DynamicContent/blocks/SpanBlock";
+
+// ... Keep existing VARIANT_STYLES for now as they are specific to this block's gradients ...
+// In a full refactor we might move gradients to ThemeRegistry, but for now let's focus on logic.
 
 const VARIANT_STYLES = {
   blue: {
@@ -148,10 +153,16 @@ export const GridCardsBlock = ({ block, renderBlock }: Props) => {
                   )}
                 </div>
               ) : (
-                <div
-                  className={`text-base md:text-lg font-bold leading-relaxed ${styles.text}`}
-                  dangerouslySetInnerHTML={{ __html: card.content as string }}
-                />
+                // Fallback for simple string content - check for HTML vs MergeTags
+                <div className={`text-base md:text-lg leading-relaxed ${styles.text}`}>
+                  {(card.content as string).match(/<[a-z][\s\S]*>/i) ? (
+                    <div dangerouslySetInnerHTML={{ __html: card.content as string }} />
+                  ) : (
+                    parseMergeTags(card.content as string).map((seg, idx) => (
+                      <SpanBlock key={idx} block={seg} />
+                    ))
+                  )}
+                </div>
               )}
             </div>
           </div>

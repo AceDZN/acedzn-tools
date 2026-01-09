@@ -6,44 +6,14 @@ import {
   InnerCardsBlock
 } from "@/lib/types";
 import { RenderBlockFn } from "../BlockRenderer";
+import { getThemeClasses } from "@/lib/ThemeRegistry";
+import { parseMergeTags } from "@/utils/MergeTagParser";
+import { SpanBlock } from "@/components/DynamicContent/blocks/SpanBlock";
 
-// Theme maps
-const THEME_STYLES = {
-  "primary-orange": {
-    container: "bg-gradient-to-br from-orange-50 to-amber-50 border-orange-100",
-    title: "text-orange-900",
-    listMarker: "bg-orange-600",
-    cardBorder: "border-orange-200"
-  },
-  "primary-blue": {
-    container: "bg-gradient-to-br from-indigo-50 to-purple-50 border-indigo-100",
-    title: "text-indigo-900",
-    listMarker: "bg-indigo-600",
-    cardBorder: "border-indigo-200"
-  },
-  "primary-purple": {
-    container: "bg-gradient-to-br from-purple-50 to-fuchsia-50 border-purple-100",
-    title: "text-purple-900",
-    listMarker: "bg-purple-600",
-    cardBorder: "border-purple-200"
-  },
-  "primary-emerald": {
-    container: "bg-gradient-to-br from-emerald-50 to-teal-50 border-emerald-100",
-    title: "text-emerald-900",
-    listMarker: "bg-emerald-600",
-    cardBorder: "border-emerald-200"
-  },
-  default: {
-    container: "bg-slate-50 border-slate-100",
-    title: "text-slate-900",
-    listMarker: "bg-slate-600",
-    cardBorder: "border-slate-200"
-  }
-};
+// Local theme helper mapping legacy internal names to ThemeRegistry names if needed
+// Or directly using ThemeRegistry. 
+// ThemeRegistry uses "primary-orange" keys too, so we can map directly.
 
-const getTheme = (themeName?: string) => {
-  return THEME_STYLES[themeName as keyof typeof THEME_STYLES] || THEME_STYLES.default;
-};
 
 // Inner content renderers for introduction block specific content
 const InnerText = ({ block }: { block: InnerTextBlock }) => {
@@ -54,16 +24,31 @@ const InnerText = ({ block }: { block: InnerTextBlock }) => {
   };
   const className = `leading-relaxed text-slate-700 ${sizeClasses[block.size || "md"]}`;
 
+  // Check for legacy HTML
+  const hasLegacyHTML = /<[a-z][\s\S]*>/i.test(block.content);
+
+  if (hasLegacyHTML) {
+    return (
+      <div
+        className={className}
+        dangerouslySetInnerHTML={{ __html: block.content }}
+      />
+    );
+  }
+
+  const segments = parseMergeTags(block.content);
+
   return (
-    <div
-      className={className}
-      dangerouslySetInnerHTML={{ __html: block.content }}
-    />
+    <div className={className}>
+      {segments.map((seg, idx) => (
+        <SpanBlock key={idx} block={seg} />
+      ))}
+    </div>
   );
 };
 
 const InnerList = ({ block, themeName }: { block: InnerListBlock; themeName?: string }) => {
-  const theme = getTheme(themeName);
+  const theme = getThemeClasses(themeName);
 
   return (
     <div className="grid gap-4 mt-4">
@@ -74,14 +59,14 @@ const InnerList = ({ block, themeName }: { block: InnerListBlock; themeName?: st
         >
           {block.theme === "circular" && (
             <span
-              className={`shrink-0 w-10 h-10 ${theme.listMarker} text-white rounded-full flex items-center justify-center font-black text-lg`}
+              className={`shrink-0 w-10 h-10 ${theme.bg} ${theme.text} rounded-full flex items-center justify-center font-black text-lg`}
             >
               {idx + 1}
             </span>
           )}
           <div className="flex-1">
             {item.title && (
-              <strong className={`block text-lg mb-1 ${theme.title}`}>
+              <strong className={`block text-lg mb-1 ${theme.text}`}>
                 {item.title}
               </strong>
             )}
@@ -96,7 +81,7 @@ const InnerList = ({ block, themeName }: { block: InnerListBlock; themeName?: st
 };
 
 const InnerCards = ({ block, themeName }: { block: InnerCardsBlock; themeName?: string }) => {
-  const theme = getTheme(themeName);
+  const theme = getThemeClasses(themeName);
   const gridCols = block.content.length % 3 === 0 ? "md:grid-cols-3" : "md:grid-cols-2";
 
   return (
@@ -104,7 +89,7 @@ const InnerCards = ({ block, themeName }: { block: InnerCardsBlock; themeName?: 
       {block.content.map((card, idx) => (
         <div
           key={idx}
-          className={`bg-white p-4 rounded-xl border ${theme.cardBorder} shadow-sm text-center`}
+          className={`bg-white p-4 rounded-xl border ${theme.border} shadow-sm text-center`}
         >
           {card.icon && (
             <div className="mb-3">
@@ -116,7 +101,7 @@ const InnerCards = ({ block, themeName }: { block: InnerCardsBlock; themeName?: 
             </div>
           )}
           {card.title && (
-            <h4 className={`font-bold text-lg mb-2 ${theme.title}`}>
+            <h4 className={`font-bold text-lg mb-2 ${theme.text}`}>
               {card.title}
             </h4>
           )}
@@ -137,11 +122,11 @@ interface Props {
 }
 
 export const IntroductionBlock = ({ block }: Props) => {
-  const theme = getTheme(block.theme);
+  const theme = getThemeClasses(block.theme);
 
   return (
-    <div className={`${theme.container} p-8 rounded-3xl border shadow-sm mb-8`}>
-      <h3 className={`text-2xl font-black ${theme.title} mb-6 text-center`}>
+    <div className={`${theme.bg} p-8 rounded-3xl border ${theme.border} shadow-sm mb-8`}>
+      <h3 className={`text-2xl font-black ${theme.text} mb-6 text-center`}>
         {block.icon && (
           <img
             src={`https://api.iconify.design/fluent-emoji/${block.icon}.svg`}
