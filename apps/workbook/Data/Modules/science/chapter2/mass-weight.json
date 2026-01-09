@@ -19,7 +19,7 @@
         {
           "type": "text",
           "size": "lg",
-          "content": "בחיי היום-יום אנחנו אומרים \"משקל\" כשאנחנו מתכוונים ל\"מסה\". <strong>במדע, אלו שני דברים שונים לגמרי!</strong>"
+          "content": "בחיי היום-יום אנחנו אומרים \"משקל\" כשאנחנו מתכוונים ל\"מסה\". {b}במדע, אלו שני דברים שונים לגמרי!{/b}"
         }
       ]
     },
@@ -28,60 +28,62 @@
       "cards": [
         {
           "title": "מסה (Mass)",
-          "content": "<div class=\"text-center mb-4\"><img src=\"https://api.iconify.design/fluent-emoji/balance-scale.svg\" alt=\"scale\" class=\"w-16 h-16 mx-auto\" /></div><p class=\"text-lg leading-relaxed\"><strong>מסה</strong> היא כמות החומר שיש בגוף. היא תכונה של הגוף עצמו ו<strong>לא משתנה</strong> לפי המקום.</p><div class=\"mt-4 p-3 bg-emerald-100 rounded-xl\"><p class=\"text-sm\"><strong>יחידות:</strong> גרם, קילוגרם, טונה<br/><strong>כלי מדידה:</strong> מאזני כפות</p></div>",
-          "variant": "emerald"
+          "icon": "balance-scale",
+          "variant": "emerald",
+          "content": [
+            {
+              "type": "p",
+              "content": "{b}מסה{/b} היא כמות החומר שיש בגוף. היא תכונה של הגוף עצמו ו{b}לא משתנה{/b} לפי המקום."
+            },
+            {
+              "type": "callout",
+              "variant": "white",
+              "content": [
+                {
+                  "type": "p",
+                  "size": "sm",
+                  "content": "{b}יחידות:{/b} גרם, קילוגרם, טונה\n{b}כלי מדידה:{/b} מאזני כפות"
+                }
+              ]
+            }
+          ]
         },
         {
           "title": "משקל (Weight)",
-          "content": "<div class=\"text-center mb-4\"><img src=\"https://api.iconify.design/fluent-emoji/down-arrow.svg\" alt=\"arrow\" class=\"w-16 h-16 mx-auto\" /></div><p class=\"text-lg leading-relaxed\"><strong>משקל</strong> הוא כוח הכבידה שמושך את הגוף. הוא <strong>משתנה</strong> לפי המקום (כדור הארץ, ירח, חלל).</p><div class=\"mt-4 p-3 bg-blue-100 rounded-xl\"><p class=\"text-sm\"><strong>יחידות:</strong> ניוטון (N)<br/><strong>כלי מדידה:</strong> מד כוח (קפיץ)</p></div>",
-          "variant": "blue"
+          "icon": "down-arrow",
+          "variant": "blue",
+          "content": [
+            {
+              "type": "p",
+              "content": "{b}משקל{/b} הוא כוח הכבידה שמושך את הגוף. הוא {b}משתנה{/b} לפי המקום (כדור הארץ, ירח, חלל)."
+            },
+            {
+              "type": "callout",
+              "variant": "white",
+              "content": [
+                {
+                  "type": "p",
+                  "size": "sm",
+                  "content": "{b}יחידות:{/b} ניוטון (N)\n{b}כלי מדידה:{/b} מד כוח (קפיץ)"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "type": "scientific_table",
       "title": "השוואה מפורטת: מסה מול משקל",
-      "headers": [
-        "קריטריון",
-        "מסה",
-        "משקל"
-      ],
+      "headers": ["קריטריון", "מסה", "משקל"],
       "rows": [
-        [
-          "מהו?",
-          "כמות החומר בגוף",
-          "כוח הכבידה הפועל על הגוף"
-        ],
-        [
-          "האם משתנה?",
-          "קבועה תמיד (גם בחלל!)",
-          "משתנה לפי כוח הכבידה במקום"
-        ],
-        [
-          "על כדור הארץ",
-          "60 ק\"ג",
-          "600 ניוטון (בערך)"
-        ],
-        [
-          "על הירח",
-          "60 ק\"ג (זהה!)",
-          "100 ניוטון (⅙ מכדור הארץ)"
-        ],
-        [
-          "בחלל (ריחוף)",
-          "60 ק\"ג (זהה!)",
-          "0 ניוטון (אפס!)"
-        ],
-        [
-          "כלי מדידה",
-          "מאזני כפות / מאזניים דיגיטליים",
-          "מד כוח (דינמומטר / קפיץ)"
-        ],
-        [
-          "יחידות מידה",
-          "גרם, ק\"ג, טונה",
-          "ניוטון (N)"
-        ]
+        ["מהו?", "כמות החומר בגוף", "כוח הכבידה הפועל על הגוף"],
+        ["האם משתנה?", "קבועה תמיד (גם בחלל!)", "משתנה לפי כוח הכבידה במקום"],
+        ["על כדור הארץ", "60 ק\"ג", "600 ניוטון (בערך)"],
+        ["על הירח", "60 ק\"ג (זהה!)", "100 ניוטון (⅙ מכדור הארץ)"],
+        ["בחלל (ריחוף)", "60 ק\"ג (זהה!)", "0 ניוטון (אפס!)"],
+        ["כלי מדידה", "מאזני כפות / מאזניים דיגיטליים", "מד כוח (דינמומטר / קפיץ)"],
+        ["יחידות מידה", "גרם, ק\"ג, טונה", "ניוטון (N)"]
       ],
       "variant": "emerald",
       "note": "נוסחה: משקל = מסה × תאוצת הכבידה (על כדור הארץ: משקל ≈ מסה × 10)"
@@ -91,46 +93,70 @@
       "componentName": "GravitySimulation"
     },
     {
-      "type": "text",
-      "content": "<div class=\"bg-gradient-to-r from-indigo-100 to-purple-100 p-6 rounded-3xl border-2 border-indigo-300 my-8\"><h4 class=\"text-xl font-black text-indigo-900 mb-4 flex items-center gap-3\"><img src=\"https://api.iconify.design/fluent-emoji/full-moon.svg\" alt=\"moon\" class=\"w-8 h-8\" /> דוגמה: אסטרונאוט על הירח</h4><div class=\"grid md:grid-cols-3 gap-4\"><div class=\"bg-white p-4 rounded-xl shadow-sm text-center\"><img src=\"https://api.iconify.design/fluent-emoji/globe-showing-americas.svg\" alt=\"earth\" class=\"w-12 h-12 mx-auto mb-2\" /><h5 class=\"font-bold text-slate-800\">על כדור הארץ</h5><p class=\"text-slate-600\">מסה: <strong>60 ק\"ג</strong></p><p class=\"text-slate-600\">משקל: <strong>600 N</strong></p></div><div class=\"bg-white p-4 rounded-xl shadow-sm text-center\"><img src=\"https://api.iconify.design/fluent-emoji/first-quarter-moon.svg\" alt=\"moon\" class=\"w-12 h-12 mx-auto mb-2\" /><h5 class=\"font-bold text-slate-800\">על הירח</h5><p class=\"text-slate-600\">מסה: <strong>60 ק\"ג</strong></p><p class=\"text-slate-600\">משקל: <strong>100 N</strong></p></div><div class=\"bg-white p-4 rounded-xl shadow-sm text-center\"><img src=\"https://api.iconify.design/fluent-emoji/milky-way.svg\" alt=\"space\" class=\"w-12 h-12 mx-auto mb-2\" /><h5 class=\"font-bold text-slate-800\">בחלל</h5><p class=\"text-slate-600\">מסה: <strong>60 ק\"ג</strong></p><p class=\"text-slate-600\">משקל: <strong>0 N</strong></p></div></div><p class=\"mt-4 text-center text-indigo-800 font-medium\">שימו לב: המסה נשארת 60 ק\"ג בכל מקום! רק המשקל משתנה.</p></div>"
+      "type": "feature_grid",
+      "title": "דוגמה: אסטרונאוט על הירח",
+      "variant": "purple",
+      "cols": 3,
+      "features": [
+        {
+          "icon": "globe-showing-americas",
+          "title": "על כדור הארץ",
+          "description": "מסה: {b}60 ק\"ג{/b} | משקל: {b}600 N{/b}"
+        },
+        {
+          "icon": "first-quarter-moon",
+          "title": "על הירח",
+          "description": "מסה: {b}60 ק\"ג{/b} | משקל: {b}100 N{/b}"
+        },
+        {
+          "icon": "milky-way",
+          "title": "בחלל",
+          "description": "מסה: {b}60 ק\"ג{/b} | משקל: {b}0 N{/b}"
+        }
+      ]
     },
     {
-      "type": "text",
-      "content": "<div class=\"bg-gradient-to-br from-amber-50 to-yellow-50 p-6 rounded-3xl border border-amber-200 my-8\"><h4 class=\"text-xl font-black text-amber-900 mb-4 flex items-center gap-3\"><img src=\"https://api.iconify.design/fluent-emoji/gear.svg\" alt=\"gear\" class=\"w-8 h-8\" /> איך עובדים כלי המדידה?</h4><div class=\"grid md:grid-cols-2 gap-6\"><div class=\"bg-white p-5 rounded-2xl shadow-sm\"><h5 class=\"font-bold text-emerald-700 mb-2 flex items-center gap-2\"><img src=\"https://api.iconify.design/fluent-emoji/balance-scale.svg\" alt=\"scale\" class=\"w-6 h-6\" /> מאזני כפות (למסה)</h5><p class=\"text-slate-600 mb-2\">משווים את הגוף לאבני מסה ידועות.</p><p class=\"text-slate-600 text-sm\">הכבידה פועלת <strong>שווה</strong> על שתי הכפות, ולכן למעשה משווים את <strong>כמות החומר</strong>.</p></div><div class=\"bg-white p-5 rounded-2xl shadow-sm\"><h5 class=\"font-bold text-blue-700 mb-2 flex items-center gap-2\"><img src=\"https://api.iconify.design/fluent-emoji/paperclip.svg\" alt=\"spring\" class=\"w-6 h-6\" /> מד כוח / קפיץ (למשקל)</h5><p class=\"text-slate-600 mb-2\">הקפיץ נמתח לפי הכוח שמושך אותו.</p><p class=\"text-slate-600 text-sm\">ככל שכוח הכבידה חזק יותר, הקפיץ <strong>מתארך יותר</strong>. המדידה היא ישירות של הכוח (משקל).</p></div></div></div>"
+      "type": "callout",
+      "variant": "purple",
+      "content": [
+        {
+          "type": "p",
+          "align": "center",
+          "content": "שימו לב: המסה נשארת 60 ק\"ג בכל מקום! רק המשקל משתנה."
+        }
+      ]
     },
     {
-      "type": "text",
-      "content": "<div class=\"bg-gradient-to-r from-red-100 to-pink-100 p-6 rounded-3xl border-2 border-red-300 my-8\"><h4 class=\"text-xl font-black text-red-900 mb-4 flex items-center gap-3\"><img src=\"https://api.iconify.design/fluent-emoji/thinking-face.svg\" alt=\"thinking\" class=\"w-8 h-8\" /> שאלה לחשיבה</h4><p class=\"text-slate-700 mb-4\">המשקל הביתי מראה \"60 ק\"ג\". האם הוא מודד מסה או משקל?</p><div class=\"bg-white p-4 rounded-xl shadow-sm\"><p class=\"text-slate-600\"><strong>תשובה:</strong> המשקל הביתי למעשה מודד <strong>כוח</strong> (משקל), אבל הוא מציג את התוצאה ביחידות של <strong>מסה</strong> (ק\"ג).</p><p class=\"text-sm text-slate-500 mt-2\">הוא עושה את ההמרה בהנחה שאתם על כדור הארץ. אם תיקחו אותו לירח, הוא יראה משקל שגוי!</p></div></div>"
+      "type": "examples_box",
+      "title": "איך עובדים כלי המדידה?",
+      "icon": "gear",
+      "variant": "amber",
+      "examples": [
+        {
+          "title": "מאזני כפות (למסה)",
+          "content": "משווים את הגוף לאבני מסה ידועות.\nהכבידה פועלת {b}שווה{/b} על שתי הכפות, ולכן למעשה משווים את {b}כמות החומר{/b}."
+        },
+        {
+          "title": "מד כוח / קפיץ (למשקל)",
+          "content": "הקפיץ נמתח לפי הכוח שמושך אותו.\nככל שכוח הכבידה חזק יותר, הקפיץ {b}מתארך יותר{/b}. המדידה היא ישירות של הכוח (משקל)."
+        }
+      ]
+    },
+    {
+      "type": "thinking_question",
+      "question": "המשקל הביתי מראה \"60 ק\"ג\". האם הוא מודד מסה או משקל?",
+      "answer": "המשקל הביתי למעשה מודד {b}כוח{/b} (משקל), אבל הוא מציג את התוצאה ביחידות של {b}מסה{/b} (ק\"ג).",
+      "note": "הוא עושה את ההמרה בהנחה שאתם על כדור הארץ. אם תיקחו אותו לירח, הוא יראה משקל שגוי!"
     },
     {
       "type": "scientific_table",
       "title": "יחידות מידה למסה והמרות",
-      "headers": [
-        "יחידה",
-        "סימון",
-        "יחס ליחידות אחרות"
-      ],
+      "headers": ["יחידה", "סימון", "יחס ליחידות אחרות"],
       "rows": [
-        [
-          "מיליגרם",
-          "מ\"ג (mg)",
-          "1,000 מ\"ג = 1 גרם"
-        ],
-        [
-          "גרם",
-          "גר' (g)",
-          "1,000 גרם = 1 ק\"ג"
-        ],
-        [
-          "קילוגרם",
-          "ק\"ג (kg)",
-          "1,000 ק\"ג = 1 טונה"
-        ],
-        [
-          "טונה",
-          "טונה (t)",
-          "= 1,000,000 גרם"
-        ]
+        ["מיליגרם", "מ\"ג (mg)", "1,000 מ\"ג = 1 גרם"],
+        ["גרם", "גר' (g)", "1,000 גרם = 1 ק\"ג"],
+        ["קילוגרם", "ק\"ג (kg)", "1,000 ק\"ג = 1 טונה"],
+        ["טונה", "טונה (t)", "= 1,000,000 גרם"]
       ],
       "variant": "blue",
       "note": "טיפ להמרות: מגרם לק\"ג - מחלקים ב-1,000. מק\"ג לגרם - כופלים ב-1,000."
@@ -139,7 +165,35 @@
       "type": "enrichment",
       "title": "מדידת מסה של נוזל או גז",
       "icon": "alembic",
-      "content": "<p>איך מודדים את המסה של מים בכוס? לא ניתן לשים מים ישירות על מאזניים!</p><p class=\"mt-3\"><strong>הפתרון - מדידה בהפרש:</strong></p><ol class=\"list-decimal list-inside space-y-1 mt-2\"><li>שוקלים את הכלי הריק (נניח: 50 גרם)</li><li>שוקלים את הכלי עם הנוזל (נניח: 350 גרם)</li><li>מסת הנוזל = 350 - 50 = <strong>300 גרם</strong></li></ol><p class=\"mt-3 p-3 bg-purple-100 rounded-xl text-purple-900\">אותו עיקרון עובד גם לגזים! (למשל, שקילת בלון ריק ומלא)</p>"
+      "content": [
+        {
+          "type": "p",
+          "content": "איך מודדים את המסה של מים בכוס? לא ניתן לשים מים ישירות על מאזניים!"
+        },
+        {
+          "type": "p",
+          "content": "{b}הפתרון - מדידה בהפרש:{/b}"
+        },
+        {
+          "type": "list",
+          "listType": "ordered",
+          "items": [
+            "שוקלים את הכלי הריק (נניח: 50 גרם)",
+            "שוקלים את הכלי עם הנוזל (נניח: 350 גרם)",
+            "מסת הנוזל = 350 - 50 = {b}300 גרם{/b}"
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "purple",
+          "content": [
+            {
+              "type": "p",
+              "content": "אותו עיקרון עובד גם לגזים! (למשל, שקילת בלון ריק ומלא)"
+            }
+          ]
+        }
+      ]
     },
     {
       "type": "quiz"

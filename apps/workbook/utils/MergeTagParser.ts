@@ -112,12 +112,10 @@ function cleanSegments(segments: SpanBlock[]): SpanBlock[] {
     for (const seg of segments) {
         if (!seg.content) continue;
 
-        if (cleaned.length > 0) {
-            const last = cleaned[cleaned.length - 1];
-            if (stylesEqual(last.style, seg.style)) {
-                last.content += seg.content;
-                continue;
-            }
+        const last = cleaned[cleaned.length - 1];
+        if (last && stylesEqual(last.style, seg.style)) {
+            last.content += seg.content;
+            continue;
         }
         cleaned.push(seg);
     }

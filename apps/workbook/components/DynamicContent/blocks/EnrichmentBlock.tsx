@@ -1,29 +1,50 @@
-import React from "react";
-import { EnrichmentBlock as EnrichmentBlockType } from "@/lib/types";
-import { RenderBlockFn } from "../BlockRenderer";
-import { Enrichment } from "@/components/Enrichment";
+"use client";
 
-interface Props {
-  block: EnrichmentBlockType;
-  renderBlock: RenderBlockFn;
+import React from "react";
+import { RenderBlockFn } from "../BlockRenderer";
+import { ContentBlock } from "@/lib/types";
+import { Enrichment } from "@/components/Enrichment";
+import { ContentRenderer } from "../RichText";
+
+// =============================================================================
+// Types
+// =============================================================================
+
+export interface EnrichmentBlockType {
+    type: "enrichment";
+    id?: string;
+    /** Title for the enrichment section */
+    title: string;
+    /** Icon name (emoji) */
+    icon: string;
+    /** Content - string with merge tags OR array of blocks */
+    content: string | ContentBlock[];
 }
 
-export const EnrichmentBlock = ({ block, renderBlock }: Props) => {
-  // "content" in JSON might be string (legacy) or potentially array (future/migrated)
-  // The type def says string, but we can treat it flexibly
-  const content = block.content as any;
-  const isArray = Array.isArray(content);
+interface Props {
+    block: EnrichmentBlockType;
+    renderBlock: RenderBlockFn;
+}
 
-  return (
-    <Enrichment title={block.title} icon={block.icon}>
-      {isArray ? (
-        <div className="space-y-4">
-          {content.map((child: any, idx: number) => renderBlock(child, idx))}
-        </div>
-      ) : (
-        <div dangerouslySetInnerHTML={{ __html: content }} />
-      )}
-    </Enrichment>
-  );
+// =============================================================================
+// Component
+// =============================================================================
+
+/**
+ * EnrichmentBlock - "Learn More" / "For Advanced Students" sections.
+ *
+ * Renders content in an expandable/collapsible enrichment container.
+ * Supports both string content (with merge tags) and block arrays.
+ */
+export const EnrichmentBlock = ({ block, renderBlock }: Props) => {
+    return (
+        <Enrichment title={block.title} icon={block.icon}>
+            <ContentRenderer
+                content={block.content}
+                renderBlock={renderBlock}
+            />
+        </Enrichment>
+    );
 };
 
+export default EnrichmentBlock;

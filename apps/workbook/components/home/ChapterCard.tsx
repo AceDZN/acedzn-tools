@@ -11,8 +11,9 @@ interface ChapterCardProps {
 }
 
 export const ChapterCard: React.FC<ChapterCardProps> = ({ chapter, subjectId }) => {
+  const firstModuleId = chapter.modules[0]?.id || "intro";
   return (
-    <Link href={`/${subjectId}/${chapter.id}/${chapter.modules[0].id}`}>
+    <Link href={`/${subjectId}/${chapter.id}/${firstModuleId}`}>
       <motion.div
         whileHover={{ y: -10, scale: 1.02 }}
         whileTap={{ scale: 0.98 }}

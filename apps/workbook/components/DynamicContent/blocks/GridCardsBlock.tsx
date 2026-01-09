@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import {
   GridCardsBlock as GridCardsBlockType,
@@ -8,29 +10,21 @@ import { cn } from "@/lib/utils";
 import { parseMergeTags } from "@/utils/MergeTagParser";
 import { SpanBlock } from "@/components/DynamicContent/blocks/SpanBlock";
 
-// ... Keep existing VARIANT_STYLES for now as they are specific to this block's gradients ...
-// In a full refactor we might move gradients to ThemeRegistry, but for now let's focus on logic.
+// =============================================================================
+// Variant Styles - Rich color palette for cards
+// =============================================================================
 
 const VARIANT_STYLES = {
+  // Solid colors
   blue: {
     container: "bg-blue-50 border-blue-100",
     title: "text-blue-900",
     text: "text-blue-800"
   },
-  "blue-gradient": {
-    container: "bg-gradient-to-br from-blue-500 to-cyan-500 text-white",
-    title: "text-white",
-    text: "text-white"
-  },
   indigo: {
     container: "bg-indigo-100 border-indigo-100",
     title: "text-indigo-900",
     text: "text-indigo-800"
-  },
-  "indigo-gradient": {
-    container: "bg-gradient-to-br from-purple-500 to-indigo-600 text-white",
-    title: "text-white",
-    text: "text-white"
   },
   emerald: {
     container: "bg-emerald-50 border-emerald-100",
@@ -47,51 +41,73 @@ const VARIANT_STYLES = {
     title: "text-slate-900",
     text: "text-slate-800"
   },
-  "slate-gradient": {
-    container: "bg-gradient-to-br from-gray-600 to-slate-700 text-white",
-    title: "text-white",
-    text: "text-white"
-  },
   orange: {
     container: "bg-orange-100 border-orange-400",
     title: "text-orange-900",
     text: "text-orange-800"
-  },
-  "orange-gradient": {
-    container: "bg-gradient-to-br from-orange-500 to-red-500 text-white",
-    title: "text-white",
-    text: "text-white"
   },
   purple: {
     container: "bg-purple-100 border-purple-100",
     title: "text-purple-900",
     text: "text-purple-800"
   },
-  "purple-gradient": {
-    container: "bg-gradient-to-br from-purple-400 to-pink-500 text-white",
-    title: "text-white",
-    text: "text-white"
-  },
   pink: {
     container: "bg-pink-100 border-pink-100",
     title: "text-pink-900",
     text: "text-pink-800"
+  },
+  white: {
+    container: "bg-white border-slate-200",
+    title: "text-slate-900",
+    text: "text-slate-700"
+  },
+  cyan: {
+    container: "bg-cyan-50 border-cyan-200",
+    title: "text-cyan-900",
+    text: "text-cyan-800"
+  },
+  // Gradients
+  "blue-gradient": {
+    container: "bg-gradient-to-br from-blue-500 to-cyan-500 text-white",
+    title: "text-white",
+    text: "text-white"
+  },
+  "indigo-gradient": {
+    container: "bg-gradient-to-br from-purple-500 to-indigo-600 text-white",
+    title: "text-white",
+    text: "text-white"
+  },
+  "slate-gradient": {
+    container: "bg-gradient-to-br from-gray-600 to-slate-700 text-white",
+    title: "text-white",
+    text: "text-white"
+  },
+  "orange-gradient": {
+    container: "bg-gradient-to-br from-orange-500 to-red-500 text-white",
+    title: "text-white",
+    text: "text-white"
+  },
+  "purple-gradient": {
+    container: "bg-gradient-to-br from-purple-400 to-pink-500 text-white",
+    title: "text-white",
+    text: "text-white"
   },
   "pink-gradient": {
     container: "bg-gradient-to-br from-pink-500 to-red-500 text-white",
     title: "text-white",
     text: "text-white"
   },
-  cyan: {
+  "cyan-gradient": {
     container: "bg-gradient-to-br from-cyan-500 to-teal-500 text-white",
     title: "text-white",
     text: "text-white"
   },
-  teal: {
+  "teal-gradient": {
     container: "bg-gradient-to-br from-teal-500 to-emerald-500 text-white",
     title: "text-white",
     text: "text-white"
   },
+  // Transparent
   transparent: {
     container: "bg-transparent border-transparent shadow-none",
     title: "text-slate-900",
@@ -99,13 +115,27 @@ const VARIANT_STYLES = {
   }
 };
 
+// =============================================================================
+// Types
+// =============================================================================
+
 interface Props {
   block: GridCardsBlockType;
   renderBlock: RenderBlockFn;
 }
 
+// =============================================================================
+// Component
+// =============================================================================
+
 export const GridCardsBlock = ({ block, renderBlock }: Props) => {
-  const gridColsClass = block.cols === 3 ? "md:grid-cols-3" : "md:grid-cols-2";
+  // Determine grid columns
+  const cols = block.cols || 2;
+  const gridColsClass =
+    cols === 1 ? "md:grid-cols-1" :
+    cols === 3 ? "md:grid-cols-3" :
+    cols === 4 ? "md:grid-cols-4" :
+    "md:grid-cols-2";
 
   return (
     <div
@@ -119,48 +149,58 @@ export const GridCardsBlock = ({ block, renderBlock }: Props) => {
         const styles =
           VARIANT_STYLES[variantKey as keyof typeof VARIANT_STYLES];
 
-        // Check if content is structured (array) or legacy HTML string
+        // Check if content is structured (array) or legacy HTML/string
         const isStructuredContent = Array.isArray(card.content);
 
         return (
           <div
             key={idx}
             className={cn(
-              `p-4 rounded-xl md:rounded-2xl border-2 border-transparent shadow-md`,
-              styles.container,
-              card.className
+              "p-4 md:p-5 rounded-xl md:rounded-2xl border-2 border-transparent shadow-md",
+              styles.container
             )}
           >
             <div className="text-center">
+              {/* Icon */}
               {card.icon && (
                 <img
                   src={`https://api.iconify.design/fluent-emoji/${card.icon}.svg`}
                   alt={card.icon}
-                  className="w-16 h-16 mx-auto mb-4"
+                  className="w-14 h-14 md:w-16 md:h-16 mx-auto mb-3 md:mb-4"
                 />
               )}
+
+              {/* Title */}
               <h3
-                className={`text-xl md:text-2xl font-black ${styles.title} mb-3 md:mb-4`}
+                className={`text-lg md:text-xl lg:text-2xl font-black ${styles.title} mb-2 md:mb-3`}
               >
                 {card.title}
               </h3>
-              {isStructuredContent ? (
-                <div
-                  className={`text-base md:text-lg leading-relaxed ${styles.text}`}
-                >
-                  {(card.content as ContentBlock[]).map(
-                    (childBlock, childIdx) => renderBlock(childBlock, childIdx)
-                  )}
-                </div>
-              ) : (
-                // Fallback for simple string content - check for HTML vs MergeTags
-                <div className={`text-base md:text-lg leading-relaxed ${styles.text}`}>
-                  {(card.content as string).match(/<[a-z][\s\S]*>/i) ? (
-                    <div dangerouslySetInnerHTML={{ __html: card.content as string }} />
+
+              {/* Subtitle */}
+              {card.subtitle && (
+                <p className={`text-sm ${styles.text} opacity-80 mb-2`}>
+                  {card.subtitle}
+                </p>
+              )}
+
+              {/* Content */}
+              {card.content && (
+                <div className={`text-sm md:text-base lg:text-lg leading-relaxed ${styles.text}`}>
+                  {isStructuredContent ? (
+                    // Structured content - render as blocks
+                    (card.content as ContentBlock[]).map(
+                      (childBlock, childIdx) => renderBlock(childBlock, childIdx)
+                    )
                   ) : (
-                    parseMergeTags(card.content as string).map((seg, idx) => (
-                      <SpanBlock key={idx} block={seg} />
-                    ))
+                    // String content - check for HTML vs MergeTags
+                    (card.content as string).match(/<[a-z][\s\S]*>/i) ? (
+                      <div dangerouslySetInnerHTML={{ __html: card.content as string }} />
+                    ) : (
+                      parseMergeTags(card.content as string).map((seg, segIdx) => (
+                        <SpanBlock key={segIdx} block={seg} />
+                      ))
+                    )
                   )}
                 </div>
               )}
@@ -171,3 +211,5 @@ export const GridCardsBlock = ({ block, renderBlock }: Props) => {
     </div>
   );
 };
+
+export default GridCardsBlock;

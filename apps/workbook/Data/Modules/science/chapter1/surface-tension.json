@@ -19,25 +19,58 @@
         {
           "type": "text",
           "size": "lg",
-          "content": "<strong>מתח פנים</strong> הוא תופעה שבה פני השטח של נוזל מתנהגים כמו \"קרום\" דק ואלסטי. זה מאפשר לחפצים קלים \"לצוף\" על פני הנוזל גם אם הם כבדים ממנו!"
+          "content": "{b}מתח פנים{/b} הוא תופעה שבה פני השטח של נוזל מתנהגים כמו \"קרום\" דק ואלסטי. זה מאפשר לחפצים קלים \"לצוף\" על פני הנוזל גם אם הם כבדים ממנו!"
         }
       ]
     },
     {
-      "type": "text",
-      "content": "<div class=\"bg-gradient-to-r from-blue-600 to-cyan-500 p-8 rounded-3xl text-white shadow-xl mb-8\"><h3 class=\"text-2xl font-black mb-6 text-center\"><img src=\"https://api.iconify.design/fluent-emoji/microscope.svg\" alt=\"microscope\" class=\"w-8 h-8 inline\" /> ההסבר לפי מודל החלקיקים</h3><div class=\"grid md:grid-cols-2 gap-8\"><div class=\"bg-white/20 p-6 rounded-2xl\"><h4 class=\"font-bold text-lg mb-3\">חלקיקים בתוך הנוזל</h4><p class=\"text-sm opacity-90\">חלקיק שנמצא <strong>בתוך</strong> הנוזל נמשך לכל הכיוונים - למעלה, למטה ולצדדים. כל הכוחות מתאזנים.</p><div class=\"mt-4 flex justify-center\"><div class=\"w-16 h-16 bg-blue-300 rounded-full flex items-center justify-center relative\"><span class=\"w-4 h-4 bg-white rounded-full\"></span><span class=\"absolute top-0 text-xl\">▲</span><span class=\"absolute bottom-0 text-xl\">▼</span><span class=\"absolute left-0 text-xl\">◄</span><span class=\"absolute right-0 text-xl\">►</span></div></div></div><div class=\"bg-white/20 p-6 rounded-2xl\"><h4 class=\"font-bold text-lg mb-3\">חלקיקים על פני השטח</h4><p class=\"text-sm opacity-90\">חלקיק שנמצא <strong>על פני השטח</strong> נמשך רק לצדדים ולמטה (אין חלקיקים מעליו!). לכן הוא נמשך פנימה ויוצר \"קרום\".</p><div class=\"mt-4 flex justify-center\"><div class=\"w-16 h-16 bg-blue-300 rounded-full flex items-center justify-center relative border-t-4 border-white/50\"><span class=\"w-4 h-4 bg-white rounded-full\"></span><span class=\"absolute bottom-0 text-xl\">▼</span><span class=\"absolute left-0 text-xl\">◄</span><span class=\"absolute right-0 text-xl\">►</span></div></div></div></div></div>"
+      "type": "comparison_cards",
+      "title": "ההסבר לפי מודל החלקיקים",
+      "icon": "microscope",
+      "variant": "blue",
+      "items": [
+        {
+          "title": "חלקיקים בתוך הנוזל",
+          "content": "חלקיק שנמצא {b}בתוך{/b} הנוזל נמשך לכל הכיוונים - למעלה, למטה ולצדדים.\n\nכל הכוחות מתאזנים."
+        },
+        {
+          "title": "חלקיקים על פני השטח",
+          "content": "חלקיק שנמצא {b}על פני השטח{/b} נמשך רק לצדדים ולמטה - אין חלקיקים מעליו!\n\nלכן הוא נמשך פנימה ויוצר \"קרום\"."
+        }
+      ]
     },
     {
       "type": "simulation",
       "componentName": "SurfaceTensionSimulation"
     },
     {
-      "type": "text",
-      "content": "<div class=\"grid md:grid-cols-2 gap-6 my-8\"><div class=\"bg-gradient-to-br from-emerald-50 to-teal-50 p-6 rounded-3xl border border-emerald-200\"><h4 class=\"text-xl font-black text-emerald-900 mb-4\"><img src=\"https://api.iconify.design/fluent-emoji/bullseye.svg\" alt=\"target\" class=\"w-8 h-8 inline\" /> למה טיפות מים עגולות?</h4><p class=\"text-slate-700\">כוחות המשיכה בין חלקיקי המים מושכים את כל החלקיקים פנימה. הצורה שבה יש הכי פחות שטח פנים (ולכן הכי יעילה אנרגטית) היא <strong>כדור</strong>!</p><p class=\"text-slate-600 mt-3 text-sm bg-white p-3 rounded-xl\"><img src=\"https://api.iconify.design/fluent-emoji/light-bulb.svg\" alt=\"lightbulb\" class=\"w-4 h-4 inline\" /> זו הסיבה שטיפות גשם, טיפות על עלים, ובועות סבון - כולן עגולות!</p></div><div class=\"bg-gradient-to-br from-amber-50 to-orange-50 p-6 rounded-3xl border border-amber-200\"><h4 class=\"text-xl font-black text-amber-900 mb-4\"><img src=\"https://api.iconify.design/fluent-emoji/mosquito.svg\" alt=\"mosquito\" class=\"w-8 h-8 inline\" /> למה חרקים הולכים על מים?</h4><p class=\"text-slate-700\">\"הקרום\" שנוצר על פני המים חזק מספיק כדי לשאת חרקים קלים! הרגליים של החרק לא שוברות את מתח הפנים אלא \"עומדות\" עליו.</p><p class=\"text-slate-600 mt-3 text-sm bg-white p-3 rounded-xl\"><img src=\"https://api.iconify.design/fluent-emoji/light-bulb.svg\" alt=\"lightbulb\" class=\"w-4 h-4 inline\" /> חרקי הברכות (סנאי המים) משתמשים בתופעה זו כדי \"ללכת\" על פני המים!</p></div></div>"
+      "type": "examples_box",
+      "title": "תופעות של מתח פנים",
+      "icon": "bullseye",
+      "variant": "emerald",
+      "cols": 2,
+      "examples": [
+        {
+          "title": "למה טיפות מים עגולות?",
+          "content": "כוחות המשיכה בין חלקיקי המים מושכים את כל החלקיקים פנימה. הצורה שבה יש הכי פחות שטח פנים (ולכן הכי יעילה אנרגטית) היא {b}כדור{/b}!\n\nזו הסיבה שטיפות גשם, טיפות על עלים, ובועות סבון - כולן עגולות!"
+        },
+        {
+          "title": "למה חרקים הולכים על מים?",
+          "content": "\"הקרום\" שנוצר על פני המים חזק מספיק כדי לשאת חרקים קלים! הרגליים של החרק לא שוברות את מתח הפנים אלא \"עומדות\" עליו.\n\nחרקי הברכות (סנאי המים) משתמשים בתופעה זו כדי \"ללכת\" על פני המים!"
+        }
+      ]
     },
     {
-      "type": "text",
-      "content": "<div class=\"bg-gradient-to-r from-pink-100 to-purple-100 p-6 rounded-3xl border-2 border-pink-300 my-8\"><h4 class=\"text-xl font-black text-pink-900 mb-4 flex items-center gap-2\"><img src=\"https://api.iconify.design/fluent-emoji/test-tube.svg\" alt=\"test-tube\" class=\"w-8 h-8\" /> ניסוי: טיפות על מטבע</h4><div class=\"grid md:grid-cols-3 gap-4\"><div class=\"bg-white p-4 rounded-2xl shadow-sm text-center\"><img src=\"https://api.iconify.design/fluent-emoji/coin.svg\" alt=\"coin\" class=\"w-12 h-12 mx-auto mb-2\" /><h5 class=\"font-bold text-slate-800\">שלב 1</h5><p class=\"text-sm text-slate-600\">קחו מטבע נקי</p></div><div class=\"bg-white p-4 rounded-2xl shadow-sm text-center\"><img src=\"https://api.iconify.design/fluent-emoji/droplet.svg\" alt=\"droplet\" class=\"w-12 h-12 mx-auto mb-2\" /><h5 class=\"font-bold text-slate-800\">שלב 2</h5><p class=\"text-sm text-slate-600\">הוסיפו טיפות מים אחת אחת בזהירות</p></div><div class=\"bg-white p-4 rounded-2xl shadow-sm text-center\"><img src=\"https://api.iconify.design/fluent-emoji/astonished-face.svg\" alt=\"astonished\" class=\"w-12 h-12 mx-auto mb-2\" /><h5 class=\"font-bold text-slate-800\">תוצאה</h5><p class=\"text-sm text-slate-600\">המים יוצרים \"כיפה\" גבוהה בלי לזלוג!</p></div></div><p class=\"mt-4 text-center text-pink-800 font-medium\">מתח הפנים מחזיק את המים ביחד ויוצר צורת כיפה קמורה!</p></div>"
+      "type": "tip_box",
+      "title": "ניסוי: טיפות על מטבע",
+      "icon": "test-tube",
+      "variant": "tip",
+      "content": "מתח הפנים מחזיק את המים ביחד ויוצר צורת כיפה קמורה!",
+      "steps": [
+        "קחו מטבע נקי",
+        "הוסיפו טיפות מים אחת אחת בזהירות",
+        "המים יוצרים \"כיפה\" גבוהה בלי לזלוג!"
+      ]
     },
     {
       "type": "scientific_table",
@@ -68,14 +101,56 @@
       "note": "זו הסיבה שסבון עוזר לנקות - הוא מפחית את מתח הפנים ומאפשר למים \"להיכנס\" לפינות!"
     },
     {
-      "type": "text",
-      "content": "<div class=\"bg-gradient-to-br from-indigo-50 to-violet-50 p-6 rounded-3xl border border-indigo-200 my-8\"><h4 class=\"text-xl font-black text-indigo-900 mb-4 flex items-center gap-2\"><img src=\"https://api.iconify.design/fluent-emoji/globe-showing-americas.svg\" alt=\"globe\" class=\"w-8 h-8\" /> מתח פנים בחיי היומיום</h4><div class=\"grid md:grid-cols-2 lg:grid-cols-4 gap-4\"><div class=\"flex flex-col items-center bg-white p-4 rounded-xl shadow-sm\"><img src=\"https://api.iconify.design/fluent-emoji/toothbrush.svg\" alt=\"toothbrush\" class=\"w-12 h-12 mb-2\" /><p class=\"text-sm text-center text-slate-700\"><strong>מברשת שיניים</strong><br>סבון מוריד מתח פנים ומאפשר לנוזל לחדור בין השיניים</p></div><div class=\"flex flex-col items-center bg-white p-4 rounded-xl shadow-sm\"><img src=\"https://api.iconify.design/fluent-emoji/bubbles.svg\" alt=\"bubbles\" class=\"w-12 h-12 mb-2\" /><p class=\"text-sm text-center text-slate-700\"><strong>בועות סבון</strong><br>הסבון מאפשר למים להימתח לכדור דק</p></div><div class=\"flex flex-col items-center bg-white p-4 rounded-xl shadow-sm\"><img src=\"https://api.iconify.design/fluent-emoji/cloud-with-rain.svg\" alt=\"rain\" class=\"w-12 h-12 mb-2\" /><p class=\"text-sm text-center text-slate-700\"><strong>טיפות גשם</strong><br>נוצרות בצורת כדור בגלל מתח פנים</p></div><div class=\"flex flex-col items-center bg-white p-4 rounded-xl shadow-sm\"><img src=\"https://api.iconify.design/fluent-emoji/drop-of-blood.svg\" alt=\"blood\" class=\"w-12 h-12 mb-2\" /><p class=\"text-sm text-center text-slate-700\"><strong>טיפות דם</strong><br>מתגלגלות כמו כדורים על משטחים</p></div></div></div>"
+      "type": "feature_grid",
+      "title": "מתח פנים בחיי היומיום",
+      "variant": "purple",
+      "cols": 4,
+      "features": [
+        {
+          "icon": "toothbrush",
+          "title": "מברשת שיניים",
+          "description": "סבון מוריד מתח פנים ומאפשר לנוזל לחדור בין השיניים"
+        },
+        {
+          "icon": "bubbles",
+          "title": "בועות סבון",
+          "description": "הסבון מאפשר למים להימתח לכדור דק"
+        },
+        {
+          "icon": "cloud-with-rain",
+          "title": "טיפות גשם",
+          "description": "נוצרות בצורת כדור בגלל מתח פנים"
+        },
+        {
+          "icon": "drop-of-blood",
+          "title": "טיפות דם",
+          "description": "מתגלגלות כמו כדורים על משטחים"
+        }
+      ]
     },
     {
       "type": "enrichment",
       "title": "למתקדמים: מתח פנים ונימיות (קפילריות)",
       "icon": "seedling",
-      "content": "<p>מתח הפנים קשור לתופעה נוספת - <strong>נימיות</strong> (קפילריות)!</p><p class=\"mt-3\">כשמכניסים צינור דק למים, המים \"מטפסים\" בתוך הצינור! זה קורה בגלל שהמים \"נמשכים\" לדפנות הזכוכית ומתח הפנים \"מושך\" את שאר המים למעלה.</p><ul class=\"mt-3 space-y-2 text-sm\"><li><img src=\"https://api.iconify.design/fluent-emoji/deciduous-tree.svg\" alt=\"tree\" class=\"w-5 h-5 inline\" /> <strong>עצים:</strong> כך מים מגיעים מהשורשים לעלים בגובה של עשרות מטרים!</li><li><img src=\"https://api.iconify.design/fluent-emoji/memo.svg\" alt=\"memo\" class=\"w-5 h-5 inline\" /> <strong>מגבת נייר:</strong> סופגת מים בזכות נימיות בסיבי הנייר.</li><li><img src=\"https://api.iconify.design/fluent-emoji/candle.svg\" alt=\"candle\" class=\"w-5 h-5 inline\" /> <strong>פתילה של נר:</strong> השעווה עולה בפתילה בזכות נימיות.</li></ul>"
+      "content": [
+        {
+          "type": "p",
+          "content": "מתח הפנים קשור לתופעה נוספת - {b}נימיות{/b} (קפילריות)!"
+        },
+        {
+          "type": "p",
+          "content": "כשמכניסים צינור דק למים, המים \"מטפסים\" בתוך הצינור! זה קורה בגלל שהמים \"נמשכים\" לדפנות הזכוכית ומתח הפנים \"מושך\" את שאר המים למעלה."
+        },
+        {
+          "type": "list",
+          "listType": "unordered",
+          "items": [
+            "{b}עצים:{/b} כך מים מגיעים מהשורשים לעלים בגובה של עשרות מטרים!",
+            "{b}מגבת נייר:{/b} סופגת מים בזכות נימיות בסיבי הנייר.",
+            "{b}פתילה של נר:{/b} השעווה עולה בפתילה בזכות נימיות."
+          ]
+        }
+      ]
     },
     {
       "type": "quiz",

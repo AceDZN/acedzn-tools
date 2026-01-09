@@ -50,6 +50,11 @@ export const Quiz: React.FC<QuizProps> = ({ questions, onComplete }) => {
 
   const current = questions[currentIdx];
 
+  // Safety check - should not happen given early return above
+  if (!current) {
+    return null;
+  }
+
   const handleAnswer = (idx: number) => {
     if (showFeedback) return;
     setSelected(idx);

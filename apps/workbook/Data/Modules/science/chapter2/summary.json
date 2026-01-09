@@ -13,6 +13,7 @@
     {
       "type": "introduction_block",
       "title": "סיכום הנושאים המרכזיים",
+      "icon": "books",
       "theme": "primary-purple",
       "content": [
         {
@@ -24,7 +25,7 @@
               "content": [
                 {
                   "type": "text",
-                  "content": "<strong>גוף:</strong> דבר בעל צורה, נפח ומסה<br/><strong>חומר:</strong> ממה הגוף עשוי"
+                  "content": "{b}גוף:{/b} דבר בעל צורה, נפח ומסה\n{b}חומר:{/b} ממה הגוף עשוי"
                 }
               ]
             },
@@ -33,7 +34,7 @@
               "content": [
                 {
                   "type": "text",
-                  "content": "המקום שגוף תופס במרחב<br/>יחידות: סמ\"ק, מ\"ל, ליטר"
+                  "content": "המקום שגוף תופס במרחב\nיחידות: סמ\"ק, מ\"ל, ליטר"
                 }
               ]
             },
@@ -42,7 +43,7 @@
               "content": [
                 {
                   "type": "text",
-                  "content": "<strong>מסה:</strong> כמות חומר (קבועה)<br/><strong>משקל:</strong> כוח כבידה (משתנה)"
+                  "content": "{b}מסה:{/b} כמות חומר (קבועה)\n{b}משקל:{/b} כוח כבידה (משתנה)"
                 }
               ]
             },
@@ -51,7 +52,7 @@
               "content": [
                 {
                   "type": "text",
-                  "content": "מסה ÷ נפח<br/>קובעת ציפה/שקיעה"
+                  "content": "מסה ÷ נפח\nקובעת ציפה/שקיעה"
                 }
               ]
             }
@@ -62,43 +63,32 @@
     {
       "type": "scientific_table",
       "title": "נוסחאות וכללים חשובים",
-      "headers": [
-        "נושא",
-        "נוסחה / כלל",
-        "יחידות"
-      ],
+      "headers": ["נושא", "נוסחה / כלל", "יחידות"],
       "rows": [
-        [
-          "נפח תיבה",
-          "אורך × רוחב × גובה",
-          "סמ\"ק, מ\"ל, ליטר"
-        ],
-        [
-          "צפיפות",
-          "מסה ÷ נפח",
-          "גרם/סמ\"ק"
-        ],
-        [
-          "משקל (בקירוב)",
-          "מסה × 10",
-          "ניוטון"
-        ],
-        [
-          "ציפה",
-          "צפיפות גוף < צפיפות נוזל",
-          "יצוף"
-        ],
-        [
-          "שקיעה",
-          "צפיפות גוף > צפיפות נוזל",
-          "ישקע"
-        ]
+        ["נפח תיבה", "אורך × רוחב × גובה", "סמ\"ק, מ\"ל, ליטר"],
+        ["צפיפות", "מסה ÷ נפח", "גרם/סמ\"ק"],
+        ["משקל (בקירוב)", "מסה × 10", "ניוטון"],
+        ["ציפה", "צפיפות גוף < צפיפות נוזל", "יצוף"],
+        ["שקיעה", "צפיפות גוף > צפיפות נוזל", "ישקע"]
       ],
       "variant": "emerald"
     },
     {
-      "type": "text",
-      "content": "<div class=\"bg-gradient-to-r from-amber-100 to-orange-100 p-6 rounded-3xl border-2 border-amber-300 my-8\"><h4 class=\"text-xl font-black text-amber-900 mb-4\">טיפים להמרות</h4><div class=\"grid md:grid-cols-2 gap-4\"><div class=\"bg-white p-4 rounded-xl shadow-sm\"><h5 class=\"font-bold text-slate-800 mb-2\">נפח</h5><p class=\"text-sm text-slate-600\">1 סמ\"ק = 1 מ\"ל<br/>1 ליטר = 1,000 מ\"ל<br/>1 מ\"ק = 1,000 ליטר</p></div><div class=\"bg-white p-4 rounded-xl shadow-sm\"><h5 class=\"font-bold text-slate-800 mb-2\">מסה</h5><p class=\"text-sm text-slate-600\">1,000 מ\"ג = 1 גרם<br/>1,000 גרם = 1 ק\"ג<br/>1,000 ק\"ג = 1 טונה</p></div></div></div>"
+      "type": "examples_box",
+      "title": "טיפים להמרות",
+      "icon": "light-bulb",
+      "variant": "amber",
+      "cols": 2,
+      "examples": [
+        {
+          "title": "נפח",
+          "content": "1 סמ\"ק = 1 מ\"ל\n1 ליטר = 1,000 מ\"ל\n1 מ\"ק = 1,000 ליטר"
+        },
+        {
+          "title": "מסה",
+          "content": "1,000 מ\"ג = 1 גרם\n1,000 גרם = 1 ק\"ג\n1,000 ק\"ג = 1 טונה"
+        }
+      ]
     },
     {
       "type": "quiz"
