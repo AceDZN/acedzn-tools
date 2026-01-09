@@ -70,6 +70,7 @@ export type ContentBlockType =
   | "grid_cards"
   | "quiz"
   | "simulation"
+  | "list" // New type
   | "enrichment"
   | "scientific_table"
   | "introduction_block"
@@ -264,12 +265,19 @@ export interface CalloutBlock extends BaseContentBlock {
   className?: string;
 }
 
+export interface ListBlock extends BaseContentBlock {
+  type: "list";
+  listType?: "ordered" | "unordered";
+  items: string[];
+}
+
 export type ContentBlock =
   | TextBlock
   | HeroBlock
   | GridCardsBlock
   | QuizBlock
   | SimulationBlock
+  | ListBlock // New type
   | EnrichmentBlock
   | ScientificTableBlock
   | IntroductionBlock

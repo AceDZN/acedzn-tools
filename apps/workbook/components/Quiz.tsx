@@ -1,6 +1,8 @@
 
 import React, { useState } from 'react';
 import { Question } from '@/lib/types';
+import { parseMergeTags } from "@/utils/MergeTagParser";
+import { SpanBlock } from "@/components/DynamicContent/blocks/SpanBlock";
 
 interface QuizProps {
   questions: Question[];
@@ -29,14 +31,14 @@ export const Quiz: React.FC<QuizProps> = ({ questions, onComplete }) => {
         <div className="mb-6"><img src="https://api.iconify.design/fluent-emoji/chequered-flag.svg" alt="flag" className="w-16 h-16 mx-auto" /></div>
         <h3 className="text-4xl font-black text-slate-900 mb-2">כל הכבוד!</h3>
         <p className="text-xl text-slate-500 mb-8">סיימת את הבוחן בהצלחה</p>
-        
+
         <div className="bg-slate-50 p-8 rounded-[2rem] mb-8 border-2 border-slate-100 flex flex-col items-center">
           <span className="text-sm text-slate-400 font-black uppercase tracking-widest mb-1">הציון שלך:</span>
           <span className="text-6xl font-black text-blue-600">{percentage}%</span>
           <p className="mt-4 text-slate-600 font-bold">ענית נכון על {score} מתוך {questions.length} שאלות</p>
         </div>
 
-        <button 
+        <button
           onClick={() => onComplete(score)}
           className="w-full bg-blue-600 text-white font-black py-5 rounded-2xl text-xl hover:bg-blue-700 shadow-lg active:scale-95 transition-all"
         >
@@ -72,14 +74,16 @@ export const Quiz: React.FC<QuizProps> = ({ questions, onComplete }) => {
       <div className="mb-8 flex justify-between items-center">
         <span className="text-blue-700 font-black text-lg">שאלה {currentIdx + 1} מתוך {questions.length}</span>
         <div className="h-3 w-40 bg-slate-100 rounded-full overflow-hidden shadow-inner border border-slate-200">
-          <div 
-            className="h-full bg-blue-500 transition-all duration-500" 
+          <div
+            className="h-full bg-blue-500 transition-all duration-500"
             style={{ width: `${((currentIdx + 1) / questions.length) * 100}%` }}
           ></div>
         </div>
       </div>
 
-      <h3 className="text-2xl font-bold mb-8 text-slate-900 leading-tight">{current.question}</h3>
+      <h3 className="text-2xl font-bold mb-8 text-slate-900 leading-tight">
+        {parseMergeTags(current.question).map((seg, idx) => <SpanBlock key={idx} block={seg} />)}
+      </h3>
 
       <div className="space-y-4">
         {current.options.map((opt, i: number) => (
@@ -87,17 +91,18 @@ export const Quiz: React.FC<QuizProps> = ({ questions, onComplete }) => {
             key={i}
             onClick={() => handleAnswer(i)}
             disabled={showFeedback}
-            className={`w-full text-right p-5 rounded-2xl border-2 transition-all text-lg font-medium ${
-              selected === i 
+            className={`w-full text-right p-5 rounded-2xl border-2 transition-all text-lg font-medium ${selected === i
                 ? (i === current.correctAnswer ? 'bg-emerald-50 border-emerald-500 text-emerald-900' : 'bg-red-50 border-red-500 text-red-900')
                 : (showFeedback && i === current.correctAnswer ? 'bg-emerald-50 border-emerald-500 text-emerald-900' : 'bg-white border-slate-100 hover:border-blue-400 text-slate-800')
-            } ${showFeedback && i !== current.correctAnswer && selected !== i ? 'opacity-40' : ''}`}
+              } ${showFeedback && i !== current.correctAnswer && selected !== i ? 'opacity-40' : ''}`}
           >
             <div className="flex items-center gap-3">
               <span className={`w-8 h-8 flex items-center justify-center rounded-full border-2 ${selected === i ? 'border-current' : 'border-slate-200'}`}>
                 {String.fromCharCode(1488 + i)}
               </span>
-              {opt}
+              <div>
+                {parseMergeTags(opt).map((seg, idx) => <SpanBlock key={idx} block={seg} />)}
+              </div>
             </div>
           </button>
         ))}
@@ -109,9 +114,11 @@ export const Quiz: React.FC<QuizProps> = ({ questions, onComplete }) => {
             <p className="font-black text-xl mb-3 flex items-center gap-2">
               {selected === current.correctAnswer ? <><img src="https://api.iconify.design/fluent-emoji/sparkles.svg" alt="sparkles" className="w-6 h-6" /> נכון מאוד!</> : <><img src="https://api.iconify.design/fluent-emoji/cross-mark.svg" alt="cross" className="w-6 h-6" /> לא בדיוק...</>}
             </p>
-            <p className="text-lg leading-relaxed opacity-90 font-medium">{current.explanation}</p>
+            <p className="text-lg leading-relaxed opacity-90 font-medium">
+              {parseMergeTags(current.explanation).map((seg, idx) => <SpanBlock key={idx} block={seg} />)}
+            </p>
           </div>
-          <button 
+          <button
             onClick={next}
             className="w-full bg-slate-900 text-white font-black py-5 rounded-2xl text-xl hover:bg-slate-800 shadow-lg active:scale-95 transition-all"
           >

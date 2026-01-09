@@ -1,4 +1,6 @@
 import React from 'react';
+import { parseMergeTags } from "@/utils/MergeTagParser";
+import { SpanBlock } from "@/components/DynamicContent/blocks/SpanBlock";
 
 interface TableRow {
   [key: string]: string | number;
@@ -12,12 +14,12 @@ interface ScientificTableProps {
   variant?: 'blue' | 'amber' | 'emerald';
 }
 
-export const ScientificTable: React.FC<ScientificTableProps> = ({ 
-  title, 
-  headers, 
-  rows, 
+export const ScientificTable: React.FC<ScientificTableProps> = ({
+  title,
+  headers,
+  rows,
   note,
-  variant = 'blue' 
+  variant = 'blue'
 }) => {
   const themes = {
     blue: {
@@ -54,7 +56,9 @@ export const ScientificTable: React.FC<ScientificTableProps> = ({
           <thead>
             <tr className={theme.header}>
               {headers.map((header, i) => (
-                <th key={i} className="p-4 font-black whitespace-nowrap">{header}</th>
+                <th key={i} className="p-4 font-black whitespace-nowrap">
+                  {parseMergeTags(header).map((seg, idx) => <SpanBlock key={idx} block={seg} />)}
+                </th>
               ))}
             </tr>
           </thead>
@@ -62,7 +66,9 @@ export const ScientificTable: React.FC<ScientificTableProps> = ({
             {rows.map((row, i) => (
               <tr key={i} className={`hover:bg-slate-50 transition-colors ${theme.row}`}>
                 {Object.values(row).map((val, j) => (
-                  <td key={j} className="p-4 font-medium text-slate-700">{val}</td>
+                  <td key={j} className="p-4 font-medium text-slate-700">
+                    {parseMergeTags(String(val)).map((seg, idx) => <SpanBlock key={idx} block={seg} />)}
+                  </td>
                 ))}
               </tr>
             ))}
@@ -71,7 +77,9 @@ export const ScientificTable: React.FC<ScientificTableProps> = ({
       </div>
       {note && (
         <div className="p-4 bg-slate-50 border-t border-slate-100">
-          <p className="text-sm text-slate-500 italic font-medium">* {note}</p>
+          <p className="text-sm text-slate-500 italic font-medium">
+            * {parseMergeTags(note).map((seg, idx) => <SpanBlock key={idx} block={seg} />)}
+          </p>
         </div>
       )}
     </div>

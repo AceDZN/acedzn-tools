@@ -20,7 +20,8 @@ import {
   ParagraphBlock,
   SpanBlock,
   CalloutBlock,
-  HighlightBoxBlock
+  HighlightBoxBlock,
+  ListBlock // Added ListBlock here
 } from "./blocks";
 
 // Block registry - maps type to component
@@ -43,7 +44,8 @@ const BLOCK_REGISTRY: Record<
   p: ParagraphBlock,
   span: SpanBlock,
   callout: CalloutBlock,
-  highlight_box: HighlightBoxBlock
+  highlight_box: HighlightBoxBlock,
+  list: ListBlock // Registered ListBlock here
 };
 
 // Type for the render function that gets passed to child components

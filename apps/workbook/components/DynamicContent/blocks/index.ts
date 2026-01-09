@@ -13,3 +13,4 @@ export * from "./ParagraphBlock";
 export * from "./HighlightBoxBlock";
 export * from "./SpanBlock";
 export * from "./CalloutBlock";
+export * from "./ListBlock";
