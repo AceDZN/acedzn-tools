@@ -10,18 +10,21 @@ export async function GET(
 
     // Sanitize the name to prevent directory traversal
     const sanitizedName = name.replace(/[^a-zA-Z0-9-]/g, "");
-    const fileName = `${sanitizedName}.svg`;
+    const svgFileName = `${sanitizedName}.svg`;
+    const pngFileName = `${sanitizedName}.png`;
     const iconsDir = path.join(process.cwd(), "public", "icons");
-    const filePath = path.join(iconsDir, fileName);
+
+    const svgFilePath = path.join(iconsDir, svgFileName);
+    const pngFilePath = path.join(iconsDir, pngFileName);
 
     // Ensure public/icons directory exists
     if (!fs.existsSync(iconsDir)) {
         fs.mkdirSync(iconsDir, { recursive: true });
     }
 
-    // 1. Check if file exists locally
-    if (fs.existsSync(filePath)) {
-        const fileContent = fs.readFileSync(filePath, "utf-8");
+    // 1. Check if SVG exists locally
+    if (fs.existsSync(svgFilePath)) {
+        const fileContent = fs.readFileSync(svgFilePath, "utf-8");
         return new NextResponse(fileContent, {
             headers: {
                 "Content-Type": "image/svg+xml",
@@ -30,9 +33,20 @@ export async function GET(
         });
     }
 
-    // 2. If not, fetch from Iconify (fluent-emoji)
+    // 2. Check if PNG exists locally (Fallback)
+    if (fs.existsSync(pngFilePath)) {
+        const fileBuffer = fs.readFileSync(pngFilePath);
+        return new NextResponse(fileBuffer, {
+            headers: {
+                "Content-Type": "image/png",
+                "Cache-Control": "public, max-age=31536000, immutable",
+            },
+        });
+    }
+
+    // 3. If not, fetch from Iconify (fluent-emoji)
     try {
-        const remoteUrl = `https://api.iconify.design/fluent-emoji/${fileName}`;
+        const remoteUrl = `https://api.iconify.design/fluent-emoji/${svgFileName}`;
         console.log(`[SmartIcon] Downloading: ${remoteUrl}`);
 
         const response = await fetch(remoteUrl);
@@ -43,12 +57,10 @@ export async function GET(
 
         const svgContent = await response.text();
 
-        // 3. Save to local filesystem (Development Mode feature mostly)
-        // In production (Vercel), this might fail or be ephemeral, but that's acceptable for this use case
-        // as we intend to populate the repo during dev.
+        // 4. Save to local filesystem (Development Mode property)
         try {
-            fs.writeFileSync(filePath, svgContent);
-            console.log(`[SmartIcon] Saved to: ${filePath}`);
+            fs.writeFileSync(svgFilePath, svgContent);
+            console.log(`[SmartIcon] Saved to: ${svgFilePath}`);
         } catch (writeError) {
             console.error("[SmartIcon] Failed to write file:", writeError);
         }

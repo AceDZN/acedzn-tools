@@ -18,7 +18,7 @@ export const SmartIcon: React.FC<SmartIconProps> = ({
     if (!name) return null;
 
     return (
-        <div className={cn("relative inline-block", className)} style={{ width: size, height: size }}>
+        <div className={cn("relative flex items-center justify-center content-center", className)} style={{ width: size, height: size }}>
             <Image
                 src={`/api/icon/${name}`}
                 alt={alt || name}

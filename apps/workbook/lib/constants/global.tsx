@@ -31,7 +31,7 @@ export const SCIENCE_CHAPTERS: Chapter[] = [
         id: ModuleId.EngineeringMaterials,
         title: "בחירת חומרים לבנייה",
         description: "איך בוחרים חומר מתאים למבנה?",
-        icon: "building"
+        icon: "brickwall"
       },
       {
         id: ModuleId.Summary,

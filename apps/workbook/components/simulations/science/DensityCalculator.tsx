@@ -33,7 +33,7 @@ export const DensityCalculator: React.FC = () => {
           <label className="block text-slate-700 font-bold mb-2">
             <SmartIcon
               name="balance-scale"
-              className="w-6 h-6 inline mr-2"
+              className="w-6 h-6 mr-2"
             />
             מסה (גרם)
           </label>
@@ -54,7 +54,7 @@ export const DensityCalculator: React.FC = () => {
           <label className="block text-slate-700 font-bold mb-2">
             <SmartIcon
               name="package"
-              className="w-6 h-6 inline mr-2"
+              className="w-6 h-6 mr-2"
             />
             נפח (סמ"ק)
           </label>
@@ -83,8 +83,8 @@ export const DensityCalculator: React.FC = () => {
       <div className="grid md:grid-cols-2 gap-4 w-full max-w-2xl">
         <div
           className={`p-5 rounded-2xl text-center ${floats
-              ? "bg-emerald-100 text-emerald-800"
-              : "bg-red-100 text-red-800"
+            ? "bg-emerald-100 text-emerald-800"
+            : "bg-red-100 text-red-800"
             }`}
         >
           <p className="text-lg font-bold mb-2">

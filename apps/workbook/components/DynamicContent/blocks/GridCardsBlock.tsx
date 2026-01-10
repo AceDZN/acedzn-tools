@@ -166,6 +166,7 @@ export const GridCardsBlock = ({ block, renderBlock }: Props) => {
               {card.icon && (
                 <SmartIcon
                   name={card.icon}
+                  size={card?.iconSize || "32"}
                   className="w-14 h-14 md:w-16 md:h-16 mx-auto mb-3 md:mb-4"
                 />
               )}

@@ -27,7 +27,7 @@ export const Enrichment: React.FC<EnrichmentProps> = ({
       >
         <div className="flex items-center gap-4">
           <span className="text-4xl">
-            <SmartIcon name={icon} size={40} className="inline mr-2" />
+            <SmartIcon name={icon} size={40} className="mr-2" />
           </span>
           <div>
             <h4 className="text-xl font-black text-slate-900">{title}</h4>
