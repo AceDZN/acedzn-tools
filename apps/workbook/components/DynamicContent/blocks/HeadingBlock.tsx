@@ -5,6 +5,7 @@ import { RenderBlockFn } from "../BlockRenderer";
 import { parseMergeTags } from "@/utils/MergeTagParser";
 import { SpanBlock } from "@/components/DynamicContent/blocks/SpanBlock";
 import { SmartIcon } from "@/components/smart-icon";
+import { cn } from "@/lib/utils";
 
 interface Props {
   block: HeadingBlockType;
@@ -12,14 +13,14 @@ interface Props {
 }
 
 export const HeadingBlock = ({ block }: Props) => {
-  const defaultClassName = "text-2xl font-black text-center text-slate-800 mb-6";
+  const defaultClassName = "text-2xl font-black text-center text-slate-800 mb-6 inline-flex items-center justify-center";
 
   return (
-    <h3 className={block.className || defaultClassName}>
+    <h3 className={cn(defaultClassName, block.className)}>
       {block.icon && (
         <SmartIcon
           name={block.icon}
-          className="w-8 h-8 inline ml-2"
+          className="w-8 h-8 ml-2"
         />
       )}
       {/* Parse content for merge tags */}

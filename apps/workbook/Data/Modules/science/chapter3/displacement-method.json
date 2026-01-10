@@ -52,7 +52,8 @@
       "cards": [
         {
           "title": "בועות אוויר",
-          "icon": "thought-balloon",
+          "icon": "air-bubbles",
+          "iconSize": "48",
           "content": [
             {
               "type": "p",
@@ -73,7 +74,8 @@
         },
         {
           "title": "שקיעה מלאה",
-          "icon": "down-arrow",
+          "icon": "sedimentation-potential",
+          "iconSize": "48",
           "content": [
             {
               "type": "p",
