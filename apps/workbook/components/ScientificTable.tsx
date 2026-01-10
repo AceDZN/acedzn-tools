@@ -7,7 +7,7 @@ interface ScientificTableProps {
     headers: string[];
     rows: (string | number)[][];
     note?: string;
-    variant?: 'blue' | 'amber' | 'emerald';
+    variant?: 'blue' | 'amber' | 'emerald' | 'purple' | 'cyan' | 'orange';
 }
 
 export const ScientificTable: React.FC<ScientificTableProps> = ({
@@ -35,10 +35,28 @@ export const ScientificTable: React.FC<ScientificTableProps> = ({
             border: 'border-emerald-100',
             row: 'even:bg-emerald-50/50',
             title: 'text-emerald-700'
+        },
+        purple: {
+            header: 'bg-purple-600 text-white',
+            border: 'border-purple-100',
+            row: 'even:bg-purple-50/50',
+            title: 'text-purple-700'
+        },
+        cyan: {
+            header: 'bg-cyan-600 text-white',
+            border: 'border-cyan-100',
+            row: 'even:bg-cyan-50/50',
+            title: 'text-cyan-700'
+        },
+        orange: {
+            header: 'bg-orange-500 text-white',
+            border: 'border-orange-100',
+            row: 'even:bg-orange-50/50',
+            title: 'text-orange-700'
         }
     };
 
-    const theme = themes[variant];
+    const theme = themes[variant] || themes.blue;
 
     return (
         <div className="my-8 overflow-hidden rounded-[2rem] border-2 border-slate-100 shadow-sm bg-white">

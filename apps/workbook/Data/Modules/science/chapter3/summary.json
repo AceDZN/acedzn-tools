@@ -1,0 +1,219 @@
+{
+  "id": "chapter3-summary",
+  "title": "סיכום: מדידות פיזיקליות",
+  "metadata": {
+    "description": "סיכום פרק 3: נפח, מסה וצפיפות. נוסחאות חשובות, יחידות מידה, ונקודות מפתח."
+  },
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "סיכום פרק 3",
+      "subtitle": "נפח, מסה וצפיפות—כל מה שצריך לזכור"
+    },
+    {
+      "type": "grid_cards",
+      "title": "שלושת הגדלים",
+      "cols": 3,
+      "cards": [
+        {
+          "title": "נפח (V)",
+          "icon": "package",
+          "content": [
+            {
+              "type": "p",
+              "content": "{b}הגדרה:{/b} המקום שגוף תופס במרחב."
+            },
+            {
+              "type": "callout",
+              "variant": "blue",
+              "content": [
+                {
+                  "type": "p",
+                  "content": "{b}יחידות:{/b}\n• מ\"ל / סמ\"ק\n• ליטר\n• מ\"ק\n\n{b}כלים:{/b} משורה, מזרק"
+                }
+              ]
+            }
+          ],
+          "variant": "blue"
+        },
+        {
+          "title": "מסה (M)",
+          "icon": "balance-scale",
+          "content": [
+            {
+              "type": "p",
+              "content": "{b}הגדרה:{/b} כמות החומר בגוף."
+            },
+            {
+              "type": "callout",
+              "variant": "emerald",
+              "content": [
+                {
+                  "type": "p",
+                  "content": "{b}יחידות:{/b}\n• גרם\n• קילוגרם\n• טון\n\n{b}כלים:{/b} מאזניים"
+                }
+              ]
+            }
+          ],
+          "variant": "emerald"
+        },
+        {
+          "title": "צפיפות (D)",
+          "icon": "package",
+          "content": [
+            {
+              "type": "p",
+              "content": "{b}הגדרה:{/b} יחס מסה לנפח."
+            },
+            {
+              "type": "callout",
+              "variant": "purple",
+              "content": [
+                {
+                  "type": "p",
+                  "content": "{b}יחידות:{/b}\n• g/cm³\n• g/ml\n• kg/L\n\n{b}נוסחה:{/b} D = M ÷ V"
+                }
+              ]
+            }
+          ],
+          "variant": "purple"
+        }
+      ]
+    },
+    {
+      "type": "scientific_table",
+      "title": "יחידות והמרות",
+      "headers": ["גודל", "המרה חשובה"],
+      "rows": [
+        ["נפח", "1 מ\"ל = 1 סמ\"ק"],
+        ["נפח", "1 ליטר = 1,000 מ\"ל"],
+        ["מסה", "1 ק\"ג = 1,000 גרם"],
+        ["מסה", "1 גרם = 1,000 מ\"ג"],
+        ["צפיפות", "1 g/cm³ = 1 g/ml = 1 kg/L"]
+      ],
+      "variant": "blue"
+    },
+    {
+      "type": "concept_explainer",
+      "title": "שיטות מדידה",
+      "icon": "straight-ruler",
+      "variant": "cyan",
+      "intro": "סיכום השיטות העיקריות שלמדנו:",
+      "explanation": "{b}מדידת נפח:{/b}\n• גוף הנדסי: נוסחה (אורך × רוחב × גובה)\n• גוף לא הנדסי: שיטת דחיקת המים\n• קריאה נכונה: בגובה העיניים, בתחתית המניסקוס\n\n{b}מדידת מסה:{/b}\n• מאזניים כפות או דיגיטליים\n• המסה קבועה בכל מקום ביקום!\n\n{b}חישוב צפיפות:{/b}\n• D = M ÷ V\n• ניתן לחשב גם M = D × V או V = M ÷ D"
+    },
+    {
+      "type": "comparison_cards",
+      "title": "מסה מול משקל",
+      "items": [
+        {
+          "title": "מסה",
+          "icon": "package",
+          "content": "• כמות החומר\n• נמדדת בגרמים/ק\"ג\n• {b}קבועה{/b} בכל מקום"
+        },
+        {
+          "title": "משקל",
+          "icon": "down-arrow",
+          "content": "• כוח המשיכה\n• נמדד בניוטון\n• {b}משתנה{/b} לפי הכבידה"
+        }
+      ],
+      "variant": "amber",
+      "footer": "בירח: המסה זהה, אבל המשקל כשישית!"
+    },
+    {
+      "type": "grid_cards",
+      "title": "חוקי הציפה",
+      "cols": 3,
+      "cards": [
+        {
+          "title": "צף",
+          "icon": "up-arrow",
+          "content": [
+            {
+              "type": "callout",
+              "variant": "emerald",
+              "content": [
+                {
+                  "type": "p",
+                  "content": "ρ_גוף < ρ_נוזל"
+                }
+              ]
+            }
+          ],
+          "variant": "emerald"
+        },
+        {
+          "title": "מרחף",
+          "icon": "heavy-minus-sign",
+          "content": [
+            {
+              "type": "callout",
+              "variant": "amber",
+              "content": [
+                {
+                  "type": "p",
+                  "content": "ρ_גוף = ρ_נוזל"
+                }
+              ]
+            }
+          ],
+          "variant": "amber"
+        },
+        {
+          "title": "שוקע",
+          "icon": "down-arrow",
+          "content": [
+            {
+              "type": "callout",
+              "variant": "blue",
+              "content": [
+                {
+                  "type": "p",
+                  "content": "ρ_גוף > ρ_נוזל"
+                }
+              ]
+            }
+          ],
+          "variant": "blue"
+        }
+      ]
+    },
+    {
+      "type": "tip_box",
+      "title": "נקודות מפתח למבחן",
+      "icon": "star",
+      "variant": "warning",
+      "content": "דברים חשובים לזכור:",
+      "steps": [
+        "צפיפות מים = {b}1 g/cm³{/b}—זה המספר להשוואה!",
+        "לאוויר יש מסה (הוכחנו בניסוי הבלונים)",
+        "המניסקוס—לקרוא בתחתית הקעור, בגובה העיניים",
+        "שיטת דחיקת המים: V_גוף = V_סופי - V_התחלתי",
+        "המסה קבועה, המשקל משתנה (לפי הכבידה)"
+      ]
+    },
+    {
+      "type": "enrichment",
+      "title": "חוק שימור המסה",
+      "icon": "recycling-symbol",
+      "content": [
+        {
+          "type": "p",
+          "content": "בכל תהליך סגור (כימי או פיזיקלי), סך המסה נשמר!"
+        },
+        {
+          "type": "callout",
+          "variant": "purple",
+          "content": [
+            {
+              "type": "p",
+              "content": "אם נמיס 100 גרם סוכר ב-500 גרם מים בכלי סגור—המסה הכוללת תישאר {b}600 גרם{/b}. הסוכר לא נעלם, הוא רק התפזר!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "quiz"
+    }
+  ]
+}

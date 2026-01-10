@@ -13,7 +13,9 @@ import { ThemeVariant } from "./ThemeRegistry";
 
 export enum ChapterId {
     Chapter1 = "chapter1",
-    Chapter2 = "chapter2"
+    Chapter2 = "chapter2",
+    Chapter3 = "chapter3",
+    Chapter4 = "chapter4"
 }
 
 export enum ModuleId {
@@ -25,12 +27,38 @@ export enum ModuleId {
     SurfaceTension = "surface-tension",
     VolumeBasics = "volume-basics",
     PhaseTransitions = "phase-transitions",
+    EngineeringMaterials = "engineering-materials",
 
     // Chapter 2: Body and Matter
     Intro = "intro",
     Volume = "volume",
     MassWeight = "mass-weight",
     Density = "density",
+    AirComposition = "air-composition",
+    Sublimation = "sublimation",
+
+    // Chapter 3: Physical Measurements
+    Chapter3Intro = "intro",
+    VolumeMeasurement = "volume-measurement",
+    DisplacementMethod = "displacement-method",
+    MassIntro = "mass-intro",
+    MassVsWeight = "mass-vs-weight",
+    AirHasMass = "air-has-mass",
+    DensityDeep = "density-deep",
+    Buoyancy = "buoyancy",
+    DensityTower = "density-tower",
+
+    // Chapter 4: Energy
+    EnergyIntro = "intro",
+    KineticEnergy = "kinetic-energy",
+    PotentialEnergy = "potential-energy",
+    ElasticEnergy = "elastic-energy",
+    ElectricalEnergy = "electrical-energy",
+    ChemicalEnergy = "chemical-energy",
+    ThermalEnergy = "thermal-energy",
+    EnergyTransformations = "energy-transformations",
+    RubberBandCaseStudy = "rubber-band-case-study",
+    ConservationLaw = "conservation-law",
 
     // Shared
     Summary = "summary"

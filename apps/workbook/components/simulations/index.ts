@@ -9,3 +9,8 @@ export { SurfaceTensionSimulation } from "./science/SurfaceTensionSimulation";
 export { PhaseTransitionSimulation } from "./science/PhaseTransitionSimulation";
 export { DensityCalculator } from "./science/DensityCalculator";
 export { MeniscusIllustration } from "./science/MeniscusIllustration";
+export { IodineSimulation } from "./science/IodineSimulation";
+export { AirMassDemo } from "./science/AirMassDemo";
+export { DensityTower } from "./science/DensityTower";
+export { RubberBandGun } from "./science/RubberBandGun";
+export { EnergyConverter } from "./science/EnergyConverter";

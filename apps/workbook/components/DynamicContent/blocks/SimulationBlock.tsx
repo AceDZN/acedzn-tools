@@ -14,7 +14,12 @@ import {
   SurfaceTensionSimulation,
   PhaseTransitionSimulation,
   DensityCalculator,
-  MeniscusIllustration
+  MeniscusIllustration,
+  IodineSimulation,
+  AirMassDemo,
+  DensityTower,
+  RubberBandGun,
+  EnergyConverter
 } from "@/components/simulations";
 import { PhaseGraph } from "@/components/PhaseGraph";
 
@@ -31,7 +36,12 @@ const SIMULATION_REGISTRY: Record<string, React.ComponentType> = {
   PhaseTransitionSimulation,
   DensityCalculator,
   PhaseGraph,
-  MeniscusIllustration
+  MeniscusIllustration,
+  IodineSimulation,
+  AirMassDemo,
+  DensityTower,
+  RubberBandGun,
+  EnergyConverter
 };
 
 interface Props {
