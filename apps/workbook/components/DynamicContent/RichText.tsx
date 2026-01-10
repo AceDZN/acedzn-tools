@@ -202,15 +202,15 @@ const ICON_SIZES = {
  * Renders an emoji icon from Iconify.
  * Standardizes icon rendering across all blocks.
  */
+import { SmartIcon } from "@/components/smart-icon";
+
 export function Icon({ name, size = "md", className = "" }: IconProps) {
     const sizeClass = ICON_SIZES[size];
 
     return (
-        <img
-            src={`https://api.iconify.design/fluent-emoji/${name}.svg`}
-            alt={name}
+        <SmartIcon
+            name={name}
             className={`${sizeClass} ${className}`.trim()}
-            loading="lazy"
         />
     );
 }

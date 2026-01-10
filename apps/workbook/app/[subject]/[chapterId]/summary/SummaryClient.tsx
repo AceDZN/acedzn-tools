@@ -4,6 +4,7 @@ import React from "react";
 import { ChapterId, Question } from "@/lib/types";
 import { Quiz } from "@/components/Quiz";
 import Link from "next/link";
+import { SmartIcon } from "@/components/smart-icon";
 
 interface SummaryClientProps {
   chapterId: ChapterId;
@@ -11,10 +12,10 @@ interface SummaryClientProps {
   chapterTitle: string;
 }
 
-export default function SummaryClient({ 
-  chapterId, 
+export default function SummaryClient({
+  chapterId,
   questions,
-  chapterTitle 
+  chapterTitle
 }: SummaryClientProps) {
   const handleComplete = (score: number) => {
     console.log(`Summary exam completed with score: ${score}`);
@@ -31,9 +32,8 @@ export default function SummaryClient({
           </h2>
           <p className="text-xl font-medium opacity-90 max-w-2xl">
             הגעת לסוף הפרק! זה הזמן לבדוק את הידע שלך על כל מה שלמדנו.{" "}
-            <img
-              src="https://api.iconify.design/fluent-emoji/graduation-cap.svg"
-              alt="graduation"
+            <SmartIcon
+              name="graduation-cap"
               className="w-6 h-6 inline"
             />
           </p>

@@ -14,7 +14,9 @@ const isPublicRoute = createRouteMatcher([
     "/:locale",
     "/",
     "/:locale/(.*)",
-    "/api/(.*)"
+    "/api/(.*)",
+    "/sign-in(.*)",
+    "/sign-up(.*)"
 ]);
 
 function getLocale(request: NextRequest): string {

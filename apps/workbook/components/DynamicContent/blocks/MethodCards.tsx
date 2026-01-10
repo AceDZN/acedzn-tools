@@ -63,8 +63,8 @@ export const MethodCards = ({ block }: Props) => {
     const cols = block.cols || 2;
     const gridColsClass =
         cols === 3 ? "md:grid-cols-3" :
-        cols === 4 ? "md:grid-cols-4" :
-        "md:grid-cols-2";
+            cols === 4 ? "md:grid-cols-4" :
+                "md:grid-cols-2";
 
     return (
         <div className="my-6">
@@ -81,7 +81,7 @@ export const MethodCards = ({ block }: Props) => {
                 {block.methods.map((method, idx) => (
                     <div
                         key={idx}
-                        className={`${VARIANTS[method.variant]} p-6 rounded-3xl text-white shadow-xl`}
+                        className={`${VARIANTS[method.variant] || VARIANTS["emerald"]} p-6 rounded-3xl text-white shadow-xl`}
                     >
                         <div className="text-center">
                             {/* Icon */}

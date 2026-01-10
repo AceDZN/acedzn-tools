@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { SmartIcon } from "@/components/smart-icon";
 
 export const DiffusionSimulation: React.FC = () => {
   const [active, setActive] = useState(false);
@@ -16,9 +17,8 @@ export const DiffusionSimulation: React.FC = () => {
 
       <div className="w-full max-w-sm bg-white p-4 rounded-xl shadow-inner mb-2">
         <label className="block text-slate-700 font-bold mb-2 text-center flex items-center justify-center gap-2">
-          <img
-            src="https://api.iconify.design/fluent-emoji/thermometer.svg"
-            alt="thermometer"
+          <SmartIcon
+            name="thermometer"
             className="w-5 h-5"
           />{" "}
           טמפרטורה: {temperature}°C
@@ -35,8 +35,8 @@ export const DiffusionSimulation: React.FC = () => {
           {temperature < 25
             ? "קר - פעפוע איטי"
             : temperature > 50
-            ? "חם - פעפוע מהיר!"
-            : "רגיל"}
+              ? "חם - פעפוע מהיר!"
+              : "רגיל"}
         </p>
       </div>
 
@@ -89,4 +89,3 @@ export const DiffusionSimulation: React.FC = () => {
     </div>
   );
 };
-

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ModuleCard } from "@/components/ModuleCard";
 import { ChapterId, ModuleId, Chapter } from "@/lib/types";
+import { SmartIcon } from "@/components/smart-icon";
 
 interface ChapterSidebarProps {
   chapter: Chapter;
@@ -92,9 +93,8 @@ export const ChapterSidebar: React.FC<ChapterSidebarProps> = ({
 
         <div className="mb-6 md:mb-8">
           <div className="mb-3 md:mb-4">
-            <img
-              src={`https://api.iconify.design/fluent-emoji/${chapter.icon}.svg`}
-              alt={chapter.icon}
+            <SmartIcon
+              name={chapter.icon}
               className="w-8 h-8 md:w-10 md:h-10"
             />
           </div>
@@ -105,7 +105,6 @@ export const ChapterSidebar: React.FC<ChapterSidebarProps> = ({
             {chapter.subtitle}
           </p>
         </div>
-
         <nav>
           {chapter.modules.map((m) => {
             const isActive = currentModuleId === m.id;
@@ -130,12 +129,14 @@ export const ChapterSidebar: React.FC<ChapterSidebarProps> = ({
       </aside>
 
       {/* Overlay for mobile */}
-      {sidebarOpen && (
-        <div
-          className="fixed inset-0 bg-black/50 z-30 md:hidden"
-          onClick={() => setSidebarOpen(false)}
-        />
-      )}
+      {
+        sidebarOpen && (
+          <div
+            className="fixed inset-0 bg-black/50 z-30 md:hidden"
+            onClick={() => setSidebarOpen(false)}
+          />
+        )
+      }
     </>
   );
 };

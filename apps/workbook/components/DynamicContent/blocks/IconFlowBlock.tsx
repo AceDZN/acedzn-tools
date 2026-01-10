@@ -1,6 +1,7 @@
 import React from "react";
 import { IconFlowBlock as IconFlowBlockType } from "@/lib/types";
 import { RenderBlockFn } from "../BlockRenderer";
+import { SmartIcon } from "@/components/smart-icon";
 
 interface Props {
   block: IconFlowBlockType;
@@ -21,9 +22,8 @@ export const IconFlowBlock = ({ block }: Props) => {
     <div className="flex justify-center items-center gap-2 mb-4">
       {block.icons.map((icon, idx) => (
         <React.Fragment key={idx}>
-          <img
-            src={`https://api.iconify.design/fluent-emoji/${icon}.svg`}
-            alt={icon}
+          <SmartIcon
+            name={icon}
             className={styles.icon}
           />
           {idx < block.icons.length - 1 && (

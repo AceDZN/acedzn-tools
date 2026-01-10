@@ -19,25 +19,22 @@ export enum ChapterId {
 }
 
 export enum ModuleId {
-    // Chapter 1: Introduction to Matter & Particle Model
+    // Chapter 1: Material Properties (עולם החומר - תכונות)
     MatterIntro = "matter-intro",
+    MaterialProperties = "material-properties",
+    EngineeringMaterials = "engineering-materials",
+
+    // Chapter 2: Particle Model & States of Matter (המודל החלקיקי ומצבי צבירה)
+    SurfaceTension = "surface-tension",
     ParticleModel = "particle-model",
     Compression = "compression",
     Diffusion = "diffusion",
-    SurfaceTension = "surface-tension",
-    VolumeBasics = "volume-basics",
     PhaseTransitions = "phase-transitions",
-    EngineeringMaterials = "engineering-materials",
-
-    // Chapter 2: Body and Matter
-    Intro = "intro",
-    Volume = "volume",
-    MassWeight = "mass-weight",
-    Density = "density",
+    VolumeBasics = "volume-basics",
     AirComposition = "air-composition",
     Sublimation = "sublimation",
 
-    // Chapter 3: Physical Measurements
+    // Chapter 3: Physical Measurements (גדלים פיזיקליים ומדידות)
     Chapter3Intro = "intro",
     VolumeMeasurement = "volume-measurement",
     DisplacementMethod = "displacement-method",
@@ -48,7 +45,7 @@ export enum ModuleId {
     Buoyancy = "buoyancy",
     DensityTower = "density-tower",
 
-    // Chapter 4: Energy
+    // Chapter 4: Energy (אנרגיה)
     EnergyIntro = "intro",
     KineticEnergy = "kinetic-energy",
     PotentialEnergy = "potential-energy",

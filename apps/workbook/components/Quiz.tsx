@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Question } from '@/lib/types';
 import { parseMergeTags } from "@/utils/MergeTagParser";
 import { SpanBlock } from "@/components/DynamicContent/blocks/SpanBlock";
+import { SmartIcon } from "@/components/smart-icon";
 
 interface QuizProps {
   questions: Question[];
@@ -28,7 +29,7 @@ export const Quiz: React.FC<QuizProps> = ({ questions, onComplete }) => {
     const percentage = Math.round((score / questions.length) * 100);
     return (
       <div className="bg-white p-12 rounded-[3rem] shadow-2xl border border-slate-200 border-b-[12px] border-b-blue-500 text-center animate-in zoom-in duration-500 max-w-2xl mx-auto">
-        <div className="mb-6"><img src="https://api.iconify.design/fluent-emoji/chequered-flag.svg" alt="flag" className="w-16 h-16 mx-auto" /></div>
+        <div className="mb-6"><SmartIcon name="chequered-flag" className="w-16 h-16 mx-auto" /></div>
         <h3 className="text-4xl font-black text-slate-900 mb-2">כל הכבוד!</h3>
         <p className="text-xl text-slate-500 mb-8">סיימת את הבוחן בהצלחה</p>
 
@@ -97,8 +98,8 @@ export const Quiz: React.FC<QuizProps> = ({ questions, onComplete }) => {
             onClick={() => handleAnswer(i)}
             disabled={showFeedback}
             className={`w-full text-right p-5 rounded-2xl border-2 transition-all text-lg font-medium ${selected === i
-                ? (i === current.correctAnswer ? 'bg-emerald-50 border-emerald-500 text-emerald-900' : 'bg-red-50 border-red-500 text-red-900')
-                : (showFeedback && i === current.correctAnswer ? 'bg-emerald-50 border-emerald-500 text-emerald-900' : 'bg-white border-slate-100 hover:border-blue-400 text-slate-800')
+              ? (i === current.correctAnswer ? 'bg-emerald-50 border-emerald-500 text-emerald-900' : 'bg-red-50 border-red-500 text-red-900')
+              : (showFeedback && i === current.correctAnswer ? 'bg-emerald-50 border-emerald-500 text-emerald-900' : 'bg-white border-slate-100 hover:border-blue-400 text-slate-800')
               } ${showFeedback && i !== current.correctAnswer && selected !== i ? 'opacity-40' : ''}`}
           >
             <div className="flex items-center gap-3">
@@ -117,8 +118,9 @@ export const Quiz: React.FC<QuizProps> = ({ questions, onComplete }) => {
         <div className="mt-8 animate-fade-in">
           <div className={`p-6 rounded-2xl mb-8 border-2 ${selected === current.correctAnswer ? 'bg-emerald-50 border-emerald-200 text-emerald-900' : 'bg-red-50 border-red-200 text-red-900'}`}>
             <p className="font-black text-xl mb-3 flex items-center gap-2">
-              {selected === current.correctAnswer ? <><img src="https://api.iconify.design/fluent-emoji/sparkles.svg" alt="sparkles" className="w-6 h-6" /> נכון מאוד!</> : <><img src="https://api.iconify.design/fluent-emoji/cross-mark.svg" alt="cross" className="w-6 h-6" /> לא בדיוק...</>}
+              {selected === current.correctAnswer ? <><SmartIcon name="sparkles" className="w-6 h-6" /> נכון מאוד!</> : <><SmartIcon name="cross-mark" className="w-6 h-6" /> לא בדיוק...</>}
             </p>
+
             <p className="text-lg leading-relaxed opacity-90 font-medium">
               {parseMergeTags(current.explanation).map((seg, idx) => <SpanBlock key={idx} block={seg} />)}
             </p>
@@ -129,8 +131,8 @@ export const Quiz: React.FC<QuizProps> = ({ questions, onComplete }) => {
           >
             {currentIdx + 1 === questions.length ? 'סיים וראה תוצאות' : 'המשך לשאלה הבאה ←'}
           </button>
-        </div>
+        </div >
       )}
-    </div>
+    </div >
   );
 };

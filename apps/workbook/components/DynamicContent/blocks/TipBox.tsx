@@ -68,7 +68,7 @@ interface Props {
  */
 export const TipBox = ({ block }: Props) => {
     const variant = block.variant || "tip";
-    const styles = VARIANTS[variant];
+    const styles = VARIANTS[variant] || VARIANTS["tip"];
     const iconName = block.icon || styles.icon;
 
     return (

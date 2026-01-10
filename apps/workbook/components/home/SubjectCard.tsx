@@ -9,6 +9,8 @@ interface SubjectCardProps {
   subject: Subject;
 }
 
+import { SmartIcon } from "@/components/smart-icon";
+
 export const SubjectCard: React.FC<SubjectCardProps> = ({ subject }) => {
   return (
     <Link href={`/${subject.id}`}>
@@ -21,11 +23,7 @@ export const SubjectCard: React.FC<SubjectCardProps> = ({ subject }) => {
 
         <div>
           <div className="mb-4 md:mb-6 relative z-10">
-            <img
-              src={`https://api.iconify.design/fluent-emoji/${subject.icon}.svg`}
-              alt={subject.icon}
-              className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20"
-            />
+            <SmartIcon name={subject.icon} size={64} className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20" />
           </div>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-slate-900 mb-3 md:mb-4">
             {subject.title}

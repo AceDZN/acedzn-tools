@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    transpilePackages: ["@repo/db", "@repo/auth", "@repo/i18n"],
+    transpilePackages: ["@repo/db", "@repo/auth", "@repo/i18n", "@repo/ui", "@repo/analytics"],
     skipTrailingSlashRedirect: true,
     async rewrites() {
         return [

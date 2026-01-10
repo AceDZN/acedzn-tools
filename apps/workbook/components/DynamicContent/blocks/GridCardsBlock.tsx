@@ -9,6 +9,7 @@ import { RenderBlockFn } from "../BlockRenderer";
 import { cn } from "@/lib/utils";
 import { parseMergeTags } from "@/utils/MergeTagParser";
 import { SpanBlock } from "@/components/DynamicContent/blocks/SpanBlock";
+import { SmartIcon } from "@/components/smart-icon";
 
 // =============================================================================
 // Variant Styles - Rich color palette for cards
@@ -133,9 +134,9 @@ export const GridCardsBlock = ({ block, renderBlock }: Props) => {
   const cols = block.cols || 2;
   const gridColsClass =
     cols === 1 ? "md:grid-cols-1" :
-    cols === 3 ? "md:grid-cols-3" :
-    cols === 4 ? "md:grid-cols-4" :
-    "md:grid-cols-2";
+      cols === 3 ? "md:grid-cols-3" :
+        cols === 4 ? "md:grid-cols-4" :
+          "md:grid-cols-2";
 
   return (
     <div
@@ -163,9 +164,8 @@ export const GridCardsBlock = ({ block, renderBlock }: Props) => {
             <div className="text-center">
               {/* Icon */}
               {card.icon && (
-                <img
-                  src={`https://api.iconify.design/fluent-emoji/${card.icon}.svg`}
-                  alt={card.icon}
+                <SmartIcon
+                  name={card.icon}
                   className="w-14 h-14 md:w-16 md:h-16 mx-auto mb-3 md:mb-4"
                 />
               )}

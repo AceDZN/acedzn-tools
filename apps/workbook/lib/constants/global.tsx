@@ -1,63 +1,37 @@
 import { Chapter, ChapterId, ModuleId, Subject } from "../types";
 
-export const SITE_NAME = "מדעים+";
+export const SITE_NAME = "עולם הידע";
+
+export const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+export const DOCS_URL = process.env.NEXT_PUBLIC_DOCS_URL || "http://localhost:3001";
+export const DICTATION_URL = process.env.NEXT_PUBLIC_DICTATION_URL || "http://localhost:3002";
 
 export const SCIENCE_CHAPTERS: Chapter[] = [
   {
     id: ChapterId.Chapter1,
     title: "פרק 1: עולם החומר",
-    subtitle: "מודל החלקיקים ותופעות בחומר",
+    subtitle: "תכונות חומרים ואפיונם",
     description:
-      "נלמד על מודל החלקיקים המסביר את מבנה החומר, מצבי צבירה, פעפוע ודחיסה.",
+      "מהו חומר? מוליכות, קשיות, שקיפות ומסיסות. בחירת חומרים נכונה להנדסה.",
     icon: "test-tube",
     modules: [
       {
         id: ModuleId.MatterIntro,
         title: "מהו חומר?",
-        description: "הכרת אבני הבניין היסודיות.",
+        description: "גוף מול חומר - ההבדל הבסיסי.",
         icon: "atom-symbol"
       },
       {
-        id: ModuleId.ParticleModel,
-        title: "מודל החלקיקים",
-        description: "איך בנוי החומר ומה קורה בתוכו.",
-        icon: "milky-way"
-      },
-      {
-        id: ModuleId.Compression,
-        title: "דחיסה בחומר",
-        description: "למה גז נדחס ונוזל לא?",
-        icon: "syringe"
-      },
-      {
-        id: ModuleId.Diffusion,
-        title: "פעפוע (דיפוזיה)",
-        description: "איך חומרים מתערבבים מעצמם?",
-        icon: "tornado"
-      },
-      {
-        id: ModuleId.SurfaceTension,
-        title: "מתח פנים",
-        description: "מדוע חרקים הולכים על מים?",
-        icon: "droplet"
-      },
-      {
-        id: ModuleId.PhaseTransitions,
-        title: "מצבי צבירה ומעברים",
-        description: "איך חומר משנה את פניו?",
-        icon: "thermometer"
-      },
-      {
-        id: ModuleId.VolumeBasics,
-        title: "מדידת נפח",
-        description: "איך מודדים מקום?",
-        icon: "straight-ruler"
+        id: ModuleId.MaterialProperties,
+        title: "תכונות חומרים",
+        description: "מוליכות, קשיות, שקיפות ומסיסות.",
+        icon: "gem-stone"
       },
       {
         id: ModuleId.EngineeringMaterials,
-        title: "הזאב ושלושת החזירונים",
-        description: "הנדסה ובחירת חומרים.",
-        icon: "house"
+        title: "בחירת חומרים לבנייה",
+        description: "איך בוחרים חומר מתאים למבנה?",
+        icon: "building"
       },
       {
         id: ModuleId.Summary,
@@ -69,34 +43,46 @@ export const SCIENCE_CHAPTERS: Chapter[] = [
   },
   {
     id: ChapterId.Chapter2,
-    title: "פרק 2: גוף וחומר",
-    subtitle: "מדידות ותכונות פיזיקליות",
-    description: "מסה, משקל, צפיפות וציפה. ההבדלים הקריטיים והנוסחאות.",
-    icon: "building-construction",
+    title: "פרק 2: המודל החלקיקי",
+    subtitle: "מבנה החומר ומצבי צבירה",
+    description: "מודל החלקיקים, מצבי צבירה, תכונות גזים, והרכב האוויר.",
+    icon: "microscope",
     modules: [
       {
-        id: ModuleId.Intro,
-        title: "מהו גוף ומהו חומר?",
-        description: "הבדלה בין העצם לחומר ממנו הוא עשוי.",
-        icon: "building-construction"
+        id: ModuleId.ParticleModel,
+        title: "מודל החלקיקים",
+        description: "איך בנוי החומר ומה קורה בתוכו.",
+        icon: "microscope"
       },
       {
-        id: ModuleId.Volume,
-        title: "נפח ומדידתו",
-        description: "שיטות מדידה מתקדמות ויחידות.",
+        id: ModuleId.SurfaceTension,
+        title: "מתח פנים",
+        description: "למה טיפות מים עגולות ואיך חרקים הולכים על המים?",
+        icon: "droplet"
+      },
+      {
+        id: ModuleId.Compression,
+        title: "דחיסה בחומר",
+        description: "למה גז נדחס ונוזל לא?",
+        icon: "syringe"
+      },
+      {
+        id: ModuleId.Diffusion,
+        title: "פעפוע (דיפוזיה)",
+        description: "איך חומרים מתערבבים מעצמם?",
+        icon: "cyclone"
+      },
+      {
+        id: ModuleId.PhaseTransitions,
+        title: "מצבי צבירה ומעברים",
+        description: "איך חומר משנה את פניו?",
+        icon: "thermometer"
+      },
+      {
+        id: ModuleId.VolumeBasics,
+        title: "מבוא לנפח",
+        description: "מושג הנפח ויחידות מידה.",
         icon: "straight-ruler"
-      },
-      {
-        id: ModuleId.MassWeight,
-        title: "מסה מול משקל",
-        description: "כמות חומר מול כוח כבידה.",
-        icon: "balance-scale"
-      },
-      {
-        id: ModuleId.Density,
-        title: "צפיפות וציפה",
-        description: "למה דברים צפים? הנוסחה d=m/V.",
-        icon: "ship"
       },
       {
         id: ModuleId.AirComposition,
@@ -113,14 +99,14 @@ export const SCIENCE_CHAPTERS: Chapter[] = [
       {
         id: ModuleId.Summary,
         title: "בחן את עצמך",
-        description: "בדיקת מוכנות למבחן הגדול.",
+        description: "בדיקת ידע על המודל החלקיקי.",
         icon: "graduation-cap"
       }
     ]
   },
   {
     id: ChapterId.Chapter3,
-    title: "פרק 3: גדלים פיזיקליים ומדידות",
+    title: "פרק 3: מדידות פיזיקליות",
     subtitle: "נפח, מסה וצפיפות",
     description: "לומדים למדוד נפח ומסה, מחשבים צפיפות, ומבינים מתי גופים צפים או שוקעים.",
     icon: "straight-ruler",
@@ -272,18 +258,4 @@ export const SUBJECTS: Subject[] = [
     icon: "microscope",
     chapters: SCIENCE_CHAPTERS
   }
-  //   {
-  //     id: "math",
-  //     title: "מתמטיקה",
-  //     description: "אלגברה, גיאומטריה וחשבון",
-  //     icon: "abacus",
-  //     chapters: []
-  //   },
-  //   {
-  //     id: "history",
-  //     title: "היסטוריה",
-  //     description: "מסע בזמן אל העבר",
-  //     icon: "scroll",
-  //     chapters: []
-  //   }
 ];

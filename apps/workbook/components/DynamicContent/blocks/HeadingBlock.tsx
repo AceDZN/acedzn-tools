@@ -4,6 +4,7 @@ import { RenderBlockFn } from "../BlockRenderer";
 // Use parseMergeTags for rich text in headings
 import { parseMergeTags } from "@/utils/MergeTagParser";
 import { SpanBlock } from "@/components/DynamicContent/blocks/SpanBlock";
+import { SmartIcon } from "@/components/smart-icon";
 
 interface Props {
   block: HeadingBlockType;
@@ -16,9 +17,8 @@ export const HeadingBlock = ({ block }: Props) => {
   return (
     <h3 className={block.className || defaultClassName}>
       {block.icon && (
-        <img
-          src={`https://api.iconify.design/fluent-emoji/${block.icon}.svg`}
-          alt={block.icon}
+        <SmartIcon
+          name={block.icon}
           className="w-8 h-8 inline ml-2"
         />
       )}
@@ -29,4 +29,3 @@ export const HeadingBlock = ({ block }: Props) => {
     </h3>
   );
 };
-

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { SmartIcon } from "@/components/smart-icon";
 
 export const GravitySimulation: React.FC = () => {
   const [mass, setMass] = useState(60);
@@ -34,17 +35,16 @@ export const GravitySimulation: React.FC = () => {
             className="bg-white p-4 rounded-2xl text-center shadow-sm border border-indigo-50"
           >
             <span className="mb-2 block">
-              <img
-                src={`https://api.iconify.design/fluent-emoji/${
+              <SmartIcon
+                name={
                   planet === "earth"
                     ? "globe-showing-americas"
                     : planet === "moon"
-                    ? "first-quarter-moon"
-                    : planet === "mars"
-                    ? "red-circle"
-                    : "ringed-planet"
-                }.svg`}
-                alt={planet}
+                      ? "first-quarter-moon"
+                      : planet === "mars"
+                        ? "red-circle"
+                        : "ringed-planet"
+                }
                 className="w-10 h-10 mx-auto"
               />
             </span>
@@ -52,10 +52,10 @@ export const GravitySimulation: React.FC = () => {
               {planet === "earth"
                 ? "כדור הארץ"
                 : planet === "moon"
-                ? "ירח"
-                : planet === "mars"
-                ? "מאדים"
-                : "צדק"}
+                  ? "ירח"
+                  : planet === "mars"
+                    ? "מאדים"
+                    : "צדק"}
             </p>
             <p className="text-xl font-black text-indigo-900">
               {(mass * 10 * factor).toFixed(1)} N
@@ -66,4 +66,3 @@ export const GravitySimulation: React.FC = () => {
     </div>
   );
 };
-

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { SmartIcon } from "@/components/smart-icon";
 
 export const DensityCalculator: React.FC = () => {
   const [mass, setMass] = useState(100);
@@ -30,9 +31,8 @@ export const DensityCalculator: React.FC = () => {
       <div className="grid md:grid-cols-2 gap-6 w-full max-w-2xl">
         <div className="bg-white p-6 rounded-2xl shadow-sm">
           <label className="block text-slate-700 font-bold mb-2">
-            <img
-              src="https://api.iconify.design/fluent-emoji/balance-scale.svg"
-              alt="scale"
+            <SmartIcon
+              name="balance-scale"
               className="w-6 h-6 inline mr-2"
             />
             מסה (גרם)
@@ -52,9 +52,8 @@ export const DensityCalculator: React.FC = () => {
 
         <div className="bg-white p-6 rounded-2xl shadow-sm">
           <label className="block text-slate-700 font-bold mb-2">
-            <img
-              src="https://api.iconify.design/fluent-emoji/package.svg"
-              alt="package"
+            <SmartIcon
+              name="package"
               className="w-6 h-6 inline mr-2"
             />
             נפח (סמ"ק)
@@ -83,27 +82,24 @@ export const DensityCalculator: React.FC = () => {
 
       <div className="grid md:grid-cols-2 gap-4 w-full max-w-2xl">
         <div
-          className={`p-5 rounded-2xl text-center ${
-            floats
+          className={`p-5 rounded-2xl text-center ${floats
               ? "bg-emerald-100 text-emerald-800"
               : "bg-red-100 text-red-800"
-          }`}
+            }`}
         >
           <p className="text-lg font-bold mb-2">
             {floats ? (
               <>
-                <img
-                  src="https://api.iconify.design/fluent-emoji/up-arrow.svg"
-                  alt="up"
+                <SmartIcon
+                  name="up-arrow"
                   className="w-8 h-8 inline"
                 />
                 יצוף במים!
               </>
             ) : (
               <>
-                <img
-                  src="https://api.iconify.design/fluent-emoji/down-arrow.svg"
-                  alt="down"
+                <SmartIcon
+                  name="down-arrow"
                   className="w-8 h-8 inline"
                 />
                 ישקע במים!
@@ -115,9 +111,8 @@ export const DensityCalculator: React.FC = () => {
 
         <div className="bg-purple-100 p-5 rounded-2xl text-center text-purple-800">
           <p className="text-lg font-bold mb-2">
-            <img
-              src={`https://api.iconify.design/fluent-emoji/${material.icon}.svg`}
-              alt={material.icon}
+            <SmartIcon
+              name={material.icon}
               className="w-8 h-8 inline mr-1"
             />{" "}
             ניחוש חומר:
@@ -128,4 +123,3 @@ export const DensityCalculator: React.FC = () => {
     </div>
   );
 };
-

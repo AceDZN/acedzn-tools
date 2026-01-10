@@ -10,6 +10,8 @@ interface ChapterCardProps {
   subjectId: string;
 }
 
+import { SmartIcon } from "@/components/smart-icon";
+
 export const ChapterCard: React.FC<ChapterCardProps> = ({ chapter, subjectId }) => {
   const firstModuleId = chapter.modules[0]?.id || "intro";
   return (
@@ -23,11 +25,7 @@ export const ChapterCard: React.FC<ChapterCardProps> = ({ chapter, subjectId }) 
 
         <div>
           <div className="mb-4 md:mb-6 relative z-10">
-            <img
-              src={`https://api.iconify.design/fluent-emoji/${chapter.icon}.svg`}
-              alt={chapter.icon}
-              className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20"
-            />
+            <SmartIcon name={chapter.icon} size={64} className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20" />
           </div>
           <h3 className="text-xs md:text-sm font-black text-blue-600 uppercase tracking-widest mb-2">
             {chapter.subtitle}

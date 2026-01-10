@@ -66,13 +66,13 @@ interface Props {
  */
 export const ExamplesBox = ({ block }: Props) => {
     const variant = block.variant || "amber";
-    const styles = VARIANTS[variant];
+    const styles = VARIANTS[variant] || VARIANTS["amber"];
     const cols = block.cols || 2;
 
     const gridColsClass =
         cols === 3 ? "md:grid-cols-3" :
-        cols === 4 ? "md:grid-cols-4" :
-        "md:grid-cols-2";
+            cols === 4 ? "md:grid-cols-4" :
+                "md:grid-cols-2";
 
     return (
         <div className={`${styles.container} p-6 rounded-3xl border-2 my-8`}>

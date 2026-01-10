@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { SmartIcon } from "@/components/smart-icon";
 
 /**
  * EnergyConverter - Interactive energy type explorer
@@ -22,7 +23,7 @@ const ENERGY_TYPES: EnergyType[] = [
   {
     id: "kinetic",
     name: "אנרגיית תנועה",
-    icon: "https://api.iconify.design/fluent-emoji/person-running.svg",
+    icon: "person-running",
     color: "blue",
     gradient: "from-blue-400 to-blue-600",
     description: "אנרגיה שיש לכל גוף הנמצא בתנועה. תלויה במסה ובמהירות.",
@@ -35,7 +36,7 @@ const ENERGY_TYPES: EnergyType[] = [
   {
     id: "potential",
     name: "אנרגיית גובה",
-    icon: "https://api.iconify.design/fluent-emoji/mountain.svg",
+    icon: "mountain",
     color: "green",
     gradient: "from-green-400 to-green-600",
     description: "אנרגיה אגורה בגוף עקב מיקומו בגובה. ככל שהגוף גבוה יותר וכבד יותר—יותר אנרגיה.",
@@ -48,7 +49,7 @@ const ENERGY_TYPES: EnergyType[] = [
   {
     id: "elastic",
     name: "אנרגיה אלסטית",
-    icon: "https://api.iconify.design/fluent-emoji/bow-and-arrow.svg",
+    icon: "bow-and-arrow",
     color: "red",
     gradient: "from-red-400 to-red-600",
     description: "אנרגיה אגורה בגוף גמיש שעבר עיוות (מתיחה, כיווץ, פיתול).",
@@ -61,7 +62,7 @@ const ENERGY_TYPES: EnergyType[] = [
   {
     id: "chemical",
     name: "אנרגיה כימית",
-    icon: "https://api.iconify.design/fluent-emoji/battery.svg",
+    icon: "battery",
     color: "yellow",
     gradient: "from-yellow-400 to-yellow-600",
     description: "אנרגיה אגורה בקשרים בין אטומים במולקולות. משתחררת בתגובות כימיות.",
@@ -75,7 +76,7 @@ const ENERGY_TYPES: EnergyType[] = [
   {
     id: "electrical",
     name: "אנרגיה חשמלית",
-    icon: "https://api.iconify.design/fluent-emoji/high-voltage.svg",
+    icon: "high-voltage",
     color: "purple",
     gradient: "from-purple-400 to-purple-600",
     description: "אנרגיה הנישאת על ידי זרם חשמלי. קלה מאוד להמרה לסוגים אחרים.",
@@ -90,7 +91,7 @@ const ENERGY_TYPES: EnergyType[] = [
   {
     id: "heat",
     name: "אנרגיית חום",
-    icon: "https://api.iconify.design/fluent-emoji/fire.svg",
+    icon: "fire",
     color: "orange",
     gradient: "from-orange-400 to-orange-600",
     description: "סך האנרגיה הקינטית של חלקיקי החומר. עוברת מחם לקר.",
@@ -121,13 +122,12 @@ export const EnergyConverter: React.FC = () => {
           <button
             key={energy.id}
             onClick={() => setSelectedEnergy(selectedEnergy?.id === energy.id ? null : energy)}
-            className={`p-4 rounded-2xl transition-all duration-300 flex flex-col items-center gap-2 ${
-              selectedEnergy?.id === energy.id
+            className={`p-4 rounded-2xl transition-all duration-300 flex flex-col items-center gap-2 ${selectedEnergy?.id === energy.id
                 ? `bg-gradient-to-br ${energy.gradient} text-white shadow-lg scale-105`
                 : "bg-white hover:bg-slate-50 text-slate-700 shadow-md hover:shadow-lg hover:scale-102"
-            }`}
+              }`}
           >
-            <img src={energy.icon} alt={energy.name} className="w-10 h-10" />
+            <SmartIcon name={energy.icon} className="w-10 h-10" />
             <span className="font-bold text-sm text-center">{energy.name}</span>
           </button>
         ))}
@@ -137,7 +137,7 @@ export const EnergyConverter: React.FC = () => {
       {selectedEnergy && (
         <div className={`w-full max-w-lg p-6 rounded-2xl bg-gradient-to-br ${selectedEnergy.gradient} text-white shadow-xl animate-fadeIn`}>
           <div className="flex items-center gap-4 mb-4">
-            <img src={selectedEnergy.icon} alt={selectedEnergy.name} className="w-12 h-12" />
+            <SmartIcon name={selectedEnergy.icon} className="w-12 h-12" />
             <h5 className="text-xl font-black">{selectedEnergy.name}</h5>
           </div>
 

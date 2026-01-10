@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { SmartIcon } from "@/components/smart-icon";
 
 export const SurfaceTensionSimulation: React.FC = () => {
   const [dropCount, setDropCount] = useState(0);
@@ -33,30 +34,26 @@ export const SurfaceTensionSimulation: React.FC = () => {
       <div className="flex gap-4 mb-2">
         <button
           onClick={toggleSoap}
-          className={`px-4 py-2 rounded-full font-bold transition-all flex items-center gap-2 ${
-            !hasSoap
+          className={`px-4 py-2 rounded-full font-bold transition-all flex items-center gap-2 ${!hasSoap
               ? "bg-blue-600 text-white"
               : "bg-white text-blue-600 border border-blue-200"
-          }`}
+            }`}
         >
-          <img
-            src="https://api.iconify.design/fluent-emoji/droplet.svg"
-            alt="droplet"
+          <SmartIcon
+            name="droplet"
             className="w-5 h-5"
           />{" "}
           מים רגילים
         </button>
         <button
           onClick={toggleSoap}
-          className={`px-4 py-2 rounded-full font-bold transition-all flex items-center gap-2 ${
-            hasSoap
+          className={`px-4 py-2 rounded-full font-bold transition-all flex items-center gap-2 ${hasSoap
               ? "bg-pink-600 text-white"
               : "bg-white text-pink-600 border border-pink-200"
-          }`}
+            }`}
         >
-          <img
-            src="https://api.iconify.design/fluent-emoji/soap.svg"
-            alt="soap"
+          <SmartIcon
+            name="soap"
             className="w-5 h-5"
           />{" "}
           מים + סבון
@@ -86,15 +83,13 @@ export const SurfaceTensionSimulation: React.FC = () => {
         <button
           onClick={addDrop}
           disabled={dropCount >= maxDrops}
-          className={`px-6 py-3 rounded-xl font-bold transition-all flex items-center gap-2 ${
-            dropCount >= maxDrops
+          className={`px-6 py-3 rounded-xl font-bold transition-all flex items-center gap-2 ${dropCount >= maxDrops
               ? "bg-gray-300 text-gray-500 cursor-not-allowed"
               : "bg-cyan-600 text-white hover:bg-cyan-700 shadow-lg"
-          }`}
+            }`}
         >
-          <img
-            src="https://api.iconify.design/fluent-emoji/droplet.svg"
-            alt="droplet"
+          <SmartIcon
+            name="droplet"
             className="w-5 h-5"
           />{" "}
           הוסף טיפה
@@ -103,9 +98,8 @@ export const SurfaceTensionSimulation: React.FC = () => {
           onClick={reset}
           className="px-6 py-3 rounded-xl font-bold bg-slate-200 text-slate-700 hover:bg-slate-300 transition-all flex items-center gap-2"
         >
-          <img
-            src="https://api.iconify.design/fluent-emoji/counterclockwise-arrows-button.svg"
-            alt="reset"
+          <SmartIcon
+            name="counterclockwise-arrows-button"
             className="w-5 h-5"
           />{" "}
           אפס
@@ -113,9 +107,8 @@ export const SurfaceTensionSimulation: React.FC = () => {
       </div>
 
       <div
-        className={`p-4 rounded-xl text-center max-w-md ${
-          hasSoap ? "bg-pink-100 text-pink-800" : "bg-cyan-100 text-cyan-800"
-        }`}
+        className={`p-4 rounded-xl text-center max-w-md ${hasSoap ? "bg-pink-100 text-pink-800" : "bg-cyan-100 text-cyan-800"
+          }`}
       >
         {!hasSoap ? (
           dropCount >= maxDrops ? (

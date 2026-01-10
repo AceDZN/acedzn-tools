@@ -65,13 +65,13 @@ interface Props {
  */
 export const FeatureGrid = ({ block }: Props) => {
     const variant = block.variant || "emerald";
-    const styles = VARIANTS[variant];
+    const styles = VARIANTS[variant] || VARIANTS["emerald"];
     const cols = block.cols || 3;
 
     const gridColsClass =
         cols === 2 ? "md:grid-cols-2" :
-        cols === 4 ? "md:grid-cols-4" :
-        "md:grid-cols-3";
+            cols === 4 ? "md:grid-cols-4" :
+                "md:grid-cols-3";
 
     return (
         <div className={`${styles.container} p-6 rounded-3xl border my-8`}>

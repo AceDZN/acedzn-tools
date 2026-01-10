@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { SmartIcon } from "@/components/smart-icon";
 
 export const PhaseTransitionSimulation: React.FC = () => {
   const [temperature, setTemperature] = useState(25);
@@ -64,9 +65,8 @@ export const PhaseTransitionSimulation: React.FC = () => {
           disabled={isAnimating}
           className="px-6 py-3 rounded-xl font-bold bg-blue-500 text-white hover:bg-blue-600 disabled:opacity-50 transition-all shadow-lg flex items-center gap-2"
         >
-          <img
-            src="https://api.iconify.design/fluent-emoji/snowflake.svg"
-            alt="snowflake"
+          <SmartIcon
+            name="snowflake"
             className="w-5 h-5"
           />{" "}
           קרר
@@ -76,9 +76,8 @@ export const PhaseTransitionSimulation: React.FC = () => {
           disabled={isAnimating}
           className="px-6 py-3 rounded-xl font-bold bg-red-500 text-white hover:bg-red-600 disabled:opacity-50 transition-all shadow-lg flex items-center gap-2"
         >
-          <img
-            src="https://api.iconify.design/fluent-emoji/fire.svg"
-            alt="fire"
+          <SmartIcon
+            name="fire"
             className="w-5 h-5"
           />{" "}
           חמם
@@ -137,9 +136,8 @@ export const PhaseTransitionSimulation: React.FC = () => {
         <p className="text-lg font-bold mt-2 flex items-center justify-center gap-2">
           {state === "solid" && (
             <span className="text-cyan-600 flex items-center gap-1">
-              <img
-                src="https://api.iconify.design/fluent-emoji/ice.svg"
-                alt="ice"
+              <SmartIcon
+                name="ice"
                 className="w-6 h-6"
               />{" "}
               קרח (מוצק)
@@ -147,9 +145,8 @@ export const PhaseTransitionSimulation: React.FC = () => {
           )}
           {state === "liquid" && (
             <span className="text-blue-600 flex items-center gap-1">
-              <img
-                src="https://api.iconify.design/fluent-emoji/droplet.svg"
-                alt="droplet"
+              <SmartIcon
+                name="droplet"
                 className="w-6 h-6"
               />{" "}
               מים (נוזל)
@@ -157,9 +154,8 @@ export const PhaseTransitionSimulation: React.FC = () => {
           )}
           {state === "gas" && (
             <span className="text-purple-600 flex items-center gap-1">
-              <img
-                src="https://api.iconify.design/fluent-emoji/dashing-away.svg"
-                alt="gas"
+              <SmartIcon
+                name="dashing-away"
                 className="w-6 h-6"
               />{" "}
               אדים (גז)
@@ -187,13 +183,12 @@ export const PhaseTransitionSimulation: React.FC = () => {
       </div>
 
       <div
-        className={`p-4 rounded-xl text-center max-w-md ${
-          state === "solid"
+        className={`p-4 rounded-xl text-center max-w-md ${state === "solid"
             ? "bg-cyan-100 text-cyan-800"
             : state === "liquid"
-            ? "bg-blue-100 text-blue-800"
-            : "bg-purple-100 text-purple-800"
-        }`}
+              ? "bg-blue-100 text-blue-800"
+              : "bg-purple-100 text-purple-800"
+          }`}
       >
         {state === "solid" && (
           <p>
@@ -238,4 +233,3 @@ export const PhaseTransitionSimulation: React.FC = () => {
     </div>
   );
 };
-

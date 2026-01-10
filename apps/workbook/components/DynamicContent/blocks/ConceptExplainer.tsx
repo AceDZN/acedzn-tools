@@ -36,6 +36,11 @@ const VARIANTS = {
         title: "text-blue-900",
         formula: "text-blue-700",
     },
+    pink: {
+        container: "bg-gradient-to-br from-pink-50 to-rose-50 border-pink-200",
+        title: "text-pink-900",
+        formula: "text-pink-700",
+    },
 };
 
 // =============================================================================
@@ -73,7 +78,7 @@ interface Props {
  */
 export const ConceptExplainer = ({ block }: Props) => {
     const variant = block.variant || "purple";
-    const styles = VARIANTS[variant];
+    const styles = VARIANTS[variant] || VARIANTS["purple"];
 
     // Get illustration component if specified
     const IllustrationComponent = block.illustration

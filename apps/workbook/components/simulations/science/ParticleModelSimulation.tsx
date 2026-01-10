@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { SmartIcon } from "@/components/smart-icon";
 
 export const ParticleModelSimulation: React.FC = () => {
   const [state, setState] = useState<"solid" | "liquid" | "gas">("solid");
@@ -80,45 +81,39 @@ export const ParticleModelSimulation: React.FC = () => {
       <div className="flex gap-3 flex-wrap justify-center">
         <button
           onClick={() => setState("solid")}
-          className={`px-6 py-3 rounded-full font-bold transition-all flex items-center gap-2 ${
-            state === "solid"
+          className={`px-6 py-3 rounded-full font-bold transition-all flex items-center gap-2 ${state === "solid"
               ? "bg-slate-600 text-white"
               : "bg-white text-slate-600 border border-slate-200"
-          }`}
+            }`}
         >
-          <img
-            src="https://api.iconify.design/fluent-emoji/ice.svg"
-            alt="ice"
+          <SmartIcon
+            name="ice"
             className="w-5 h-5"
           />{" "}
           מוצק
         </button>
         <button
           onClick={() => setState("liquid")}
-          className={`px-6 py-3 rounded-full font-bold transition-all flex items-center gap-2 ${
-            state === "liquid"
+          className={`px-6 py-3 rounded-full font-bold transition-all flex items-center gap-2 ${state === "liquid"
               ? "bg-blue-600 text-white"
               : "bg-white text-blue-600 border border-blue-200"
-          }`}
+            }`}
         >
-          <img
-            src="https://api.iconify.design/fluent-emoji/droplet.svg"
-            alt="droplet"
+          <SmartIcon
+            name="droplet"
             className="w-5 h-5"
           />{" "}
           נוזל
         </button>
         <button
           onClick={() => setState("gas")}
-          className={`px-6 py-3 rounded-full font-bold transition-all flex items-center gap-2 ${
-            state === "gas"
+          className={`px-6 py-3 rounded-full font-bold transition-all flex items-center gap-2 ${state === "gas"
               ? "bg-purple-600 text-white"
               : "bg-white text-purple-600 border border-purple-200"
-          }`}
+            }`}
         >
-          <img
-            src="https://api.iconify.design/fluent-emoji/dashing-away.svg"
-            alt="gas"
+          <SmartIcon
+            name="dashing-away"
             className="w-5 h-5"
           />{" "}
           גז
@@ -132,13 +127,12 @@ export const ParticleModelSimulation: React.FC = () => {
         {particles.map((p, i) => (
           <div
             key={i}
-            className={`absolute w-4 h-4 rounded-full transition-all ${
-              state === "solid"
+            className={`absolute w-4 h-4 rounded-full transition-all ${state === "solid"
                 ? "bg-slate-500 animate-pulse"
                 : state === "liquid"
-                ? "bg-blue-500"
-                : "bg-purple-500"
-            }`}
+                  ? "bg-blue-500"
+                  : "bg-purple-500"
+              }`}
             style={{
               left: p.x - 8,
               top: p.y - 8,
@@ -152,13 +146,12 @@ export const ParticleModelSimulation: React.FC = () => {
       </div>
 
       <div
-        className={`p-4 rounded-xl text-center max-w-md ${
-          state === "solid"
+        className={`p-4 rounded-xl text-center max-w-md ${state === "solid"
             ? "bg-slate-100 text-slate-800"
             : state === "liquid"
-            ? "bg-blue-100 text-blue-800"
-            : "bg-purple-100 text-purple-800"
-        }`}
+              ? "bg-blue-100 text-blue-800"
+              : "bg-purple-100 text-purple-800"
+          }`}
       >
         {state === "solid" && (
           <p>
@@ -182,4 +175,3 @@ export const ParticleModelSimulation: React.FC = () => {
     </div>
   );
 };
-

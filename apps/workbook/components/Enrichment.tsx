@@ -7,6 +7,8 @@ interface EnrichmentProps {
   icon?: string;
 }
 
+import { SmartIcon } from "@/components/smart-icon";
+
 export const Enrichment: React.FC<EnrichmentProps> = ({
   title,
   children,
@@ -18,19 +20,14 @@ export const Enrichment: React.FC<EnrichmentProps> = ({
     <div className="my-10">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-full text-right p-6 rounded-[2rem] border-2 transition-all flex items-center justify-between gap-4 ${
-          isOpen
-            ? "bg-amber-50 border-amber-300 shadow-inner"
-            : "bg-white border-slate-200 hover:border-amber-300 shadow-sm"
-        }`}
+        className={`w-full text-right p-6 rounded-[2rem] border-2 transition-all flex items-center justify-between gap-4 ${isOpen
+          ? "bg-amber-50 border-amber-300 shadow-inner"
+          : "bg-white border-slate-200 hover:border-amber-300 shadow-sm"
+          }`}
       >
         <div className="flex items-center gap-4">
           <span className="text-4xl">
-            <img
-              src={`https://api.iconify.design/fluent-emoji/${icon}.svg`}
-              alt={icon}
-              className="w-10 h-10 inline mr-2"
-            />
+            <SmartIcon name={icon} size={40} className="inline mr-2" />
           </span>
           <div>
             <h4 className="text-xl font-black text-slate-900">{title}</h4>
@@ -40,9 +37,8 @@ export const Enrichment: React.FC<EnrichmentProps> = ({
           </div>
         </div>
         <span
-          className={`text-2xl transition-transform duration-300 ${
-            isOpen ? "rotate-180" : ""
-          }`}
+          className={`text-2xl transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+            }`}
         >
           ↓
         </span>

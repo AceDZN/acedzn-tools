@@ -22,6 +22,11 @@ const VARIANTS = {
     amber: {
         container: "bg-gradient-to-r from-amber-500 to-orange-500",
     },
+    cyan: {
+        container: "bg-gradient-to-br from-cyan-50 to-blue-50 border-cyan-200",
+        title: "text-cyan-900",
+        iconBox: "bg-cyan-100 text-cyan-600",
+    },
 };
 
 // =============================================================================
@@ -59,7 +64,7 @@ interface Props {
  */
 export const ComparisonCards = ({ block }: Props) => {
     const variant = block.variant || "blue";
-    const styles = VARIANTS[variant];
+    const styles = VARIANTS[variant] || VARIANTS["blue"];
 
     const gridColsClass = block.items.length === 2
         ? "md:grid-cols-2"

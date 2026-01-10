@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { SmartIcon } from "@/components/smart-icon";
 
 export const CompressionSimulation: React.FC = () => {
   const [pressure, setPressure] = useState(0);
@@ -47,15 +48,13 @@ export const CompressionSimulation: React.FC = () => {
             setMatterState("gas");
             setPressure(0);
           }}
-          className={`px-6 py-2 rounded-full font-bold transition-all flex items-center gap-2 ${
-            matterState === "gas"
+          className={`px-6 py-2 rounded-full font-bold transition-all flex items-center gap-2 ${matterState === "gas"
               ? "bg-purple-600 text-white"
               : "bg-white text-purple-600 border border-purple-200"
-          }`}
+            }`}
         >
-          <img
-            src="https://api.iconify.design/fluent-emoji/dashing-away.svg"
-            alt="gas"
+          <SmartIcon
+            name="dashing-away"
             className="w-5 h-5"
           />{" "}
           גז (אוויר)
@@ -65,15 +64,13 @@ export const CompressionSimulation: React.FC = () => {
             setMatterState("liquid");
             setPressure(0);
           }}
-          className={`px-6 py-2 rounded-full font-bold transition-all flex items-center gap-2 ${
-            matterState === "liquid"
+          className={`px-6 py-2 rounded-full font-bold transition-all flex items-center gap-2 ${matterState === "liquid"
               ? "bg-blue-600 text-white"
               : "bg-white text-blue-600 border border-blue-200"
-          }`}
+            }`}
         >
-          <img
-            src="https://api.iconify.design/fluent-emoji/droplet.svg"
-            alt="droplet"
+          <SmartIcon
+            name="droplet"
             className="w-5 h-5"
           />{" "}
           נוזל (מים)
@@ -83,15 +80,13 @@ export const CompressionSimulation: React.FC = () => {
             setMatterState("solid");
             setPressure(0);
           }}
-          className={`px-6 py-2 rounded-full font-bold transition-all flex items-center gap-2 ${
-            matterState === "solid"
+          className={`px-6 py-2 rounded-full font-bold transition-all flex items-center gap-2 ${matterState === "solid"
               ? "bg-slate-600 text-white"
               : "bg-white text-slate-600 border border-slate-200"
-          }`}
+            }`}
         >
-          <img
-            src="https://api.iconify.design/fluent-emoji/ice.svg"
-            alt="ice"
+          <SmartIcon
+            name="ice"
             className="w-5 h-5"
           />{" "}
           מוצק
@@ -114,13 +109,12 @@ export const CompressionSimulation: React.FC = () => {
 
         {/* Matter Content */}
         <div
-          className={`h-full transition-all duration-300 absolute right-0 top-0 rounded-r-sm ${
-            matterState === "gas"
+          className={`h-full transition-all duration-300 absolute right-0 top-0 rounded-r-sm ${matterState === "gas"
               ? "bg-purple-100"
               : matterState === "liquid"
-              ? "bg-blue-400"
-              : "bg-slate-500"
-          }`}
+                ? "bg-blue-400"
+                : "bg-slate-500"
+            }`}
           style={{ width: `${volume}%` }}
         >
           {matterState === "gas" &&
@@ -167,21 +161,19 @@ export const CompressionSimulation: React.FC = () => {
       </div>
 
       <div
-        className={`p-4 rounded-xl text-center ${
-          matterState === "gas"
+        className={`p-4 rounded-xl text-center ${matterState === "gas"
             ? "bg-purple-100 text-purple-800"
             : matterState === "liquid"
-            ? "bg-blue-100 text-blue-800"
-            : "bg-slate-200 text-slate-800"
-        }`}
+              ? "bg-blue-100 text-blue-800"
+              : "bg-slate-200 text-slate-800"
+          }`}
       >
         {matterState === "gas" && (
           <p className="font-bold flex items-center justify-center gap-2">
             {pressure > 50 ? (
               <>
-                <img
-                  src="https://api.iconify.design/fluent-emoji/dashing-away.svg"
-                  alt="gas"
+                <SmartIcon
+                  name="dashing-away"
                   className="w-5 h-5"
                 />{" "}
                 הגז נדחס בקלות! המרווחים בין החלקיקים קטנים.
@@ -195,9 +187,8 @@ export const CompressionSimulation: React.FC = () => {
           <p className="font-bold flex items-center justify-center gap-2">
             {pressure > 50 ? (
               <>
-                <img
-                  src="https://api.iconify.design/fluent-emoji/droplet.svg"
-                  alt="droplet"
+                <SmartIcon
+                  name="droplet"
                   className="w-5 h-5"
                 />{" "}
                 הנוזל כמעט לא נדחס! אין מספיק מרווחים בין החלקיקים.
@@ -211,9 +202,8 @@ export const CompressionSimulation: React.FC = () => {
           <p className="font-bold flex items-center justify-center gap-2">
             {pressure > 50 ? (
               <>
-                <img
-                  src="https://api.iconify.design/fluent-emoji/ice.svg"
-                  alt="ice"
+                <SmartIcon
+                  name="ice"
                   className="w-5 h-5"
                 />{" "}
                 המוצק לא נדחס כלל! החלקיקים כבר צמודים לחלוטין.

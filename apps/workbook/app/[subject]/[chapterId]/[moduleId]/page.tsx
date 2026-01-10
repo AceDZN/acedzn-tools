@@ -79,11 +79,11 @@ export default async function Page({ params }: PageProps) {
         "@/lib/constants/science_chapter_1"
       );
       questions = CHAPTER1_QUESTIONS[moduleId] || [];
-    } else if (chapterId === ChapterId.Chapter2) {
-      const { CHAPTER2_QUESTIONS } = await import(
-        "@/lib/constants/science_chapter_2"
+    } else if (chapterId === ChapterId.Chapter3) {
+      const { CHAPTER3_QUESTIONS } = await import(
+        "@/lib/constants/science_chapter_3"
       );
-      questions = CHAPTER2_QUESTIONS[moduleId] || [];
+      questions = CHAPTER3_QUESTIONS[moduleId] || [];
     }
   } catch (error) {
     console.error("Error loading questions:", error);

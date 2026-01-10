@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Alef } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers";
+import { Header } from "@/components/header";
 
 const alef = Alef({
   weight: ["400", "700"],
@@ -23,7 +24,10 @@ export default function RootLayout({
     <html lang="he" dir="rtl">
       <body className={`${alef.variable} font-sans antialiased`}>
         <Providers>
-          {children}
+          <Header />
+          <main className="min-h-screen bg-gray-50">
+            {children}
+          </main>
         </Providers>
       </body>
     </html>

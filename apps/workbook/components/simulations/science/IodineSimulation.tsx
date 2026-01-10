@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { SmartIcon } from "@/components/smart-icon";
 
 /**
  * IodineSimulation - Interactive demonstration of iodine sublimation
@@ -79,9 +80,8 @@ export const IodineSimulation: React.FC = () => {
           disabled={isAnimating}
           className="px-6 py-3 rounded-xl font-bold bg-cyan-500 text-white hover:bg-cyan-600 disabled:opacity-50 transition-all shadow-lg flex items-center gap-2"
         >
-          <img
-            src="https://api.iconify.design/fluent-emoji/snowflake.svg"
-            alt="snowflake"
+          <SmartIcon
+            name="snowflake"
             className="w-5 h-5"
           />
           קרר (ריבוץ)
@@ -91,9 +91,8 @@ export const IodineSimulation: React.FC = () => {
           disabled={isAnimating}
           className="px-6 py-3 rounded-xl font-bold bg-orange-500 text-white hover:bg-orange-600 disabled:opacity-50 transition-all shadow-lg flex items-center gap-2"
         >
-          <img
-            src="https://api.iconify.design/fluent-emoji/fire.svg"
-            alt="fire"
+          <SmartIcon
+            name="fire"
             className="w-5 h-5"
           />
           חמם (המראה)
@@ -176,9 +175,8 @@ export const IodineSimulation: React.FC = () => {
         <p className="text-lg font-bold mt-2 flex items-center justify-center gap-2">
           {state === "solid" && (
             <span className="text-slate-600 flex items-center gap-1">
-              <img
-                src="https://api.iconify.design/fluent-emoji/gem-stone.svg"
-                alt="crystal"
+              <SmartIcon
+                name="gem-stone"
                 className="w-6 h-6"
               />
               גבישי יוד (מוצק)
@@ -186,9 +184,8 @@ export const IodineSimulation: React.FC = () => {
           )}
           {state === "sublimating" && (
             <span className="text-purple-600 flex items-center gap-1">
-              <img
-                src="https://api.iconify.design/fluent-emoji/sparkles.svg"
-                alt="sparkles"
+              <SmartIcon
+                name="sparkles"
                 className="w-6 h-6"
               />
               המראה מתרחשת...
@@ -196,9 +193,8 @@ export const IodineSimulation: React.FC = () => {
           )}
           {state === "gas" && (
             <span className="text-purple-700 flex items-center gap-1">
-              <img
-                src="https://api.iconify.design/fluent-emoji/cloud.svg"
-                alt="gas"
+              <SmartIcon
+                name="cloud"
                 className="w-6 h-6"
               />
               גז יוד סגול
@@ -227,13 +223,12 @@ export const IodineSimulation: React.FC = () => {
 
       {/* Info box */}
       <div
-        className={`p-4 rounded-xl text-center max-w-md transition-colors duration-300 ${
-          state === "solid"
+        className={`p-4 rounded-xl text-center max-w-md transition-colors duration-300 ${state === "solid"
             ? "bg-slate-100 text-slate-700"
             : state === "sublimating"
-            ? "bg-purple-100 text-purple-800"
-            : "bg-purple-200 text-purple-900"
-        }`}
+              ? "bg-purple-100 text-purple-800"
+              : "bg-purple-200 text-purple-900"
+          }`}
       >
         {state === "solid" && (
           <p>
