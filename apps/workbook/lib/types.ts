@@ -416,6 +416,7 @@ export interface ConceptExplainerBlock extends BaseContentBlock {
     explanation: string; // supports merge tags - goes in highlight box
     formula?: string; // optional formula to highlight
     conclusion?: string; // optional conclusion text
+    illustration?: string; // optional simulation component name to render
 }
 
 /** Comparison item for ComparisonCards */

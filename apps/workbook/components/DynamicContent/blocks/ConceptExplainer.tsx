@@ -4,6 +4,7 @@ import React from "react";
 import { ConceptExplainerBlock } from "@/lib/types";
 import { RenderBlockFn } from "../BlockRenderer";
 import { RichText, Icon } from "../RichText";
+import * as Simulations from "@/components/simulations";
 
 // =============================================================================
 // Theme Styles
@@ -74,6 +75,11 @@ export const ConceptExplainer = ({ block }: Props) => {
     const variant = block.variant || "purple";
     const styles = VARIANTS[variant];
 
+    // Get illustration component if specified
+    const IllustrationComponent = block.illustration
+        ? (Simulations as Record<string, React.ComponentType>)[block.illustration]
+        : null;
+
     return (
         <div className={`${styles.container} p-6 rounded-3xl border my-8`}>
             {/* Header with icon and title */}
@@ -87,25 +93,36 @@ export const ConceptExplainer = ({ block }: Props) => {
                 <RichText>{block.intro}</RichText>
             </p>
 
-            {/* Explanation box */}
+            {/* Explanation box with optional illustration */}
             <div className="bg-white p-4 rounded-xl shadow-sm">
-                <p className="text-slate-600">
-                    <RichText>{block.explanation}</RichText>
-                </p>
+                <div className={IllustrationComponent ? "flex flex-col md:flex-row gap-4 items-start" : ""}>
+                    <div className={IllustrationComponent ? "flex-1" : ""}>
+                        <p className="text-slate-600">
+                            <RichText>{block.explanation}</RichText>
+                        </p>
 
-                {/* Optional formula */}
-                {block.formula && (
-                    <p className={`text-lg font-bold ${styles.formula} mt-3 text-center`}>
-                        <RichText>{block.formula}</RichText>
-                    </p>
-                )}
+                        {/* Optional formula */}
+                        {block.formula && (
+                            <p className={`text-lg font-bold ${styles.formula} mt-3 text-center`}>
+                                <RichText>{block.formula}</RichText>
+                            </p>
+                        )}
 
-                {/* Optional conclusion */}
-                {block.conclusion && (
-                    <p className="text-slate-600 mt-3">
-                        <RichText>{block.conclusion}</RichText>
-                    </p>
-                )}
+                        {/* Optional conclusion */}
+                        {block.conclusion && (
+                            <p className="text-slate-600 mt-3">
+                                <RichText>{block.conclusion}</RichText>
+                            </p>
+                        )}
+                    </div>
+
+                    {/* Optional illustration */}
+                    {IllustrationComponent && (
+                        <div className="flex-shrink-0">
+                            <IllustrationComponent />
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     );

@@ -132,33 +132,33 @@ export const MeniscusIllustration = () => {
 
         {/* Water fill - with concave top (meniscus) */}
         {/* Water fills from x=60 to x=120 (full inner width) */}
-        {/* Meniscus: edges at y=100, bottom dips to y=110 */}
+        {/* Meniscus: edges climb up walls at y=90, bottom dips to y=115 - pronounced curve */}
         <path
-          d="M60 175 L60 100 Q90 110 120 100 L120 175 Z"
+          d="M60 175 L60 90 Q90 115 120 90 L120 175 Z"
           fill="url(#waterGradient)"
         />
 
         {/* Meniscus curve highlight - the curved water surface */}
         <path
-          d="M60 100 Q90 110 120 100"
+          d="M60 90 Q90 115 120 90"
           fill="none"
           stroke="#2563eb"
-          strokeWidth="2.5"
+          strokeWidth="3"
         />
 
-        {/* Correct reading line - at bottom of meniscus (y=105 is actual curve bottom for Q with control at 110) */}
+        {/* Correct reading line - at bottom of meniscus (y=102.5 is actual curve bottom) */}
         <line
           x1="20"
-          y1="105"
+          y1="102"
           x2="120"
-          y2="105"
+          y2="102"
           stroke="#dc2626"
           strokeWidth="2"
           strokeDasharray="6 4"
         />
 
         {/* Eye icon - simplified human eye looking at the meniscus */}
-        <g transform="translate(8, 93)">
+        <g transform="translate(8, 90)">
           {/* Eye white */}
           <ellipse cx="12" cy="12" rx="11" ry="8" fill="white" stroke="#475569" strokeWidth="1.5" />
           {/* Iris */}
@@ -172,9 +172,9 @@ export const MeniscusIllustration = () => {
         {/* Arrow from eye to reading line */}
         <line
           x1="30"
-          y1="105"
+          y1="102"
           x2="58"
-          y2="105"
+          y2="102"
           stroke="#dc2626"
           strokeWidth="2"
           markerEnd="url(#arrowhead)"
