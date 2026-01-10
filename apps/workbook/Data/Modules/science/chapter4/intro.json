@@ -35,7 +35,7 @@
       "cards": [
         {
           "title": "תנועה",
-          "icon": "person-walking",
+          "icon": "boot-with-lightning",
           "content": [
             {
               "type": "p",
@@ -46,7 +46,7 @@
         },
         {
           "title": "חום",
-          "icon": "flame",
+          "icon": "heat-energy",
           "content": [
             {
               "type": "p",
@@ -57,7 +57,7 @@
         },
         {
           "title": "אור",
-          "icon": "sun",
+          "icon": "solar-energy",
           "content": [
             {
               "type": "p",
