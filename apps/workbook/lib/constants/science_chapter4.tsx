@@ -1092,7 +1092,7 @@ export const CHAPTER4_SUMMARY_QUESTIONS: Question[] = [
 // Chapter 4 Questions Record
 // =============================================================================
 
-export const CHAPTER4_QUESTIONS: Record<string, Question[]> = {
+export const CHAPTER_QUESTIONS: Record<string, Question[]> = {
   [ModuleId.EnergyIntro]: ENERGY_INTRO_QUESTIONS,
   [ModuleId.KineticEnergy]: KINETIC_ENERGY_QUESTIONS,
   [ModuleId.PotentialEnergy]: POTENTIAL_ENERGY_QUESTIONS,

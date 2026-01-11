@@ -1,8 +1,9 @@
 import React from "react";
-import { SUBJECTS, SITE_NAME } from "@/lib/constants";
+import { SUBJECTS } from "@/lib/constants";
 import { ChapterSidebar } from "@/components/chapter/ChapterSidebar";
 import { ChapterId } from "@/lib/types";
 import type { Metadata } from "next";
+import { generateChapterMetadata, CHAPTER_SEO, SITE_URL, SITE_NAME } from "@/lib/seo";
 
 interface ChapterLayoutProps {
   children: React.ReactNode;
@@ -17,12 +18,10 @@ export async function generateMetadata({
   const { subject: subjectId, chapterId } = await params;
   const subject = SUBJECTS.find((s) => s.id === subjectId);
   const chapter = subject?.chapters.find((c) => c.id === chapterId);
-  const chapterName = chapter?.title || "";
+  const chapterTitle = chapter?.title || "";
+  const chapterDescription = chapter?.description;
 
-  return {
-    title: `${SITE_NAME} - ${chapterName}`,
-    description: chapter?.description || SITE_NAME
-  };
+  return generateChapterMetadata(chapterId, chapterTitle, chapterDescription);
 }
 
 export default async function ChapterLayout({

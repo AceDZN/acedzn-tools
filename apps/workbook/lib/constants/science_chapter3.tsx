@@ -973,7 +973,7 @@ export const CHAPTER3_SUMMARY_QUESTIONS: Question[] = [
 // Chapter 3 Questions Record
 // =============================================================================
 
-export const CHAPTER3_QUESTIONS: Record<string, Question[]> = {
+export const CHAPTER_QUESTIONS: Record<string, Question[]> = {
   [ModuleId.Chapter3Intro]: CHAPTER3_INTRO_QUESTIONS,
   [ModuleId.VolumeMeasurement]: VOLUME_MEASUREMENT_QUESTIONS,
   [ModuleId.DisplacementMethod]: DISPLACEMENT_METHOD_QUESTIONS,

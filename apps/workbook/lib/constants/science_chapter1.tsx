@@ -989,7 +989,7 @@ export const SUMMARY_QUESTIONS: Question[] = [
 // Chapter 1 Questions Record
 // =============================================================================
 
-export const CHAPTER1_QUESTIONS: Record<string, Question[]> = {
+export const CHAPTER_QUESTIONS: Record<string, Question[]> = {
   [ModuleId.MatterIntro]: MATTER_INTRO_QUESTIONS,
   [ModuleId.MaterialProperties]: MATERIAL_PROPERTIES_QUESTIONS,
   [ModuleId.EngineeringMaterials]: ENGINEERING_MATERIALS_QUESTIONS,

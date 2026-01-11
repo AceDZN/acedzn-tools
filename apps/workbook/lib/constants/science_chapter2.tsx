@@ -861,7 +861,7 @@ export const CHAPTER2_SUMMARY_QUESTIONS: Question[] = [
   }
 ];
 
-export const CHAPTER2_QUESTIONS: Record<string, Question[]> = {
+export const CHAPTER_QUESTIONS: Record<string, Question[]> = {
   [ModuleId.ParticleModel]: PARTICLE_MODEL_QUESTIONS,
   [ModuleId.SurfaceTension]: SURFACE_TENSION_QUESTIONS,
   [ModuleId.Compression]: COMPRESSION_QUESTIONS,

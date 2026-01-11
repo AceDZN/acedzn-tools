@@ -4,7 +4,8 @@ import { ChapterId, ModuleId, DynamicModuleData, Question } from "@/lib/types";
 // Client component for interactive module content
 import ModuleClient from "./module-client";
 import type { Metadata, ResolvingMetadata } from "next";
-import { SITE_NAME, SUBJECTS } from "@/lib/constants";
+import { SUBJECTS } from "@/lib/constants";
+import { generateModuleMetadata, generateEducationalContentSchema, generateBreadcrumbSchema, SITE_URL, SITE_NAME } from "@/lib/seo";
 
 type SubjectId = "science" | "math" | "history";
 
@@ -48,19 +49,17 @@ export async function generateMetadata(
   const subject = SUBJECTS.find((s) => s.id === subjectId);
   const chapter = subject?.chapters.find((c) => c.id === chapterId);
 
-  const chapterName = chapter?.title || "";
   const moduleName = dynamicData?.title || "";
+  const moduleDescription = dynamicData?.metadata?.description || chapter?.description;
+  const moduleKeywords = dynamicData?.metadata?.keywords;
 
-  return {
-    title: `${SITE_NAME} - ${chapterName} - ${moduleName}`,
-    description:
-      dynamicData?.metadata?.description || chapter?.description || SITE_NAME,
-    keywords: dynamicData?.metadata?.keywords || [
-      chapterName,
-      moduleName,
-      SITE_NAME
-    ]
-  };
+  return generateModuleMetadata(
+    chapterId,
+    moduleId,
+    moduleName,
+    moduleDescription,
+    moduleKeywords
+  );
 }
 
 export default async function Page({ params }: PageProps) {
@@ -71,45 +70,60 @@ export default async function Page({ params }: PageProps) {
 
   const dynamicData = await getModuleData(subjectId, chapterId, moduleId);
 
+  const subject = SUBJECTS.find((s) => s.id === subjectId);
+  const chapter = subject?.chapters.find((c) => c.id === chapterId);
+
   // Dynamically load questions for the specific chapter on the server
   let questions: Question[] = [];
   try {
-    if (chapterId === ChapterId.Chapter1) {
-      const { CHAPTER1_QUESTIONS } = await import(
-        `@/lib/constants/${subjectId}_chapter_1`
-      );
-      questions = CHAPTER1_QUESTIONS[moduleId] || [];
-    }
-    else if (chapterId === ChapterId.Chapter2) {
-      const { CHAPTER2_QUESTIONS } = await import(
-        `@/lib/constants/${subjectId}_chapter_2`
-      );
-      questions = CHAPTER2_QUESTIONS[moduleId] || [];
-    }
-    else if (chapterId === ChapterId.Chapter3) {
-      const { CHAPTER3_QUESTIONS } = await import(
-        `@/lib/constants/${subjectId}_chapter_3`
-      );
-      questions = CHAPTER3_QUESTIONS[moduleId] || [];
-    } else if (chapterId === ChapterId.Chapter4) {
-      const { CHAPTER4_QUESTIONS } = await import(
-        `@/lib/constants/${subjectId}_chapter_4`
-      );
-      questions = CHAPTER4_QUESTIONS[moduleId] || [];
-    }
+
+    const { CHAPTER_QUESTIONS } = await import(
+      `@/lib/constants/${subjectId}_${chapterId}`
+    );
+    questions = CHAPTER_QUESTIONS[moduleId] || [];
+
+
   } catch (error) {
     console.error("Error loading questions:", error);
   }
 
+  // Generate structured data for SEO
+  const moduleUrl = `${SITE_URL}/${subjectId}/${chapterId}/${moduleId}`;
+  const educationalSchema = generateEducationalContentSchema({
+    title: dynamicData?.title || "",
+    description: dynamicData?.metadata?.description || chapter?.description || "",
+    url: moduleUrl,
+    chapterName: chapter?.title,
+    moduleName: dynamicData?.title,
+    keywords: dynamicData?.metadata?.keywords,
+  });
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: SITE_NAME, url: SITE_URL },
+    { name: subject?.title || "מדעים", url: `${SITE_URL}/${subjectId}` },
+    { name: chapter?.title || "", url: `${SITE_URL}/${subjectId}/${chapterId}/summary` },
+    { name: dynamicData?.title || "", url: moduleUrl },
+  ]);
+
   return (
-    <div className="animate-in fade-in duration-700">
-      <ModuleClient
-        chapterId={chapterId}
-        moduleId={moduleId}
-        dynamicData={dynamicData}
-        questions={questions}
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(educationalSchema) }}
       />
-    </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <div className="animate-in fade-in duration-700">
+        <ModuleClient
+          chapterId={chapterId}
+          moduleId={moduleId}
+          dynamicData={dynamicData}
+          questions={questions}
+        />
+      </div>
+    </>
   );
 }
 
