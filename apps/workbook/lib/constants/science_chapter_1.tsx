@@ -1,5 +1,10 @@
 import { ModuleId, Question } from "../types";
 
+// =============================================================================
+// Chapter 1: Matter and Materials (עולם החומר - תכונות)
+// Topics: What is matter, body vs material, material properties, engineering materials
+// =============================================================================
+
 export const MATTER_INTRO_QUESTIONS: Question[] = [
   {
     id: "c1_m1_1",
@@ -24,8 +29,7 @@ export const MATTER_INTRO_QUESTIONS: Question[] = [
       "לא, אוויר הוא אנרגיה"
     ],
     correctAnswer: 1,
-    explanation:
-      "אוויר הוא תערובת של גזים, יש לו מסה והוא תופס נפח, לכן הוא חומר.",
+    explanation: "אוויר הוא תערובת של גזים, יש לו מסה והוא תופס נפח, לכן הוא חומר.",
     category: ModuleId.MatterIntro
   },
   {
@@ -38,8 +42,7 @@ export const MATTER_INTRO_QUESTIONS: Question[] = [
       "חומר גדול יותר מגוף"
     ],
     correctAnswer: 1,
-    explanation:
-      "גוף הוא עצם עם גבולות מוגדרים (כמו שולחן), וחומר הוא מה שהגוף עשוי ממנו (כמו עץ).",
+    explanation: "גוף הוא עצם עם גבולות מוגדרים (כמו שולחן), וחומר הוא מה שהגוף עשוי ממנו (כמו עץ).",
     category: ModuleId.MatterIntro
   },
   {
@@ -52,8 +55,7 @@ export const MATTER_INTRO_QUESTIONS: Question[] = [
       "לא, כי הוא שקוף"
     ],
     correctAnswer: 2,
-    explanation:
-      "אור הוא אנרגיה, לא חומר. אין לו מסה והוא לא תופס מקום במרחב.",
+    explanation: "אור הוא אנרגיה, לא חומר. אין לו מסה והוא לא תופס מקום במרחב.",
     category: ModuleId.MatterIntro
   },
   {
@@ -66,8 +68,41 @@ export const MATTER_INTRO_QUESTIONS: Question[] = [
       "שניהם חומרים"
     ],
     correctAnswer: 1,
-    explanation:
-      "השולחן הוא הגוף (העצם המוגדר), והעץ הוא החומר שממנו הוא עשוי.",
+    explanation: "השולחן הוא הגוף (העצם המוגדר), והעץ הוא החומר שממנו הוא עשוי.",
+    category: ModuleId.MatterIntro
+  },
+  {
+    id: "c1_m1_6",
+    question: "מה מהבאים הוא חומר?",
+    options: ["אור", "צליל", "חום", "אוויר"],
+    correctAnswer: 3,
+    explanation: "אוויר הוא חומר כי יש לו מסה ונפח. אור, צליל וחום הם צורות של אנרגיה.",
+    category: ModuleId.MatterIntro
+  },
+  {
+    id: "c1_m1_7",
+    question: "בלון מנופח באוויר שוקל יותר מבלון ריק. מה זה מוכיח?",
+    options: [
+      "שהבלון גמיש",
+      "שלאוויר יש מסה",
+      "שהבלון עשוי מגומי",
+      "שהאוויר חם"
+    ],
+    correctAnswer: 1,
+    explanation: "העובדה שבלון מנופח כבד יותר מוכיחה שלאוויר שבתוכו יש מסה.",
+    category: ModuleId.MatterIntro
+  },
+  {
+    id: "c1_m1_8",
+    question: "איזה מהמשפטים הבאים נכון?",
+    options: [
+      "מוצק, נוזל וגז הם שלושת מצבי הצבירה של חומר",
+      "רק מוצקים הם חומר",
+      "גזים אינם חומר כי לא רואים אותם",
+      "חום הוא סוג של חומר"
+    ],
+    correctAnswer: 0,
+    explanation: "חומר יכול להיות במצב מוצק, נוזלי או גזי - כולם חומר כי יש להם מסה ונפח.",
     category: ModuleId.MatterIntro
   }
 ];
@@ -78,8 +113,7 @@ export const MATERIAL_PROPERTIES_QUESTIONS: Question[] = [
     question: "איזה חומר הוא מוליך חשמל טוב?",
     options: ["עץ", "פלסטיק", "נחושת", "גומי"],
     correctAnswer: 2,
-    explanation:
-      "נחושת היא מתכת ומוליכה חשמל מצוין. מתכות הן מוליכות כי יש בהן אלקטרונים חופשיים.",
+    explanation: "נחושת היא מתכת ומוליכה חשמל מצוין. מתכות הן מוליכות כי יש בהן אלקטרונים חופשיים.",
     category: ModuleId.MaterialProperties
   },
   {
@@ -92,8 +126,7 @@ export const MATERIAL_PROPERTIES_QUESTIONS: Question[] = [
       "כי הם חזקים יותר ממתכת"
     ],
     correctAnswer: 2,
-    explanation:
-      "פלסטיק ועץ הם מבודדי חום - הם לא מעבירים חום במהירות, ולכן לא נכווים כשאוחזים בהם.",
+    explanation: "פלסטיק ועץ הם מבודדי חום - הם לא מעבירים חום במהירות, ולכן לא נכווים כשאוחזים בהם.",
     category: ModuleId.MaterialProperties
   },
   {
@@ -106,8 +139,7 @@ export const MATERIAL_PROPERTIES_QUESTIONS: Question[] = [
       "בודקים איזה צבע יותר כהה"
     ],
     correctAnswer: 1,
-    explanation:
-      "חומר שמצליח לחרוץ חומר אחר הוא הקשה יותר. יהלום יכול לחרוץ כל חומר כי הוא הקשה ביותר.",
+    explanation: "חומר שמצליח לחרוץ חומר אחר הוא הקשה יותר. יהלום יכול לחרוץ כל חומר כי הוא הקשה ביותר.",
     category: ModuleId.MaterialProperties
   },
   {
@@ -120,8 +152,7 @@ export const MATERIAL_PROPERTIES_QUESTIONS: Question[] = [
       "כי שניהם מבודדים"
     ],
     correctAnswer: 1,
-    explanation:
-      "נחושת מוליכה את הזרם החשמלי, והפלסטיק מבודד ומונע מאיתנו להתחשמל.",
+    explanation: "נחושת מוליכה את הזרם החשמלי, והפלסטיק מבודד ומונע מאיתנו להתחשמל.",
     category: ModuleId.MaterialProperties
   },
   {
@@ -129,8 +160,7 @@ export const MATERIAL_PROPERTIES_QUESTIONS: Question[] = [
     question: "איזה מהחומרים הבאים הוא שקוף?",
     options: ["עץ", "מתכת", "זכוכית חלון", "קרטון"],
     correctAnswer: 2,
-    explanation:
-      "זכוכית חלון היא שקופה - היא מאפשרת לאור לעבור דרכה לגמרי.",
+    explanation: "זכוכית חלון היא שקופה - היא מאפשרת לאור לעבור דרכה לגמרי.",
     category: ModuleId.MaterialProperties
   },
   {
@@ -143,8 +173,7 @@ export const MATERIAL_PROPERTIES_QUESTIONS: Question[] = [
       "היכולת של חומר להוליך חשמל"
     ],
     correctAnswer: 1,
-    explanation:
-      "מסיסות היא היכולת של חומר (כמו סוכר) להתמוסס בחומר אחר (כמו מים) וליצור תערובת אחידה.",
+    explanation: "מסיסות היא היכולת של חומר (כמו סוכר) להתמוסס בחומר אחר (כמו מים) וליצור תערובת אחידה.",
     category: ModuleId.MaterialProperties
   },
   {
@@ -157,8 +186,72 @@ export const MATERIAL_PROPERTIES_QUESTIONS: Question[] = [
       "הוא מבודד חום"
     ],
     correctAnswer: 2,
-    explanation:
-      "יהלום הוא החומר הקשה ביותר בטבע. הוא יכול לחרוץ כל חומר אחר.",
+    explanation: "יהלום הוא החומר הקשה ביותר בטבע. הוא יכול לחרוץ כל חומר אחר.",
+    category: ModuleId.MaterialProperties
+  },
+  {
+    id: "c1_mp_8",
+    question: "מהו ההבדל בין חומר שקוף לחומר אטום?",
+    options: [
+      "חומר שקוף כבד יותר",
+      "חומר שקוף מאפשר לאור לעבור, חומר אטום חוסם אור",
+      "חומר אטום יקר יותר",
+      "אין הבדל"
+    ],
+    correctAnswer: 1,
+    explanation: "חומר שקוף (כמו זכוכית) מאפשר לאור לעבור, בעוד חומר אטום (כמו עץ) חוסם את האור.",
+    category: ModuleId.MaterialProperties
+  },
+  {
+    id: "c1_mp_9",
+    question: "מהו חומר חצי-שקוף?",
+    options: [
+      "חומר שאור לא עובר דרכו",
+      "חומר שאור עובר דרכו באופן חלקי",
+      "חומר שמחזיר אור",
+      "חומר מבריק"
+    ],
+    correctAnswer: 1,
+    explanation: "חומר חצי-שקוף (כמו זכוכית חלבית או נייר דק) מאפשר לחלק מהאור לעבור.",
+    category: ModuleId.MaterialProperties
+  },
+  {
+    id: "c1_mp_10",
+    question: "מהו ברק מתכתי?",
+    options: [
+      "צליל שמתכות משמיעות",
+      "האופן הייחודי שבו מתכות מחזירות אור",
+      "הטמפרטורה של מתכת",
+      "המשקל של מתכת"
+    ],
+    correctAnswer: 1,
+    explanation: "ברק מתכתי הוא הזוהר והנצנוץ הייחודיים שמתכות מפגינות כשאור פוגע בהן.",
+    category: ModuleId.MaterialProperties
+  },
+  {
+    id: "c1_mp_11",
+    question: "האם סוכר מתמוסס במים?",
+    options: [
+      "לא, הוא שוקע לקרקעית",
+      "כן, הוא מתמוסס ויוצר תמיסה שקופה",
+      "רק במים רותחים",
+      "לא, הוא צף על המים"
+    ],
+    correctAnswer: 1,
+    explanation: "סוכר מתמוסס במים ויוצר תמיסה אחידה ושקופה.",
+    category: ModuleId.MaterialProperties
+  },
+  {
+    id: "c1_mp_12",
+    question: "האם שמן מתמוסס במים?",
+    options: [
+      "כן, מיד",
+      "לא, הוא צף מעל המים ולא מתערבב",
+      "כן, אבל רק בחימום",
+      "כן, בבחישה חזקה"
+    ],
+    correctAnswer: 1,
+    explanation: "שמן אינו מתמוסס במים - הוא צף מעליהם כי הוא קל יותר ולא מתערבב איתם.",
     category: ModuleId.MaterialProperties
   }
 ];
@@ -174,8 +267,7 @@ export const ENGINEERING_MATERIALS_QUESTIONS: Question[] = [
       "כי החזיר השלישי היה חזק"
     ],
     correctAnswer: 1,
-    explanation:
-      "לבנים הן חומר קשה, בעל מסה גבוהה (יציבות) ועמידות מצוינת ללחץ - תכונות שהפכו את הבית לחזק.",
+    explanation: "לבנים הן חומר קשה, בעל מסה גבוהה (יציבות) ועמידות מצוינת ללחץ - תכונות שהפכו את הבית לחזק.",
     category: ModuleId.EngineeringMaterials
   },
   {
@@ -188,8 +280,7 @@ export const ENGINEERING_MATERIALS_QUESTIONS: Question[] = [
       "הגודל שלהם"
     ],
     correctAnswer: 2,
-    explanation:
-      "בחירת חומרים בהנדסה מתבססת על התכונות הנדרשות: חוזק, משקל, מוליכות, עמידות ועוד.",
+    explanation: "בחירת חומרים בהנדסה מתבססת על התכונות הנדרשות: חוזק, משקל, מוליכות, עמידות ועוד.",
     category: ModuleId.EngineeringMaterials
   },
   {
@@ -202,8 +293,7 @@ export const ENGINEERING_MATERIALS_QUESTIONS: Question[] = [
       "כי פלדה קלה יותר"
     ],
     correctAnswer: 1,
-    explanation:
-      "פלדה חזקה מאוד וגמישה - היא יכולה לשאת עומסים כבדים בלי להישבר.",
+    explanation: "פלדה חזקה מאוד וגמישה - היא יכולה לשאת עומסים כבדים בלי להישבר.",
     category: ModuleId.EngineeringMaterials
   },
   {
@@ -216,509 +306,71 @@ export const ENGINEERING_MATERIALS_QUESTIONS: Question[] = [
       "כי זהב לא מבריק"
     ],
     correctAnswer: 1,
-    explanation:
-      "למרות שזהב חזק, הוא יקר מאוד, כבד, ומוליך חום (הבית יהיה חם בקיץ וקר בחורף).",
+    explanation: "למרות שזהב חזק, הוא יקר מאוד, כבד, ומוליך חום (הבית יהיה חם בקיץ וקר בחורף).",
+    category: ModuleId.EngineeringMaterials
+  },
+  {
+    id: "c1_em_5",
+    question: "מדוע בית הקש של החזיר הראשון קרס בקלות?",
+    options: [
+      "כי הקש היה רטוב",
+      "כי לקש יש חוזק מכני נמוך מאוד ומסה נמוכה",
+      "כי הבית היה גדול מדי",
+      "כי הזאב היה חזק במיוחד"
+    ],
+    correctAnswer: 1,
+    explanation: "קש הוא חומר עם מסה נמוכה מאוד וחוזק מכני נמוך - לא יכול לעמוד בפני לחץ.",
+    category: ModuleId.EngineeringMaterials
+  },
+  {
+    id: "c1_em_6",
+    question: "מהו בטון מזוין?",
+    options: [
+      "בטון צבעוני",
+      "שילוב של בטון (עמיד ללחץ) וברזל (עמיד למתיחה)",
+      "בטון קל במיוחד",
+      "בטון שקוף"
+    ],
+    correctAnswer: 1,
+    explanation: "בטון מזוין משלב בטון (חזק בלחץ) עם מוטות ברזל (חזקים במתיחה) ליצירת חומר חזק במיוחד.",
+    category: ModuleId.EngineeringMaterials
+  },
+  {
+    id: "c1_em_7",
+    question: "מדוע גורדי שחקים בנויים מפלדה?",
+    options: [
+      "כי פלדה זולה",
+      "כי פלדה חזקה מאוד וקלה יחסית למשקלה",
+      "כי פלדה לא מחלידה",
+      "כי פלדה שקופה"
+    ],
+    correctAnswer: 1,
+    explanation: "פלדה היא חומר חזק מאוד ביחס למשקלה, מה שמאפשר לבנות מבנים גבוהים.",
+    category: ModuleId.EngineeringMaterials
+  },
+  {
+    id: "c1_em_8",
+    question: "איזו תכונה חשובה יש לעץ כחומר בנייה?",
+    options: [
+      "הוא מוליך חשמל",
+      "הוא גמיש וקל לעיבוד",
+      "הוא לא דליק",
+      "הוא הקשה ביותר"
+    ],
+    correctAnswer: 1,
+    explanation: "עץ הוא חומר גמיש, קל לעיבוד וחיתוך, אך הוא דליק ופחות עמיד מחומרים אחרים.",
     category: ModuleId.EngineeringMaterials
   }
 ];
 
-export const PARTICLE_MODEL_QUESTIONS: Question[] = [
-  {
-    id: "c1_pm_1",
-    question: "מה קיים ברווחים שבין חלקיקי החומר?",
-    options: ["אוויר", "מים", "ריק (כלום)", "גז שקוף"],
-    correctAnswer: 2,
-    explanation: "בין החלקיקים אין כלום - זהו ריק.",
-    category: ModuleId.ParticleModel
-  },
-  {
-    id: "c1_pm_2",
-    question: "באילו מצבי צבירה פועלים כוחות משיכה בין החלקיקים?",
-    options: [
-      "רק במוצק",
-      "רק בנוזל",
-      "בכל מצבי הצבירה (מוצק, נוזל וגז)",
-      "אף פעם לא"
-    ],
-    correctAnswer: 2,
-    explanation: "בכל מצבי הצבירה קיימים כוחות משיכה, אך עוצמתם משתנה.",
-    category: ModuleId.ParticleModel
-  },
-  {
-    id: "q5_a",
-    question:
-      "תלמידים הניחו על שולחן למשך שבוע בקבוק סגור ומלא באוויר. מה נכון לומר על חלקיקי האוויר?",
-    options: [
-      "חלקיקי האוויר מפוזרים בכל נפח הבקבוק",
-      "חלקיקי האוויר מצויים רק בחלק העליון",
-      "חלקיקי האוויר מצויים רק על הקרקעית",
-      "חלקיקי האוויר מצטופפים סמוך לפייה"
-    ],
-    correctAnswer: 0,
-    explanation:
-      "במצב גז, החלקיקים נעים בחופשיות וממלאים את כל נפח הכלי בו הם נמצאים.",
-    category: ModuleId.ParticleModel
-  },
-  {
-    id: "q2",
-    question:
-      "כאשר חומר הנמצא בכלי סגור עובר ממצב צבירה אחד לאחר עקב קירור, אין שינוי ב:",
-    options: [
-      "כוחות המשיכה בין החלקיקים",
-      "סוג התנועה של החלקיקים",
-      "מהירות ממוצעת של החלקיקים",
-      "מסה של החלקיקים"
-    ],
-    correctAnswer: 3,
-    explanation:
-      "במהלך שינוי מצב צבירה, כמות החומר (ומסת החלקיקים הבודדים) לא משתנה.",
-    category: ModuleId.ParticleModel
-  },
-  {
-    id: "q7_2",
-    question:
-      "בלון אטום מנופח באדי מים הוכנס למקפיא. כעבור זמן נראו טיפות. איזה היגד מסביר את הקטנת נפח הבלון?",
-    options: [
-      "חלקיקי אדי מים הפכו לטיפות מים",
-      "חלקיקי האדים התכווצו ואיבדו מנפחם",
-      "מספר חלקיקי המים קטן",
-      "המרחקים בין חלקיקי המים קטנו (מעבר מגז לנוזל)"
-    ],
-    correctAnswer: 3,
-    explanation:
-      "במעבר פאזה מגז לנוזל, החלקיקים מתקרבים מאוד זה לזה, מה שמקטין את הנפח הכולל.",
-    category: ModuleId.ParticleModel
-  }
-];
-
-export const COMPRESSION_QUESTIONS: Question[] = [
-  {
-    id: "c1_comp_1",
-    question: "מדוע ניתן לדחוס גז בקלות אך נוזל כמעט ולא?",
-    options: [
-      "כי חלקיקי הגז קטנים יותר",
-      "כי בנפח של גז יש הרבה ריק (רווחים גדולים)",
-      "כי חלקיקי הנוזל דוחים זה את זה",
-      "כי חלקיקי הגז קלים יותר"
-    ],
-    correctAnswer: 1,
-    explanation: "בגז הרווחים גדולים מאוד, ולכן ניתן לקרב את החלקיקי זה לזה.",
-    category: ModuleId.Compression
-  },
-  {
-    id: "q13_d",
-    question: "מכיוון שיש מרווחים גדולים בין חלקיקי הגז, הרי שניתן:",
-    options: [
-      "לחמם אותו בקלות",
-      "לדחוס אותו בקלות",
-      "לשנות את צבעו",
-      "להפוך אותו למוצק מיד"
-    ],
-    correctAnswer: 1,
-    explanation: "האפשרות להקטין את המרווחים הגדולים היא המאפשרת דחיסה.",
-    category: ModuleId.Compression
-  },
-  {
-    id: "q11",
-    question:
-      "כאשר שואבים אוויר מקופסת פח, דפנות הקופסה מתעוותים והקופסה נמעכת. מה ההסבר?",
-    options: [
-      "דפנות הקופסה נעשות גמישות מהשאיבה",
-      "לחץ האוויר מחוץ לקופסה גדול מלחץ האוויר שבתוכה",
-      "הריק שבקופסה מושך את הדפנות פנימה",
-      "טמפרטורת האוויר בקופסה יורדת"
-    ],
-    correctAnswer: 1,
-    explanation:
-      "מעיכת הקופסה נגרמת מההפרש בין הלחץ החיצוני (החזק) לפני הלחץ הפנימי (שנחלש מחוסר חלקיקים).",
-    category: ModuleId.Compression
-  }
-];
-
-export const DIFFUSION_QUESTIONS: Question[] = [
-  {
-    id: "c1_diff_1",
-    question: "באיזה מצב צבירה תתרחש פעפוע (דיפוזיה) בצורה המהירה ביותר?",
-    options: ["מוצק", "נוזל", "גז", "בכולם באותה מהירות"],
-    correctAnswer: 2,
-    explanation:
-      "בגז החלקיקים נעים מהר יותר והמרחקים גדולים, לכן הערבוב מהיר יותר.",
-    category: ModuleId.Diffusion
-  },
-  {
-    id: "q6_a",
-    question:
-      "דורון בדק בושם ב-25 מעלות וב-4 מעלות. עבור איזה בושם הזמן עד הרחתו היה קצר יותר?",
-    options: ["הבושם שנשמר ב-25 מעלות", "הבושם שנשמר ב-4 מעלות"],
-    correctAnswer: 0,
-    explanation:
-      "בטמפרטורה גבוהה החלקיקים נעים מהר יותר ולכן הפעפוע (התפשטות הריח) מהיר יותר.",
-    category: ModuleId.Diffusion
-  },
-  {
-    id: "q4_a",
-    question: "באיזה כלי פעפוע של גז צבעוני יהיה מהיר יותר?",
-    options: ["כלי א: שיש בו ריק", "כלי ב: שיש בו אוויר"],
-    correctAnswer: 0,
-    explanation:
-      'בריק אין חלקיקי אוויר "שיפריעו" ויתנגשו בחלקיקי הגז הצבעוני, לכן הוא יתקדם מהר יותר.',
-    category: ModuleId.Diffusion
-  }
-];
-
-export const SURFACE_TENSION_QUESTIONS: Question[] = [
-  {
-    id: "c1_st_1",
-    question: "מה גורם להיווצרות מתח פנים בנוזל?",
-    options: [
-      "לחץ האוויר מלמעלה",
-      "כוחות המשיכה שבין חלקיקי הנוזל",
-      "הטמפרטורה של הנוזל",
-      "כוח המשיכה של כדור הארץ"
-    ],
-    correctAnswer: 1,
-    explanation:
-      "מתח פנים נוצר בגלל כוחות המשיכה שבין חלקיקי הנוזל המושכים זה את זה.",
-    category: ModuleId.SurfaceTension
-  }
-];
-
-export const VOLUME_BASICS_QUESTIONS: Question[] = [
-  {
-    id: "c1_m3_1",
-    question: "כיצד מומלץ למדוד נפח של נוזל?",
-    options: ["בעזרת סרגל", "בעזרת משורה", "בעזרת מאזניים", "בעזרת טרמומטר"],
-    correctAnswer: 1,
-    explanation: "כדי לדייק, יש להסתכל תמיד בתחתית הקעור בגובה העיניים.",
-    category: ModuleId.VolumeBasics
-  },
-  {
-    id: "q18",
-    question:
-      'שתי קבוצות בנו משורה מכוס. קבוצה א סימנה לפי סרגל, קבוצה ב הוסיפה כל פעם 10 מ"ל וסימנה. מי בנה כלי למדידת נפח?',
-    options: ["קבוצה א", "קבוצה ב", "שתיהן", "אף אחת"],
-    correctAnswer: 1,
-    explanation:
-      "נפח תלוי בכמות החומר הנשפכת, לא בגובה הגיאומטרי (אלא אם הכלי הוא גליל מושלם). לכן מדידה לפי מנות נפח ידועות היא הנכונה.",
-    category: ModuleId.VolumeBasics
-  }
-];
-
-export const PHASE_TRANSITIONS_QUESTIONS: Question[] = [
-  {
-    id: "pt1",
-    question: "מה קורה לטמפרטורת המים בזמן שהם רותחים (הופכים לגז)?",
-    options: [
-      "היא ממשיכה לעלות",
-      "היא נשארת קבועה ב-100 מעלות",
-      "היא יורדת",
-      "היא משתנה לסירוגין"
-    ],
-    correctAnswer: 1,
-    explanation:
-      "במהלך מעבר פאזה, הטמפרטורה נשארת קבועה עד שכל החומר משנה את מצב צבירתו.",
-    category: ModuleId.PhaseTransitions
-  },
-  {
-    id: "pt2",
-    question: "איך נקרא המעבר הישיר ממוצק לגז (כמו בקרח יבש)?",
-    options: ["התאדות", "התעבות", "המראה (סובלימציה)", "היתוך"],
-    correctAnswer: 2,
-    explanation:
-      "המראה היא תהליך בו חומר עובר ממוצק לגז מבלי להפוך לנוזל בדרך.",
-    category: ModuleId.PhaseTransitions
-  },
-  {
-    id: "pt3",
-    question: 'מהו תהליך ה"ריבוץ" (דפוזיציה)?',
-    options: ["ממוצק לנוזל", "מנוזל לגז", "מגז למוצק", "מגז לנוזל"],
-    correctAnswer: 2,
-    explanation: "ריבוץ הוא התהליך ההפוך להמראה - מעבר ישיר מגז למוצק.",
-    category: ModuleId.PhaseTransitions
-  },
-  {
-    id: "q15",
-    question: "התיכו קוביית בדיל לבדיל נוזלי בכלי סגור. מה קרה למסת הבדיל?",
-    options: ["המסה גדלה", "המסה קטנה", "המסה לא השתנתה"],
-    correctAnswer: 2,
-    explanation:
-      "שינוי מצב צבירה לא משנה את כמות החומר, ולכן המסה נשארת קבועה.",
-    category: ModuleId.PhaseTransitions
-  }
-];
+// =============================================================================
+// Chapter 1 Summary Questions (50 questions - ONLY about Chapter 1 topics)
+// =============================================================================
 
 export const SUMMARY_QUESTIONS: Question[] = [
+  // Matter basics (1-15)
   {
     id: "sum_1",
-    question:
-      "בניסוי עם שלוש צלחות (מים, כוהל, אצטון), אחרי 5 שעות האצטון נעלם לגמרי. מה ההסבר המדעי?",
-    options: [
-      "האצטון התקלקל",
-      "כוחות המשיכה בין חלקיקי האצטון הם החלשים ביותר",
-      "חלקיקי האצטון קטנים יותר",
-      "האצטון הפך למוצק"
-    ],
-    correctAnswer: 1,
-    explanation:
-      "כוחות משיכה חלשים מאפשרים לחלקיקים להשתחרר מהנוזל ולהתאדות מהר יותר.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_2",
-    question: "מה יקרה לגולה בשלושה נוזלים (שמן, סבון, דבש)?",
-    options: [
-      "היא תצוף בכולם",
-      "היא תשקע הכי לאט בדבש כי הוא הכי צמיג (כוחות משיכה חזקים)",
-      "היא תשקע הכי מהר בדבש",
-      "הצמיגות לא משפיעה על השקיעה"
-    ],
-    correctAnswer: 1,
-    explanation:
-      "צמיגות גבוהה (התנגדות לזרימה) נגרמת מכוחות משיכה חזקים בין החלקיקים, מה שמעכב את תנועת הגולה.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_3",
-    question: "מהם חמשת עקרונות מודל החלקיקים?",
-    options: [
-      "חלקיקים, צבע, טמפרטורה, לחץ, משקל",
-      "חלקיקים זעירים, ריק ביניהם, תנועה מתמדת, כוחות משיכה, תנועה תלוית טמפרטורה",
-      "גודל, צורה, צבע, ריח, טעם",
-      "מוצק, נוזל, גז, פלזמה, ריק"
-    ],
-    correctAnswer: 1,
-    explanation:
-      "מודל החלקיקים מבוסס על: 1) כל חומר בנוי מחלקיקים זעירים, 2) בין החלקיקים יש ריק, 3) החלקיקים נעים תמיד, 4) יש כוחות משיכה בין החלקיקים, 5) התנועה תלויה בטמפרטורה.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_4",
-    question: "מדוע כאשר מחממים נוזל, הוא מתפשט?",
-    options: [
-      "כי החלקיקים עצמם גדלים",
-      "כי נוצרים חלקיקים חדשים",
-      "כי המרחקים בין החלקיקים גדלים עקב תנועה מהירה יותר",
-      "כי החלקיקים משנים צורה"
-    ],
-    correctAnswer: 2,
-    explanation:
-      "חימום מגביר את מהירות החלקיקים, מה שגורם להם להתרחק זה מזה - ולכן הנפח גדל.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_5",
-    question: "איזה מצב צבירה יתפוס את צורת הכלי אך לא ימלא את כולו?",
-    options: ["מוצק", "נוזל", "גז", "כל מצבי הצבירה"],
-    correctAnswer: 1,
-    explanation:
-      "נוזל מקבל את צורת הכלי התחתונה אך לא מתפשט למלא את כל הכלי (בניגוד לגז).",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_6",
-    question: "במעבדה יש בקבוק סגור עם אוויר. מה יקרה אם נחמם את הבקבוק?",
-    options: [
-      "הלחץ בתוך הבקבוק יעלה",
-      "הלחץ בתוך הבקבוק ירד",
-      "הלחץ לא ישתנה",
-      "האוויר יהפוך לנוזל"
-    ],
-    correctAnswer: 0,
-    explanation:
-      "כאשר מחממים גז בכלי סגור, החלקיקים נעים מהר יותר ומתנגשים בדפנות בחוזקה רבה יותר - הלחץ עולה.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_7",
-    question: "מזרק מלא באוויר ומזרק מלא במים. על איזה מהם קל יותר ללחוץ?",
-    options: [
-      "על מזרק המים",
-      "על מזרק האוויר",
-      "על שניהם באותה קושי",
-      "תלוי בגודל המזרק"
-    ],
-    correctAnswer: 1,
-    explanation:
-      "בגז (אוויר) יש הרבה ריק בין החלקיקים, לכן ניתן לדחוס אותו בקלות. בנוזל (מים) המרחקים קטנים מאוד.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_8",
-    question: "מדוע מערכת הבלמים ברכב משתמשת בנוזל ולא בגז?",
-    options: [
-      "כי נוזל זול יותר",
-      "כי נוזל לא נדחס ומעביר לחץ במדויק",
-      "כי גז מסוכן",
-      "כי נוזל קל יותר"
-    ],
-    correctAnswer: 1,
-    explanation:
-      "נוזל כמעט לא נדחס, לכן כשלוחצים על דוושת הבלמים, הלחץ מועבר מיידית וללא אובדן לגלגלים.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_9",
-    question: "בושם נפתח בקצה אחד של החדר. מתי ירגישו בו בקצה השני?",
-    options: [
-      "מיידית",
-      "אחרי כמה שניות עד דקות, תלוי בטמפרטורה",
-      "רק אם יש רוח",
-      "רק אם החדר קטן"
-    ],
-    correctAnswer: 1,
-    explanation:
-      "פעפוע הוא תהליך הדרגתי שבו חלקיקי הבושם מתפזרים באוויר. טמפרטורה גבוהה מאיצה את התהליך.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_10",
-    question: "למה פעפוע בגז מהיר יותר מפעפוע בנוזל?",
-    options: [
-      "כי חלקיקי הגז קטנים יותר",
-      "כי בגז החלקיקים נעים מהר יותר ויש יותר ריק",
-      "כי נוזל כבד יותר",
-      "כי גז שקוף"
-    ],
-    correctAnswer: 1,
-    explanation:
-      "בגז, החלקיקים נעים במהירות גבוהה והמרחקים ביניהם גדולים, מה שמאפשר תנועה חופשית ומהירה.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_11",
-    question: "מדוע חרק מסוגל ללכת על פני המים מבלי לשקוע?",
-    options: [
-      "כי הוא קל מאוד",
-      'כי מתח הפנים של המים יוצר "קרום" שמחזיק אותו',
-      "כי הוא שומני",
-      "כי רגליו אטומות למים"
-    ],
-    correctAnswer: 1,
-    explanation:
-      'כוחות המשיכה בין חלקיקי המים בפני השטח יוצרים מתח פנים - "קרום" בלתי נראה שמסוגל להחזיק עצמים קלים.',
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_12",
-    question: "מה יקרה אם נוסיף סבון למים שעליהם צף חרק?",
-    options: [
-      "החרק יצוף טוב יותר",
-      "החרק ישקע כי הסבון מחליש את מתח הפנים",
-      "לא ישתנה כלום",
-      "המים יתקררו"
-    ],
-    correctAnswer: 1,
-    explanation:
-      "סבון מפחית את מתח הפנים של המים על ידי הפרעה לכוחות המשיכה בין חלקיקי המים.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_13",
-    question: "מה קורה לטמפרטורת קרח בזמן שהוא נמס?",
-    options: [
-      "היא עולה בהדרגה",
-      "היא נשארת קבועה ב-0 מעלות עד שכל הקרח נמס",
-      "היא יורדת",
-      "היא משתנה לסירוגין"
-    ],
-    correctAnswer: 1,
-    explanation:
-      "במהלך מעבר פאזה, האנרגיה משמשת לשבירת הקשרים בין החלקיקים ולא לעליית טמפרטורה.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_14",
-    question: "מהו ההבדל בין התאדות לרתיחה?",
-    options: [
-      "אין הבדל - זה אותו דבר",
-      "התאדות קורית רק בפני השטח ובכל טמפרטורה, רתיחה קורית בכל הנפח בטמפרטורה מסוימת",
-      "רתיחה קורית רק במים",
-      "התאדות מהירה יותר"
-    ],
-    correctAnswer: 1,
-    explanation:
-      "התאדות היא תהליך איטי מפני השטח, בעוד רתיחה היא תהליך אינטנסיבי בכל נפח הנוזל בנקודת הרתיחה.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_15",
-    question: "מדוע קרח צף על פני המים?",
-    options: [
-      "כי קרח קר יותר",
-      "כי צפיפות הקרח נמוכה מצפיפות המים",
-      "כי קרח לבן",
-      "כי במים יש יותר חלקיקים"
-    ],
-    correctAnswer: 1,
-    explanation:
-      "כשמים קופאים, החלקיקים מתארגנים במבנה פתוח יותר, מה שמגדיל את הנפח ומקטין את הצפיפות.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_16",
-    question: "כיצד נמדוד נפח של אבן בצורה לא סדירה?",
-    options: [
-      "נמדוד אותה עם סרגל",
-      "נשקול אותה",
-      "נטביל אותה במשורה עם מים ונמדוד את עליית המים",
-      "נחשב אורך כפול רוחב כפול גובה"
-    ],
-    correctAnswer: 2,
-    explanation: "שיטת דחיקת המים (ארכימדס) מתאימה לגופים בעלי צורה לא סדירה.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_17",
-    question: 'כמה מ"ל יש בליטר אחד?',
-    options: ['10 מ"ל', '100 מ"ל', '1,000 מ"ל', '10,000 מ"ל'],
-    correctAnswer: 2,
-    explanation: '1 ליטר = 1,000 מ"ל = 1,000 סמ"ק',
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_18",
-    question: "כאשר קוראים מפלס מים במשורה, היכן יש להסתכל?",
-    options: [
-      "בחלק העליון של פני המים",
-      "בתחתית הקעור (מניסקוס), בגובה העיניים",
-      "מלמעלה",
-      "זה לא משנה"
-    ],
-    correctAnswer: 1,
-    explanation:
-      "המים יוצרים קעירות (מניסקוס) ליד דפנות המשורה, ויש להסתכל בתחתית בגובה העיניים לדיוק מרבי.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_19",
-    question: "בלון מנופח הונח בשמש. מה יקרה לנפח הבלון ומדוע?",
-    options: [
-      "יקטן, כי האוויר ייצא החוצה",
-      "יגדל, כי החלקיקים נעים מהר יותר ודוחפים את הדפנות",
-      "לא ישתנה",
-      "יתפוצץ מיד"
-    ],
-    correctAnswer: 1,
-    explanation:
-      "חימום מגביר את מהירות החלקיקים, הם מתנגשים בדפנות בתדירות וחוזקה גבוהים יותר, מה שמרחיב את הבלון.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_20",
-    question: "איזו תופעה מוכיחה שחלקיקים נעים כל הזמן?",
-    options: [
-      "קרח נמס",
-      "פעפוע ריח בחדר ללא רוח",
-      "מים מתאדים",
-      "כל התשובות נכונות"
-    ],
-    correctAnswer: 3,
-    explanation:
-      "כל התופעות הללו מוכיחות תנועה מתמדת של חלקיקים: פעפוע הוא תוצאה ישירה, והתאדות והיתוך קשורות לאנרגיית התנועה.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_21",
     question: "מהם שני התנאים להגדרת חומר?",
     options: [
       "צבע וריח",
@@ -731,7 +383,7 @@ export const SUMMARY_QUESTIONS: Question[] = [
     category: ModuleId.Summary
   },
   {
-    id: "sum_22",
+    id: "sum_2",
     question: "מה ההבדל בין גוף לחומר?",
     options: [
       "אין הבדל",
@@ -744,7 +396,7 @@ export const SUMMARY_QUESTIONS: Question[] = [
     category: ModuleId.Summary
   },
   {
-    id: "sum_23",
+    id: "sum_3",
     question: "האם אור נחשב לחומר?",
     options: [
       "כן, כי אפשר לראות אותו",
@@ -757,7 +409,155 @@ export const SUMMARY_QUESTIONS: Question[] = [
     category: ModuleId.Summary
   },
   {
-    id: "sum_24",
+    id: "sum_4",
+    question: "האם צליל הוא חומר?",
+    options: [
+      "כן, כי אפשר לשמוע אותו",
+      "לא, צליל הוא אנרגיה",
+      "כן, צליל תופס מקום",
+      "רק צלילים חזקים"
+    ],
+    correctAnswer: 1,
+    explanation: "צליל הוא אנרגיה המתפשטת בגלים - אין לו מסה ונפח.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_5",
+    question: "האם חום הוא חומר?",
+    options: [
+      "כן, כי מרגישים אותו",
+      "לא, חום הוא אנרגיה",
+      "כן, חום כבד",
+      "רק חום גבוה"
+    ],
+    correctAnswer: 1,
+    explanation: "חום הוא צורה של אנרגיה (אנרגיה תרמית), לא חומר.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_6",
+    question: "כוס עשויה מזכוכית. מה הגוף ומה החומר?",
+    options: [
+      "הזכוכית היא הגוף, הכוס היא החומר",
+      "הכוס היא הגוף, הזכוכית היא החומר",
+      "שניהם גופים",
+      "שניהם חומרים"
+    ],
+    correctAnswer: 1,
+    explanation: "הכוס היא הגוף (העצם המוגדר), הזכוכית היא החומר שממנו היא עשויה.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_7",
+    question: "איזה מהבאים הוא חומר?",
+    options: [
+      "קול מוזיקה",
+      "אור שמש",
+      "מים",
+      "חום האש"
+    ],
+    correctAnswer: 2,
+    explanation: "מים הם חומר - יש להם מסה והם תופסים נפח. השאר הם סוגי אנרגיה.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_8",
+    question: "כיצד ניתן להוכיח שלאוויר יש מסה?",
+    options: [
+      "לנשום עמוק",
+      "לשקול בלון לפני ואחרי ניפוח",
+      "לראות את האוויר",
+      "להריח את האוויר"
+    ],
+    correctAnswer: 1,
+    explanation: "בלון מנופח שוקל יותר מבלון ריק, מה שמוכיח שלאוויר יש מסה.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_9",
+    question: "מהם שלושת מצבי הצבירה של חומר?",
+    options: [
+      "קשה, רך, גמיש",
+      "מוצק, נוזל, גז",
+      "חם, קר, פושר",
+      "כבד, קל, בינוני"
+    ],
+    correctAnswer: 1,
+    explanation: "חומר יכול להיות במצב מוצק, נוזלי או גזי.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_10",
+    question: "מטבע עשוי מנחושת. מה הגוף ומה החומר?",
+    options: [
+      "הנחושת היא הגוף",
+      "המטבע הוא הגוף, הנחושת היא החומר",
+      "שניהם חומרים",
+      "אין הבדל"
+    ],
+    correctAnswer: 1,
+    explanation: "המטבע הוא הגוף, והנחושת היא החומר שממנו הוא עשוי.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_11",
+    question: "דלת עשויה מעץ. מהו הגוף?",
+    options: ["העץ", "הדלת", "שניהם", "אף אחד"],
+    correctAnswer: 1,
+    explanation: "הדלת היא הגוף - העצם המוגדר עם גבולות ברורים.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_12",
+    question: "מהו חומר מוצק?",
+    options: [
+      "חומר שזורם",
+      "חומר שיש לו צורה קבועה",
+      "חומר שמתפשט לכל הכיוונים",
+      "חומר שקוף"
+    ],
+    correctAnswer: 1,
+    explanation: "חומר מוצק שומר על צורה קבועה ולא זורם.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_13",
+    question: "מהו חומר נוזלי?",
+    options: [
+      "חומר עם צורה קבועה",
+      "חומר שזורם ומקבל את צורת הכלי",
+      "חומר שמתפשט לכל המרחב",
+      "חומר קשה"
+    ],
+    correctAnswer: 1,
+    explanation: "נוזל זורם ומקבל את צורת הכלי שבו הוא נמצא.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_14",
+    question: "מהו חומר גזי?",
+    options: [
+      "חומר עם צורה קבועה",
+      "חומר שזורם לקרקעית",
+      "חומר שמתפשט וממלא את כל הכלי",
+      "חומר כבד"
+    ],
+    correctAnswer: 2,
+    explanation: "גז מתפשט לכל הכיוונים וממלא את כל הנפח הזמין.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_15",
+    question: "קרח הוא מים במצב:",
+    options: ["נוזלי", "גזי", "מוצק", "פלזמה"],
+    correctAnswer: 2,
+    explanation: "קרח הוא מים במצב מוצק - יש לו צורה קבועה.",
+    category: ModuleId.Summary
+  },
+
+  // Material Properties (16-35)
+  {
+    id: "sum_16",
     question: "איזה חומר מוליך חשמל?",
     options: ["עץ", "גומי", "נחושת", "פלסטיק"],
     correctAnswer: 2,
@@ -765,7 +565,7 @@ export const SUMMARY_QUESTIONS: Question[] = [
     category: ModuleId.Summary
   },
   {
-    id: "sum_25",
+    id: "sum_17",
     question: "מדוע ידיות סירים עשויות מפלסטיק?",
     options: [
       "כי פלסטיק זול",
@@ -778,7 +578,7 @@ export const SUMMARY_QUESTIONS: Question[] = [
     category: ModuleId.Summary
   },
   {
-    id: "sum_26",
+    id: "sum_18",
     question: "מהו החומר הקשה ביותר בטבע?",
     options: ["פלדה", "זכוכית", "יהלום", "ברזל"],
     correctAnswer: 2,
@@ -786,7 +586,7 @@ export const SUMMARY_QUESTIONS: Question[] = [
     category: ModuleId.Summary
   },
   {
-    id: "sum_27",
+    id: "sum_19",
     question: "איך בודקים קשיות של חומר?",
     options: [
       "שוקלים אותו",
@@ -799,7 +599,7 @@ export const SUMMARY_QUESTIONS: Question[] = [
     category: ModuleId.Summary
   },
   {
-    id: "sum_28",
+    id: "sum_20",
     question: "מהי מסיסות?",
     options: [
       "היכולת להתאדות",
@@ -812,7 +612,7 @@ export const SUMMARY_QUESTIONS: Question[] = [
     category: ModuleId.Summary
   },
   {
-    id: "sum_29",
+    id: "sum_21",
     question: "מדוע כבל חשמלי בנוי מנחושת ופלסטיק?",
     options: [
       "כי שניהם זולים",
@@ -825,20 +625,7 @@ export const SUMMARY_QUESTIONS: Question[] = [
     category: ModuleId.Summary
   },
   {
-    id: "sum_30",
-    question: "בסיפור הזאב והחזירונים, מדוע בית הלבנים שרד?",
-    options: [
-      "כי הזאב התעייף",
-      "כי לבנים קשות, יציבות ועמידות ללחץ",
-      "כי הבית היה קטן",
-      "כי הייתה לו גג"
-    ],
-    correctAnswer: 1,
-    explanation: "לבנים הן חומר קשה עם מסה גבוהה ועמידות מצוינת ללחץ.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_31",
+    id: "sum_22",
     question: "איזה חומר שקוף?",
     options: ["עץ", "מתכת", "זכוכית חלון", "קרטון"],
     correctAnswer: 2,
@@ -846,182 +633,20 @@ export const SUMMARY_QUESTIONS: Question[] = [
     category: ModuleId.Summary
   },
   {
-    id: "sum_32",
-    question: "מה קיים בין חלקיקי החומר?",
-    options: ["אוויר", "מים", "ריק (כלום)", "גז"],
-    correctAnswer: 2,
-    explanation: "בין החלקיקים קיים ריק מוחלט - אין שום דבר.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_33",
-    question: "באיזה מצב צבירה החלקיקים הכי קרובים זה לזה?",
-    options: ["מוצק", "נוזל", "גז", "בכולם אותו דבר"],
-    correctAnswer: 0,
-    explanation: "במוצק החלקיקים הכי קרובים ומסודרים במבנה קבוע.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_34",
-    question: "מה סוג התנועה של חלקיקים במוצק?",
+    id: "sum_23",
+    question: "מהו חומר אטום?",
     options: [
-      "תנועה אקראית לכל הכיוונים",
-      "תנודות במקום סביב נקודה קבועה",
-      "זרימה והחלקה",
-      "החלקיקים לא נעים"
+      "חומר שאור עובר דרכו",
+      "חומר שחוסם אור לחלוטין",
+      "חומר שקוף למחצה",
+      "חומר מבריק"
     ],
     correctAnswer: 1,
-    explanation: "במוצק החלקיקים רק מתנודדים סביב מקומם הקבוע.",
+    explanation: "חומר אטום (כמו עץ או מתכת) לא מאפשר לאור לעבור דרכו.",
     category: ModuleId.Summary
   },
   {
-    id: "sum_35",
-    question: "מה קורה למהירות החלקיקים כשמחממים חומר?",
-    options: [
-      "המהירות יורדת",
-      "המהירות עולה",
-      "המהירות לא משתנה",
-      "החלקיקים נעצרים"
-    ],
-    correctAnswer: 1,
-    explanation: "טמפרטורה גבוהה = אנרגיה קינטית גבוהה = מהירות חלקיקים גבוהה.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_36",
-    question: "מדוע גז ממלא את כל הכלי שבו הוא נמצא?",
-    options: [
-      "כי הוא כבד",
-      "כי החלקיקים נעים במהירות לכל הכיוונים וכוחות המשיכה חלשים",
-      "כי הוא שקוף",
-      "כי הוא קל"
-    ],
-    correctAnswer: 1,
-    explanation: "בגז החלקיקים נעים בתנועה אקראית מהירה וכוחות המשיכה ביניהם חלשים מאוד.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_37",
-    question: "מהו ההרכב העיקרי של האוויר?",
-    options: [
-      "חמצן בלבד",
-      "כ-78% חנקן, כ-21% חמצן",
-      "פחמן דו-חמצני בלבד",
-      "הליום וארגון"
-    ],
-    correctAnswer: 1,
-    explanation: "האוויר מורכב בעיקר מחנקן (78%) וחמצן (21%).",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_38",
-    question: "מה קורה ליוד מוצק כשמחממים אותו?",
-    options: [
-      "הוא נמס לנוזל",
-      "הוא עובר ישירות לגז סגול (המראה)",
-      "הוא נשאר מוצק",
-      "הוא מתאדה"
-    ],
-    correctAnswer: 1,
-    explanation: "יוד עובר המראה (סובלימציה) - מעבר ישיר ממוצק לגז סגול ללא מעבר דרך נוזל.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_39",
-    question: "מהו ריבוץ?",
-    options: [
-      "מעבר ממוצק לנוזל",
-      "מעבר מנוזל לגז",
-      "מעבר ישיר מגז למוצק",
-      "מעבר מגז לנוזל"
-    ],
-    correctAnswer: 2,
-    explanation: "ריבוץ הוא התהליך ההפוך להמראה - מעבר ישיר מגז למוצק.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_40",
-    question: "מדוע טיפות מים עגולות?",
-    options: [
-      "כי המים כחולים",
-      "כי מתח הפנים מושך את פני השטח פנימה",
-      "כי המים קרים",
-      "כי יש לחץ אוויר"
-    ],
-    correctAnswer: 1,
-    explanation: "מתח הפנים נוצר מכוחות משיכה בין חלקיקי המים בפני השטח, מה שיוצר צורה עגולה.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_41",
-    question: "איך נקרא מעבר ממוצק לנוזל?",
-    options: ["התאדות", "התעבות", "התכה (היתוך)", "המראה"],
-    correctAnswer: 2,
-    explanation: "התכה (היתוך) היא המעבר ממוצק לנוזל, כמו קרח שנמס.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_42",
-    question: "איך נקרא מעבר מנוזל לגז?",
-    options: ["התכה", "קיפאון", "התאדות", "התעבות"],
-    correctAnswer: 2,
-    explanation: "התאדות היא המעבר מנוזל לגז.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_43",
-    question: "מה קורה בזמן שינוי מצב צבירה?",
-    options: [
-      "הטמפרטורה עולה במהירות",
-      "הטמפרטורה נשארת קבועה עד סיום השינוי",
-      "החלקיקים נעלמים",
-      "המסה משתנה"
-    ],
-    correctAnswer: 1,
-    explanation: "במהלך שינוי מצב צבירה, האנרגיה משמשת לשבירת/יצירת קשרים ולא לשינוי טמפרטורה.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_44",
-    question: "מדוע לא בונים בתים מזהב?",
-    options: [
-      "זהב לא קיים",
-      "זהב יקר מאוד, כבד, ומוליך חום",
-      "זהב רך מדי",
-      "זהב לא יפה"
-    ],
-    correctAnswer: 1,
-    explanation: "זהב יקר, כבד מאוד, ומוליך חום - לא מתאים לבנייה.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_45",
-    question: "מהנדסים בוחרים חומרים על פי:",
-    options: [
-      "הצבע בלבד",
-      "המחיר בלבד",
-      "התכונות הנדרשות לשימוש",
-      "הגודל בלבד"
-    ],
-    correctAnswer: 2,
-    explanation: "בחירת חומרים מתבססת על התכונות הנדרשות: חוזק, משקל, מוליכות ועוד.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_46",
-    question: "מדוע גשרים בנויים מפלדה?",
-    options: [
-      "כי פלדה זולה",
-      "כי פלדה יפה",
-      "כי פלדה חזקה וגמישה ומתאימה לעומסים כבדים",
-      "כי פלדה קלה"
-    ],
-    correctAnswer: 2,
-    explanation: "פלדה חזקה מאוד וגמישה - מתאימה לשאת עומסים כבדים.",
-    category: ModuleId.Summary
-  },
-  {
-    id: "sum_47",
+    id: "sum_24",
     question: "מהו חומר חצי-שקוף?",
     options: [
       "חומר שאור לא עובר דרכו כלל",
@@ -1034,7 +659,7 @@ export const SUMMARY_QUESTIONS: Question[] = [
     category: ModuleId.Summary
   },
   {
-    id: "sum_48",
+    id: "sum_25",
     question: "מהו ברק מתכתי?",
     options: [
       "צליל שמתכות משמיעות",
@@ -1047,7 +672,31 @@ export const SUMMARY_QUESTIONS: Question[] = [
     category: ModuleId.Summary
   },
   {
-    id: "sum_49",
+    id: "sum_26",
+    question: "איזה מהחומרים הבאים מבודד חשמל?",
+    options: ["נחושת", "ברזל", "גומי", "אלומיניום"],
+    correctAnswer: 2,
+    explanation: "גומי הוא מבודד חשמלי - לא מאפשר לזרם חשמלי לעבור דרכו.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_27",
+    question: "איזה חומר מוליך חום טוב?",
+    options: ["עץ", "פלסטיק", "אלומיניום", "קלקר"],
+    correctAnswer: 2,
+    explanation: "אלומיניום (מתכת) מוליך חום מצוין, לכן משתמשים בו בסירי בישול.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_28",
+    question: "איזה חומר מבודד חום?",
+    options: ["נחושת", "ברזל", "צמר", "אלומיניום"],
+    correctAnswer: 2,
+    explanation: "צמר הוא מבודד חום מצוין - לא מעביר חום בקלות.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_29",
     question: "האם סוכר מתמוסס במים?",
     options: [
       "לא, הוא שוקע לקרקעית",
@@ -1060,7 +709,7 @@ export const SUMMARY_QUESTIONS: Question[] = [
     category: ModuleId.Summary
   },
   {
-    id: "sum_50",
+    id: "sum_30",
     question: "האם שמן מתמוסס במים?",
     options: [
       "כן, מיד",
@@ -1069,20 +718,280 @@ export const SUMMARY_QUESTIONS: Question[] = [
       "רק בקירור"
     ],
     correctAnswer: 1,
-    explanation: "שמן לא מתמוסס במים וצף מעליהם בגלל צפיפותו הנמוכה יותר.",
+    explanation: "שמן לא מתמוסס במים וצף מעליהם.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_31",
+    question: "האם חול מתמוסס במים?",
+    options: [
+      "כן, לגמרי",
+      "לא, הוא שוקע לקרקעית",
+      "כן, חלקית",
+      "רק במים חמים"
+    ],
+    correctAnswer: 1,
+    explanation: "חול אינו מתמוסס במים - הוא שוקע לקרקעית.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_32",
+    question: "מדוע גוף סיר עשוי ממתכת וידיות מפלסטיק?",
+    options: [
+      "כי מתכת יפה יותר",
+      "מתכת מוליכה חום למזון, פלסטיק מבודד את היד",
+      "כי פלסטיק זול יותר",
+      "כי מתכת קלה יותר"
+    ],
+    correctAnswer: 1,
+    explanation: "המתכת מעבירה חום מהאש למזון, והפלסטיק מגן על היד מפני כוויות.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_33",
+    question: "איזה חומר קשה יותר - זכוכית או ציפורן?",
+    options: [
+      "ציפורן",
+      "זכוכית",
+      "שניהם באותה קשיות",
+      "לא ניתן לדעת"
+    ],
+    correctAnswer: 1,
+    explanation: "זכוכית קשה יותר - היא יכולה לחרוץ ציפורן אבל ציפורן לא יכולה לחרוץ זכוכית.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_34",
+    question: "מה מייחד את המתכות?",
+    options: [
+      "הן תמיד קלות",
+      "מוליכות חשמל וחום, יש להן ברק מתכתי",
+      "הן תמיד שקופות",
+      "הן תמיד רכות"
+    ],
+    correctAnswer: 1,
+    explanation: "מתכות מוליכות חשמל וחום, ויש להן ברק מתכתי ייחודי.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_35",
+    question: "למה משתמשים ביהלום לחיתוך זכוכית?",
+    options: [
+      "כי הוא יפה",
+      "כי הוא שקוף",
+      "כי הוא הקשה ביותר ויכול לחרוץ כל חומר",
+      "כי הוא זול"
+    ],
+    correctAnswer: 2,
+    explanation: "יהלום הוא החומר הקשה ביותר בטבע ויכול לחרוץ כל חומר אחר.",
+    category: ModuleId.Summary
+  },
+
+  // Engineering Materials (36-50)
+  {
+    id: "sum_36",
+    question: "בסיפור הזאב והחזירונים, מדוע בית הלבנים שרד?",
+    options: [
+      "כי הזאב התעייף",
+      "כי לבנים קשות, יציבות ועמידות ללחץ",
+      "כי הבית היה קטן",
+      "כי הייתה לו גג"
+    ],
+    correctAnswer: 1,
+    explanation: "לבנים הן חומר קשה עם מסה גבוהה ועמידות מצוינת ללחץ.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_37",
+    question: "מדוע לא בונים בתים מזהב?",
+    options: [
+      "זהב לא קיים",
+      "זהב יקר מאוד, כבד, ומוליך חום",
+      "זהב רך מדי",
+      "זהב לא יפה"
+    ],
+    correctAnswer: 1,
+    explanation: "זהב יקר, כבד מאוד, ומוליך חום - לא מתאים לבנייה.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_38",
+    question: "מהנדסים בוחרים חומרים על פי:",
+    options: [
+      "הצבע בלבד",
+      "המחיר בלבד",
+      "התכונות הנדרשות לשימוש",
+      "הגודל בלבד"
+    ],
+    correctAnswer: 2,
+    explanation: "בחירת חומרים מתבססת על התכונות הנדרשות: חוזק, משקל, מוליכות ועוד.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_39",
+    question: "מדוע גשרים בנויים מפלדה?",
+    options: [
+      "כי פלדה זולה",
+      "כי פלדה יפה",
+      "כי פלדה חזקה וגמישה ומתאימה לעומסים כבדים",
+      "כי פלדה קלה"
+    ],
+    correctAnswer: 2,
+    explanation: "פלדה חזקה מאוד וגמישה - מתאימה לשאת עומסים כבדים.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_40",
+    question: "מדוע בית הקש קרס בקלות?",
+    options: [
+      "כי הקש רטוב",
+      "כי לקש חוזק מכני נמוך ומסה נמוכה",
+      "כי הבית היה גדול",
+      "כי הזאב חזק מאוד"
+    ],
+    correctAnswer: 1,
+    explanation: "קש הוא חומר עם מסה נמוכה וחוזק מכני נמוך מאוד.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_41",
+    question: "מהו בטון מזוין?",
+    options: [
+      "בטון עם צבע",
+      "שילוב של בטון וברזל",
+      "בטון קל",
+      "בטון שקוף"
+    ],
+    correctAnswer: 1,
+    explanation: "בטון מזוין משלב בטון (חזק בלחץ) עם מוטות ברזל (חזקים במתיחה).",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_42",
+    question: "מה החיסרון העיקרי של עץ כחומר בנייה?",
+    options: [
+      "הוא קשה מדי",
+      "הוא דליק",
+      "הוא יקר מדי",
+      "הוא כבד מדי"
+    ],
+    correctAnswer: 1,
+    explanation: "עץ דליק - זהו חיסרון משמעותי לבנייה.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_43",
+    question: "מה היתרון של לבנים על פני קש בבנייה?",
+    options: [
+      "לבנים זולות יותר",
+      "לבנים קלות יותר",
+      "לבנים עמידות יותר ללחץ ולא דליקות",
+      "לבנים שקופות"
+    ],
+    correctAnswer: 2,
+    explanation: "לבנים חזקות, עמידות ללחץ, ואינן דליקות - בניגוד לקש.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_44",
+    question: "מדוע גורדי שחקים בנויים מפלדה?",
+    options: [
+      "כי פלדה זולה",
+      "כי פלדה חזקה מאוד ביחס למשקלה",
+      "כי פלדה שקופה",
+      "כי פלדה לא מחלידה"
+    ],
+    correctAnswer: 1,
+    explanation: "פלדה חזקה מאוד ביחס למשקלה - מאפשרת בניית מבנים גבוהים.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_45",
+    question: "מדוע חלונות עשויים מזכוכית?",
+    options: [
+      "כי זכוכית זולה",
+      "כי זכוכית שקופה ומאפשרת לאור להיכנס",
+      "כי זכוכית חזקה יותר מפלדה",
+      "כי זכוכית מבודדת חום"
+    ],
+    correctAnswer: 1,
+    explanation: "זכוכית שקופה - מאפשרת לאור להיכנס לבית תוך הגנה מפני רוח וגשם.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_46",
+    question: "מדוע צינורות מים עשויים מפלסטיק או מתכת ולא מנייר?",
+    options: [
+      "כי נייר יקר יותר",
+      "כי נייר ספג מים ומתפרק",
+      "כי נייר כבד יותר",
+      "כי נייר מוליך חשמל"
+    ],
+    correctAnswer: 1,
+    explanation: "נייר סופג מים ומתפרק - לא מתאים להעברת מים.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_47",
+    question: "מהו העיקרון ההנדסי שלמדנו מסיפור החזירונים?",
+    options: [
+      "לבנות מהר",
+      "לבנות בזול",
+      "לבחור חומרים לפי התכונות הנדרשות",
+      "לבנות בתים קטנים"
+    ],
+    correctAnswer: 2,
+    explanation: "הסיפור מלמד שבחירת החומר הנכון לפי תכונותיו היא המפתח להצלחה.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_48",
+    question: "מדוע משתמשים בזכוכית מחוזקת בגורדי שחקים?",
+    options: [
+      "כי היא זולה",
+      "כי היא שקופה וחזקה מספיק לקירות",
+      "כי היא מבודדת חום",
+      "כי היא קלה"
+    ],
+    correctAnswer: 1,
+    explanation: "זכוכית מחוזקת שקופה וחזקה - מאפשרת קירות שקופים ועמידים.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_49",
+    question: "האם יש חומר 'טוב' או 'רע' באופן מוחלט?",
+    options: [
+      "כן, יהלום תמיד הכי טוב",
+      "כן, קש תמיד הכי רע",
+      "לא, יש רק חומר מתאים או לא מתאים לשימוש מסוים",
+      "כן, מתכות תמיד הכי טובות"
+    ],
+    correctAnswer: 2,
+    explanation: "אין חומר טוב או רע באופן מוחלט - יש רק חומר מתאים או לא מתאים לשימוש מסוים.",
+    category: ModuleId.Summary
+  },
+  {
+    id: "sum_50",
+    question: "על פי מה צריך לבחור חומר לבניית מוצר?",
+    options: [
+      "רק לפי המחיר",
+      "רק לפי הצבע",
+      "לפי התכונות הנדרשות לשימוש",
+      "רק לפי הזמינות"
+    ],
+    correctAnswer: 2,
+    explanation: "בחירת חומרים צריכה להתבסס על התכונות הנדרשות לשימוש המתוכנן.",
     category: ModuleId.Summary
   }
 ];
+
+// =============================================================================
+// Chapter 1 Questions Record
+// =============================================================================
 
 export const CHAPTER1_QUESTIONS: Record<string, Question[]> = {
   [ModuleId.MatterIntro]: MATTER_INTRO_QUESTIONS,
   [ModuleId.MaterialProperties]: MATERIAL_PROPERTIES_QUESTIONS,
   [ModuleId.EngineeringMaterials]: ENGINEERING_MATERIALS_QUESTIONS,
-  [ModuleId.ParticleModel]: PARTICLE_MODEL_QUESTIONS,
-  [ModuleId.Compression]: COMPRESSION_QUESTIONS,
-  [ModuleId.Diffusion]: DIFFUSION_QUESTIONS,
-  [ModuleId.SurfaceTension]: SURFACE_TENSION_QUESTIONS,
-  [ModuleId.VolumeBasics]: VOLUME_BASICS_QUESTIONS,
-  [ModuleId.PhaseTransitions]: PHASE_TRANSITIONS_QUESTIONS,
   [ModuleId.Summary]: SUMMARY_QUESTIONS
 };

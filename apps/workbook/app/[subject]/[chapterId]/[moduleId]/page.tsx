@@ -76,14 +76,26 @@ export default async function Page({ params }: PageProps) {
   try {
     if (chapterId === ChapterId.Chapter1) {
       const { CHAPTER1_QUESTIONS } = await import(
-        "@/lib/constants/science_chapter_1"
+        `@/lib/constants/${subjectId}_chapter_1`
       );
       questions = CHAPTER1_QUESTIONS[moduleId] || [];
-    } else if (chapterId === ChapterId.Chapter3) {
+    }
+    else if (chapterId === ChapterId.Chapter2) {
+      const { CHAPTER2_QUESTIONS } = await import(
+        `@/lib/constants/${subjectId}_chapter_2`
+      );
+      questions = CHAPTER2_QUESTIONS[moduleId] || [];
+    }
+    else if (chapterId === ChapterId.Chapter3) {
       const { CHAPTER3_QUESTIONS } = await import(
-        "@/lib/constants/science_chapter_3"
+        `@/lib/constants/${subjectId}_chapter_3`
       );
       questions = CHAPTER3_QUESTIONS[moduleId] || [];
+    } else if (chapterId === ChapterId.Chapter4) {
+      const { CHAPTER4_QUESTIONS } = await import(
+        `@/lib/constants/${subjectId}_chapter_4`
+      );
+      questions = CHAPTER4_QUESTIONS[moduleId] || [];
     }
   } catch (error) {
     console.error("Error loading questions:", error);
