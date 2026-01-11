@@ -249,6 +249,341 @@ export const CHAPTER3_SUMMARY_QUESTIONS: Question[] = [
     explanation:
       "הספינה חלולה ומלאה אוויר, לכן הצפיפות הממוצעת שלה נמוכה מהמים והיא צפה.",
     category: ModuleId.Buoyancy
+  },
+  {
+    id: "c3_sum_11",
+    question: "מהו נפח?",
+    options: [
+      "כמות החומר בגוף",
+      "המקום שגוף תופס במרחב",
+      "כוח המשיכה על הגוף",
+      "מהירות התנועה של הגוף"
+    ],
+    correctAnswer: 1,
+    explanation: "נפח הוא המקום התלת-ממדי שגוף תופס במרחב.",
+    category: ModuleId.VolumeMeasurement
+  },
+  {
+    id: "c3_sum_12",
+    question: "מהי מסה?",
+    options: [
+      "כמות החומר בגוף",
+      "כוח הכבידה על הגוף",
+      "נפח הגוף",
+      "צפיפות הגוף"
+    ],
+    correctAnswer: 0,
+    explanation: "מסה היא כמות החומר שבגוף.",
+    category: ModuleId.MassIntro
+  },
+  {
+    id: "c3_sum_13",
+    question: "מהו משקל?",
+    options: [
+      "כמות החומר בגוף",
+      "כוח הכבידה הפועל על הגוף",
+      "נפח הגוף",
+      "צפיפות הגוף"
+    ],
+    correctAnswer: 1,
+    explanation: "משקל הוא כוח הכבידה הפועל על הגוף, ונמדד בניוטון.",
+    category: ModuleId.MassVsWeight
+  },
+  {
+    id: "c3_sum_14",
+    question: "באיזו יחידה מודדים משקל?",
+    options: ["קילוגרם", "ניוטון", "ליטר", 'סמ"ק'],
+    correctAnswer: 1,
+    explanation: "משקל הוא כוח, ולכן נמדד בניוטון.",
+    category: ModuleId.MassVsWeight
+  },
+  {
+    id: "c3_sum_15",
+    question: "באיזו יחידה מודדים מסה?",
+    options: ["ניוטון", "קילוגרם או גרם", "ליטר", "מטר"],
+    correctAnswer: 1,
+    explanation: "מסה נמדדת בקילוגרם או בגרם.",
+    category: ModuleId.MassIntro
+  },
+  {
+    id: "c3_sum_16",
+    question: 'כמה גרם יש בקילוגרם אחד?',
+    options: ["10 גרם", "100 גרם", "1,000 גרם", "10,000 גרם"],
+    correctAnswer: 2,
+    explanation: "1 ק\"ג = 1,000 גרם",
+    category: ModuleId.MassIntro
+  },
+  {
+    id: "c3_sum_17",
+    question: 'כמה מ"ל יש בליטר אחד?',
+    options: ['10 מ"ל', '100 מ"ל', '1,000 מ"ל', '10,000 מ"ל'],
+    correctAnswer: 2,
+    explanation: '1 ליטר = 1,000 מ"ל = 1,000 סמ"ק',
+    category: ModuleId.VolumeMeasurement
+  },
+  {
+    id: "c3_sum_18",
+    question: "מה הנוסחה לחישוב צפיפות?",
+    options: [
+      "צפיפות = מסה × נפח",
+      "צפיפות = מסה ÷ נפח",
+      "צפיפות = נפח ÷ מסה",
+      "צפיפות = מסה + נפח"
+    ],
+    correctAnswer: 1,
+    explanation: "צפיפות = מסה חלקי נפח (ρ = m/V).",
+    category: ModuleId.DensityDeep
+  },
+  {
+    id: "c3_sum_19",
+    question: 'גוף מסתו 500 גרם ונפחו 250 סמ"ק. מה צפיפותו?',
+    options: ['0.5 גרם/סמ"ק', '2 גרם/סמ"ק', '125,000 גרם/סמ"ק', '750 גרם/סמ"ק'],
+    correctAnswer: 1,
+    explanation: 'צפיפות = 500 ÷ 250 = 2 גרם/סמ"ק',
+    category: ModuleId.DensityDeep
+  },
+  {
+    id: "c3_sum_20",
+    question: "האם לאוויר יש מסה?",
+    options: [
+      "לא, אוויר לא שוקל כלום",
+      "כן, לאוויר יש מסה",
+      "רק כשהוא חם",
+      "רק כשהוא דחוס"
+    ],
+    correctAnswer: 1,
+    explanation: "לאוויר יש מסה. ניתן להוכיח זאת על ידי שקילת בלון מנופח מול בלון ריק.",
+    category: ModuleId.AirHasMass
+  },
+  {
+    id: "c3_sum_21",
+    question: "איך מוכיחים שלאוויר יש מסה?",
+    options: [
+      "מסתכלים עליו",
+      "שוקלים בלון מנופח מול בלון ריק",
+      "מחממים אותו",
+      "מקררים אותו"
+    ],
+    correctAnswer: 1,
+    explanation: "בלון מנופח שוקל יותר מבלון ריק כי האוויר שבתוכו מוסיף מסה.",
+    category: ModuleId.AirHasMass
+  },
+  {
+    id: "c3_sum_22",
+    question: "מתי גוף יצוף על נוזל?",
+    options: [
+      "כשצפיפותו גבוהה מצפיפות הנוזל",
+      "כשצפיפותו נמוכה מצפיפות הנוזל",
+      "כשצפיפותו שווה לצפיפות הנוזל",
+      "תמיד"
+    ],
+    correctAnswer: 1,
+    explanation: "גוף יצוף כשצפיפותו נמוכה מצפיפות הנוזל.",
+    category: ModuleId.Buoyancy
+  },
+  {
+    id: "c3_sum_23",
+    question: "מתי גוף ישקע בנוזל?",
+    options: [
+      "כשצפיפותו גבוהה מצפיפות הנוזל",
+      "כשצפיפותו נמוכה מצפיפות הנוזל",
+      "כשצפיפותו שווה לצפיפות הנוזל",
+      "לעולם לא"
+    ],
+    correctAnswer: 0,
+    explanation: "גוף ישקע כשצפיפותו גבוהה מצפיפות הנוזל.",
+    category: ModuleId.Buoyancy
+  },
+  {
+    id: "c3_sum_24",
+    question: "מתי גוף ירחף בתוך נוזל (לא יצוף ולא ישקע)?",
+    options: [
+      "כשצפיפותו גבוהה מצפיפות הנוזל",
+      "כשצפיפותו נמוכה מצפיפות הנוזל",
+      "כשצפיפותו שווה בדיוק לצפיפות הנוזל",
+      "זה בלתי אפשרי"
+    ],
+    correctAnswer: 2,
+    explanation: "גוף ירחף כשצפיפותו שווה בדיוק לצפיפות הנוזל.",
+    category: ModuleId.Buoyancy
+  },
+  {
+    id: "c3_sum_25",
+    question: "מהי שיטת דחיקת המים?",
+    options: [
+      "שיטה לחימום מים",
+      "שיטה למדידת נפח של גוף בעל צורה לא הנדסית",
+      "שיטה לקירור מים",
+      "שיטה לסינון מים"
+    ],
+    correctAnswer: 1,
+    explanation: "שיטת דחיקת המים מאפשרת למדוד נפח של גופים בצורה לא סדירה.",
+    category: ModuleId.DisplacementMethod
+  },
+  {
+    id: "c3_sum_26",
+    question: "כיצד קוראים נכון מפלס מים במשורה?",
+    options: [
+      "מהחלק העליון של פני המים",
+      "מתחתית הקעור (מניסקוס), בגובה העיניים",
+      "מלמעלה",
+      "לא משנה מאיפה"
+    ],
+    correctAnswer: 1,
+    explanation: "יש להסתכל בתחתית הקעור (מניסקוס) בגובה העיניים לקריאה מדויקת.",
+    category: ModuleId.VolumeMeasurement
+  },
+  {
+    id: "c3_sum_27",
+    question: "מהו מגדל הצפיפות?",
+    options: [
+      "מגדל בנוי מנוזלים בצפיפויות שונות שלא מתערבבים",
+      "מגדל גבוה מאוד",
+      "כלי למדידת צפיפות",
+      "מגדל בנוי מקוביות"
+    ],
+    correctAnswer: 0,
+    explanation: "מגדל צפיפות נוצר כשמוזגים נוזלים בצפיפויות שונות - הם מסתדרים בשכבות.",
+    category: ModuleId.DensityTower
+  },
+  {
+    id: "c3_sum_28",
+    question: "במגדל צפיפות, איפה יהיה הנוזל הצפוף ביותר?",
+    options: [
+      "למעלה",
+      "באמצע",
+      "למטה",
+      "לא משנה"
+    ],
+    correctAnswer: 2,
+    explanation: "הנוזל הצפוף ביותר ישקע לתחתית המגדל.",
+    category: ModuleId.DensityTower
+  },
+  {
+    id: "c3_sum_29",
+    question: "במגדל צפיפות, איפה יהיה הנוזל הפחות צפוף?",
+    options: [
+      "למעלה",
+      "באמצע",
+      "למטה",
+      "לא משנה"
+    ],
+    correctAnswer: 0,
+    explanation: "הנוזל הפחות צפוף יצוף למעלה.",
+    category: ModuleId.DensityTower
+  },
+  {
+    id: "c3_sum_30",
+    question: 'צפיפות המים היא 1 גרם/סמ"ק. גוף צפיפותו 1.5 גרם/סמ"ק. מה יקרה?',
+    options: [
+      "הגוף יצוף",
+      "הגוף ישקע",
+      "הגוף ירחף",
+      "הגוף יתמוסס"
+    ],
+    correctAnswer: 1,
+    explanation: "1.5 > 1, לכן הגוף צפוף יותר מהמים וישקע.",
+    category: ModuleId.Buoyancy
+  },
+  {
+    id: "c3_sum_31",
+    question: 'גוף מסתו 60 גרם ונפחו 20 סמ"ק. מה צפיפותו?',
+    options: ['3 גרם/סמ"ק', '40 גרם/סמ"ק', '80 גרם/סמ"ק', '0.33 גרם/סמ"ק'],
+    correctAnswer: 0,
+    explanation: 'צפיפות = 60 ÷ 20 = 3 גרם/סמ"ק',
+    category: ModuleId.DensityDeep
+  },
+  {
+    id: "c3_sum_32",
+    question: "מדוע שמן צף על מים?",
+    options: [
+      "כי שמן קל יותר",
+      "כי צפיפות השמן נמוכה מצפיפות המים",
+      "כי שמן שקוף",
+      "כי המים כבדים יותר"
+    ],
+    correctAnswer: 1,
+    explanation: "שמן צף כי צפיפותו נמוכה יותר מצפיפות המים.",
+    category: ModuleId.Buoyancy
+  },
+  {
+    id: "c3_sum_33",
+    question: "איזה כלי משמש למדידת נפח נוזלים?",
+    options: ["מאזניים", "משורה", "סרגל", "מד כוח"],
+    correctAnswer: 1,
+    explanation: "משורה היא כלי זכוכית עם סולם למדידת נפח נוזלים.",
+    category: ModuleId.VolumeMeasurement
+  },
+  {
+    id: "c3_sum_34",
+    question: "איזה כלי משמש למדידת מסה?",
+    options: ["משורה", "מאזני כפות", "סרגל", "טרמומטר"],
+    correctAnswer: 1,
+    explanation: "מאזני כפות משמשים למדידת מסה על ידי השוואה למשקולות ידועות.",
+    category: ModuleId.MassIntro
+  },
+  {
+    id: "c3_sum_35",
+    question: "איזה כלי משמש למדידת משקל?",
+    options: ["מאזני כפות", "מד כוח (דינמומטר)", "משורה", "סרגל"],
+    correctAnswer: 1,
+    explanation: "מד כוח (דינמומטר) מודד את כוח הכבידה על הגוף - המשקל.",
+    category: ModuleId.MassVsWeight
+  },
+  {
+    id: "c3_sum_36",
+    question: "מהי צפיפות?",
+    options: [
+      "כמות החומר בגוף",
+      "היחס בין המסה לנפח",
+      "כוח הכבידה על הגוף",
+      "המקום שגוף תופס"
+    ],
+    correctAnswer: 1,
+    explanation: "צפיפות היא היחס בין המסה לנפח - כמה מסה דחוסה בכל יחידת נפח.",
+    category: ModuleId.DensityDeep
+  },
+  {
+    id: "c3_sum_37",
+    question: "האם צפיפות משתנה לפי כמות החומר?",
+    options: [
+      "כן, יותר חומר = יותר צפיפות",
+      "לא, צפיפות היא תכונה של החומר ולא תלויה בכמות",
+      "רק בנוזלים",
+      "רק במוצקים"
+    ],
+    correctAnswer: 1,
+    explanation: "צפיפות היא תכונה מזהה של חומר - כל כמות מאותו חומר תהיה באותה צפיפות.",
+    category: ModuleId.DensityDeep
+  },
+  {
+    id: "c3_sum_38",
+    question: "חפץ מסתו 100 גרם על כדור הארץ. מה יהיה משקלו בניוטון? (g=10)",
+    options: ["10 ניוטון", "1 ניוטון", "100 ניוטון", "1000 ניוטון"],
+    correctAnswer: 1,
+    explanation: "משקל = מסה × תאוצת כבידה = 0.1 ק\"ג × 10 = 1 ניוטון",
+    category: ModuleId.MassVsWeight
+  },
+  {
+    id: "c3_sum_39",
+    question: 'נפח קוביה עם צלע 2 ס"מ הוא:',
+    options: ['4 סמ"ק', '6 סמ"ק', '8 סמ"ק', '2 סמ"ק'],
+    correctAnswer: 2,
+    explanation: 'נפח קוביה = צלע³ = 2 × 2 × 2 = 8 סמ"ק',
+    category: ModuleId.VolumeMeasurement
+  },
+  {
+    id: "c3_sum_40",
+    question: "מדוע קרח צף על מים?",
+    options: [
+      "כי קרח קר יותר",
+      "כי צפיפות הקרח נמוכה מצפיפות המים",
+      "כי קרח לבן",
+      "כי קרח מוצק"
+    ],
+    correctAnswer: 1,
+    explanation: "כשמים קופאים, החלקיקים מתארגנים במבנה פתוח יותר והצפיפות יורדת.",
+    category: ModuleId.Buoyancy
   }
 ];
 
