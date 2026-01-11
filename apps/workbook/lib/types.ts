@@ -257,6 +257,7 @@ export interface GridCard {
     title: string;
     variant?: ThemeVariant | string;
     icon?: string;
+    iconSize?: string;
     subtitle?: string;
     content?: string | ContentBlock[];
 }

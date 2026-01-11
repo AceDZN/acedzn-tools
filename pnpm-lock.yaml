@@ -707,6 +707,9 @@ importers:
       eslint:
         specifier: ^9.39.1
         version: 9.39.2(jiti@2.6.1)
+      next:
+        specifier: ^16.1.0
+        version: 16.1.1(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       typescript:
         specifier: 5.9.2
         version: 5.9.2
